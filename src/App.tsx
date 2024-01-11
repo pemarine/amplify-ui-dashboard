@@ -14,6 +14,8 @@ import theme from "./theme";
 
 import Layout from "./components/Layout";
 import Dashboard from "./pages/dashboard";
+import Dashboard2 from "./pages/dashboard2";
+
 import Profile from "./pages/profile";
 import Tables from "./pages/tables";
 import UsersTable from "./pages/tables/UsersTablePage";
@@ -34,6 +36,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
+            <Route path="dashboard2" element={<Dashboard2 />} />
             <Route path="forms" element={<Forms />} />
             <Route path="edit-form" element={<EditForm />} />
             <Route path="tables" element={<Tables />} />

@@ -24,7 +24,7 @@ const Header = () => {
               <Logo />
             </Link>
           </div>
-          <span>{baseConfig.headerText}</span>
+         <span>{baseConfig.headerText}</span>
         </div>
 
         <div className="header-right">

@@ -14,15 +14,12 @@ export const baseConfig = {
   titleSuffix: "",
   search: true,
   header: true,
-  headerText: "Logo",
+  headerText: "",
   footer: true,
   footerText: (
     <>
       <span>
-        © MIT {new Date().getFullYear()}, Made with ❤️ by {""}
-        <a href="https://github.com/mrtzdev" target="_blank" rel="noreferrer">
-          Mrtzdev
-        </a>
+        © {new Date().getFullYear()} eMarine Engineering Nordic AB, All Rights Reserved.
       </span>
     </>
   ),
@@ -30,10 +27,9 @@ export const baseConfig = {
   logo: (
     <>
       <img
-        src={process.env.PUBLIC_URL + "/logo.png"}
+        src={process.env.PUBLIC_URL + "/logo.svg"}
         alt="logo"
-        width="30"
-        height="22"
+
       />
     </>
   ),
@@ -46,6 +42,12 @@ export const appNavs = [
     icon: <Icon as={MdDashboard} />,
     title: "Dashboard",
     to: "/",
+  },
+  {
+    eventKey: "dashboard2",
+    icon: <Icon as={MdDashboard} />,
+    title: "Dashboard2",
+    to: "/dashboard2",
   },
 
   {

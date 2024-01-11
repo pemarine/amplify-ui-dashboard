@@ -15,7 +15,7 @@ import SalesSummary from "./SalesSummary";
 import TrafficSummary from "./TrafficSummary";
 import CustomersSummary from "./CustomersSummary";
 
-import "./Dashboard.css";
+import "./Dashboard2.css";
 
 /// Mock Data
 const barChartDataDemo = [
@@ -86,12 +86,14 @@ const Dashboard = () => {
 
   return (
     <>
-      
-      <View borderRadius="6px" maxWidth="100%" padding="0rem" minHeight="100vh" marginTop="1rem">
+      <div>
+        <h2>Dashboard</h2>
+      </div>
+      <View borderRadius="6px" maxWidth="100%" padding="0rem" minHeight="100vh">
         <Grid
           templateColumns={{ base: "1fr", large: "1fr 1fr 1fr" }}
           templateRows={{ base: "repeat(4, 10rem)", large: "repeat(3, 8rem)" }}
-          gap={tokens.space.medium}
+          gap={tokens.space.xl}
         >
           <View rowSpan={{ base: 1, large: 1 }}>
             <MiniStatistics
