@@ -1,9 +1,16 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
+
+import { Amplify } from 'aws-amplify';
+import { Authenticator } from '@aws-amplify/ui-react';
+
+import config from './amplifyconfiguration.json';
 import "@aws-amplify/ui-react/styles.css";
 import "./App.css";
 import { ThemeProvider } from "@aws-amplify/ui-react";
 import theme from "./theme";
+
+
 
 import Layout from "./components/Layout";
 import Dashboard from "./pages/dashboard";
@@ -13,8 +20,12 @@ import UsersTable from "./pages/tables/UsersTablePage";
 import Forms from "./pages/forms";
 import EditForm from "./pages/forms/EditForm";
 
+Amplify.configure(config);
+
+
 export default function App() {
   return (
+    <Authenticator>
     <ThemeProvider theme={theme}>
       <div>
         {/* Routes nest inside one another. Nested route paths build upon
@@ -37,6 +48,7 @@ export default function App() {
         </Routes>
       </div>
     </ThemeProvider>
+    </Authenticator>
   );
 }
 
