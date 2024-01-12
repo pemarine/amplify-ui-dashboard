@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Header.css";
 import { baseConfig } from "../../config";
 import { Flex } from "@aws-amplify/ui-react";
@@ -7,10 +7,14 @@ import { Link } from "react-router-dom";
 import Logo from "../Logo";
 import HeaderNav from "./HeaderNav";
 import HeaderSearchBar from "./HeaderSearchBar";
+import { ThemeContext } from "../../themes/ThemeContext";
+
 
 const Header = () => {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className="header">
+    <div className={`header ${theme}`}>
       <Flex
         direction="row"
         alignItems="center"

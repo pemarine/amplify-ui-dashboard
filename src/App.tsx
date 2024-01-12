@@ -7,9 +7,10 @@ import { Authenticator } from '@aws-amplify/ui-react';
 import config from './amplifyconfiguration.json';
 import "@aws-amplify/ui-react/styles.css";
 import "./App.css";
-import { ThemeProvider } from "@aws-amplify/ui-react";
-import theme from "./theme";
+//import { ThemeProvider } from "@aws-amplify/ui-react";
+import { ThemeProvider } from './themes/ThemeProvider';
 
+//import theme from "./theme";
 
 
 import Layout from "./components/Layout";
@@ -28,7 +29,7 @@ Amplify.configure(config);
 export default function App() {
   return (
     <Authenticator>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <div>
         {/* Routes nest inside one another. Nested route paths build upon
             parent route paths, and nested route elements render inside

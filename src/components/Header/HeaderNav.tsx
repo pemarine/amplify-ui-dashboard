@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from 'react';
 import { Menu, MenuItem, MenuButton, Link } from "@aws-amplify/ui-react";
 import { useNavigate } from "react-router-dom";
 import { AiFillGithub } from "react-icons/ai";
 import { baseConfig } from "../../config";
 
+import { ThemeContext } from '../../themes/ThemeContext';
+
+
 const HeaderNav = () => {
+  const { toggleTheme } = useContext(ThemeContext);
+
   const navigate = useNavigate();
   return (
     <>
@@ -21,6 +26,9 @@ const HeaderNav = () => {
       ) : (
         <></>
       )}
+      
+      <button onClick={toggleTheme}>Toggle Theme</button>
+
 
       <Menu
         menuAlign="end"

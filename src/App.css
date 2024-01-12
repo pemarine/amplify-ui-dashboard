@@ -1,1 +1,14 @@
+@font-face {
+    font-family: 'FellixMedium';
+    src: url('./assets/fonts/Fellix-Medium.otf') format('opentype');
+}
+body {
+    font-family: 'FellixMedium', sans-serif;
+  }
 
+.header-nav.light-theme {
+    /* light theme styles */
+    background-color: #f5f8fa;
+    color: #0d1a26;
+  }
+  
