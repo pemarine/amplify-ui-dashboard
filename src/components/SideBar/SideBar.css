@@ -7,7 +7,12 @@ position: fixed;
 top: 0px;
 height: 100vh;
 z-index: 3;
-width: 260px; 
+width: 200px; 
+}
+
+.sidebar.dark {
+    background-color: #111936;
+
 }
 
 @media (max-width: 1024px) {
@@ -42,13 +47,16 @@ margin-top: 51px;
 display: block;
 padding: 14px 36px; 
 padding-left: 56px;
-font-weight: 600;
+font-weight: 400;
 color: var(--amplify-colors-brand-primary-100);
 line-height: 1.25;
 position: relative;
 transition: 0.2s ease all;
 }
+.sidebar-nav.dark ul li a{
+    color: #ececeb;
 
+}
 
 .sidebar-nav ul li ul {
 list-style: none;
@@ -80,9 +88,14 @@ background-color: #f5f8fa;
 }
 
 .sidebar-nav ul li a.active {
-color: var(--amplify-components-link-color);
-
+/*color: var(--amplify-components-link-color);*/
+color: #101820;
 }
+
+.sidebar-nav.dark ul li a.active {
+    /*color: var(--amplify-components-link-color);*/
+    color: #ffffff;
+    }
 
 .btn-sidebar-nav {
 background-color: #fff;

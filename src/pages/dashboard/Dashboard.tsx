@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import {
   View,
   Grid,
@@ -7,6 +7,8 @@ import {
   //Placeholder,
   useTheme,
 } from "@aws-amplify/ui-react";
+
+import { ThemeContext } from "../../themes/ThemeContext";
 
 
 //import { MdRemoveRedEye, MdWeb, MdPermIdentity } from "react-icons/md";
@@ -23,7 +25,8 @@ import Map from "./Map"
 
 
 const Dashboard = () => {
- 
+  const { theme } = useContext(ThemeContext);
+
   const { tokens } = useTheme();
 
   useEffect(() => {
@@ -45,14 +48,22 @@ const Dashboard = () => {
           
 
           <View columnSpan={2} rowSpan={{ base: 3, large: 4 }}>
-            <Card height="100%" borderRadius="15px">
-              <Map />
+            <Card
+              className={`amplify-card ${theme}`}
+              height="100%"
+              borderRadius="15px"
+              >
+                <Map />
             </Card>
           </View>
 
           <View rowSpan={{ base: 1, large: 4 }}>
-            <Card height="100%" borderRadius="15px">
-              <div className="card-title">Traffic Sources</div>
+            <Card
+              className={`amplify-card ${theme}`}
+              height="100%"
+              borderRadius="15px"
+              >
+                <div className="card-title">Traffic Sources</div>
              
             </Card>
           </View>

@@ -6,11 +6,22 @@ background-color: var(--amplify-colors-background-secondary);
 
 .page-container {
     padding: 30px;
-    padding-left: 290px;
+    padding-left: 215px;
     padding-top: 50px;
     transition: padding 0.5s;
     overflow-x: hidden;
 }
+
+.page-container.dark {
+    padding: 30px;
+    padding-left: 215px;
+    padding-top: 50px;
+    transition: padding 0.5s;
+    overflow-x: hidden;
+    background-color: #1a223f;
+    ;
+}
+
 
 @media (max-width: 1024px) {
     .page-container {

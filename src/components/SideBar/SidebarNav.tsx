@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./SideBar.css";
 import { NavLink } from "react-router-dom";
 import { Icon } from "@aws-amplify/ui-react";
+
+import { ThemeContext } from "../../themes/ThemeContext";
 
 export interface NavItemData {
   eventKey?: string;
@@ -17,12 +19,14 @@ export interface SidebarNavProps {
 }
 
 const SideBarNav = (props: SidebarNavProps) => {
+  const { theme } = useContext(ThemeContext);
+
   const { navs } = props;
 
   let activeClassName = "active";
 
   return (
-    <div className="sidebar-nav">
+    <div className={`sidebar-nav ${theme}`}>
       <ul>
         {navs?.map((item) => {
           const { children, ...rest } = item;

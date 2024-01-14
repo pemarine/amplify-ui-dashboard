@@ -53,3 +53,11 @@
     font-size: 30px;
 }
 
+
+
+/*  DARK THEME  */
+
+.amplify-card.dark {
+
+    background-color: #212946;
+}
