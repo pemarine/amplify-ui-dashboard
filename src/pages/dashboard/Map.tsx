@@ -1,17 +1,29 @@
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import React from 'react';
+import axios from 'axios';
 
-
-const mapConfiguration = {
-  googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-  center: { lat: 50, lng:10},
-  zoom: 4
+interface Vessel {
+  LAT: string;
+  LON: string;
+  // Add other properties as needed
 }
 
-
-
 const Map = () => {
-
+ 
+  const [vessels, setVessels] = React.useState<Vessel[]>([]);
+  React.useEffect(() => {
+    axios.get('https://services.marinetraffic.com/api/exportvessels/2892a496929507874e0820afc4eaaa5fc31f9f23?v=9&timespan=5&limit=2000&protocol=jsono')
+      .then(response => {
+        if (response.data && Array.isArray(response.data.DATA)) {
+          setVessels(response.data.DATA);
+        } else {
+          console.error('Unexpected response data structure:', response.data);
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching data: ', error);
+      });
+  }, []);
 
     const mapStyles = [
         {
@@ -41,21 +53,24 @@ const Map = () => {
             ]
         }
     ];  
-
   
-    
     return (
-       <LoadScript googleMapsApiKey='AIzaSyBxU5YOF-cbBZaoc6hgovIsf0-oYuqFT9M'>
-         <GoogleMap
-           mapContainerStyle={{width: '100%', height: '90vh'}}
-           zoom={mapConfiguration.zoom}
-           center={mapConfiguration.center}
-           options={{
-              styles: mapStyles,
-              streetViewControl: false,
-            }}
-         />
-       </LoadScript>
+      <LoadScript googleMapsApiKey='AIzaSyBxU5YOF-cbBZaoc6hgovIsf0-oYuqFT9M'>
+      <GoogleMap
+        mapContainerStyle={{width: '100%', height: '90vh'}}
+        zoom={4}
+        center={{lat: 41.3851, lng: 10.1734}}
+        options={{styles: mapStyles}}
+      >
+      {vessels.map((vessel, index) => (
+        <Marker
+        key={index}
+        position={{lat: parseFloat(vessel.LAT), lng: parseFloat(vessel.LON)}}
+        />
+      ))}
+       
+      </GoogleMap>
+    </LoadScript>
     )
   }
 

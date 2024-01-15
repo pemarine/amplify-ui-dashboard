@@ -2,7 +2,9 @@ import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
 import { Amplify } from 'aws-amplify';
-import { Authenticator } from '@aws-amplify/ui-react';
+
+//catorProps } from '@aws-amplify/ui-react';
+import { withAuthenticator } from '@aws-amplify/ui-react';
 
 import config from './amplifyconfiguration.json';
 import "@aws-amplify/ui-react/styles.css";
@@ -28,9 +30,8 @@ Amplify.configure(config);
 
 
 
-export default function App() {
+export function App() {
   return (
-    <Authenticator>
     <ThemeProvider>
       <div>
         {/* Routes nest inside one another. Nested route paths build upon
@@ -54,9 +55,10 @@ export default function App() {
         </Routes>
       </div>
     </ThemeProvider>
-    </Authenticator>
   );
 }
+
+export default withAuthenticator(App);
 
 function NoMatch() {
   return (
