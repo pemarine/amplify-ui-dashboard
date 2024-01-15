@@ -26,6 +26,8 @@ import EditForm from "./pages/forms/EditForm";
 Amplify.configure(config);
 
 
+
+
 export default function App() {
   return (
     <Authenticator>

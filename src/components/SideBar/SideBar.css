@@ -47,7 +47,7 @@ margin-top: 51px;
 display: block;
 padding: 14px 36px; 
 padding-left: 56px;
-font-weight: 400;
+/* font-weight: 400; */
 color: var(--amplify-colors-brand-primary-100);
 line-height: 1.25;
 position: relative;
