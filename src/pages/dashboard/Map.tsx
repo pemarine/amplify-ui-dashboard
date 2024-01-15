@@ -2,6 +2,9 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import React from 'react';
 import axios from 'axios';
 
+import markerIcon from '../../assets/icons/animated_marker.gif';
+
+
 interface Vessel {
   LAT: string;
   LON: string;
@@ -66,6 +69,12 @@ const Map = () => {
         <Marker
         key={index}
         position={{lat: parseFloat(vessel.LAT), lng: parseFloat(vessel.LON)}}
+        icon={{
+          url: markerIcon, // Replace with your icon URL
+          scaledSize: new window.google.maps.Size(60, 60), // Adjust size as needed
+          anchor: new window.google.maps.Point(30, 30),
+
+        }}
         />
       ))}
        

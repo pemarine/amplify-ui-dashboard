@@ -21,6 +21,7 @@ import { ThemeContext } from "../../themes/ThemeContext";
 
 import "./Dashboard.css";
 import Map from "./Map"
+import TableVessels from "./TableVessels";
 
 
 
@@ -63,7 +64,7 @@ const Dashboard = () => {
               height="100%"
               borderRadius="15px"
               >
-                <div className="card-title">Traffic Sources</div>
+                <TableVessels/>
              
             </Card>
           </View>
