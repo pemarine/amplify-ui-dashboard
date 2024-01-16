@@ -1,0 +1,13 @@
+{
+  "resourceName": "storage",
+  "policyUUID": "db897d0e",
+  "bucketName": "amplifydashboard4ec3f2822f034e809033e78b690a128",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE"
+}

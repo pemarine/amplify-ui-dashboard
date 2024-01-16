@@ -55,6 +55,11 @@
       "providerPlugin": "awscloudformation",
       "service": "S3",
       "serviceType": "imported"
+    },
+    "storage": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
     }
   }
 }
