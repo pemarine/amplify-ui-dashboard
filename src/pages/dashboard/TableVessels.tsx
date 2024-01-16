@@ -11,9 +11,10 @@ const TableVessels = () => {
     
 
       <View
-        backgroundColor="var(--amplify-colors-white)"
+        backgroundColor="TRANSPARENT"
+        
         borderRadius="6px"
-        maxWidth="100%"
+        width="100%"
         padding="0"
         minHeight="80vh"
       >
