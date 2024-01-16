@@ -49,17 +49,5 @@
       "service": "Cognito-UserPool-Groups"
     }
   },
-  "storage": {
-    "amplifydashboardeed31ba4": {
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "S3",
-      "serviceType": "imported"
-    },
-    "storage": {
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "S3"
-    }
-  }
+  "storage": {}
 }
