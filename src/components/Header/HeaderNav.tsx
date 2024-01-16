@@ -7,8 +7,7 @@ import { baseConfig } from "../../config";
 
 import { ThemeContext } from '../../themes/ThemeContext';
 
-import { Auth } from 'aws-amplify';
-
+import { signOut } from 'aws-amplify/auth';
 
 
 const HeaderNav = () => {
@@ -38,13 +37,14 @@ const HeaderNav = () => {
     }
   };
 
-  const signOut = async () => {
+  const _signOut = async () => {
     try {
-      await Auth.signOut();
+      await signOut();
     } catch (error) {
       console.log('error signing out: ', error);
     }
   };
+
 
 
   const navigate = useNavigate();
@@ -63,6 +63,7 @@ const HeaderNav = () => {
       ) : (
         <></>
       )}
+      
       <div className='toogle'>
         {theme === 'light' ? (
           <FaMoon onClick={toggleTheme} size={21} style={{ color: '#111936' }}/>
@@ -93,7 +94,7 @@ const HeaderNav = () => {
       >
         <MenuItem onClick={() => navigate("/profile")}>Profile</MenuItem>
         <MenuItem>Settings</MenuItem>
-        <MenuItem onClick={signOut}>Logout</MenuItem>
+        <MenuItem onClick={_signOut}>Logout</MenuItem>
 
       </Menu>
     </>

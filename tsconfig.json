@@ -13,13 +13,30 @@
     "moduleResolution": "node",
     "target": "esnext",
     "module": "esnext",
-    "jsx": "react",
+    "jsx": "preserve",
     "skipLibCheck": true,
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
-  "exclude": ["node_modules"],
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.gif", "./src/**/*.png", "./src/**/*.jpg", "./src/**/*.jpeg", "./src/**/*.svg", "./src/**/*.json", "./src/**/*.css" ]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.gif",
+    "./src/**/*.png",
+    "./src/**/*.jpg",
+    "./src/**/*.jpeg",
+    "./src/**/*.svg",
+    "./src/**/*.json",
+    "./src/**/*.css"
+  ]
 }
