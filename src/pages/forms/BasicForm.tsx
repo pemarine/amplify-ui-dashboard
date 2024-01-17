@@ -4,8 +4,7 @@ import {
   Flex,
   Text,
   TextField,
-  Radio,
-  RadioGroupField,
+ 
   TextAreaField,
 } from "@aws-amplify/ui-react";
 
@@ -68,16 +67,7 @@ const BasicForm = () => {
           isRequired={true}
         />
 
-        <RadioGroupField
-          label="Animal"
-          name="animal"
-          value={values.animal}
-          onChange={handleInputChange}
-        >
-          <Radio value="Dog">Dog</Radio>
-          <Radio value="Cat">Cat</Radio>
-          <Radio value="Bird">Bird</Radio>
-        </RadioGroupField>
+       
 
         <TextAreaField
           label="Message"
