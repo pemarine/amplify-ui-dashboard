@@ -63,7 +63,12 @@ const Map = () => {
         mapContainerStyle={{width: '100%', height: '90vh'}}
         zoom={4}
         center={{lat: 41.3851, lng: 10.1734}}
-        options={{styles: mapStyles}}
+        options={{
+          styles: mapStyles,
+          streetViewControl: false,
+        }}
+        
+
       >
       {vessels.map((vessel, index) => (
         <Marker

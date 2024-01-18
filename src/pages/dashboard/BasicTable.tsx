@@ -47,7 +47,7 @@ const BasicTable = () => {
         className={`amplify-table ${theme}`}
         //className="amplify-table__th"
        // className="amplify-table"
-        style={{width: '400px'}}
+        style={{width: '500px'}}
       >
         <TableHead>
           <TableRow>
@@ -61,8 +61,8 @@ const BasicTable = () => {
           {vessels && vessels.map((vessel) => (
             
             <TableRow key={vessel.SHIP_ID}>
-              <TableCell style={{width: '20%'}}>
-                <img src={`/flags/${vessel.FLAG}.png`} alt={vessel.FLAG} width="30" height="20" />         
+              <TableCell className='flag' style={{width: '20%'}}>
+                <img src={`/flags/${vessel.FLAG}.png`} alt={vessel.FLAG} width="30" height="20"/>         
               </TableCell>
               <TableCell style={{width: '60%'}}>{vessel.SHIPNAME}</TableCell>
               <TableCell style={{width: '20%'}}>OK</TableCell>

@@ -1,5 +1,10 @@
 
 .profile-header-image {
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #004563;
+
 width: 66px;
 height: 66px;
 font-size: 14px;
@@ -8,8 +13,9 @@ overflow: hidden;
 }
 
 .profile-header-image  img {
-width: 66px;
-height: 66px;
+
+width: 34px;
+height: auto;
 }
 .profile-header-text {
 padding: 8px;

@@ -1,10 +1,37 @@
-.amplify-table > thead > tr > th, .amplify-table > tbody > tr > td {
+.amplify-table {
+  overflow: hidden;
+  transform: translateY(-3px);
+}
+
+
+.amplify-table > thead > tr > th {
   color: black;
+  padding-top: 0px;
+  font-size: 14px;
+  border-color: #00c9ff;
+  border-width: 2px;
 
 }
 
-.amplify-table.dark > thead > tr > th, .amplify-table.dark > tbody > tr > td {
+.amplify-table > tbody > tr > td {
+  color: black;
+  border-color: #d9d9d6;
+  border-width: 1px;
+  border-style:dashed;
+  border-left: none;
+  border-right: none;
+}
+
+.amplify-table.dark > thead > tr > th {
   color: white;
+  border-color: #00c9ff;
+  border-width: 2px;
+
+}
+.amplify-table.dark > tbody > tr > td {
+  color: white;
+  border-color: #5b6568;
+  border-width: 1px;
 
 }
 
@@ -22,10 +49,11 @@
 
 /*  DARK THEME   */
 .amplify-table__th.dark, .amplify-table__td.dark {
-  margin: none;
+  border-width: 1px;
 
 }
 
+/* --------------------------------------*/
 
 .amplify-table__body{
   border-right: none;
@@ -71,11 +99,6 @@
   text-align: left;
 }
 
-.table-summary {
-  font-style: italic;
-  border-right: none;
-  border-left: none;
-}
 
 
 
@@ -90,3 +113,8 @@
 .centerContent {
     align-items: center;
   }
+
+
+.flag {
+  transform: translateY(3px);
+}

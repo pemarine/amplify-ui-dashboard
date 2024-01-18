@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { baseConfig } from "../../config";
 import "./Footer.css";
 
+import { ThemeContext } from "../../themes/ThemeContext";
+
+
 const Footer = () => {
-  return <div className="footer">{baseConfig.footerText}</div>;
+  const { theme } = useContext(ThemeContext);
+
+  return <div className={`footer ${theme}`}>{baseConfig.footerText}</div>;
 };
 
 export default Footer;

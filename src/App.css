@@ -4,11 +4,21 @@
 }
 body {
     font-family: 'FellixMedium', sans-serif;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
+
+body::-webkit-scrollbar {
+    display: none;
+}
 
 .header-nav.light-theme {
     /* light theme styles */
     background-color: #f5f8fa;
     color: #0d1a26;
   }
-  
+.header-nav.dark-theme {
+    /* dark theme styles */
+    background-color: #0d1a26;
+    color: #ffffff;
+}

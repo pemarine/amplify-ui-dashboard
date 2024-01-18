@@ -18,6 +18,17 @@ padding: 0 20px;
 
 .header-right {
 display: flex;
+justify-content: center;
+align-items: center;
+}
+.header-right > div {
+margin-left: 10px;
+}
+.header-right > div, .header-right > div > div {
+display: flex;
+justify-content: center;
+align-items: center;
+
 }
 
 .amplify-menu-content {
@@ -25,6 +36,11 @@ border-color: #fff;
 }
 
 .header-avatar {
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #004563;
+
 width: 34px;
 height: 34px;
 font-size: 14px;
@@ -32,8 +48,9 @@ border-radius: 50%;
 overflow: hidden;
 }
 .header-avatar img {
-width: 34px;
-height: 34px;
+width: 20px;
+height: auto;
+
 }
 
 
@@ -67,11 +84,7 @@ font-size: 24px;
 }
 
 .toogle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0px 5px 0px 5px;
-  
+    
     }
 
 .header-search-bar {

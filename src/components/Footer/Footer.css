@@ -7,6 +7,11 @@
     
 }
 
+.footer.dark {
+    background-color: #1a223f;
+    color: #ffffff;
+}
+
 @media (max-width: 1024px) {
     .footer {
         padding: 30px;
