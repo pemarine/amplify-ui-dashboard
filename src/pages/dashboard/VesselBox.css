@@ -1,0 +1,51 @@
+/* VesselBox.css */
+
+  
+  .vessel-box {
+    /*transform: translate(-170%, 400px); /* Position the box */
+    background-color: #111936d8; /* Dark blue with 70% opacity */
+    color: white;
+    padding: 14px; /* Increase padding for a larger box */
+    border-radius: 5px;
+    border: #00c9ff 2px solid;
+   /* position: relative; /* Position the box relative to the map component */
+    bottom: 0; /* Align the box with the bottom of the map component */
+    left: 0!important; /* Align the box with the left side of the map component */
+    width: 240px; /* Set the width of the box */
+    height: auto; /* Set the height of the box */
+    margin: 0; /* Ensure there's no margin */
+   /* right: auto; /* Ensure the box is not positioning itself relative to the right of the map container */
+    /*top: auto; /* Ensure the box is not positioning itself relative to the top of the map container */
+    inset:0px; /* Ensure the box is not positioning itself relative to the top or bottom of the map container */
+  }
+  h2 {
+    margin:0;
+    padding: 0;
+    font-size: 19px;
+  }
+
+  .header-box {
+    margin: 0;
+    padding: 0;
+    padding-top: 0px;
+    display: flex;
+    background-color: transparent;
+    align-items: center;
+  }
+  .header-box h2 {
+    margin-left: 10px; /* Adjust this value to increase or decrease the space between the ship name and the flag */
+  }
+  .content {
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    padding-top: 0px;
+    background-color: transparent;
+  }
+  .content > p {
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+    background-color: transparent;
+  }
+  

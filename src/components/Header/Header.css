@@ -17,12 +17,14 @@ padding: 0 20px;
 }
 
 .header-right {
-display: flex;
-justify-content: center;
-align-items: center;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto; /* Pushes the element to the right */
+  }
+  
 .header-right > div {
-margin-left: 13px;
+margin-left: 10px;
 }
 .header-right > div, .header-right > div > div {
 display: flex;
