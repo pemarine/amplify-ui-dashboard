@@ -54,15 +54,23 @@ const Map = () => {
             stylers: [
                 { visibility: "off" } // hide roads
             ]
-        }
+        },
+        {
+            featureType: "water",
+            elementType: "labels",
+            stylers: [
+              { visibility: "on" } // show labels on water
+            ]
+        },
+       
     ];  
   
     return (
       <LoadScript googleMapsApiKey='AIzaSyBxU5YOF-cbBZaoc6hgovIsf0-oYuqFT9M'>
       <GoogleMap
         mapContainerStyle={{width: '100%', height: '90vh'}}
-        zoom={4}
-        center={{lat: 41.3851, lng: 10.1734}}
+        zoom={3}
+        center={{lat: 30.3851, lng: 10.1734}}
         options={{
           styles: mapStyles,
           streetViewControl: false,

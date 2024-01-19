@@ -41,7 +41,7 @@ const Dashboard = () => {
   return (
     <>
       
-      <View borderRadius="6px" maxWidth="100%" padding="0rem" minHeight="100vh" marginTop="10px">
+      <View borderRadius="6px" maxWidth="100%" padding="0rem" minHeight="100vh" marginTop="15px">
         <Grid
           templateColumns={{ base: "1fr", large: "1fr 1fr 0.5fr" }}
           gap={tokens.space.medium}

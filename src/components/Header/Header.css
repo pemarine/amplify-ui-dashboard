@@ -22,7 +22,7 @@ justify-content: center;
 align-items: center;
 }
 .header-right > div {
-margin-left: 10px;
+margin-left: 13px;
 }
 .header-right > div, .header-right > div > div {
 display: flex;

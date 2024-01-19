@@ -56,18 +56,18 @@ const HeaderNav = () => {
       
       <div className='toogle'>
         {theme === 'light' ? (
-          <FaMoon onClick={toggleTheme} size={23} style={{ color: '#111936' }}/>
+          <FaMoon onClick={toggleTheme} size={21} style={{ color: '#111936' }}/>
         ) : (
-          <FaSun onClick={toggleTheme} size={23} style={{ color: 'white' }}/>
+          <FaSun onClick={toggleTheme} size={21} style={{ color: 'white' }}/>
         )}
       </div>
 
       <div className='toogle'>
         <div className='toggle-fullscreen' onClick={toggleFullscreen}>
           {isFullscreen ? (
-            <FaCompress size={23} style={{ color: theme === 'light' ? '#111936' : 'white' }} />
+            <FaCompress size={21} style={{ color: theme === 'light' ? '#111936' : 'white' }} />
           ) : (
-            <FaExpand size={23} style={{ color: theme === 'light' ? '#111936' : 'white' }} />
+            <FaExpand size={21} style={{ color: theme === 'light' ? '#111936' : 'white' }} />
           )}
         </div>
       </div>
