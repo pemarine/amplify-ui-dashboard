@@ -12,7 +12,7 @@ import './BasicTable.css';
 import '@aws-amplify/ui-react/styles.css';
 
 import { ThemeContext } from "../../themes/ThemeContext";
-
+import GreenLight from "../../assets/icons/GreenLight.gif";
 
 interface Vessel {
   SHIP_ID: string;
@@ -64,9 +64,11 @@ const BasicTable = () => {
               <TableCell className='flag' style={{width: '20%'}}>
                 <img src={`/flags/${vessel.FLAG}.png`} alt={vessel.FLAG} width="30" height="20"/>         
               </TableCell>
-              <TableCell style={{width: '60%'}}>{vessel.SHIPNAME}</TableCell>
-              <TableCell style={{width: '20%'}}>OK</TableCell>
-          </TableRow>
+              <TableCell style={{width: '60%'}}>M/S {vessel.SHIPNAME}</TableCell>
+              <TableCell style={{width: '20%'}}>
+                 <img src={GreenLight} alt="Green light" width="20" height="20" />
+              </TableCell>
+            </TableRow>
           ))}
         </TableBody>
       </Table>

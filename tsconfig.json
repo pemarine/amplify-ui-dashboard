@@ -37,6 +37,7 @@
     "./src/**/*.jpeg",
     "./src/**/*.svg",
     "./src/**/*.json",
-    "./src/**/*.css"
+    "./src/**/*.css",
+    "./src/**/*.mov",
   ]
 }

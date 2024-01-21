@@ -53,3 +53,21 @@
     font-size: 30px;
 }
 
+.amplify-card.dark, .amplify-card.dark > .chart-wrap > .row > div > div > svg > g > g > text{
+
+    background-color: #212946;
+    color: #fff!important;
+    fill: #fff!important;
+}
+.amplify-card.dark, .amplify-card.dark > .chart-wrap > .row > div > div > svg > g > g > g > text{
+
+    background-color: #212946;
+    color: #fff!important;
+    fill: #fff!important;
+}
+
+.amplify-card.dark, .amplify-card.dark > .chart-wrap > div > div > svg > foreignObject > div > div > span{
+
+    background-color: #212946;
+    color: #fff!important;
+}

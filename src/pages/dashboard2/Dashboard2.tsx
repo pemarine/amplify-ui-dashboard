@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   View,
   Grid,
@@ -14,6 +14,8 @@ import TrafficSources from "./TrafficSources";
 import SalesSummary from "./SalesSummary";
 import TrafficSummary from "./TrafficSummary";
 import CustomersSummary from "./CustomersSummary";
+import { ThemeContext } from "../../themes/ThemeContext";
+
 
 import "./Dashboard2.css";
 
@@ -72,6 +74,7 @@ const getChartData = () =>
 const Dashboard = () => {
   const [barChartData, setBarChartData] = useState<any | null>(null);
   const [trafficSourceData, setTrafficSourceData] = useState<any | null>(null);
+  const { theme } = useContext(ThemeContext);
   const { tokens } = useTheme();
 
   useEffect(() => {
@@ -86,17 +89,19 @@ const Dashboard = () => {
 
   return (
     <>
-      <div>
-        <h2>Dashboard</h2>
-      </div>
-      <View borderRadius="6px" maxWidth="100%" padding="0rem" minHeight="100vh">
+     
+      <View  borderRadius="6px" maxWidth="100%" padding="0rem" minHeight="100vh" marginTop="15px">
         <Grid
+
           templateColumns={{ base: "1fr", large: "1fr 1fr 1fr" }}
           templateRows={{ base: "repeat(4, 10rem)", large: "repeat(3, 8rem)" }}
-          gap={tokens.space.xl}
+          gap={tokens.space.medium}
         >
-          <View rowSpan={{ base: 1, large: 1 }}>
+          <View
+           rowSpan={{ base: 1, large: 1 }}
+           >
             <MiniStatistics
+
               title="Page Views"
               amount="321,236"
               icon={<MdRemoveRedEye />}
@@ -114,7 +119,10 @@ const Dashboard = () => {
           </View>
 
           <View columnSpan={[1, 1, 1, 2]} rowSpan={{ base: 3, large: 4 }}>
-            <Card borderRadius="15px">
+            <Card
+              className={`amplify-card ${theme}`}
+
+              borderRadius="15px">
               <div className="card-title">Traffic Summary</div>
               <div className="chart-wrap">
                 {barChartData ? (
@@ -176,7 +184,12 @@ const Dashboard = () => {
             </Card>
           </View>
           <View rowSpan={{ base: 1, large: 4 }}>
-            <Card height="100%" borderRadius="15px">
+            <Card
+              height="100%"
+              borderRadius="15px"
+              className={`amplify-card ${theme}`}
+
+            >
               <div className="card-title">Traffic Sources</div>
               <div className="chart-wrap">
                 {barChartData ? (
@@ -205,7 +218,11 @@ const Dashboard = () => {
           </View>
 
           <View columnSpan={[1, 1, 1, 2]} rowSpan={{ base: 3, large: 4 }}>
-            <Card borderRadius="15px">
+            <Card
+              borderRadius="15px"
+              className={`amplify-card ${theme}`}
+
+            >
               <div className="card-title">Sales Summary</div>
               <div className="chart-wrap">
                 {barChartData ? (
@@ -243,7 +260,10 @@ const Dashboard = () => {
           </View>
 
           <View rowSpan={{ base: 1, large: 4 }}>
-            <Card height="100%" borderRadius="15px">
+            <Card
+              className={`amplify-card ${theme}`}
+              height="100%"
+              borderRadius="15px">
               <div className="card-title">New Customers</div>
               <div className="chart-wrap">
                 {barChartData ? (

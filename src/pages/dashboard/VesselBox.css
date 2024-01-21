@@ -5,13 +5,13 @@
     /*transform: translate(-170%, 400px); /* Position the box */
     background-color: #111936d8; /* Dark blue with 70% opacity */
     color: white;
-    padding: 14px; /* Increase padding for a larger box */
-    border-radius: 5px;
+    padding: 16px; /* Increase padding for a larger box */
+    border-radius: 12px;
     border: #00c9ff 2px solid;
    /* position: relative; /* Position the box relative to the map component */
     bottom: 0; /* Align the box with the bottom of the map component */
     left: 0!important; /* Align the box with the left side of the map component */
-    width: 240px; /* Set the width of the box */
+    width: 270px; /* Set the width of the box */
     height: auto; /* Set the height of the box */
     margin: 0; /* Ensure there's no margin */
    /* right: auto; /* Ensure the box is not positioning itself relative to the right of the map container */
@@ -21,12 +21,13 @@
   h2 {
     margin:0;
     padding: 0;
-    font-size: 19px;
+    font-size: 18px;
   }
 
   .header-box {
     margin: 0;
-    padding: 0;
+    padding: 5px;
+    padding-left: 0px;
     padding-top: 0px;
     display: flex;
     background-color: transparent;
@@ -43,9 +44,21 @@
     background-color: transparent;
   }
   .content > p {
+    text-transform: capitalize;
+
     margin: 0;
     padding: 0;
     padding-top: 10px;
     background-color: transparent;
   }
   
+
+
+  .type-name {
+    text-transform: uppercase;
+  }
+
+  .imo {
+    padding-top: 15px!important;
+    font-size: 14px;
+  }

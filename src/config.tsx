@@ -3,9 +3,9 @@ import { Icon } from "@aws-amplify/ui-react";
 
 import {
   MdDashboard,
-  MdModeEditOutline,
+ // MdModeEditOutline,
   MdAccountBox,
-  MdOutlineTableChart,
+ // MdOutlineTableChart,
 } from "react-icons/md";
 
 export const baseConfig = {
@@ -49,7 +49,7 @@ export const appNavs = [
     title: "Dashboard2",
     to: "/dashboard2",
   },
-
+/*
   {
     eventKey: "tables",
     icon: <Icon as={MdOutlineTableChart} />,
@@ -68,6 +68,7 @@ export const appNavs = [
       },
     ],
   },
+
   {
     eventKey: "forms",
     icon: <Icon as={MdModeEditOutline} />,
@@ -85,7 +86,8 @@ export const appNavs = [
         to: "/edit-form",
       },
     ],
-  },
+  },^
+  */
   {
     eventKey: "profile",
     icon: <Icon as={MdAccountBox} />,

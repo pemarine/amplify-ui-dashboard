@@ -7,5 +7,6 @@ export interface Vessel {
     FLAG: string;
     NEXT_PORT_NAME: string;
     LAST_PORT: string;
+    IMO: string;
     // Add other properties as needed
   }
