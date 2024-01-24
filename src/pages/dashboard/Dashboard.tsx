@@ -22,6 +22,7 @@ import { ThemeContext } from "../../themes/ThemeContext";
 import "./Dashboard.css";
 import Map from "./Map"
 import TableVessels from "./TableVessels";
+import { VesselsProvider } from "./VesselsContext";
 
 
 
@@ -43,6 +44,7 @@ const Dashboard = () => {
       
       <View borderRadius="6px" maxWidth="100%" padding="0rem" minHeight="100vh" marginTop="15px">
         <Grid
+          
           templateColumns={{ base: "1fr", large: "1fr 1fr 0.5fr" }}
           gap={tokens.space.medium}
         >
@@ -54,7 +56,9 @@ const Dashboard = () => {
               height="100%"
               borderRadius="15px"
               >
-                <Map />
+                <VesselsProvider>
+                    <Map/>
+                </VesselsProvider>
             </Card>
           </View>
 
@@ -64,7 +68,10 @@ const Dashboard = () => {
               height="100%"
               borderRadius="15px"
               >
-                <TableVessels/>
+                <VesselsProvider>
+                   <TableVessels/>
+
+                </VesselsProvider>
              
             </Card>
           </View>
