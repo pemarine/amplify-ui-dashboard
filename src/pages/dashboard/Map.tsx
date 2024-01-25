@@ -25,7 +25,7 @@ const Map = () => {
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
   /*
   React.useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async () wwh=> {
       const data = await fetchVessels();
       setVessels(data);
     };
@@ -75,7 +75,7 @@ const Map = () => {
     {/*  <LoadScript googleMapsApiKey='AIzaSyBxU5YOF-cbBZaoc6hgovIsf0-oYuqFT9M'> */}
       <GoogleMap
         mapContainerStyle={{width: '100%', height: '90vh'}}
-        zoom={4}
+        zoom={3}
         center={{lat: 41.3851, lng: 10.1734}}
         options={{
           styles: mapStyles,

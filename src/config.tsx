@@ -49,6 +49,12 @@ export const appNavs = [
     title: "Dashboard2",
     to: "/dashboard2",
   },
+  {
+    eventKey: "fleet",
+    icon: <Icon as={MdDashboard} />,
+    title: "Fleet",
+    to: "/fleet",
+  },
 /*
   {
     eventKey: "tables",

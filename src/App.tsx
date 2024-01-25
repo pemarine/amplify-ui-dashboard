@@ -18,7 +18,7 @@ import { ThemeProvider } from './themes/ThemeProvider';
 import Layout from "./components/Layout";
 import Dashboard from "./pages/dashboard";
 import Dashboard2 from "./pages/dashboard2";
-
+import Fleet from "./pages/fleet";
 import Profile from "./pages/profile";
 import Tables from "./pages/tables";
 import UsersTable from "./pages/tables/UsersTablePage";
@@ -41,6 +41,7 @@ export function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
             <Route path="dashboard2" element={<Dashboard2 />} />
+            <Route path="fleet" element={<Fleet />} />
             <Route path="forms" element={<Forms />} />
             <Route path="edit-form" element={<EditForm />} />
             <Route path="tables" element={<Tables />} />
