@@ -27,9 +27,9 @@ const VesselInfoBox: React.FC<VesselBoxProps> = ({ vessel, open, close }) => {
           <p>Type: <span className="type-name">{vessel.TYPE_NAME}</span></p>
           <p>Destination:   {vessel.NEXT_PORT_NAME}</p>
           <p>Last port:   {vessel.LAST_PORT}</p>
-
-          <p className="imo">IMO:   {vessel.IMO}</p>
-
+          <div className="imo-box">
+            <p className="imo">IMO:   {vessel.IMO}</p>
+          </div>
 
 
 

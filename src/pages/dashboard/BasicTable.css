@@ -47,6 +47,8 @@
 
 }
 
+
+
 /*  DARK THEME   */
 .amplify-table__th.dark, .amplify-table__td.dark {
   border-width: 1px;
@@ -70,7 +72,6 @@
   border-left: none;
   padding: none;
 }
-
 
 
 
@@ -115,5 +116,6 @@
   }
 
 
-.flag {
-}
+  .flag {
+    transform: translateY(3px);
+  }

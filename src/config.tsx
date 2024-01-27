@@ -5,6 +5,8 @@ import {
   MdDashboard,
  // MdModeEditOutline,
   MdAccountBox,
+  MdAnchor,
+  MdMap,
  // MdOutlineTableChart,
 } from "react-icons/md";
 
@@ -39,8 +41,8 @@ export const baseConfig = {
 export const appNavs = [
   {
     eventKey: "dashboard",
-    icon: <Icon as={MdDashboard} />,
-    title: "Dashboard",
+    icon: <Icon as={MdMap} />,
+    title: "Map",
     to: "/",
   },
   {
@@ -51,7 +53,7 @@ export const appNavs = [
   },
   {
     eventKey: "fleet",
-    icon: <Icon as={MdDashboard} />,
+    icon: <Icon as={MdAnchor} />,
     title: "Fleet",
     to: "/fleet",
   },
