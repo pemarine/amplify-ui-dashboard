@@ -1,0 +1,68 @@
+{
+  "name": "amplify-ui-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@aws-amplify/auth": "^6.0.12",
+    "@aws-amplify/core": "^6.0.13",
+    "@aws-amplify/datastore": "^5.0.13",
+    "@aws-amplify/storage": "^6.0.13",
+    "@aws-amplify/ui-react": "^6.1.1",
+    "@aws-sdk/client-s3": "^3.501.0",
+    "@react-google-maps/api": "^2.19.2",
+    "@testing-library/jest-dom": "^6.1.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.5.4",
+    "@types/react-dom": "^18.2.7",
+    "apexcharts": "^3.41.1",
+    "aws-amplify": "^6.0.13",
+    "aws-sdk": "^2.1545.0",
+    "axios": "^1.6.5",
+    "dotenv": "^16.4.1",
+    "react": "^18.2.0",
+    "react-apexcharts": "^1.4.1",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.10.1",
+    "react-router-dom": "^6.15.0",
+    "react-scripts": "^5.0.1",
+    "reactjs-popup": "^2.0.6",
+    "typescript": "^4.9.5",
+    "web-vitals": "^3.4.0"
+  },
+  "scripts": {
+    "dev": "react-scripts start",
+    //"build": "react-scripts build",
+    "build": "react-app-rewired build",
+    //"test": "react-scripts test",
+    "test" : "react-app-rewired test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "@types/node": "^20.11.10",
+    "@types/react": "^18.2.48",
+    "crypto-browserify": "^3.12.0",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "react-app-rewired": "^2.2.1"
+  }
+}

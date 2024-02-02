@@ -1,0 +1,8 @@
+query GetVessel($id: ID!) {
+  getVessel(id: $id) {
+    id
+    name
+    registrationNumber
+    // Add other fields as needed
+  }
+}

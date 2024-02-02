@@ -1,0 +1,27 @@
+import Storage from '@aws-amplify/storage';
+async function modifyVesselFile() {
+  try {
+    // Download the file
+    const file = await Storage.get('Vessel.json', { download: true });
+
+    // Parse the file content to a JSON object
+    const jsonObject = JSON.parse(String.fromCharCode.apply(null, new Uint8Array(file.Body)));
+
+    // Modify the 'lat' property
+    jsonObject.lat = 'new value'; // Replace 'new value' with the actual value
+
+    // Stringify the modified JSON object
+    const modifiedFileContent = JSON.stringify(jsonObject);
+
+    // Upload the modified file back to the bucket
+    const result = await Storage.put('Vessel.json', modifiedFileContent, {
+      contentType: 'application/json'
+    });
+
+    console.log('File modified successfully:', result);
+  } catch (error) {
+    console.error('Error modifying file:', error);
+  }
+}
+
+modifyVesselFile();

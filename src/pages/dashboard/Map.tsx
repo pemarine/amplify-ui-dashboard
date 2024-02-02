@@ -5,8 +5,9 @@ import React, { useContext } from 'react';
 import markerIcon from '../../assets/icons/animated_marker.gif';
 //import { fetchVessels } from './api';
 import VesselInfoBox from './VesselBox';
-import { Vessel } from './types';
-import { VesselsContext } from './VesselsContext';
+//import { Vessel } from './types';
+import { Vessel } from '../../models'
+import { VesselsContext } from '../../utils/VesselsContext';
 
 /*
 interface Vessel {
@@ -87,7 +88,10 @@ const Map = () => {
       {vessels.map((vessel, index) => (
         <Marker
         key={index}
-        position={{lat: parseFloat(vessel.LAT), lng: parseFloat(vessel.LON)}}
+        position={{
+          lat: vessel.LAT ? parseFloat(vessel.LAT) : 0, // Replace 0 with your default latitude
+          lng: vessel.LON ? parseFloat(vessel.LON) : 0, // Replace 0 with your default longitude
+        }}
         icon={{
           url: markerIcon, // Replace with your icon URL
           scaledSize: new window.google.maps.Size(60, 60), // Adjust size as needed

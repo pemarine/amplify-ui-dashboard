@@ -304,6 +304,8 @@ export { default as Statistics67 } from "./Statistics67";
 export { default as StatisticsStatistic } from "./StatisticsStatistic";
 export { default as TaskCard } from "./TaskCard";
 export { default as TasksList } from "./TasksList";
+export { default as VesselCreateForm } from "./VesselCreateForm";
+export { default as VesselUpdateForm } from "./VesselUpdateForm";
 export { default as Visits } from "./Visits";
 export { default as VisitsbyTime } from "./VisitsbyTime";
 export { default as studioTheme } from "./studioTheme";

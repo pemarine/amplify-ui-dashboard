@@ -2,11 +2,11 @@ import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
 import { Amplify } from 'aws-amplify';
-
 //catorProps } from '@aws-amplify/ui-react';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 
 import config from './amplifyconfiguration.json';
+//import awsconfig from './aws-exports.js';
 import "@aws-amplify/ui-react/styles.css";
 import "./App.css";
 //import { ThemeProvider } from "@aws-amplify/ui-react";
@@ -25,6 +25,19 @@ import UsersTable from "./pages/tables/UsersTablePage";
 import Forms from "./pages/forms";
 import EditForm from "./pages/forms/EditForm";
 
+
+
+/*Amplify.configure({
+  API: {
+    GraphQL: {
+      endpoint: 'https://kdssxysvlvcafmbvdft36yfwoi.appsync-api.eu-north-1.amazonaws.com/graphql',
+      region: 'eu-north-1',
+      defaultAuthMode: 'apiKey',
+      apiKey: 'da2-xp42b*********************'
+    }
+  }
+});
+*/
 Amplify.configure(config);
 
 

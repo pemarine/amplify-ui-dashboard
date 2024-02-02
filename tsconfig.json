@@ -29,6 +29,8 @@
     "node_modules"
   ],
   "include": [
+    "./amplify/**/*.js",
+    "./amplify/**/*.cjs",
     "./src/**/*.ts",
     "./src/**/*.tsx",
     "./src/**/*.gif",
@@ -38,6 +40,6 @@
     "./src/**/*.svg",
     "./src/**/*.json",
     "./src/**/*.css",
-    "./src/**/*.mov",
+    "./src/**/*.mov", "src/utils/CreateVessels",
   ]
 }

@@ -21,7 +21,7 @@ const VesselCard = ({ vessel }) => {
   return (
     <Card 
       className={`amplify-card ${theme} vessel-card`}
-      height="300px"
+      height="33ch"
       borderRadius="15px"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

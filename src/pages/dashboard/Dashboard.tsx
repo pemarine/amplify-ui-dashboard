@@ -22,7 +22,7 @@ import { ThemeContext } from "../../themes/ThemeContext";
 import "./Dashboard.css";
 import Map from "./Map"
 import TableVessels from "./TableVessels";
-import { VesselsProvider } from "./VesselsContext";
+import { VesselsProvider } from "../../utils/VesselsContext";
 
 
 

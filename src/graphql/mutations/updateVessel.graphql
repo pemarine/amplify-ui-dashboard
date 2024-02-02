@@ -1,0 +1,11 @@
+mutation UpdateVessel($input: UpdateVesselInput!) {
+  updateVessel(input: $input) {
+    id
+    name
+    registrationNumber
+    _version
+    _deleted
+    _lastChangedAt
+    // Add other fields as needed
+  }
+}

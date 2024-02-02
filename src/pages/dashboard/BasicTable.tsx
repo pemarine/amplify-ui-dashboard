@@ -12,7 +12,7 @@ import './BasicTable.css';
 import '@aws-amplify/ui-react/styles.css';
 
 import { ThemeContext } from "../../themes/ThemeContext";
-import { VesselsContext } from './VesselsContext'; // Import the VesselsContext
+import { VesselsContext } from '../../utils/VesselsContext'; // Import the VesselsContext
 import GreenLight from "../../assets/icons/GreenLight.gif";
 //import { fetchVessels } from "./api";
 //import { Vessel } from "./types";
@@ -83,11 +83,11 @@ const BasicTable = () => {
             
             <TableRow>
               <TableCell className='flag' style={{width: '20%'}}>
-                <img src={`/flags/${vessel.FLAG}.png`} alt={vessel.FLAG} width="30" height="20"/>         
+                {vessel.FLAG && <img src={`/flags/${vessel.FLAG}.png`} alt={vessel.FLAG} width="30" height="20"/>}
               </TableCell>
               <TableCell style={{width: '60%'}}>M/S {vessel.SHIPNAME}</TableCell>
               <TableCell style={{width: '20%'}}>
-                 <img src={GreenLight} alt="Green light" width="20" height="20" />
+                 <img src={GreenLight} alt="Green light" width="17" height="auto" />
               </TableCell>
             </TableRow>
           ))}

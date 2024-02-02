@@ -1,12 +1,20 @@
 import React, { useContext } from 'react';
 import { View, Grid, useTheme } from '@aws-amplify/ui-react';
 //import { ThemeContext } from "../../themes/ThemeContext";
-import { VesselsContext } from '../dashboard/VesselsContext';
+//import { VesselsContext } from '../dashboard/VesselsContext';
+import { VesselsContext } from '../../utils/VesselsContext';
 import VesselCard from './VesselCard';
+//import { uploadUpdatedJSON } from '../../utils/S3Connector'; // Import the function
+//import VesselListContainer from 'src/utils/VesselListContainer';
+
+//import { VesselsContext } from '../../utils/VesselsContext';
 
 const Fleet = () => {
   const vessels = useContext(VesselsContext);
   const { tokens } = useTheme();
+
+ // const _vessels = VesselListContainer();
+  //console.log("hej" + _vessels);
 
   //const { theme } = useContext(ThemeContext);
 

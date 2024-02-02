@@ -1,3 +1,41 @@
+/* BASIC LAYOUT AND THEMING */
+.page-container {
+    min-height: 100vh;
+}
+.amplify-profile.dark{
+background-color: #1a223f;
+
+}
+
+.amplify-profile.dark > .amplify-flex > div {
+background-color: #212946!important;
+}
+.profile-element.dark {
+    /*background-color: #212946;
+
+color: white;*/
+}
+/* Profile Header */
+.profile-element.dark > div > .amplify-text--primary{
+color: white;
+}
+.profile-element.dark > div > .amplify-text--tertiary{
+color: #d9d9d6;
+}
+/* Profile Information */
+.profile-element.dark > p {
+color: white;
+margin-bottom: 20px!important;
+}
+.profile-element.dark > div {
+color: #d9d9d6;
+margin-bottom: 12px!important;
+}
+/* Profile Settings */
+.profile-element.dark > div > label > span{
+    color: #d9d9d6;
+}
+
 
 .profile-header-image {
 display: flex;

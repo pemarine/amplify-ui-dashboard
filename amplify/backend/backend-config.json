@@ -1,4 +1,27 @@
 {
+  "api": {
+    "amplifyDashboard": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
   "auth": {
     "amplifyDashboard": {
       "customAuth": false,
@@ -49,5 +72,74 @@
       "service": "Cognito-UserPool-Groups"
     }
   },
-  "storage": {}
+  "function": {
+    "S3Trigger98cc7fd7": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "amplifydashboardVesselFunctions": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "LambdaLayer"
+    },
+    "updateVesselsMT": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_S3Trigger98cc7fd7_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "S3Trigger98cc7fd7"
+        }
+      ]
+    },
+    "AMPLIFY_function_S3Trigger98cc7fd7_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "S3Trigger98cc7fd7"
+        }
+      ]
+    },
+    "AMPLIFY_function_amplifydashboardVesselFunctions_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifydashboardVesselFunctions"
+        }
+      ]
+    },
+    "AMPLIFY_function_amplifydashboardVesselFunctions_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifydashboardVesselFunctions"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "amplifyDashboardStorage": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "LambdaExecutionRole"
+          ],
+          "category": "function",
+          "resourceName": "S3Trigger98cc7fd7"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    }
+  }
 }

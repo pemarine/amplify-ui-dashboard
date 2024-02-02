@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Text, SwitchField } from "@aws-amplify/ui-react";
+import { ThemeContext } from "../../themes/ThemeContext";
+import "./Profile.css";
+
 
 const ProfileSettings = () => {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className="profile-card-content">
-      <Text fontWeight="600" fontSize="18px" marginBottom="18px">
+    <div 
+      className={`profile-element ${theme}`}
+    >
+    <Text fontWeight="600" fontSize="18px" marginBottom="18px">
         Profile Settings
       </Text>
 

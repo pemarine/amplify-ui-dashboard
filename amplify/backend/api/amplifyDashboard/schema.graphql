@@ -1,0 +1,26 @@
+type Vessel @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  IMO: String
+  MMSI: String
+  SHIPNAME: String
+  FLAG: String
+  MARKET: String
+  TYPE_NAME: String
+  LAT: String
+  LON: String
+  LAST_PORT: String
+  CURRENT_PORT: String
+  NEXT_PORT: String
+  NEXT_PORT_NAME: String
+  DISTANCE_TO_GO: String
+  DUSTANCE_TRAVELLED: String
+  SPEED: String
+  AVG_SPEED: String
+  MAX_SPEED: String
+}
+type Subscription {
+  onDeletePost: Vessel
+    @aws_subscribe(mutations: ["deleteVessel"])
+  onUpdatePost: Vessel
+    @aws_subscribe(mutations: ["updateVessel"])
+}

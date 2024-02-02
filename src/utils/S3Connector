@@ -1,0 +1,69 @@
+//require('dotenv').config();
+
+import React, { useEffect } from 'react';
+import AWS from 'aws-sdk';
+
+import vesselsData from './vessels.json';
+
+const accessKeyId = 'AKIAQA7G7ZIIUSCUC672';
+const secretAccessKey = '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';
+const region = 'eu-north-1';
+
+const s3 = new AWS.S3();
+
+AWS.config.update({
+  accessKeyId: accessKeyId,
+  secretAccessKey: secretAccessKey,
+  region: region,
+});
+
+const uploadUpdatedJSON = async () => {
+  try {
+    // Define the parameters for the headObject call
+    const headParams = {
+      Bucket: 'amplify-dashboard-bucket151632-server',
+      Key: 'Vessels/vessels.json',
+    };
+
+    try {
+      // Check if the file exists
+      await s3.headObject(headParams).promise();
+      console.log('File exists');
+    } catch (headErr) {
+      if ((headErr as Error).message === 'NotFound') {
+        // File doesn't exist, upload the local JSON file
+        console.log('File not found, uploading...');
+
+        // Convert the imported vessels data to a JSON string
+        const updatedJSON = JSON.stringify(vesselsData);
+
+        // Define the upload parameters
+        const uploadParams = {
+          Bucket: 'amplify-dashboard-bucket151632-server',
+          Key: 'Vessels/vessels.json',
+          Body: updatedJSON,
+          ContentType: 'application/json'
+        };
+
+        // Upload the updated JSON to S3
+        await s3.putObject(uploadParams).promise();
+        console.log('File uploaded');
+      } else {
+        // Some other error occurred
+        console.error('Error:', headErr);
+      }
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+
+const MyS3Component: React.FC = () => {
+  useEffect(() => {
+    uploadUpdatedJSON(); // Call the function inside the useEffect hook
+  }, []); // Empty dependency array ensures the useEffect runs only once on mount
+
+  return null;
+};
+export default MyS3Component;
+export { uploadUpdatedJSON };
