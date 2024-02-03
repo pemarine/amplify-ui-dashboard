@@ -31,8 +31,9 @@ export type AmplifyDependentResourcesAttributes = {
     "amplifydashboardVesselFunctions": {
       "Arn": "string"
     },
-    "updateVesselMarineTraffic": {
+    "updateVesselsMT": {
       "Arn": "string",
+      "CloudWatchEventRule": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
       "Name": "string",

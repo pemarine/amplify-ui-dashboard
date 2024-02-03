@@ -38,6 +38,7 @@ import EditForm from "./pages/forms/EditForm";
   }
 });
 */
+
 Amplify.configure(config);
 
 

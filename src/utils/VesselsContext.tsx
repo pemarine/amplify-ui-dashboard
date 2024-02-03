@@ -1,15 +1,45 @@
 import { useState, useEffect, createContext } from 'react';
 import { DynamoDB } from 'aws-sdk';
 import { Vessel } from '../models';
+
+
+
 const AWS = require('aws-sdk');
 
-
 AWS.config.update({
-  accessKeyId: 'AKIAQA7G7ZII7XW5FKGA',
-  secretAccessKey: '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',
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   region: 'eu-north-1',
 });
 
+// Load environment variables from .env file
+//require('dotenv').config();
+/*
+AWS.config.update({
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  region:'eu-north-1'
+});*/
+/*
+AWS.config.update({
+  region: 'eu-north-1',
+  apiVersion: 'latest',
+  aws_sdk_load_config: '1',
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+  }
+})
+*/
+//import { config } from 'dotenv';
+/*config();
+
+AWS.config.update({
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  region: process.env.AWS_REGION,
+});
+*/
 // Create a DynamoDB document client
 const dynamodb = new DynamoDB.DocumentClient();
 

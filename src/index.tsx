@@ -5,6 +5,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
+//require("dotenv").config();
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 
