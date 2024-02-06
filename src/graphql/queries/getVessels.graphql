@@ -1,0 +1,22 @@
+ query GetVessels($id: ID!) {
+    getVessels {
+      id
+      IMO
+      MMSI
+      SHIPNAME
+      FLAG
+      MARKET
+      TYPE_NAME
+      LAT
+      LON
+      LAST_PORT
+      CURRENT_PORT
+      NEXT_PORT
+      NEXT_PORT_NAME
+      DISTANCE_TO_GO
+      DISTANCE_TRAVELLED
+      SPEED
+      AVG_SPEED
+      MAX_SPEED
+    }
+  }

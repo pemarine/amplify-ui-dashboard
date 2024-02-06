@@ -1,0 +1,58 @@
+mutation CreateVessel($id: ID!)(
+    $IMO: String!,
+    $MMSI: String!,
+    $SHIPNAME: String!,
+    $FLAG: String!,
+    $MARKET: String!,
+    $TYPE_NAME: String!,
+    $LAT: String!,
+    $LON: String!,
+    $LAST_PORT: String!,
+    $CURRENT_PORT: String!,
+    $NEXT_PORT: String!,
+    $NEXT_PORT_NAME: String!,
+    $DISTANCE_TO_GO: String!,
+    $DISTANCE_TRAVELLED: String!,
+    $SPEED: String!,
+    $AVG_SPEED: String!,
+    $MAX_SPEED: String!
+  ) {
+    createVessel($id: ID!)(input: {
+      IMO: $IMO,
+      MMSI: $MMSI,
+      SHIPNAME: $SHIPNAME,
+      FLAG: $FLAG,
+      MARKET: $MARKET,
+      TYPE_NAME: $TYPE_NAME,
+      LAT: $LAT,
+      LON: $LON,
+      LAST_PORT: $LAST_PORT,
+      CURRENT_PORT: $CURRENT_PORT,
+      NEXT_PORT: $NEXT_PORT,
+      NEXT_PORT_NAME: $NEXT_PORT_NAME,
+      DISTANCE_TO_GO: $DISTANCE_TO_GO,
+      DISTANCE_TRAVELLED: $DISTANCE_TRAVELLED,
+      SPEED: $SPEED,
+      AVG_SPEED: $AVG_SPEED,
+      MAX_SPEED: $MAX_SPEED
+    }) {
+      id
+      IMO
+      MMSI
+      SHIPNAME
+      FLAG
+      MARKET
+      TYPE_NAME
+      LAT
+      LON
+      LAST_PORT
+      CURRENT_PORT
+      NEXT_PORT
+      NEXT_PORT_NAME
+      DISTANCE_TO_GO
+      DISTANCE_TRAVELLED
+      SPEED
+      AVG_SPEED
+      MAX_SPEED
+    }
+  }

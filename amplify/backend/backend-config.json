@@ -123,6 +123,22 @@
           "resourceName": "amplifydashboardVesselFunctions"
         }
       ]
+    },
+    "AMPLIFY_function_updateVesselsMT_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updateVesselsMT"
+        }
+      ]
+    },
+    "AMPLIFY_function_updateVesselsMT_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updateVesselsMT"
+        }
+      ]
     }
   },
   "storage": {

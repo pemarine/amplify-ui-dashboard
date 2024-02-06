@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import { Card } from '@aws-amplify/ui-react';
 import { ThemeContext } from "../../themes/ThemeContext";
 import './VesselCard.css'; // Import the CSS file
+import { Link } from 'react-router-dom';
+
 
 import GreenLight from "../../assets/icons/GreenLight.gif";
 
@@ -21,7 +23,7 @@ const VesselCard = ({ vessel }) => {
   return (
     <Card 
       className={`amplify-card ${theme} vessel-card`}
-      height="33ch"
+      height="33vh"
       borderRadius="15px"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -48,11 +50,12 @@ const VesselCard = ({ vessel }) => {
         </div>
       )}
       <div className="vessel-footer">
-        <button className="footer-button">
-          <Icon as={MdAnchor} size={25}/>
-          <p>OVERVIEW</p>
-
-        </button>
+        <Link to={`/vessel/${vessel.id}`}>
+          <button className="footer-button">
+            <Icon as={MdAnchor} size={25}/>
+            <p>OVERVIEW</p>
+          </button>
+        </Link>
         <button className="footer-button">CLOUD VPN</button>
       </div>
     </Card>

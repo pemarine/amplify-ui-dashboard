@@ -24,7 +24,7 @@ import Tables from "./pages/tables";
 import UsersTable from "./pages/tables/UsersTablePage";
 import Forms from "./pages/forms";
 import EditForm from "./pages/forms/EditForm";
-
+import VesselPage from "./pages/vessel";
 
 
 /*Amplify.configure({
@@ -38,8 +38,9 @@ import EditForm from "./pages/forms/EditForm";
   }
 });
 */
-
+//import awsconfig from './aws-exports';
 Amplify.configure(config);
+//Amplify.configure(config);
 
 
 
@@ -61,6 +62,8 @@ export function App() {
             <Route path="tables" element={<Tables />} />
             <Route path="users-table" element={<UsersTable />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="vessel/:id" element={<VesselPage />} />
+
 
             {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit

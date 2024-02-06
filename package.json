@@ -7,7 +7,7 @@
     "@aws-amplify/core": "^6.0.13",
     "@aws-amplify/datastore": "^5.0.13",
     "@aws-amplify/storage": "^6.0.13",
-    "@aws-amplify/ui-react": "^6.1.1",
+    "@aws-amplify/ui-react": "^6.1.2",
     "@aws-sdk/client-s3": "^3.501.0",
     "@react-google-maps/api": "^2.19.2",
     "@testing-library/jest-dom": "^6.1.0",
@@ -20,6 +20,7 @@
     "aws-sdk": "^2.1545.0",
     "axios": "^1.6.5",
     "dotenv": "^16.4.1",
+    "esm": "^3.2.25",
     "python": "^0.0.4",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
@@ -29,6 +30,7 @@
     "react-scripts": "^5.0.1",
     "reactjs-popup": "^2.0.6",
     "typescript": "^4.9.5",
+    "uuid": "^9.0.1",
     "web-vitals": "^3.4.0"
   },
   "scripts": {

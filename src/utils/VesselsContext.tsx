@@ -1,16 +1,26 @@
-import { useState, useEffect, createContext } from 'react';
-import { DynamoDB } from 'aws-sdk';
+import React, { useState, useEffect, createContext } from 'react';
+//import { DynamoDB } from 'aws-sdk';
 import { Vessel } from '../models';
-
-
+//import env from "dotenv"
+//import { DataStore } from 'aws-amplify/datastore';
+import { DataStore } from '@aws-amplify/datastore';
 
 const AWS = require('aws-sdk');
 
+// Set the region 
+AWS.config.update({region: 'eu-north-1'}); // replace 'REGION' with your region
+
+
+// Create the DynamoDB service object
+//const dynamodb= new AWS.DynamoDB({apiVersion: '2012-08-10'});
+//env.config()
+/*
 AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   region: 'eu-north-1',
-});
+  aws_sdk_load_config: '1',
+}); */
 
 // Load environment variables from .env file
 //require('dotenv').config();
@@ -41,12 +51,14 @@ AWS.config.update({
 });
 */
 // Create a DynamoDB document client
-const dynamodb = new DynamoDB.DocumentClient();
-
+//const dynamodb = new AWS.DynamoDB.DocumentClient();
+//DataStore.clear(); // Clear the DataStore before starting the app
+DataStore.start();
 // Create the context
 export const VesselsContext = createContext<Vessel[]>([]);
 
 // Create the provider component
+
 export const VesselsProvider = ({ children }) => {
   const [_vessels, setVessels] = useState<Vessel[]>([]);
 
@@ -55,28 +67,29 @@ export const VesselsProvider = ({ children }) => {
       console.log('fetchData called' + _vessels); // Log when fetchData is called
 
       try {
-        const params = {
-          TableName: 'Vessels',
-        };
-
-        const result = await dynamodb.scan(params).promise();
-        console.log('Query result:', result); // Log the entire result
-
-        if (result.Items) {
-          let vessels = result.Items as Vessel[];
-
-          /* Remove duplicates by IMO
-          vessels = vessels.reduce((unique, o) => {
-            if(!unique.some(obj => obj.IMO === o.IMO)) {
-              unique.push(o);
-            }
-            return unique;
-          }, []); */
-
-          setVessels(vessels);
-        }
+        const vessels = await DataStore.query(Vessel);
+        console.log("hej" + vessels); // This will log an array of Vessel objects
+    
+        // If you want to convert this to a list of plain objects:
+        const vesselList = vessels.map(vessel => {
+          return {
+            ...vessel,
+            // Replace 'field1', 'field2', etc. with the actual fields of your Vessel model
+            id: vessel.id,
+            SHIPNAME: vessel.SHIPNAME,
+            LAT: vessel.LAT,
+            LON: vessel.LON,
+            FLAG: vessel.FLAG,
+            MMSI: vessel.MMSI,
+            IMO: vessel.IMO            
+            // ...
+          };
+        });
+        setVessels(vesselList);
+    
+        console.log(vesselList); // This will log an array of plain objects
       } catch (error) {
-        console.error('An error occurred while fetching vessels data:', error);
+        console.error("Error fetching vessels: ", error);
       }
     };
 
@@ -89,3 +102,5 @@ export const VesselsProvider = ({ children }) => {
     </VesselsContext.Provider>
   );
 };
+
+
