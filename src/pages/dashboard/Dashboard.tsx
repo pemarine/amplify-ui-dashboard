@@ -51,15 +51,11 @@ const Dashboard = () => {
           
 
           <View columnSpan={2} rowSpan={{ base: 3, large: 4 }}>
-            <Card
-              className={`amplify-card ${theme}`}
-              height="100%"
-              borderRadius="15px"
-              >
+           
                 <VesselsProvider>
                     <Map/>
                 </VesselsProvider>
-            </Card>
+           
           </View>
 
           <View rowSpan={{ base: 1, large: 4 }}>
