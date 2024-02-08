@@ -53,7 +53,8 @@ AWS.config.update({
 // Create a DynamoDB document client
 //const dynamodb = new AWS.DynamoDB.DocumentClient();
 //DataStore.clear(); // Clear the DataStore before starting the app
-DataStore.start();
+//DataStore.stop();
+//DataStore.start();
 // Create the context
 export const VesselsContext = createContext<Vessel[]>([]);
 
@@ -81,7 +82,10 @@ export const VesselsProvider = ({ children }) => {
             LON: vessel.LON,
             FLAG: vessel.FLAG,
             MMSI: vessel.MMSI,
-            IMO: vessel.IMO            
+            IMO: vessel.IMO,
+            DISTANCE_TO_GO: vessel.DISTANCE_TO_GO,
+            DISTANCE_TRAVELLED: vessel.DISTANCE_TRAVELLED,
+            DESTINATION: vessel.DESTINATION,     
             // ...
           };
         });

@@ -22,7 +22,8 @@ export const createVessel = /* GraphQL */ `
       NEXT_PORT
       NEXT_PORT_NAME
       DISTANCE_TO_GO
-      DUSTANCE_TRAVELLED
+      DISTANCE_TRAVELLED
+      DESTINATION
       SPEED
       AVG_SPEED
       MAX_SPEED
@@ -55,7 +56,8 @@ export const updateVessel = /* GraphQL */ `
       NEXT_PORT
       NEXT_PORT_NAME
       DISTANCE_TO_GO
-      DUSTANCE_TRAVELLED
+      DISTANCE_TRAVELLED
+      DESTINATION
       SPEED
       AVG_SPEED
       MAX_SPEED
@@ -88,7 +90,8 @@ export const deleteVessel = /* GraphQL */ `
       NEXT_PORT
       NEXT_PORT_NAME
       DISTANCE_TO_GO
-      DUSTANCE_TRAVELLED
+      DISTANCE_TRAVELLED
+      DESTINATION
       SPEED
       AVG_SPEED
       MAX_SPEED

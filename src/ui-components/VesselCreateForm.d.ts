@@ -35,7 +35,8 @@ export declare type VesselCreateFormInputValues = {
     NEXT_PORT?: string;
     NEXT_PORT_NAME?: string;
     DISTANCE_TO_GO?: string;
-    DUSTANCE_TRAVELLED?: string;
+    DISTANCE_TRAVELLED?: string;
+    DESTINATION?: string;
     SPEED?: string;
     AVG_SPEED?: string;
     MAX_SPEED?: string;
@@ -54,7 +55,8 @@ export declare type VesselCreateFormValidationValues = {
     NEXT_PORT?: ValidationFunction<string>;
     NEXT_PORT_NAME?: ValidationFunction<string>;
     DISTANCE_TO_GO?: ValidationFunction<string>;
-    DUSTANCE_TRAVELLED?: ValidationFunction<string>;
+    DISTANCE_TRAVELLED?: ValidationFunction<string>;
+    DESTINATION?: ValidationFunction<string>;
     SPEED?: ValidationFunction<string>;
     AVG_SPEED?: ValidationFunction<string>;
     MAX_SPEED?: ValidationFunction<string>;
@@ -75,7 +77,8 @@ export declare type VesselCreateFormOverridesProps = {
     NEXT_PORT?: PrimitiveOverrideProps<TextFieldProps>;
     NEXT_PORT_NAME?: PrimitiveOverrideProps<TextFieldProps>;
     DISTANCE_TO_GO?: PrimitiveOverrideProps<TextFieldProps>;
-    DUSTANCE_TRAVELLED?: PrimitiveOverrideProps<TextFieldProps>;
+    DISTANCE_TRAVELLED?: PrimitiveOverrideProps<TextFieldProps>;
+    DESTINATION?: PrimitiveOverrideProps<TextFieldProps>;
     SPEED?: PrimitiveOverrideProps<TextFieldProps>;
     AVG_SPEED?: PrimitiveOverrideProps<TextFieldProps>;
     MAX_SPEED?: PrimitiveOverrideProps<TextFieldProps>;

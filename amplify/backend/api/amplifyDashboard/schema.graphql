@@ -13,7 +13,8 @@ type Vessel @model @auth(rules: [{allow: public}]) @aws_api_key @aws_cognito_use
   NEXT_PORT: String
   NEXT_PORT_NAME: String
   DISTANCE_TO_GO: String
-  DUSTANCE_TRAVELLED: String
+  DISTANCE_TRAVELLED: String
+  DESTINATION: String
   SPEED: String
   AVG_SPEED: String
   MAX_SPEED: String
@@ -23,4 +24,7 @@ type Subscription {
     @aws_subscribe(mutations: ["deleteVessel"])
   onUpdatePost: Vessel
     @aws_subscribe(mutations: ["updateVessel"])
+}
+type Query {
+    getVessels: [Vessel]
 }

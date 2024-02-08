@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.10.1\",\"stackType\":\"function-LambdaLayer\",\"metadata\":{}}",
+  "Description": "Lambda layer resource stack creation using Amplify CLI",
   "Parameters": {
     "env": {
       "Type": "String"
@@ -20,23 +20,19 @@
     }
   },
   "Resources": {
-    "LambdaLayerVersion63a6ca80": {
+    "LambdaLayerVersiond1a07eae": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
-        "CompatibleRuntimes": {
-          "Ref": "runtimes"
-        },
+        "CompatibleRuntimes": [
+          "nodejs18.x"
+        ],
         "Content": {
           "S3Bucket": {
             "Ref": "deploymentBucketName"
           },
-          "S3Key": {
-            "Ref": "s3Key"
-          }
+          "S3Key": "amplify-builds/amplifydashboardVesselFunctions-LambdaLayerVersiond1a07eae-build.zip"
         },
-        "Description": {
-          "Ref": "description"
-        },
+        "Description": "Updated layer version 2024-02-06T17:05:28.559Z",
         "LayerName": {
           "Fn::Sub": [
             "amplifydashboardVesselFunctions-${env}",
@@ -51,13 +47,11 @@
       "DeletionPolicy": "Delete",
       "UpdateReplacePolicy": "Retain"
     },
-    "LambdaLayerPermissionPrivate63a6ca80": {
+    "LambdaLayerPermissionPrivated1a07eae": {
       "Type": "AWS::Lambda::LayerVersionPermission",
       "Properties": {
         "Action": "lambda:GetLayerVersion",
-        "LayerVersionArn": {
-          "Ref": "LambdaLayerVersion63a6ca80"
-        },
+        "LayerVersionArn": "arn:aws:lambda:eu-north-1:002095041041:layer:amplifydashboardVesselFunctions-emarinedev:3",
         "Principal": {
           "Ref": "AWS::AccountId"
         }
@@ -67,7 +61,7 @@
   "Outputs": {
     "Arn": {
       "Value": {
-        "Ref": "LambdaLayerVersion63a6ca80"
+        "Ref": "LambdaLayerVersiond1a07eae"
       }
     }
   }

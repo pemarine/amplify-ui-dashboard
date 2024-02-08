@@ -8,6 +8,10 @@ import { Card, Grid, View } from '@aws-amplify/ui-react';
 import { ThemeContext } from "../../themes/ThemeContext";
 import './VesselPage.css';
 import Map from "./Map"
+import Image from "./Image"
+import Title from "./Title"
+
+
 
 //import { Vessel } from 'src/models';
 
@@ -39,26 +43,18 @@ const VesselPage = () => {
   
     return (
       <>
-      <div>
-            {/* Display vessel data here */}
-            <h1>{vessel.SHIPNAME}</h1>
-        </div>
+     
         <View borderRadius="6px" maxWidth="100%" padding="0rem" minHeight="100vh" marginTop="15px">
-            <Grid templateColumns="1fr 1fr" gap="15px">
+            <Grid templateColumns="1fr 1fr 1fr" gap="15px">
                 <View>
-                    <Card
-                        className={`amplify-card ${theme}`}
-                        height="33vh"
-                        borderRadius="15px"
-                        style={{ backgroundImage: `url(/vessels/${vessel.IMO}.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }} // Replace .jpg with the actual image extension
-
-                    >
+                    <Title vessel={vessel}/>
+                    <Image vessel={vessel}/>
                         
-                    </Card>
                 </View>
-                <View
-                    borderRadius={15}
-                >
+                <View>
+
+                </View>
+                <View>
                     <Map vessel={vessel}/>
 
                 </View>

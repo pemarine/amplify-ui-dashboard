@@ -43,7 +43,7 @@ const VesselCard = ({ vessel }) => {
       </div>
       {isHovered && (
         <div className="additional-info">
-          <p>Destination: {vessel.NEXT_PORT_NAME}</p>
+          <p>Destination: {vessel.DESTINATION}</p>
           <p>Last Port: {vessel.LAST_PORT_NAME}</p>
           <p>IMO: {vessel.IMO}</p>
           {/* Add more vessel information as needed */}

@@ -135,7 +135,7 @@
         },
         "updateVesselsMT": {
           "deploymentBucketName": "amplify-amplifydashboard-emarinedev-192119-deployment",
-          "s3Key": "amplify-builds/updateVesselsMT-4f4169442b474158792b-build.zip"
+          "s3Key": "amplify-builds/updateVesselsMT-64524b5577765a6e6746-build.zip"
         }
       },
       "api": {

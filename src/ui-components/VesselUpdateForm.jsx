@@ -36,7 +36,8 @@ export default function VesselUpdateForm(props) {
     NEXT_PORT: "",
     NEXT_PORT_NAME: "",
     DISTANCE_TO_GO: "",
-    DUSTANCE_TRAVELLED: "",
+    DISTANCE_TRAVELLED: "",
+    DESTINATION: "",
     SPEED: "",
     AVG_SPEED: "",
     MAX_SPEED: "",
@@ -60,8 +61,11 @@ export default function VesselUpdateForm(props) {
   const [DISTANCE_TO_GO, setDISTANCE_TO_GO] = React.useState(
     initialValues.DISTANCE_TO_GO
   );
-  const [DUSTANCE_TRAVELLED, setDUSTANCE_TRAVELLED] = React.useState(
-    initialValues.DUSTANCE_TRAVELLED
+  const [DISTANCE_TRAVELLED, setDISTANCE_TRAVELLED] = React.useState(
+    initialValues.DISTANCE_TRAVELLED
+  );
+  const [DESTINATION, setDESTINATION] = React.useState(
+    initialValues.DESTINATION
   );
   const [SPEED, setSPEED] = React.useState(initialValues.SPEED);
   const [AVG_SPEED, setAVG_SPEED] = React.useState(initialValues.AVG_SPEED);
@@ -84,7 +88,8 @@ export default function VesselUpdateForm(props) {
     setNEXT_PORT(cleanValues.NEXT_PORT);
     setNEXT_PORT_NAME(cleanValues.NEXT_PORT_NAME);
     setDISTANCE_TO_GO(cleanValues.DISTANCE_TO_GO);
-    setDUSTANCE_TRAVELLED(cleanValues.DUSTANCE_TRAVELLED);
+    setDISTANCE_TRAVELLED(cleanValues.DISTANCE_TRAVELLED);
+    setDESTINATION(cleanValues.DESTINATION);
     setSPEED(cleanValues.SPEED);
     setAVG_SPEED(cleanValues.AVG_SPEED);
     setMAX_SPEED(cleanValues.MAX_SPEED);
@@ -115,7 +120,8 @@ export default function VesselUpdateForm(props) {
     NEXT_PORT: [],
     NEXT_PORT_NAME: [],
     DISTANCE_TO_GO: [],
-    DUSTANCE_TRAVELLED: [],
+    DISTANCE_TRAVELLED: [],
+    DESTINATION: [],
     SPEED: [],
     AVG_SPEED: [],
     MAX_SPEED: [],
@@ -159,7 +165,8 @@ export default function VesselUpdateForm(props) {
           NEXT_PORT,
           NEXT_PORT_NAME,
           DISTANCE_TO_GO,
-          DUSTANCE_TRAVELLED,
+          DISTANCE_TRAVELLED,
+          DESTINATION,
           SPEED,
           AVG_SPEED,
           MAX_SPEED,
@@ -231,7 +238,8 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT,
               NEXT_PORT_NAME,
               DISTANCE_TO_GO,
-              DUSTANCE_TRAVELLED,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
@@ -271,7 +279,8 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT,
               NEXT_PORT_NAME,
               DISTANCE_TO_GO,
-              DUSTANCE_TRAVELLED,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
@@ -311,7 +320,8 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT,
               NEXT_PORT_NAME,
               DISTANCE_TO_GO,
-              DUSTANCE_TRAVELLED,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
@@ -351,7 +361,8 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT,
               NEXT_PORT_NAME,
               DISTANCE_TO_GO,
-              DUSTANCE_TRAVELLED,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
@@ -391,7 +402,8 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT,
               NEXT_PORT_NAME,
               DISTANCE_TO_GO,
-              DUSTANCE_TRAVELLED,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
@@ -431,7 +443,8 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT,
               NEXT_PORT_NAME,
               DISTANCE_TO_GO,
-              DUSTANCE_TRAVELLED,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
@@ -471,7 +484,8 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT,
               NEXT_PORT_NAME,
               DISTANCE_TO_GO,
-              DUSTANCE_TRAVELLED,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
@@ -511,7 +525,8 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT,
               NEXT_PORT_NAME,
               DISTANCE_TO_GO,
-              DUSTANCE_TRAVELLED,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
@@ -551,7 +566,8 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT,
               NEXT_PORT_NAME,
               DISTANCE_TO_GO,
-              DUSTANCE_TRAVELLED,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
@@ -591,7 +607,8 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT,
               NEXT_PORT_NAME,
               DISTANCE_TO_GO,
-              DUSTANCE_TRAVELLED,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
@@ -631,7 +648,8 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT: value,
               NEXT_PORT_NAME,
               DISTANCE_TO_GO,
-              DUSTANCE_TRAVELLED,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
@@ -671,7 +689,8 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT,
               NEXT_PORT_NAME: value,
               DISTANCE_TO_GO,
-              DUSTANCE_TRAVELLED,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
@@ -711,7 +730,8 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT,
               NEXT_PORT_NAME,
               DISTANCE_TO_GO: value,
-              DUSTANCE_TRAVELLED,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
@@ -730,10 +750,10 @@ export default function VesselUpdateForm(props) {
         {...getOverrideProps(overrides, "DISTANCE_TO_GO")}
       ></TextField>
       <TextField
-        label="Dustance travelled"
+        label="Distance travelled"
         isRequired={false}
         isReadOnly={false}
-        value={DUSTANCE_TRAVELLED}
+        value={DISTANCE_TRAVELLED}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -751,25 +771,67 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT,
               NEXT_PORT_NAME,
               DISTANCE_TO_GO,
-              DUSTANCE_TRAVELLED: value,
+              DISTANCE_TRAVELLED: value,
+              DESTINATION,
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
             };
             const result = onChange(modelFields);
-            value = result?.DUSTANCE_TRAVELLED ?? value;
+            value = result?.DISTANCE_TRAVELLED ?? value;
           }
-          if (errors.DUSTANCE_TRAVELLED?.hasError) {
-            runValidationTasks("DUSTANCE_TRAVELLED", value);
+          if (errors.DISTANCE_TRAVELLED?.hasError) {
+            runValidationTasks("DISTANCE_TRAVELLED", value);
           }
-          setDUSTANCE_TRAVELLED(value);
+          setDISTANCE_TRAVELLED(value);
         }}
         onBlur={() =>
-          runValidationTasks("DUSTANCE_TRAVELLED", DUSTANCE_TRAVELLED)
+          runValidationTasks("DISTANCE_TRAVELLED", DISTANCE_TRAVELLED)
         }
-        errorMessage={errors.DUSTANCE_TRAVELLED?.errorMessage}
-        hasError={errors.DUSTANCE_TRAVELLED?.hasError}
-        {...getOverrideProps(overrides, "DUSTANCE_TRAVELLED")}
+        errorMessage={errors.DISTANCE_TRAVELLED?.errorMessage}
+        hasError={errors.DISTANCE_TRAVELLED?.hasError}
+        {...getOverrideProps(overrides, "DISTANCE_TRAVELLED")}
+      ></TextField>
+      <TextField
+        label="Destination"
+        isRequired={false}
+        isReadOnly={false}
+        value={DESTINATION}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              IMO,
+              MMSI,
+              SHIPNAME,
+              FLAG,
+              MARKET,
+              TYPE_NAME,
+              LAT,
+              LON,
+              LAST_PORT,
+              CURRENT_PORT,
+              NEXT_PORT,
+              NEXT_PORT_NAME,
+              DISTANCE_TO_GO,
+              DISTANCE_TRAVELLED,
+              DESTINATION: value,
+              SPEED,
+              AVG_SPEED,
+              MAX_SPEED,
+            };
+            const result = onChange(modelFields);
+            value = result?.DESTINATION ?? value;
+          }
+          if (errors.DESTINATION?.hasError) {
+            runValidationTasks("DESTINATION", value);
+          }
+          setDESTINATION(value);
+        }}
+        onBlur={() => runValidationTasks("DESTINATION", DESTINATION)}
+        errorMessage={errors.DESTINATION?.errorMessage}
+        hasError={errors.DESTINATION?.hasError}
+        {...getOverrideProps(overrides, "DESTINATION")}
       ></TextField>
       <TextField
         label="Speed"
@@ -793,7 +855,8 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT,
               NEXT_PORT_NAME,
               DISTANCE_TO_GO,
-              DUSTANCE_TRAVELLED,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
               SPEED: value,
               AVG_SPEED,
               MAX_SPEED,
@@ -833,7 +896,8 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT,
               NEXT_PORT_NAME,
               DISTANCE_TO_GO,
-              DUSTANCE_TRAVELLED,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
               SPEED,
               AVG_SPEED: value,
               MAX_SPEED,
@@ -873,7 +937,8 @@ export default function VesselUpdateForm(props) {
               NEXT_PORT,
               NEXT_PORT_NAME,
               DISTANCE_TO_GO,
-              DUSTANCE_TRAVELLED,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
               SPEED,
               AVG_SPEED,
               MAX_SPEED: value,

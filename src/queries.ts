@@ -15,7 +15,8 @@ export const getVessel = /* GraphQL */ `
       CURRENT_PORT
       NEXT_PORT
       DISTANCE_TO_GO
-      DUSTANCE_TRAVELLED
+      DISTANCE_TRAVELLED
+      DESTINATION
       SPEED
       AVG_SPEED
       MAX_SPEED
@@ -46,7 +47,8 @@ export const listVessels = /* GraphQL */ `
         CURRENT_PORT
         NEXT_PORT
         DISTANCE_TO_GO
-        DUSTANCE_TRAVELLED
+        DISTANCE_TRAVELLED
+        DESTINATION
         SPEED
         AVG_SPEED
         MAX_SPEED
@@ -102,7 +104,8 @@ export const syncVessels = /* GraphQL */ `
         CURRENT_PORT
         NEXT_PORT
         DISTANCE_TO_GO
-        DUSTANCE_TRAVELLED
+        DISTANCE_TRAVELLED
+        DESTINATION
         SPEED
         AVG_SPEED
         MAX_SPEED

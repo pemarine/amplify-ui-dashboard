@@ -101,8 +101,15 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "DUSTANCE_TRAVELLED": {
-                    "name": "DUSTANCE_TRAVELLED",
+                "DISTANCE_TRAVELLED": {
+                    "name": "DISTANCE_TRAVELLED",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "DESTINATION": {
+                    "name": "DESTINATION",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -191,5 +198,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "945d3c5a4d4093c1ed94ee9abd6ff261"
+    "version": "91a26e4765fbeb9399d4e0b6b4aaedc7"
 };

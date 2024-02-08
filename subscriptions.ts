@@ -19,7 +19,8 @@ export const onDeletePost = /* GraphQL */ `
       NEXT_PORT
       NEXT_PORT_NAME
       DISTANCE_TO_GO
-      DUSTANCE_TRAVELLED
+      DISTANCE_TRAVELLED
+      DESTINATION
       SPEED
       AVG_SPEED
       MAX_SPEED
@@ -49,7 +50,8 @@ export const onUpdatePost = /* GraphQL */ `
       NEXT_PORT
       NEXT_PORT_NAME
       DISTANCE_TO_GO
-      DUSTANCE_TRAVELLED
+      DISTANCE_TRAVELLED
+      DESTINATION
       SPEED
       AVG_SPEED
       MAX_SPEED
@@ -79,7 +81,8 @@ export const onCreateVessel = /* GraphQL */ `
       NEXT_PORT
       NEXT_PORT_NAME
       DISTANCE_TO_GO
-      DUSTANCE_TRAVELLED
+      DISTANCE_TRAVELLED
+      DESTINATION
       SPEED
       AVG_SPEED
       MAX_SPEED
@@ -109,7 +112,8 @@ export const onUpdateVessel = /* GraphQL */ `
       NEXT_PORT
       NEXT_PORT_NAME
       DISTANCE_TO_GO
-      DUSTANCE_TRAVELLED
+      DISTANCE_TRAVELLED
+      DESTINATION
       SPEED
       AVG_SPEED
       MAX_SPEED
@@ -139,7 +143,8 @@ export const onDeleteVessel = /* GraphQL */ `
       NEXT_PORT
       NEXT_PORT_NAME
       DISTANCE_TO_GO
-      DUSTANCE_TRAVELLED
+      DISTANCE_TRAVELLED
+      DESTINATION
       SPEED
       AVG_SPEED
       MAX_SPEED

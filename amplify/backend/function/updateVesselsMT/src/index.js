@@ -126,7 +126,8 @@ class Vessel {
         createdAt,
         CURRENT_PORT,
         DISTANCE_TO_GO,
-        DUSTANCE_TRAVELLED,
+        DISTANCE_TRAVELLED,
+        DESTINATION,
         FLAG,
         IMO,
         LAST_PORT,
@@ -150,7 +151,8 @@ class Vessel {
         this.createdAt = createdAt;
         this.CURRENT_PORT = CURRENT_PORT;
         this.DISTANCE_TO_GO = DISTANCE_TO_GO;
-        this.DUSTANCE_TRAVELLED = DUSTANCE_TRAVELLED;
+        this.DISTANCE_TRAVELLED = DISTANCE_TRAVELLED;
+        this.DESTINATION = DESTINATION;
         this.FLAG = FLAG;
         this.IMO = IMO;
         this.LAST_PORT = LAST_PORT;
@@ -188,7 +190,7 @@ async function createOrUpdateVessel(vessel) {
                 Key: {
                     'id': data.Items[0].id
                 },
-                UpdateExpression: "set #__typename = :t, #_lastChangedAt = :l, #_version = :v, AVG_SPEED = :as, createdAt = :c, CURRENT_PORT = :cp, DISTANCE_TO_GO = :dtg, DUSTANCE_TRAVELLED = :dt, FLAG = :f, IMO = :i, LAST_PORT = :lp, LAT = :lat, LON = :lon, MARKET = :m, MAX_SPEED = :ms, MMSI = :mmsi, NEXT_PORT = :np, NEXT_PORT_NAME = :npn, SHIPNAME = :sn, SPEED = :s, TYPE_NAME = :tn, updatedAt = :u",
+                UpdateExpression: "set #__typename = :t, #_lastChangedAt = :l, #_version = :v, AVG_SPEED = :as, createdAt = :c, CURRENT_PORT = :cp, DISTANCE_TO_GO = :dtg, DISTANCE_TRAVELLED = :dt, DESTINATION = :dst, FLAG = :f, IMO = :i, LAST_PORT = :lp, LAT = :lat, LON = :lon, MARKET = :m, MAX_SPEED = :ms, MMSI = :mmsi, NEXT_PORT = :np, NEXT_PORT_NAME = :npn, SHIPNAME = :sn, SPEED = :s, TYPE_NAME = :tn, updatedAt = :u",
                 ExpressionAttributeNames: {
                     '#__typename': '__typename',
                     '#_version': '_version',
@@ -202,7 +204,8 @@ async function createOrUpdateVessel(vessel) {
                     ':c': vessel.createdAt,
                     ':cp': vessel.CURRENT_PORT,
                     ':dtg': vessel.DISTANCE_TO_GO,
-                    ':dt': vessel.DUSTANCE_TRAVELLED,
+                    ':dt': vessel.DISTANCE_TRAVELLED,
+                    ":dst": vessel.DESTINATION,
                     ':f': vessel.FLAG,
                     ':i': vessel.IMO,
                     ':lp': vessel.LAST_PORT,
@@ -216,7 +219,8 @@ async function createOrUpdateVessel(vessel) {
                     ':sn': vessel.SHIPNAME,
                     ':s': vessel.SPEED,
                     ':tn': vessel.TYPE_NAME,
-                    ':u': vessel.updatedAt
+                    ':u': new Date().toISOString()
+                    
                 },
                 ReturnValues: "UPDATED_NEW"
             };
@@ -260,7 +264,7 @@ const vessel = new Vessel({
     createdAt: "2024-02-06T09:53:57.093Z",
     CURRENT_PORT: "null",
     DISTANCE_TO_GO: "null",
-    DUSTANCE_TRAVELLED: "null",
+    DISTANCE_TRAVELLED: "null",
     FLAG: "SE",
     IMO: "4242",
     LAST_PORT: "null",
@@ -288,25 +292,26 @@ exports.handler = async (event) => {
                 __typename: "Vessel",
                 _lastChangedAt: 1707213237130,
                 _version: "1",
-                AVG_SPEED: "null",
-                createdAt: "2024-02-06T09:53:57.093Z",
-                CURRENT_PORT: "null",
-                DISTANCE_TO_GO: "null",
-                DUSTANCE_TRAVELLED: "null",
+                AVG_SPEED: data.AVG_SPEED || '',
+                createdAt: new Date().toISOString(),
+                CURRENT_PORT: data.CURRENT_PORT || '', 
+                DISTANCE_TO_GO: data.DISTANCE_TO_GO || '',
+                DISTANCE_TRAVELLED: data.DISTANCE_TRAVELLED || '',
+                DESTINATION: data.DESTINATION || '',
                 FLAG: data.FLAG || '',
                 IMO: data.IMO || '',
-                LAST_PORT: "null",
+                LAST_PORT: data.LAST_PORT || '',
                 LAT: data.LAT || '',
                 LON: data.LON || '',
-                MARKET: "null",
-                MAX_SPEED: "null",
+                MARKET: data.MARKET || '',
+                MAX_SPEED: data.MAX_SPEED || '',
                 MMSI: data.MMSI || '',
-                NEXT_PORT: "null",
+                NEXT_PORT: data.NEXT_PORT || '',
                 NEXT_PORT_NAME: "null",
                 SHIPNAME: data.SHIPNAME || '',
-                SPEED: "null",
-                TYPE_NAME: "null",
-                updatedAt: "2024-02-06T09:53:57.093Z"
+                SPEED: data.SPEED || '',
+                TYPE_NAME: data.TYPE_NAME || '',
+                updatedAt: new Date().toISOString(),
 
             }));
 

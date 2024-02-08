@@ -13,6 +13,7 @@ mutation CreateVessel($id: ID!)(
     $NEXT_PORT_NAME: String!,
     $DISTANCE_TO_GO: String!,
     $DISTANCE_TRAVELLED: String!,
+    $DESTINATION: String!,
     $SPEED: String!,
     $AVG_SPEED: String!,
     $MAX_SPEED: String!
@@ -32,6 +33,7 @@ mutation CreateVessel($id: ID!)(
       NEXT_PORT_NAME: $NEXT_PORT_NAME,
       DISTANCE_TO_GO: $DISTANCE_TO_GO,
       DISTANCE_TRAVELLED: $DISTANCE_TRAVELLED,
+      DESTINATION: $DESTINATION,
       SPEED: $SPEED,
       AVG_SPEED: $AVG_SPEED,
       MAX_SPEED: $MAX_SPEED
@@ -51,6 +53,7 @@ mutation CreateVessel($id: ID!)(
       NEXT_PORT_NAME
       DISTANCE_TO_GO
       DISTANCE_TRAVELLED
+      DESTINATION
       SPEED
       AVG_SPEED
       MAX_SPEED

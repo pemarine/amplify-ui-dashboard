@@ -52,7 +52,6 @@ const Map = ({vessel}) => {
     return (
       <div className='map-container'>
 
-    {/*  <LoadScript googleMapsApiKey='AIzaSyBxU5YOF-cbBZaoc6hgovIsf0-oYuqFT9M'> */}
       <GoogleMap
         mapContainerStyle={{width: '100%', height: '33vh', borderRadius: '15px'}}
         zoom={6}

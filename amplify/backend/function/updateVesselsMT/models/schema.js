@@ -101,8 +101,15 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "DUSTANCE_TRAVELLED": {
-                    "name": "DUSTANCE_TRAVELLED",
+                "DISTANCE_TRAVELLED": {
+                    "name": "DISTANCE_TRAVELLED",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "DESTINATION": {
+                    "name": "DESTINATION",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,

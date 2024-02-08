@@ -25,7 +25,8 @@ type EagerVessel = {
   readonly NEXT_PORT?: string | null;
   readonly NEXT_PORT_NAME?: string | null;
   readonly DISTANCE_TO_GO?: string | null;
-  readonly DUSTANCE_TRAVELLED?: string | null;
+  readonly DISTANCE_TRAVELLED?: string | null;
+  readonly DESTINATION?: string | null;
   readonly SPEED?: string | null;
   readonly AVG_SPEED?: string | null;
   readonly MAX_SPEED?: string | null;
@@ -52,7 +53,8 @@ type LazyVessel = {
   readonly NEXT_PORT?: string | null;
   readonly NEXT_PORT_NAME?: string | null;
   readonly DISTANCE_TO_GO?: string | null;
-  readonly DUSTANCE_TRAVELLED?: string | null;
+  readonly DISTANCE_TRAVELLED?: string | null;
+  readonly DESTINATION?: string | null;
   readonly SPEED?: string | null;
   readonly AVG_SPEED?: string | null;
   readonly MAX_SPEED?: string | null;

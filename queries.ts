@@ -2,6 +2,37 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getVessels = /* GraphQL */ `
+  query GetVessels {
+    getVessels {
+      id
+      IMO
+      MMSI
+      SHIPNAME
+      FLAG
+      MARKET
+      TYPE_NAME
+      LAT
+      LON
+      LAST_PORT
+      CURRENT_PORT
+      NEXT_PORT
+      NEXT_PORT_NAME
+      DISTANCE_TO_GO
+      DISTANCE_TRAVELLED
+      DESTINATION
+      SPEED
+      AVG_SPEED
+      MAX_SPEED
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
 export const getVessel = /* GraphQL */ `
   query GetVessel($id: ID!) {
     getVessel(id: $id) {
@@ -19,7 +50,8 @@ export const getVessel = /* GraphQL */ `
       NEXT_PORT
       NEXT_PORT_NAME
       DISTANCE_TO_GO
-      DUSTANCE_TRAVELLED
+      DISTANCE_TRAVELLED
+      DESTINATION
       SPEED
       AVG_SPEED
       MAX_SPEED
@@ -54,7 +86,8 @@ export const listVessels = /* GraphQL */ `
         NEXT_PORT
         NEXT_PORT_NAME
         DISTANCE_TO_GO
-        DUSTANCE_TRAVELLED
+        DISTANCE_TRAVELLED
+        DESTINATION
         SPEED
         AVG_SPEED
         MAX_SPEED
@@ -99,7 +132,8 @@ export const syncVessels = /* GraphQL */ `
         NEXT_PORT
         NEXT_PORT_NAME
         DISTANCE_TO_GO
-        DUSTANCE_TRAVELLED
+        DISTANCE_TRAVELLED
+        DESTINATION
         SPEED
         AVG_SPEED
         MAX_SPEED
