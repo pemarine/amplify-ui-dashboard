@@ -127,15 +127,15 @@
       "function": {
         "S3Trigger98cc7fd7": {
           "deploymentBucketName": "amplify-amplifydashboard-emarinedev-192119-deployment",
-          "s3Key": "amplify-builds/S3Trigger98cc7fd7-38423959723650683867-build.zip"
+          "s3Key": "amplify-builds/S3Trigger98cc7fd7-534770504d544267644d-build.zip"
         },
         "amplifydashboardVesselFunctions": {
           "deploymentBucketName": "amplify-amplifydashboard-emarinedev-192119-deployment",
-          "s3Key": "amplify-builds/amplifydashboardVesselFunctions-LambdaLayerVersion63a6ca80-build.zip"
+          "s3Key": "amplify-builds/amplifydashboardVesselFunctions-LambdaLayerVersionbc4edb8e-build.zip"
         },
         "updateVesselsMT": {
           "deploymentBucketName": "amplify-amplifydashboard-emarinedev-192119-deployment",
-          "s3Key": "amplify-builds/updateVesselsMT-64524b5577765a6e6746-build.zip"
+          "s3Key": "amplify-builds/updateVesselsMT-73656b344b61586f6466-build.zip"
         }
       },
       "api": {
