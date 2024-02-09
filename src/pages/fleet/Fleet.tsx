@@ -4,6 +4,7 @@ import { View, Grid, useTheme } from '@aws-amplify/ui-react';
 //import { VesselsContext } from '../dashboard/VesselsContext';
 import { VesselsContext } from '../../utils/VesselsContext';
 import VesselCard from './VesselCard';
+import Title from './Title';
 //import { uploadUpdatedJSON } from '../../utils/S3Connector'; // Import the function
 //import VesselListContainer from 'src/utils/VesselListContainer';
 
@@ -25,8 +26,12 @@ const Fleet = () => {
         gap={tokens.space.medium}
 
       >
+
         {vessels.map((vessel, index) => (
+          <div style={{ display: 'flex', flexDirection: 'column', marginTop: '8px' }}>
+          <Title key={index} vessel={vessel} />
           <VesselCard key={index} vessel={vessel} />
+        </div>
         ))}
       </Grid>
     </View>

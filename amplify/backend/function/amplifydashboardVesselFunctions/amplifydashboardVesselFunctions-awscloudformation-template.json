@@ -20,7 +20,7 @@
     }
   },
   "Resources": {
-    "LambdaLayerVersiond1a07eae": {
+    "LambdaLayerVersiond6178088": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
         "CompatibleRuntimes": [
@@ -30,9 +30,9 @@
           "S3Bucket": {
             "Ref": "deploymentBucketName"
           },
-          "S3Key": "amplify-builds/amplifydashboardVesselFunctions-LambdaLayerVersiond1a07eae-build.zip"
+          "S3Key": "amplify-builds/amplifydashboardVesselFunctions-LambdaLayerVersiond6178088-build.zip"
         },
-        "Description": "Updated layer version 2024-02-06T17:05:28.559Z",
+        "Description": "Updated layer version 2024-02-08T13:50:43.025Z",
         "LayerName": {
           "Fn::Sub": [
             "amplifydashboardVesselFunctions-${env}",
@@ -47,11 +47,11 @@
       "DeletionPolicy": "Delete",
       "UpdateReplacePolicy": "Retain"
     },
-    "LambdaLayerPermissionPrivated1a07eae": {
+    "LambdaLayerPermissionPrivated6178088": {
       "Type": "AWS::Lambda::LayerVersionPermission",
       "Properties": {
         "Action": "lambda:GetLayerVersion",
-        "LayerVersionArn": "arn:aws:lambda:eu-north-1:002095041041:layer:amplifydashboardVesselFunctions-emarinedev:3",
+        "LayerVersionArn": "arn:aws:lambda:eu-north-1:002095041041:layer:amplifydashboardVesselFunctions-emarinedev:7",
         "Principal": {
           "Ref": "AWS::AccountId"
         }
@@ -61,7 +61,7 @@
   "Outputs": {
     "Arn": {
       "Value": {
-        "Ref": "LambdaLayerVersiond1a07eae"
+        "Ref": "LambdaLayerVersiond6178088"
       }
     }
   }

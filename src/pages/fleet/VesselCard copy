@@ -5,7 +5,7 @@ import './VesselCard.css'; // Import the CSS file
 import { Link } from 'react-router-dom';
 
 
-//import GreenLight from "../../assets/icons/GreenLight.gif";
+import GreenLight from "../../assets/icons/GreenLight.gif";
 
 import { Icon } from "@aws-amplify/ui-react";
 
@@ -14,7 +14,6 @@ import {
   MdAnchor,
  // MdOutlineTableChart,
 } from "react-icons/md";
-//import { Parallax } from 'react-scroll-parallax';
 
 
 const VesselCard = ({ vessel }) => {
@@ -22,17 +21,26 @@ const VesselCard = ({ vessel }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    
     <Card 
       className={`amplify-card ${theme} vessel-card`}
-      height="27vh"
+      height="33vh"
       borderRadius="15px"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      
-      style={{ backgroundImage: `url(/vessels/${vessel.IMO}.jpg)`, borderTop: '2px solid #00c9ff' }} // Replace .jpg with the actual image extension
+      style={{ backgroundImage: `url(/vessels/${vessel.IMO}.jpg)` }} // Replace .jpg with the actual image extension
       >
-     
+      <div className={'vessel-header'}>
+        <div className='vessel-header-label'>
+          <img src={`/flags/${vessel.FLAG}.png`} alt={vessel.FLAG} width="24" height="16"/>         
+          <p style={{ marginLeft: '10px', fontSize:'1.17rem', fontWeight: 'bold' }}>M/S {vessel.SHIPNAME}</p>
+        </div>
+        <div className='vessel-header-imo'>
+          <img src={GreenLight} alt="Green light" width="15" height="15" style={{ marginRight: '5px' }}/>
+
+          <p style={{fontSize:'1.2rem'}}>IMO: {vessel.IMO}</p>
+
+        </div>
+      </div>
       {isHovered && (
         <div className="additional-info">
           <p>Destination: {vessel.DESTINATION}</p>

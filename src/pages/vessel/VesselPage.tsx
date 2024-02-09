@@ -45,7 +45,7 @@ const VesselPage = () => {
       <>
      
         <View borderRadius="6px" maxWidth="100%" padding="0rem" minHeight="100vh" marginTop="15px">
-            <Grid templateColumns="1fr 1fr 1fr" gap="15px">
+            <Grid templateColumns="1fr 1fr 1fr" gap="15px" padding="0" >
                 <View>
                     <Title vessel={vessel}/>
                     <Image vessel={vessel}/>

@@ -24,6 +24,8 @@ const Image = ({vessel}) => {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 overflow: 'hidden',
+                boxShadow: '',
+                borderTop: '2px solid #00c9ff' 
               //  background: 'radial-gradient(circle at center, transparent, #0f111d86)', 
 
 

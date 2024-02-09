@@ -17,6 +17,7 @@ const VesselInfoBox: React.FC<VesselBoxProps> = ({ vessel, open, close }) => {
   console.log(vessel); // Log the vessel prop
 
   return (
+  
     <Popup open={open} closeOnDocumentClick onClose={close} closeOnEscape modal>
 
       <div className="vessel-box">
@@ -38,6 +39,7 @@ const VesselInfoBox: React.FC<VesselBoxProps> = ({ vessel, open, close }) => {
         </div>
       </div>
     </Popup>
+    
   );
 }
 
