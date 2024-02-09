@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import {
   View,
   Grid,
@@ -23,13 +23,16 @@ import "./Dashboard.css";
 import Map from "./Map"
 import TableVessels from "./TableVessels";
 import { VesselsProvider } from "../../utils/VesselsContext";
+import InfoBar from "./InfoBar";
 
 
 
 const Dashboard = () => {
   const { theme } = useContext(ThemeContext);
-
   const { tokens } = useTheme();
+
+  const [selectedMarker, setSelectedMarker] = useState(null);
+
 
   useEffect(() => {
     const doChartData = async () => {
@@ -53,7 +56,8 @@ const Dashboard = () => {
           <View columnSpan={2} rowSpan={{ base: 3, large: 4 }}>
            
                 <VesselsProvider>
-                    <Map/>
+                    <InfoBar setSelectedMarker={setSelectedMarker} selectedMarker={selectedMarker}/>
+                    <Map isInfoBarOpen={false} setSelectedMarker={setSelectedMarker}/>
                 </VesselsProvider>
            
           </View>

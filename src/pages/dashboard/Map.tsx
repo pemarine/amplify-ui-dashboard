@@ -4,9 +4,9 @@ import React, { useContext } from 'react';
 
 import markerIcon from '../../assets/icons/animated_marker.gif';
 //import { fetchVessels } from './api';
-import VesselInfoBox from './VesselBox';
+//import VesselInfoBox from './VesselBox';
 //import { Vessel } from './types';
-import { Vessel } from '../../models'
+//import { Vessel } from '../../models'
 import { VesselsContext } from '../../utils/VesselsContext';
 
 /*
@@ -17,13 +17,20 @@ interface Vessel {
 }
 */
 
-const Map = () => {
+interface MapProps {
+  setSelectedMarker: (marker: any) => void;
+  isInfoBarOpen: boolean;
+}
+
+const Map: React.FC<MapProps> = ({ setSelectedMarker, isInfoBarOpen }) => {
  
   //const [vessels, setVessels] = React.useState<Vessel[]>([]);
   const vessels = useContext(VesselsContext);
+  const mapHeight = isInfoBarOpen ? '10vh' : '90vh';
 
-  const [selectedVessel, setSelectedVessel] = React.useState<Vessel | null>(null);
-  const [isPopupOpen, setIsPopupOpen] = React.useState(false);
+
+ // const [selectedVessel, setSelectedVessel] = React.useState<Vessel | null>(null);
+// const [isPopupOpen, setIsPopupOpen] = React.useState(false);
   /*
   React.useEffect(() => {
     const fetchData = async () wwh=> {
@@ -71,11 +78,14 @@ const Map = () => {
     ];  
   
     return (
-      <div className='map-container'>
+      <div className='map-container'style={{ height: mapHeight, width: '100%' }}>
+
 
     {/*  <LoadScript googleMapsApiKey='AIzaSyBxU5YOF-cbBZaoc6hgovIsf0-oYuqFT9M'> */}
       <GoogleMap
-        mapContainerStyle={{width: '100%', height: '90vh', borderRadius: '15px'}}
+         key={isInfoBarOpen ? 'open' : 'closed'}
+
+        mapContainerStyle={{width: '100%', height: mapHeight, borderRadius: '15px'}}
         zoom={3}
         center={{lat: 41.3851, lng: 10.1734}}
         options={{
@@ -99,14 +109,16 @@ const Map = () => {
 
         }}
         onClick={() => {
-          setSelectedVessel(vessel);
-          setIsPopupOpen(true);
+          //setSelectedVessel(vessel);
+          setSelectedMarker(vessel);
+          isInfoBarOpen=true;
+          //setIsPopupOpen(true);
         }}
         />
       ))}
        
       </GoogleMap>
-   {/*  </LoadScript> */}
+   {/*  </LoadScript> 
      {selectedVessel && (
       <VesselInfoBox 
         vessel={selectedVessel} 
@@ -114,6 +126,7 @@ const Map = () => {
         close={() => setIsPopupOpen(false)} 
       />
     )}
+    */}
     </div>
     )
   }

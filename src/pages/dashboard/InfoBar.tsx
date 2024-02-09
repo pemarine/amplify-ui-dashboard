@@ -1,8 +1,38 @@
-import React from 'react';
-const InfoBar = ({ open, close }) => {
+import React, { useContext } from 'react';
+import { Card } from '@aws-amplify/ui-react';
+import { ThemeContext } from "../../themes/ThemeContext";
+
+
+interface InfoBarProps {
+  selectedMarker: any;
+  setSelectedMarker: (marker: any) => void;
+}
+  const InfoBar: React.FC<InfoBarProps> = ({ selectedMarker, setSelectedMarker }) => {
+    const { theme } = useContext(ThemeContext);
+
+    if (!selectedMarker) {
+      return null;
+    }
+  
+    const handleCloseClick = () => {
+      setSelectedMarker(null);
+    };
+
+  
     return (
-      open && (
-        <div style={{
+     
+        <Card
+          className={`amplify-card ${theme}`}
+          height='15vh'
+          borderRadius="15px"
+          marginBottom='15px'
+        >
+                      <button onClick={handleCloseClick} >Close</button>
+                      <h2>{selectedMarker.SHIPNAME}</h2>
+
+
+        </Card>
+   /*</>     <div style={{
           position: 'absolute',
           bottom: 0,
           height: '33.33%',
@@ -12,9 +42,9 @@ const InfoBar = ({ open, close }) => {
         }}>
             <button onClick={close}>Close</button>
 
-          {/* Box content */}
-        </div>
-      )
+          {/* Box content */
+        
+      
     );
   };
 export default InfoBar;
