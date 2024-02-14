@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { IconProps, ViewProps } from "@aws-amplify/ui-react";
+import { FlexProps, IconProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -18,15 +18,11 @@ export declare type Variant = {
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type LogoOverridesProps = {
-    Logo?: PrimitiveOverrideProps<ViewProps>;
-    "Craftwork Logo"?: PrimitiveOverrideProps<ViewProps>;
-    Logo056?: PrimitiveOverrideProps<IconProps>;
-    Path054?: PrimitiveOverrideProps<IconProps>;
-    Path055?: PrimitiveOverrideProps<IconProps>;
-    Path057?: PrimitiveOverrideProps<IconProps>;
-    Path058?: PrimitiveOverrideProps<IconProps>;
+    Logo?: PrimitiveOverrideProps<FlexProps>;
+    Logo3185359?: PrimitiveOverrideProps<IconProps>;
+    "Company Name"?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
-export declare type LogoProps = React.PropsWithChildren<Partial<ViewProps> & {
+export declare type LogoProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: LogoOverridesProps | undefined | null;
 }>;
 export default function Logo(props: LogoProps): React.ReactElement;

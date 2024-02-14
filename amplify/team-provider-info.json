@@ -131,11 +131,11 @@
         },
         "amplifydashboardVesselFunctions": {
           "deploymentBucketName": "amplify-amplifydashboard-emarinedev-192119-deployment",
-          "s3Key": "amplify-builds/amplifydashboardVesselFunctions-LambdaLayerVersionbc4edb8e-build.zip"
+          "s3Key": "amplify-builds/amplifydashboardVesselFunctions-LambdaLayerVersion43dea98f-build.zip"
         },
         "updateVesselsMT": {
           "deploymentBucketName": "amplify-amplifydashboard-emarinedev-192119-deployment",
-          "s3Key": "amplify-builds/updateVesselsMT-73656b344b61586f6466-build.zip"
+          "s3Key": "amplify-builds/updateVesselsMT-4f366e525950722f574a-build.zip"
         }
       },
       "api": {

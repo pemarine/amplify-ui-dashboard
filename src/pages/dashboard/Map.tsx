@@ -1,4 +1,5 @@
 import { GoogleMap, Marker } from '@react-google-maps/api';
+
 import React, { useContext } from 'react';
 //import axios from 'axios';
 
@@ -26,7 +27,7 @@ const Map: React.FC<MapProps> = ({ setSelectedMarker, isInfoBarOpen }) => {
  
   //const [vessels, setVessels] = React.useState<Vessel[]>([]);
   const vessels = useContext(VesselsContext);
-  const mapHeight = isInfoBarOpen ? '10vh' : '90vh';
+  const mapHeight = isInfoBarOpen ? '10vh' : '80vh';
 
 
  // const [selectedVessel, setSelectedVessel] = React.useState<Vessel | null>(null);
@@ -76,18 +77,35 @@ const Map: React.FC<MapProps> = ({ setSelectedMarker, isInfoBarOpen }) => {
             ]
         }
     ];  
+   // const [map, setMap] = React.useState<GoogleMap | null>(null);
+    const [center, setCenter] = React.useState({ lat: 25, lng: 0 });
+
+    const onMapLoad = React.useCallback((map) => {
+      setCenter(map);
+    }, []);
+
+    const onMarkerClick = (vessel) => {
+      setSelectedMarker(vessel);
+      isInfoBarOpen = true;
+      setCenter({ lat: vessel.LAT, lng: vessel.LON });
+
+    };
+
+ 
+
   
     return (
-      <div className='map-container'style={{ height: mapHeight, width: '100%' }}>
+      <div className='map-container'style={{ height: mapHeight, width: '100%', marginTop: '15px' }}>
 
 
     {/*  <LoadScript googleMapsApiKey='AIzaSyBxU5YOF-cbBZaoc6hgovIsf0-oYuqFT9M'> */}
       <GoogleMap
          key={isInfoBarOpen ? 'open' : 'closed'}
+         onLoad={onMapLoad}
 
         mapContainerStyle={{width: '100%', height: mapHeight, borderRadius: '15px'}}
         zoom={3}
-        center={{lat: 41.3851, lng: 10.1734}}
+        center={center}
         options={{
           styles: mapStyles,
           streetViewControl: false,
@@ -110,8 +128,9 @@ const Map: React.FC<MapProps> = ({ setSelectedMarker, isInfoBarOpen }) => {
         }}
         onClick={() => {
           //setSelectedVessel(vessel);
-          setSelectedMarker(vessel);
-          isInfoBarOpen=true;
+     
+          onMarkerClick(vessel);
+          
           //setIsPopupOpen(true);
         }}
         />

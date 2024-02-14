@@ -58,6 +58,16 @@
 /*  DARK THEME  */
 
 .amplify-card.dark {
-
     background-color: #212946;
+    color: #fff;
+}
+.amplify-card {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+.table-vessels.dark {
+  background-color: #111936;
+  color: #fff;
 }

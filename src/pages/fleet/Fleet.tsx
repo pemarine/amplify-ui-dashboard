@@ -22,7 +22,7 @@ const Fleet = () => {
   return (
     <View borderRadius="6px" maxWidth="100%" padding="0rem" minHeight="100vh" marginTop="15px">
       <Grid 
-        templateColumns={{ base: "repeat(3, 1fr)", large: "repeat(3, 1fr)" }}
+        templateColumns={{ base: "repeat(4, 1fr)", large: "repeat(4, 1fr)" }}
         gap={tokens.space.medium}
 
       >

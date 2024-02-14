@@ -1,3 +1,25 @@
+
+.amplify-card.light {
+  background: #FAFAFA;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+
+}
+.amplify-card.dark {
+  
+  background: #1A223F;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+
+
+
+}
+.title.dark {
+  background: #1A223F!important;
+}
+
 .vessel-card {
     position: relative;
     background-size: cover;
@@ -94,7 +116,7 @@
     border-radius: 15px;
     color: #f6f6f5; /* Coral color */
     background-color: transparent;
-    font-size: 1.1rem!important;
+    font-size: 1rem!important;
     text-align: center;
     text-decoration: none;
     display: inline-block;

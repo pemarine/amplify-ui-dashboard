@@ -24,7 +24,7 @@ import GreenLight from "../../assets/icons/GreenLight.gif";
   // Add other properties as needed
 }*/
 
-const BasicTable = () => {
+const BasicTable = ({onRowClick}) => {
   /*
   const [vessels, setVessels] = React.useState<Vessel[]>([]);
   */
@@ -81,7 +81,7 @@ const BasicTable = () => {
         <TableBody>
           {vessels.map((vessel) => (
             
-            <TableRow>
+            <TableRow onClick={() => onRowClick(vessel)}>
               <TableCell className='flag' style={{width: '20%'}}>
                 {vessel.FLAG && <img src={`/flags/${vessel.FLAG}.png`} alt={vessel.FLAG} width="30" height="20"/>}
               </TableCell>

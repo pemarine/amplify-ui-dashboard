@@ -65,11 +65,11 @@ const Dashboard = () => {
           <View rowSpan={{ base: 1, large: 4 }}>
             <Card
               className={`amplify-card ${theme}`}
-              height="100%"
               borderRadius="15px"
+              
               >
                 <VesselsProvider>
-                   <TableVessels/>
+                   <TableVessels setSelectedMarker={setSelectedMarker} isInfoBarOpen={false}/>
 
                 </VesselsProvider>
              

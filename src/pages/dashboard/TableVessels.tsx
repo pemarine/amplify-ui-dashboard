@@ -1,16 +1,34 @@
-import React from "react";
+import React, { useContext} from "react";
 import { View, ScrollView } from "@aws-amplify/ui-react";
 import BasicTable from "./BasicTable";
 //import UsersTable from "./UsersTable";
+import './BasicTable.css'
 
 // const demoUsers = [{ name: "hello" }, { name: "hello" }];
+import { ThemeContext } from "../../themes/ThemeContext";
 
-const TableVessels = () => {
+interface TableVesselsProps {
+  setSelectedMarker: (marker: any) => void;
+  isInfoBarOpen: boolean;
+}
+const TableVessels: React.FC<TableVesselsProps> = ({setSelectedMarker}) => {
+
+  const { theme } = useContext(ThemeContext);
+  
+
+  const handleRowClick = (marker) => {
+    setSelectedMarker(marker);
+    
+  };
+
+
   return (
     <>
     
 
       <View
+        className={`amplify-card ${theme}`}
+
         backgroundColor="TRANSPARENT"
         
         borderRadius="6px"
@@ -20,7 +38,7 @@ const TableVessels = () => {
       >
     
         <ScrollView width="100%">
-          <BasicTable />
+          <BasicTable onRowClick={handleRowClick} />
         </ScrollView>
       </View>
     </>

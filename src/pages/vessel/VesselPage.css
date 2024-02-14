@@ -1,3 +1,10 @@
+.amplify-card{
+    background: white;
+}
+
+.amplify-card.dark {
+
+}
 h5
 {
     padding: 0;

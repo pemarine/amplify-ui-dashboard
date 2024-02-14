@@ -5,8 +5,8 @@ import { Amplify } from 'aws-amplify';
 //catorProps } from '@aws-amplify/ui-react';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 
-import config from './amplifyconfiguration.json';
-//import awsconfig from './aws-exports.js';
+//import config from './amplifyconfiguration.json';
+import awsconfig from './aws-exports.js';
 import "@aws-amplify/ui-react/styles.css";
 import "./App.css";
 //import { ThemeProvider } from "@aws-amplify/ui-react";
@@ -26,6 +26,13 @@ import Forms from "./pages/forms";
 import EditForm from "./pages/forms/EditForm";
 import VesselPage from "./pages/vessel";
 
+import Header from "./Header";
+import Footer from "./Footer";
+import "./styles.css";
+
+
+import "@aws-amplify/ui-react/styles.css";
+//import { studioTheme } from "./ui-components";
 
 /*Amplify.configure({
   API: {
@@ -39,7 +46,7 @@ import VesselPage from "./pages/vessel";
 });
 */
 //import awsconfig from './aws-exports';
-Amplify.configure(config);
+Amplify.configure(awsconfig);
 //Amplify.configure(config);
 
 
@@ -76,7 +83,15 @@ export function App() {
   );
 }
 
-export default withAuthenticator(App);
+export default withAuthenticator(App, {
+  components: {
+    Header,
+    SignIn: {
+     
+    },
+    Footer
+  }
+});
 
 function NoMatch() {
   return (

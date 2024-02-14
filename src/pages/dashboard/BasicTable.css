@@ -119,3 +119,12 @@
   .flag {
     transform: translateY(3px);
   }
+
+
+.amplify-card {
+  background-color: #fff!important;
+}
+.amplify-card.dark{
+  background-color: #212946!important;
+
+}

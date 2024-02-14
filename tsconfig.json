@@ -40,6 +40,6 @@
     "./src/**/*.svg",
     "./src/**/*.json",
     "./src/**/*.css",
-    "./src/**/*.mov", "src/utils/CreateVessels",
+    "./src/**/*.mov", "src/utils/CreateVessels", "amplify/backend/function/updateVesselsMT/models/schema.mjs", "amplify/backend/function/updateVesselsMT/models/index.mjs",
   ]
 }

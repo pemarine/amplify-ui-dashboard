@@ -285,7 +285,7 @@ const vessel = new Vessel({
 exports.handler = async (event) => {
     
     try {
-        const response = await axios.get('https://services.marinetraffic.com/api/exportvessels/2892a496929507874e0820afc4eaaa5fc31f9f23?v=9&timespan=5&limit=2000&protocol=jsono');
+        const response = await axios.get('https://services.marinetraffic.com/api/exportvessels/2892a496929507874e0820afc4eaaa5fc31f9f23?v=9&timespan=120&limit=2000&protocol=jsono');
         if (response.data && Array.isArray(response.data.DATA)) {
             const vessels = response.data.DATA.map((data) => new Vessel({
                 id: uuidv4(),
