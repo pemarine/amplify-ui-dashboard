@@ -31,7 +31,11 @@ const Dashboard = () => {
   const { theme } = useContext(ThemeContext);
   const { tokens } = useTheme();
 
+  const [selectedVesselId, setSelectedVesselId] = React.useState<string | null>(null);
+
   const [selectedMarker, setSelectedMarker] = useState(null);
+  //const [selectedMarkerIndex, setSelectedMarkerIndex] = React.useState<number | null>(null);
+
 
 
   useEffect(() => {
@@ -57,7 +61,7 @@ const Dashboard = () => {
            
                 <VesselsProvider>
                     <InfoBar setSelectedMarker={setSelectedMarker} selectedMarker={selectedMarker}/>
-                    <Map isInfoBarOpen={false} setSelectedMarker={setSelectedMarker}/>
+                    <Map setSelectedMarker={setSelectedMarker} isInfoBarOpen={false} setSelectedVesselId={setSelectedVesselId} selectedVesselId={selectedVesselId}/>
                 </VesselsProvider>
            
           </View>
@@ -69,7 +73,8 @@ const Dashboard = () => {
               
               >
                 <VesselsProvider>
-                   <TableVessels setSelectedMarker={setSelectedMarker} isInfoBarOpen={false}/>
+                  <TableVessels setSelectedMarker={setSelectedMarker} isInfoBarOpen={false} setSelectedVesselId={setSelectedVesselId} selectedVesselId={selectedVesselId} />
+
 
                 </VesselsProvider>
              

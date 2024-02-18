@@ -1,19 +1,19 @@
 import React, { useContext } from 'react';
 
-import { Box, CardContent, CardMedia, LinearProgress } from '@mui/material';
+import { CardContent, CardMedia } from '@mui/material';
 import { Card } from '@aws-amplify/ui-react';
 import { ThemeContext } from "../../themes/ThemeContext";
 import './Image.css'; // Import the CSS file
 
 
 const Image = ({vessel}) => {
-    const progress = ((parseFloat(vessel?.DISTANCE_TRAVELLED ?? '0')) / (parseFloat(vessel?.DISTANCE_TO_GO ?? '1'))) * 100;
+   // const progress = ((parseFloat(vessel?.DISTANCE_TRAVELLED ?? '0')) / (parseFloat(vessel?.DISTANCE_TO_GO ?? '1'))) * 100;
     const { theme } = useContext(ThemeContext);
 
     return (
         <><Card
             className={`amplify-card ${theme}`}
-            height="30vh"
+            height="22vh"
             borderRadius="15px"
             padding="0"
             margin="0"
@@ -74,22 +74,7 @@ const Image = ({vessel}) => {
             <CardContent style={{ position: 'relative'}}>
                 {/* Your card content here */}
             </CardContent>
-            <Box 
-                display="flex"
-                alignItems="center"
-                position="absolute"
-                bottom={0}
-                width="100%"
-                p={1}
-                sx={{ backgroundColor: 'rgba(17, 25, 54, 0.9)'}}
-
-            >
-                <p style={{ marginRight: '8px' }}>{vessel.LAST_PORT}</p>
-                <Box flexGrow={1}>
-                    <LinearProgress variant="determinate" value={progress} />
-                </Box>
-                <p style={{ marginLeft: '8px' }}>{vessel.DESTINATION}</p>
-            </Box>
+           
     </div>
         </Card>
         </>

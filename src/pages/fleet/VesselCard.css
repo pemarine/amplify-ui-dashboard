@@ -16,6 +16,9 @@
 
 
 }
+.title{
+ background: #FAFAFA!important;
+}
 .title.dark {
   background: #1A223F!important;
 }

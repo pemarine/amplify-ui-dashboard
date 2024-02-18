@@ -4,11 +4,14 @@ import React, { useContext } from 'react';
 //import axios from 'axios';
 
 import markerIcon from '../../assets/icons/animated_marker.gif';
+import GreenAnimatedMarker from '../../assets/icons/GreenAnimatedMarker.gif';
+
 //import { fetchVessels } from './api';
 //import VesselInfoBox from './VesselBox';
 //import { Vessel } from './types';
 //import { Vessel } from '../../models'
 import { VesselsContext } from '../../utils/VesselsContext';
+//import { Vessel } from 'src/models';
 
 /*
 interface Vessel {
@@ -21,11 +24,18 @@ interface Vessel {
 interface MapProps {
   setSelectedMarker: (marker: any) => void;
   isInfoBarOpen: boolean;
+  setSelectedVesselId: (id: string) => void;
+  selectedVesselId: string | null;
+  //setSelectedMarkerIndex: (index: number) => void;
+  //selectedMarkerIndex: number | null;
+
 }
 
-const Map: React.FC<MapProps> = ({ setSelectedMarker, isInfoBarOpen }) => {
+const Map: React.FC<MapProps> = ({ setSelectedVesselId, selectedVesselId, setSelectedMarker, isInfoBarOpen }) => {
  
   //const [vessels, setVessels] = React.useState<Vessel[]>([]);
+  //const [localSelectedMarker, setLocalSelectedMarker] = React.useState<Vessel | null>(null);
+
   const vessels = useContext(VesselsContext);
   const mapHeight = isInfoBarOpen ? '10vh' : '80vh';
 
@@ -84,9 +94,15 @@ const Map: React.FC<MapProps> = ({ setSelectedMarker, isInfoBarOpen }) => {
       setCenter(map);
     }, []);
 
-    const onMarkerClick = (vessel) => {
+    const onMarkerClick = (vessel: any) => {
+      setSelectedVesselId(vessel.id);
+
       setSelectedMarker(vessel);
-      isInfoBarOpen = true;
+      
+      //setSelectedMarkerIndex(index);
+
+     // setLocalSelectedMarker(vessel);
+      //isInfoBarOpen = true;
       setCenter({ lat: vessel.LAT, lng: vessel.LON });
 
     };
@@ -113,7 +129,8 @@ const Map: React.FC<MapProps> = ({ setSelectedMarker, isInfoBarOpen }) => {
         
 
       >
-      {vessels.map((vessel, index) => (
+      {vessels.map((vessel, index) => {
+      return (
         <Marker
         key={index}
         position={{
@@ -121,7 +138,8 @@ const Map: React.FC<MapProps> = ({ setSelectedMarker, isInfoBarOpen }) => {
           lng: vessel.LON ? parseFloat(vessel.LON) : 0, // Replace 0 with your default longitude
         }}
         icon={{
-          url: markerIcon, // Replace with your icon URL
+          
+          url: vessel.id === selectedVesselId ? GreenAnimatedMarker : markerIcon,
           scaledSize: new window.google.maps.Size(60, 60), // Adjust size as needed
           anchor: new window.google.maps.Point(30, 30),
 
@@ -134,7 +152,8 @@ const Map: React.FC<MapProps> = ({ setSelectedMarker, isInfoBarOpen }) => {
           //setIsPopupOpen(true);
         }}
         />
-      ))}
+        );
+})}
        
       </GoogleMap>
    {/*  </LoadScript> 

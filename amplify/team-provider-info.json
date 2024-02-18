@@ -131,7 +131,7 @@
         },
         "amplifydashboardVesselFunctions": {
           "deploymentBucketName": "amplify-amplifydashboard-emarinedev-192119-deployment",
-          "s3Key": "amplify-builds/amplifydashboardVesselFunctions-LambdaLayerVersion43dea98f-build.zip"
+          "s3Key": "amplify-builds/amplifydashboardVesselFunctions-LambdaLayerVersion684e5a3e-build.zip"
         },
         "updateVesselsMT": {
           "deploymentBucketName": "amplify-amplifydashboard-emarinedev-192119-deployment",

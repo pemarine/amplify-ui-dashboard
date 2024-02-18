@@ -16,8 +16,14 @@ import { MdCo2 } from "react-icons/md";
 import { MdOutlineEnergySavingsLeaf } from "react-icons/md";
 import { MdOilBarrel } from "react-icons/md";
 
+//import SeoChartCard from '../../ui-components/cards/SeoChartCard';
+//import chartData from './chart-data';
 
+import { Customers } from '../../ui-components';
+import { Meter } from './Meter';
+import RouteBar from './RouteBar';
 
+<Customers />
 
 //import Element from "./Element"
 
@@ -58,13 +64,16 @@ const VesselPage = () => {
       <>
      
         <View borderRadius="6px" maxWidth="100%" padding="0rem" minHeight="100vh" marginTop="15px">
-            <Grid templateColumns="1fr 2fr 1fr" gap="15px" padding="0" >
+            <Grid templateColumns="1fr 2fr 1fr" gap="15px" height="auto" padding="0" >
                 <View>
                     <Title vessel={vessel}/>
                     <Image vessel={vessel}/>
+                    <RouteBar vessel={vessel}/>
+
+
                         
                 </View>
-                <View>
+                <View  >
                     <Grid templateColumns="1fr 1fr 1fr" gap="15px">
                         <View>
                             <MiniStatistics
@@ -100,6 +109,20 @@ const VesselPage = () => {
                             />
                         <View>
 
+                        </View>
+                    </Grid>
+                    <Grid templateColumns="1fr 1fr 1fr" gap="15px">
+                        <View>
+                        </View>
+                        <View>
+                        <Meter vessel={{ SPEED: ((parseFloat(vessel.SPEED || '0') / 10).toString()) }} />                    
+                        
+                                              </View>
+                        <View>
+                        </View>
+                    </Grid>
+                    <Grid templateColumns="1fr" >
+                        <View>
                         </View>
                     </Grid>
                  {/*   <CO2SavedMeter vessel={vessel} />

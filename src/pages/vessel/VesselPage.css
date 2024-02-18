@@ -1,9 +1,11 @@
 .amplify-card{
     background: white;
 }
-
-.amplify-card.dark {
-
+.title {
+    background: #FAFAFA
+}
+.title.dark {
+    background: #1A223F;
 }
 h5
 {

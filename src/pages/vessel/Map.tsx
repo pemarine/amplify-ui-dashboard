@@ -53,7 +53,7 @@ const Map = ({vessel}) => {
       <div className='map-container'>
 
       <GoogleMap
-        mapContainerStyle={{width: '100%', height: '33vh', borderRadius: '15px'}}
+        mapContainerStyle={{width: '100%', height: '25vh', borderRadius: '15px'}}
         zoom={6}
         center={defaultCenter}
         options={{

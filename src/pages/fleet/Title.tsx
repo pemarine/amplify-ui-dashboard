@@ -12,7 +12,7 @@ const Title = ({vessel}) => {
     return (
         <>
         <Card
-            className={`amplify-card ${theme}`}
+            className={`title ${theme}`}
             borderRadius="15px"
             boxShadow="0px"
             paddingTop="0px"

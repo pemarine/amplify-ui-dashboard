@@ -27,6 +27,7 @@ const useStyles = makeStyles(() => ({
     fontSize: '18px',
     paddingTop: '15px',
     paddingLeft: '20px',
+    marginDown: '20px',
     margin: '0',
   },
   subtitle: {
@@ -42,8 +43,9 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     justifyContent: 'center',
     padding: '15px',
+    marginTop: '11px',
 
-    fontSize: '28px',
+    fontSize: '35px',
     marginBottom: '5px',
     alignSelf: 'center',
     justifySelf: 'center',
@@ -90,6 +92,7 @@ const MiniStatistics = (props: MiniStatisticProps) => {
       paddingTop={8}
       margin="0"
       padding="0"
+      /*
       style={{
         
         background: theme === 'dark' 
@@ -98,11 +101,12 @@ const MiniStatistics = (props: MiniStatisticProps) => {
         : '#082b40',
 
           
-      }}
+      }} 
+   */
     >
       <div className={classes.content}>
         <div className={classes.title}>{props.title}</div>
-        <div className={classes.subtitle}>{props.subtitle}</div>
+      {/* } <div className={classes.subtitle}>{props.subtitle}</div>  */}
         <div className={classes.value}>
           {props.amount}
           <sup className={classes.sup}>{props.measurement}</sup>

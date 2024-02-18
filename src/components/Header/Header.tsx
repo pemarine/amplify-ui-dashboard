@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import Logo from "../Logo";
 import HeaderNav from "./HeaderNav";
-import HeaderSearchBar from "./HeaderSearchBar";
+//import HeaderSearchBar from "./HeaderSearchBar";
 import { ThemeContext } from "../../themes/ThemeContext";
 
 
@@ -30,9 +30,9 @@ const Header = () => {
           </div>
          <span>{baseConfig.headerText}</span>
         </div>
-
+ 
         <div className="header-right">
-          {baseConfig.search ? <HeaderSearchBar /> : <></>}
+         {/* {baseConfig.search ? <HeaderSearchBar /> : <></>}  */}
 
           <HeaderNav />
         </div>
