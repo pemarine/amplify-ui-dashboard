@@ -19,11 +19,11 @@ import { MdOilBarrel } from "react-icons/md";
 //import SeoChartCard from '../../ui-components/cards/SeoChartCard';
 //import chartData from './chart-data';
 
-import { Customers } from '../../ui-components';
+//import { Customers } from '../../ui-components';
 import { Meter } from './Meter';
 import RouteBar from './RouteBar';
 
-<Customers />
+//<Customers />
 
 //import Element from "./Element"
 
