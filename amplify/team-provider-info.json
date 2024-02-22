@@ -1,148 +1,28 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-amplifydashboard-dev-141602-authRole",
-      "UnauthRoleArn": "arn:aws:iam::002095041041:role/amplify-amplifydashboard-dev-141602-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::002095041041:role/amplify-amplifydashboard-dev-141602-authRole",
+      "AuthRoleName": "amplify-emarinecloud-dev-170110-authRole",
+      "UnauthRoleArn": "arn:aws:iam::002095041041:role/amplify-emarinecloud-dev-170110-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::002095041041:role/amplify-emarinecloud-dev-170110-authRole",
       "Region": "eu-north-1",
-      "DeploymentBucketName": "amplify-amplifydashboard-dev-141602-deployment",
-      "UnauthRoleName": "amplify-amplifydashboard-dev-141602-unauthRole",
-      "StackName": "amplify-amplifydashboard-dev-141602",
-      "StackId": "arn:aws:cloudformation:eu-north-1:002095041041:stack/amplify-amplifydashboard-dev-141602/91dd5530-b083-11ee-bfaf-0e2213f1e004",
-      "AmplifyAppId": "dd4lttxiod3ih"
+      "DeploymentBucketName": "amplify-emarinecloud-dev-170110-deployment",
+      "UnauthRoleName": "amplify-emarinecloud-dev-170110-unauthRole",
+      "StackName": "amplify-emarinecloud-dev-170110",
+      "StackId": "arn:aws:cloudformation:eu-north-1:002095041041:stack/amplify-emarinecloud-dev-170110/6fe17460-d0d2-11ee-920a-0e45fc2a851c",
+      "AmplifyAppId": "d1c9qanmm6s06l"
     },
     "categories": {
-      "auth": {
-        "amplifyDashboard": {},
-        "userPoolGroups": {}
-      },
-      "storage": {
-        "storage": {}
-      },
-      "function": {
-        "amplifydashboardVesselFunctions": {
-          "deploymentBucketName": "amplify-amplifydashboard-dev-141602-deployment",
-          "s3Key": "amplify-builds/amplifydashboardVesselFunctions-LambdaLayerVersion77f16c8d-build.zip"
-        },
-        "S3Trigger98cc7fd7": {},
-        "updateVesselsMT": {}
-      },
       "api": {
-        "amplifyDashboard": {}
-      }
-    }
-  },
-  "server": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-amplifydashboard-server-151632-authRole",
-      "UnauthRoleArn": "arn:aws:iam::002095041041:role/amplify-amplifydashboard-server-151632-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::002095041041:role/amplify-amplifydashboard-server-151632-authRole",
-      "Region": "eu-north-1",
-      "DeploymentBucketName": "amplify-amplifydashboard-server-151632-deployment",
-      "UnauthRoleName": "amplify-amplifydashboard-server-151632-unauthRole",
-      "StackName": "amplify-amplifydashboard-server-151632",
-      "StackId": "arn:aws:cloudformation:eu-north-1:002095041041:stack/amplify-amplifydashboard-server-151632/d6f9e360-bde7-11ee-9294-0e9f49ea8960",
-      "AmplifyAppId": "dd4lttxiod3ih"
-    },
-    "categories": {
+        "emarinecloud": {}
+      },
       "auth": {
-        "amplifyDashboard": {},
-        "userPoolGroups": {}
+        "eMarineCloud": {}
       },
       "function": {
-        "S3Trigger98cc7fd7": {
-          "deploymentBucketName": "amplify-amplifydashboard-server-151632-deployment",
-          "s3Key": "amplify-builds/S3Trigger98cc7fd7-56583877426777785961-build.zip"
-        },
-        "amplifydashboardVesselFunctions": {
-          "deploymentBucketName": "amplify-amplifydashboard-server-151632-deployment",
-          "s3Key": "amplify-builds/amplifydashboardVesselFunctions-LambdaLayerVersion659b295f-build.zip"
-        },
-        "updateVesselsMT": {}
-      },
-      "api": {
-        "amplifyDashboard": {}
-      },
-      "storage": {
-        "amplifyDashboardStorage": {}
-      }
-    }
-  },
-  "emarine": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-amplifydashboard-emarine-185518-authRole",
-      "UnauthRoleArn": "arn:aws:iam::002095041041:role/amplify-amplifydashboard-emarine-185518-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::002095041041:role/amplify-amplifydashboard-emarine-185518-authRole",
-      "Region": "eu-north-1",
-      "DeploymentBucketName": "amplify-amplifydashboard-emarine-185518-deployment",
-      "UnauthRoleName": "amplify-amplifydashboard-emarine-185518-unauthRole",
-      "StackName": "amplify-amplifydashboard-emarine-185518",
-      "StackId": "arn:aws:cloudformation:eu-north-1:002095041041:stack/amplify-amplifydashboard-emarine-185518/902434f0-c386-11ee-8e42-0a7178b130f3",
-      "AmplifyAppId": "dd4lttxiod3ih"
-    },
-    "categories": {
-      "auth": {
-        "amplifyDashboard": {},
-        "userPoolGroups": {}
-      },
-      "function": {
-        "S3Trigger98cc7fd7": {
-          "deploymentBucketName": "amplify-amplifydashboard-emarine-185518-deployment",
-          "s3Key": "amplify-builds/S3Trigger98cc7fd7-38423959723650683867-build.zip"
-        },
-        "amplifydashboardVesselFunctions": {
-          "deploymentBucketName": "amplify-amplifydashboard-emarine-185518-deployment",
-          "s3Key": "amplify-builds/amplifydashboardVesselFunctions-LambdaLayerVersionac1c91ef-build.zip"
-        },
         "updateVesselsMT": {
-          "deploymentBucketName": "amplify-amplifydashboard-emarine-185518-deployment",
-          "s3Key": "amplify-builds/updateVesselsMT-463934426250744a3330-build.zip"
+          "deploymentBucketName": "amplify-emarinecloud-dev-170110-deployment",
+          "s3Key": "amplify-builds/updateVesselsMT-50644235663659484653-build.zip"
         }
-      },
-      "api": {
-        "amplifyDashboard": {}
-      },
-      "storage": {
-        "amplifyDashboardStorage": {}
-      }
-    }
-  },
-  "emarinedev": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-amplifydashboard-emarinedev-192119-authRole",
-      "UnauthRoleArn": "arn:aws:iam::002095041041:role/amplify-amplifydashboard-emarinedev-192119-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::002095041041:role/amplify-amplifydashboard-emarinedev-192119-authRole",
-      "Region": "eu-north-1",
-      "DeploymentBucketName": "amplify-amplifydashboard-emarinedev-192119-deployment",
-      "UnauthRoleName": "amplify-amplifydashboard-emarinedev-192119-unauthRole",
-      "StackName": "amplify-amplifydashboard-emarinedev-192119",
-      "StackId": "arn:aws:cloudformation:eu-north-1:002095041041:stack/amplify-amplifydashboard-emarinedev-192119/3273ff30-c38a-11ee-8c0c-0ed4071d27ec",
-      "AmplifyAppId": "d1yyep4d8z83hd"
-    },
-    "categories": {
-      "auth": {
-        "amplifyDashboard": {},
-        "userPoolGroups": {}
-      },
-      "function": {
-        "S3Trigger98cc7fd7": {
-          "deploymentBucketName": "amplify-amplifydashboard-emarinedev-192119-deployment",
-          "s3Key": "amplify-builds/S3Trigger98cc7fd7-534770504d544267644d-build.zip"
-        },
-        "amplifydashboardVesselFunctions": {
-          "deploymentBucketName": "amplify-amplifydashboard-emarinedev-192119-deployment",
-          "s3Key": "amplify-builds/amplifydashboardVesselFunctions-LambdaLayerVersion684e5a3e-build.zip"
-        },
-        "updateVesselsMT": {
-          "deploymentBucketName": "amplify-amplifydashboard-emarinedev-192119-deployment",
-          "s3Key": "amplify-builds/updateVesselsMT-4f366e525950722f574a-build.zip"
-        }
-      },
-      "api": {
-        "amplifyDashboard": {}
-      },
-      "storage": {
-        "amplifyDashboardStorage": {}
       }
     }
   }

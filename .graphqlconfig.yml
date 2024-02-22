@@ -5,11 +5,24 @@ projects:
       - ''
     excludes:
       - ./amplify/**
+      - src/API.ts
     extensions:
       amplify:
         codeGenTarget: typescript
-        generatedFileName: ''
+        generatedFileName: src/API.ts
         docsFilePath: .
+        maxDepth: 2
+  emarinecloud:
+    schemaPath: src/graphql/schema.json
+    includes:
+      - src/graphql/**/*.ts
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: typescript
+        generatedFileName: src/API.ts
+        docsFilePath: src/graphql
 extensions:
   amplify:
     version: 3

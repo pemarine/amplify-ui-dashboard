@@ -3,8 +3,8 @@
   "cognitoConfig": {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "amplifbb255b5d",
-    "userPoolName": "amplifyDashboard",
+    "resourceNameTruncated": "emarin26fca017",
+    "userPoolName": "eMarineCloud",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -25,7 +25,6 @@
       "Requires Uppercase"
     ],
     "requiredAttributes": [
-      "email",
       "name"
     ],
     "aliasAttributes": [],
@@ -33,44 +32,22 @@
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "amplifbb255b5d_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "eMarin26fca017_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "bb255b5d",
-    "resourceName": "amplifyDashboard",
+    "sharedId": "26fca017",
+    "resourceName": "eMarineCloud",
     "authSelections": "identityPoolAndUserPool",
     "serviceName": "Cognito",
     "usernameAttributes": [
       "email"
     ],
     "useDefault": "manual",
-    "userPoolGroups": true,
-    "userPoolGroupList": [
-      "userPools"
-    ],
+    "userPoolGroups": false,
+    "userPoolGroupList": [],
     "adminQueries": false,
     "thirdPartyAuth": false,
     "authProviders": [],
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true,
-    "authRoleArn": {
-      "Fn::GetAtt": [
-        "AuthRole",
-        "Arn"
-      ]
-    },
-    "unauthRoleArn": {
-      "Fn::GetAtt": [
-        "UnauthRole",
-        "Arn"
-      ]
-    },
-    "breakCircularDependency": true,
-    "dependsOn": [],
-    "triggers": {},
-    "hostedUI": false,
-    "parentStack": {
-      "Ref": "AWS::StackId"
-    },
-    "permissions": []
+    "useEnabledMfas": true
   }
 }

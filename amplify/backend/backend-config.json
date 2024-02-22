@@ -1,6 +1,6 @@
 {
   "api": {
-    "amplifyDashboard": {
+    "emarinecloud": {
       "dependsOn": [],
       "output": {
         "authConfig": {
@@ -23,7 +23,7 @@
     }
   },
   "auth": {
-    "amplifyDashboard": {
+    "eMarineCloud": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -41,7 +41,6 @@
           "passwordPolicyMinLength": 8
         },
         "signupAttributes": [
-          "EMAIL",
           "NAME"
         ],
         "socialProviders": [],
@@ -54,76 +53,16 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
-    },
-    "userPoolGroups": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "UserPoolId",
-            "AppClientIDWeb",
-            "AppClientID",
-            "IdentityPoolId"
-          ],
-          "category": "auth",
-          "resourceName": "amplifyDashboard"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "Cognito-UserPool-Groups"
     }
   },
   "function": {
-    "S3Trigger98cc7fd7": {
-      "build": true,
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "amplifydashboardVesselFunctions": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "LambdaLayer"
-    },
     "updateVesselsMT": {
       "build": true,
-      "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "parameters": {
-    "AMPLIFY_function_S3Trigger98cc7fd7_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "S3Trigger98cc7fd7"
-        }
-      ]
-    },
-    "AMPLIFY_function_S3Trigger98cc7fd7_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "S3Trigger98cc7fd7"
-        }
-      ]
-    },
-    "AMPLIFY_function_amplifydashboardVesselFunctions_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "amplifydashboardVesselFunctions"
-        }
-      ]
-    },
-    "AMPLIFY_function_amplifydashboardVesselFunctions_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "amplifydashboardVesselFunctions"
-        }
-      ]
-    },
     "AMPLIFY_function_updateVesselsMT_deploymentBucketName": {
       "usedBy": [
         {
@@ -139,23 +78,6 @@
           "resourceName": "updateVesselsMT"
         }
       ]
-    }
-  },
-  "storage": {
-    "amplifyDashboardStorage": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "Name",
-            "Arn",
-            "LambdaExecutionRole"
-          ],
-          "category": "function",
-          "resourceName": "S3Trigger98cc7fd7"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "S3"
     }
   }
 }

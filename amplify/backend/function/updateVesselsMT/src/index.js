@@ -2,6 +2,7 @@
 const axios = require('axios');
 const AWS = require('aws-sdk');
 const { v4: uuidv4 } = require('uuid');
+const { DataStore } = require('@aws-amplify/datastore');
 
 //const uuid = require('uuid');
 
@@ -122,6 +123,8 @@ class Vessel {
         __typename,
         _lastChangedAt,
         _version,
+        clientID,
+        outsideTemp,
         AVG_SPEED,
         createdAt,
         CURRENT_PORT,
@@ -147,6 +150,8 @@ class Vessel {
         this.__typename = __typename;
         this._lastChangedAt = _lastChangedAt;
         this._version = _version;
+        this.clientID = clientID;
+        this.outsideTemp = outsideTemp;
         this.AVG_SPEED = AVG_SPEED;
         this.createdAt = createdAt;
         this.CURRENT_PORT = CURRENT_PORT;
@@ -171,8 +176,9 @@ class Vessel {
 }
 
 async function createOrUpdateVessel(vessel) {
+   // DataStore.save(vessel);
     const queryParams = {
-        TableName: 'Vessel-7zpyoegrijazphw7d7mhvjomfu-emarinedev',
+        TableName: 'Vessel-47tnpcgmffejfjbi2tuaoydnhu-dev',
         IndexName: 'IMO-index', // replace with the name of your index
         KeyConditionExpression: 'IMO = :imo',
         ExpressionAttributeValues: {
@@ -186,11 +192,11 @@ async function createOrUpdateVessel(vessel) {
         if (data.Items.length > 0) {
             // Vessel with the same IMO exists, update it
             const updateParams = {
-                TableName: 'Vessel-7zpyoegrijazphw7d7mhvjomfu-emarinedev',
+                TableName: 'Vessel-47tnpcgmffejfjbi2tuaoydnhu-dev',
                 Key: {
                     'id': data.Items[0].id
                 },
-                UpdateExpression: "set #__typename = :t, #_lastChangedAt = :l, #_version = :v, AVG_SPEED = :as, createdAt = :c, CURRENT_PORT = :cp, DISTANCE_TO_GO = :dtg, DISTANCE_TRAVELLED = :dt, DESTINATION = :dst, FLAG = :f, IMO = :i, LAST_PORT = :lp, LAT = :lat, LON = :lon, MARKET = :m, MAX_SPEED = :ms, MMSI = :mmsi, NEXT_PORT = :np, NEXT_PORT_NAME = :npn, SHIPNAME = :sn, SPEED = :s, TYPE_NAME = :tn, updatedAt = :u",
+                UpdateExpression: "set #__typename = :t, #_lastChangedAt = :l, #_version = :v, AVG_SPEED = :as, createdAt = :c, CURRENT_PORT = :cp, DISTANCE_TO_GO = :dtg, DISTANCE_TRAVELLED = :dt, DESTINATION = :dst, FLAG = :f, IMO = :i, LAST_PORT = :lp, LAT = :lat, LON = :lon, MARKET = :m, MAX_SPEED = :ms, MMSI = :mmsi, NEXT_PORT = :np, NEXT_PORT_NAME = :npn, SHIPNAME = :sn, SPEED = :s, TYPE_NAME = :tn, updatedAt = :u, outsideTemp = :ot, clientID = :cid",
                 ExpressionAttributeNames: {
                     '#__typename': '__typename',
                     '#_version': '_version',
@@ -219,7 +225,9 @@ async function createOrUpdateVessel(vessel) {
                     ':sn': vessel.SHIPNAME,
                     ':s': vessel.SPEED,
                     ':tn': vessel.TYPE_NAME,
-                    ':u': new Date().toISOString()
+                    ':u': new Date().toISOString(),
+                    ':ot': vessel.outsideTemp,
+                    ':cid': vessel.clientID
                     
                 },
                 ReturnValues: "UPDATED_NEW"
@@ -230,7 +238,7 @@ async function createOrUpdateVessel(vessel) {
         } else {
             // No vessel with the same IMO, create a new one
             const putParams = {
-                TableName: 'Vessel-7zpyoegrijazphw7d7mhvjomfu-emarinedev',
+                TableName: 'Vessel-47tnpcgmffejfjbi2tuaoydnhu-dev',
                 Item: vessel
 
                 /*Item: {
@@ -312,6 +320,8 @@ exports.handler = async (event) => {
                 SPEED: data.SPEED || '',
                 TYPE_NAME: data.TYPE_NAME || '',
                 updatedAt: new Date().toISOString(),
+                outsideTemp: "null",
+                clientID: "null"
 
             }));
 

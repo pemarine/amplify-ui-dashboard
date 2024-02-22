@@ -22,6 +22,8 @@ export default function VesselCreateForm(props) {
     ...rest
   } = props;
   const initialValues = {
+    clientID: "",
+    outsideTemp: "",
     IMO: "",
     MMSI: "",
     SHIPNAME: "",
@@ -40,7 +42,12 @@ export default function VesselCreateForm(props) {
     SPEED: "",
     AVG_SPEED: "",
     MAX_SPEED: "",
+    updatedAt: "",
   };
+  const [clientID, setClientID] = React.useState(initialValues.clientID);
+  const [outsideTemp, setOutsideTemp] = React.useState(
+    initialValues.outsideTemp
+  );
   const [IMO, setIMO] = React.useState(initialValues.IMO);
   const [MMSI, setMMSI] = React.useState(initialValues.MMSI);
   const [SHIPNAME, setSHIPNAME] = React.useState(initialValues.SHIPNAME);
@@ -69,8 +76,11 @@ export default function VesselCreateForm(props) {
   const [SPEED, setSPEED] = React.useState(initialValues.SPEED);
   const [AVG_SPEED, setAVG_SPEED] = React.useState(initialValues.AVG_SPEED);
   const [MAX_SPEED, setMAX_SPEED] = React.useState(initialValues.MAX_SPEED);
+  const [updatedAt, setUpdatedAt] = React.useState(initialValues.updatedAt);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
+    setClientID(initialValues.clientID);
+    setOutsideTemp(initialValues.outsideTemp);
     setIMO(initialValues.IMO);
     setMMSI(initialValues.MMSI);
     setSHIPNAME(initialValues.SHIPNAME);
@@ -89,9 +99,12 @@ export default function VesselCreateForm(props) {
     setSPEED(initialValues.SPEED);
     setAVG_SPEED(initialValues.AVG_SPEED);
     setMAX_SPEED(initialValues.MAX_SPEED);
+    setUpdatedAt(initialValues.updatedAt);
     setErrors({});
   };
   const validations = {
+    clientID: [],
+    outsideTemp: [],
     IMO: [],
     MMSI: [],
     SHIPNAME: [],
@@ -110,6 +123,7 @@ export default function VesselCreateForm(props) {
     SPEED: [],
     AVG_SPEED: [],
     MAX_SPEED: [],
+    updatedAt: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -137,6 +151,8 @@ export default function VesselCreateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
+          clientID,
+          outsideTemp,
           IMO,
           MMSI,
           SHIPNAME,
@@ -155,6 +171,7 @@ export default function VesselCreateForm(props) {
           SPEED,
           AVG_SPEED,
           MAX_SPEED,
+          updatedAt,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -201,6 +218,94 @@ export default function VesselCreateForm(props) {
       {...rest}
     >
       <TextField
+        label="Client id"
+        isRequired={false}
+        isReadOnly={false}
+        value={clientID}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              clientID: value,
+              outsideTemp,
+              IMO,
+              MMSI,
+              SHIPNAME,
+              FLAG,
+              MARKET,
+              TYPE_NAME,
+              LAT,
+              LON,
+              LAST_PORT,
+              CURRENT_PORT,
+              NEXT_PORT,
+              NEXT_PORT_NAME,
+              DISTANCE_TO_GO,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
+              SPEED,
+              AVG_SPEED,
+              MAX_SPEED,
+              updatedAt,
+            };
+            const result = onChange(modelFields);
+            value = result?.clientID ?? value;
+          }
+          if (errors.clientID?.hasError) {
+            runValidationTasks("clientID", value);
+          }
+          setClientID(value);
+        }}
+        onBlur={() => runValidationTasks("clientID", clientID)}
+        errorMessage={errors.clientID?.errorMessage}
+        hasError={errors.clientID?.hasError}
+        {...getOverrideProps(overrides, "clientID")}
+      ></TextField>
+      <TextField
+        label="Outside temp"
+        isRequired={false}
+        isReadOnly={false}
+        value={outsideTemp}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              clientID,
+              outsideTemp: value,
+              IMO,
+              MMSI,
+              SHIPNAME,
+              FLAG,
+              MARKET,
+              TYPE_NAME,
+              LAT,
+              LON,
+              LAST_PORT,
+              CURRENT_PORT,
+              NEXT_PORT,
+              NEXT_PORT_NAME,
+              DISTANCE_TO_GO,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
+              SPEED,
+              AVG_SPEED,
+              MAX_SPEED,
+              updatedAt,
+            };
+            const result = onChange(modelFields);
+            value = result?.outsideTemp ?? value;
+          }
+          if (errors.outsideTemp?.hasError) {
+            runValidationTasks("outsideTemp", value);
+          }
+          setOutsideTemp(value);
+        }}
+        onBlur={() => runValidationTasks("outsideTemp", outsideTemp)}
+        errorMessage={errors.outsideTemp?.errorMessage}
+        hasError={errors.outsideTemp?.hasError}
+        {...getOverrideProps(overrides, "outsideTemp")}
+      ></TextField>
+      <TextField
         label="Imo"
         isRequired={false}
         isReadOnly={false}
@@ -209,6 +314,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO: value,
               MMSI,
               SHIPNAME,
@@ -227,6 +334,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.IMO ?? value;
@@ -250,6 +358,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI: value,
               SHIPNAME,
@@ -268,6 +378,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.MMSI ?? value;
@@ -291,6 +402,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI,
               SHIPNAME: value,
@@ -309,6 +422,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.SHIPNAME ?? value;
@@ -332,6 +446,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI,
               SHIPNAME,
@@ -350,6 +466,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.FLAG ?? value;
@@ -373,6 +490,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI,
               SHIPNAME,
@@ -391,6 +510,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.MARKET ?? value;
@@ -414,6 +534,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI,
               SHIPNAME,
@@ -432,6 +554,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.TYPE_NAME ?? value;
@@ -455,6 +578,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI,
               SHIPNAME,
@@ -473,6 +598,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.LAT ?? value;
@@ -496,6 +622,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI,
               SHIPNAME,
@@ -514,6 +642,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.LON ?? value;
@@ -537,6 +666,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI,
               SHIPNAME,
@@ -555,6 +686,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.LAST_PORT ?? value;
@@ -578,6 +710,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI,
               SHIPNAME,
@@ -596,6 +730,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.CURRENT_PORT ?? value;
@@ -619,6 +754,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI,
               SHIPNAME,
@@ -637,6 +774,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.NEXT_PORT ?? value;
@@ -660,6 +798,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI,
               SHIPNAME,
@@ -678,6 +818,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.NEXT_PORT_NAME ?? value;
@@ -701,6 +842,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI,
               SHIPNAME,
@@ -719,6 +862,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.DISTANCE_TO_GO ?? value;
@@ -742,6 +886,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI,
               SHIPNAME,
@@ -760,6 +906,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.DISTANCE_TRAVELLED ?? value;
@@ -785,6 +932,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI,
               SHIPNAME,
@@ -803,6 +952,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.DESTINATION ?? value;
@@ -826,6 +976,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI,
               SHIPNAME,
@@ -844,6 +996,7 @@ export default function VesselCreateForm(props) {
               SPEED: value,
               AVG_SPEED,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.SPEED ?? value;
@@ -867,6 +1020,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI,
               SHIPNAME,
@@ -885,6 +1040,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED: value,
               MAX_SPEED,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.AVG_SPEED ?? value;
@@ -908,6 +1064,8 @@ export default function VesselCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
+              clientID,
+              outsideTemp,
               IMO,
               MMSI,
               SHIPNAME,
@@ -926,6 +1084,7 @@ export default function VesselCreateForm(props) {
               SPEED,
               AVG_SPEED,
               MAX_SPEED: value,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.MAX_SPEED ?? value;
@@ -939,6 +1098,50 @@ export default function VesselCreateForm(props) {
         errorMessage={errors.MAX_SPEED?.errorMessage}
         hasError={errors.MAX_SPEED?.hasError}
         {...getOverrideProps(overrides, "MAX_SPEED")}
+      ></TextField>
+      <TextField
+        label="Updated at"
+        isRequired={false}
+        isReadOnly={false}
+        value={updatedAt}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              clientID,
+              outsideTemp,
+              IMO,
+              MMSI,
+              SHIPNAME,
+              FLAG,
+              MARKET,
+              TYPE_NAME,
+              LAT,
+              LON,
+              LAST_PORT,
+              CURRENT_PORT,
+              NEXT_PORT,
+              NEXT_PORT_NAME,
+              DISTANCE_TO_GO,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
+              SPEED,
+              AVG_SPEED,
+              MAX_SPEED,
+              updatedAt: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.updatedAt ?? value;
+          }
+          if (errors.updatedAt?.hasError) {
+            runValidationTasks("updatedAt", value);
+          }
+          setUpdatedAt(value);
+        }}
+        onBlur={() => runValidationTasks("updatedAt", updatedAt)}
+        errorMessage={errors.updatedAt?.errorMessage}
+        hasError={errors.updatedAt?.hasError}
+        {...getOverrideProps(overrides, "updatedAt")}
       ></TextField>
       <Flex
         justifyContent="space-between"

@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "emarinecloud",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2024-02-21T16:16:16.392Z"
+}

@@ -9,9 +9,11 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 type EagerVessel = {
   readonly [__modelMeta__]: {
     identifier: ManagedIdentifier<Vessel, 'id'>;
-    readOnlyFields: 'createdAt' | 'updatedAt';
+    readOnlyFields: 'createdAt';
   };
   readonly id: string;
+  readonly clientID?: string | null;
+  readonly outsideTemp?: string | null;
   readonly IMO?: string | null;
   readonly MMSI?: string | null;
   readonly SHIPNAME?: string | null;
@@ -30,16 +32,18 @@ type EagerVessel = {
   readonly SPEED?: string | null;
   readonly AVG_SPEED?: string | null;
   readonly MAX_SPEED?: string | null;
-  readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
+  readonly createdAt?: string | null;
 }
 
 type LazyVessel = {
   readonly [__modelMeta__]: {
     identifier: ManagedIdentifier<Vessel, 'id'>;
-    readOnlyFields: 'createdAt' | 'updatedAt';
+    readOnlyFields: 'createdAt';
   };
   readonly id: string;
+  readonly clientID?: string | null;
+  readonly outsideTemp?: string | null;
   readonly IMO?: string | null;
   readonly MMSI?: string | null;
   readonly SHIPNAME?: string | null;
@@ -58,8 +62,8 @@ type LazyVessel = {
   readonly SPEED?: string | null;
   readonly AVG_SPEED?: string | null;
   readonly MAX_SPEED?: string | null;
-  readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
+  readonly createdAt?: string | null;
 }
 
 export declare type Vessel = LazyLoading extends LazyLoadingDisabled ? EagerVessel : LazyVessel

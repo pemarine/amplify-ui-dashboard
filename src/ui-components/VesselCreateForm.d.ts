@@ -22,6 +22,8 @@ export declare type ValidationResponse = {
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type VesselCreateFormInputValues = {
+    clientID?: string;
+    outsideTemp?: string;
     IMO?: string;
     MMSI?: string;
     SHIPNAME?: string;
@@ -40,8 +42,11 @@ export declare type VesselCreateFormInputValues = {
     SPEED?: string;
     AVG_SPEED?: string;
     MAX_SPEED?: string;
+    updatedAt?: string;
 };
 export declare type VesselCreateFormValidationValues = {
+    clientID?: ValidationFunction<string>;
+    outsideTemp?: ValidationFunction<string>;
     IMO?: ValidationFunction<string>;
     MMSI?: ValidationFunction<string>;
     SHIPNAME?: ValidationFunction<string>;
@@ -60,10 +65,13 @@ export declare type VesselCreateFormValidationValues = {
     SPEED?: ValidationFunction<string>;
     AVG_SPEED?: ValidationFunction<string>;
     MAX_SPEED?: ValidationFunction<string>;
+    updatedAt?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type VesselCreateFormOverridesProps = {
     VesselCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
+    clientID?: PrimitiveOverrideProps<TextFieldProps>;
+    outsideTemp?: PrimitiveOverrideProps<TextFieldProps>;
     IMO?: PrimitiveOverrideProps<TextFieldProps>;
     MMSI?: PrimitiveOverrideProps<TextFieldProps>;
     SHIPNAME?: PrimitiveOverrideProps<TextFieldProps>;
@@ -82,6 +90,7 @@ export declare type VesselCreateFormOverridesProps = {
     SPEED?: PrimitiveOverrideProps<TextFieldProps>;
     AVG_SPEED?: PrimitiveOverrideProps<TextFieldProps>;
     MAX_SPEED?: PrimitiveOverrideProps<TextFieldProps>;
+    updatedAt?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type VesselCreateFormProps = React.PropsWithChildren<{
     overrides?: VesselCreateFormOverridesProps | undefined | null;

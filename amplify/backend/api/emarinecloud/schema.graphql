@@ -1,5 +1,7 @@
 type Vessel @model @auth(rules: [{allow: public}]) @aws_api_key @aws_cognito_user_pools @aws_iam @aws_lambda{
   id: ID!
+  clientID: String
+  outsideTemp: String
   IMO: String
   MMSI: String
   SHIPNAME: String
@@ -18,13 +20,5 @@ type Vessel @model @auth(rules: [{allow: public}]) @aws_api_key @aws_cognito_use
   SPEED: String
   AVG_SPEED: String
   MAX_SPEED: String
-}
-type Subscription {
-  onDeletePost: Vessel
-    @aws_subscribe(mutations: ["deleteVessel"])
-  onUpdatePost: Vessel
-    @aws_subscribe(mutations: ["updateVessel"])
-}
-type Query {
-    getVessels: [Vessel]
+  updatedAt: String
 }

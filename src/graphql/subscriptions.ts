@@ -2,17 +2,14 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-import * as APITypes from "./src/API";
-type GeneratedMutation<InputType, OutputType> = string & {
-  __generatedMutationInput: InputType;
-  __generatedMutationOutput: OutputType;
+import * as APITypes from "../API";
+type GeneratedSubscription<InputType, OutputType> = string & {
+  __generatedSubscriptionInput: InputType;
+  __generatedSubscriptionOutput: OutputType;
 };
 
-export const createVessel = /* GraphQL */ `mutation CreateVessel(
-  $input: CreateVesselInput!
-  $condition: ModelVesselConditionInput
-) {
-  createVessel(input: $input, condition: $condition) {
+export const onCreateVessel = /* GraphQL */ `subscription OnCreateVessel($filter: ModelSubscriptionVesselFilterInput) {
+  onCreateVessel(filter: $filter) {
     id
     clientID
     outsideTemp
@@ -42,15 +39,12 @@ export const createVessel = /* GraphQL */ `mutation CreateVessel(
     __typename
   }
 }
-` as GeneratedMutation<
-  APITypes.CreateVesselMutationVariables,
-  APITypes.CreateVesselMutation
+` as GeneratedSubscription<
+  APITypes.OnCreateVesselSubscriptionVariables,
+  APITypes.OnCreateVesselSubscription
 >;
-export const updateVessel = /* GraphQL */ `mutation UpdateVessel(
-  $input: UpdateVesselInput!
-  $condition: ModelVesselConditionInput
-) {
-  updateVessel(input: $input, condition: $condition) {
+export const onUpdateVessel = /* GraphQL */ `subscription OnUpdateVessel($filter: ModelSubscriptionVesselFilterInput) {
+  onUpdateVessel(filter: $filter) {
     id
     clientID
     outsideTemp
@@ -80,15 +74,12 @@ export const updateVessel = /* GraphQL */ `mutation UpdateVessel(
     __typename
   }
 }
-` as GeneratedMutation<
-  APITypes.UpdateVesselMutationVariables,
-  APITypes.UpdateVesselMutation
+` as GeneratedSubscription<
+  APITypes.OnUpdateVesselSubscriptionVariables,
+  APITypes.OnUpdateVesselSubscription
 >;
-export const deleteVessel = /* GraphQL */ `mutation DeleteVessel(
-  $input: DeleteVesselInput!
-  $condition: ModelVesselConditionInput
-) {
-  deleteVessel(input: $input, condition: $condition) {
+export const onDeleteVessel = /* GraphQL */ `subscription OnDeleteVessel($filter: ModelSubscriptionVesselFilterInput) {
+  onDeleteVessel(filter: $filter) {
     id
     clientID
     outsideTemp
@@ -118,7 +109,7 @@ export const deleteVessel = /* GraphQL */ `mutation DeleteVessel(
     __typename
   }
 }
-` as GeneratedMutation<
-  APITypes.DeleteVesselMutationVariables,
-  APITypes.DeleteVesselMutation
+` as GeneratedSubscription<
+  APITypes.OnDeleteVesselSubscriptionVariables,
+  APITypes.OnDeleteVesselSubscription
 >;
