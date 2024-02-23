@@ -29,8 +29,8 @@
     "esm": "^3.2.25",
     "html-webpack-plugin": "^5.6.0",
     "mqtt": "^5.3.5",
-    "nth-check": "^2.1.1",
-    "postcss": "^8.4.35",
+    "nth-check": "^2.0.1",
+    "postcss": "^8.4.31",
     "punycode": "^2.3.1",
     "python": "^0.0.4",
     "react": "^18.2.0",
@@ -57,6 +57,10 @@
     "build": "node --require ts-node/register",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
+  },
+  "resolutions": {
+    "postcss": "^8.4.31",
+    "nth-check": "^2.0.1"
   },
   "eslintConfig": {
     "extends": [
