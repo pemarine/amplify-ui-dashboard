@@ -43,6 +43,7 @@
     "reactjs-popup": "^2.0.6",
     "styled-components": "^6.1.8",
     "stylis": "^4.3.1",
+    "svgo": "2",
     "typescript": "^5.3.3",
     "uuid": "^9.0.1",
     "web-vitals": "^3.4.0"
