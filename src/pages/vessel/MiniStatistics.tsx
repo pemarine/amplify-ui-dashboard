@@ -2,7 +2,11 @@ import React, { useContext } from "react";
 import { Card } from "@aws-amplify/ui-react";
 import "./VesselPage.css"
 import { ThemeContext } from "../../themes/ThemeContext";
-import { makeStyles } from '@material-ui/core';
+//import { makeStyles } from '@material-ui/core';
+import { styled } from '@mui/system';
+import Icon from "@mui/material/Icon";
+
+
 //import styled, { keyframes } from 'styled-components';
 
 
@@ -16,7 +20,7 @@ interface MiniStatisticProps {
   color1: string;
   color2: string;
 }
-const useStyles = makeStyles(() => ({
+const styles = {
   content: {
    
     
@@ -74,46 +78,40 @@ const useStyles = makeStyles(() => ({
   sup: {
     fontSize: '14px'
   }
-}));
+};
+
+const Content = styled('div')(styles.content);
+const Title = styled('div')(styles.title);
+const Subtitle = styled('div')(styles.subtitle);
+const Value = styled('div')(styles.value);
+//const Unit = styled('div')(styles.unit);
+//const Icon = styled('div')(styles.icon);
+const Sup = styled('sup')(styles.sup);
+
 const MiniStatistics = (props: MiniStatisticProps) => {
   const { theme } = useContext(ThemeContext);
-  const classes = useStyles();
-
-  
 
   return (
     <>
-    <Card
-      className={`amplify-card ${theme}`}
-      height="100%"
-      borderRadius="15px"
-      position= 'relative'
-
-      paddingTop={8}
-      margin="0"
-      padding="0"
-      /*
-      style={{
-        
-        background: theme === 'dark' 
-          ? `radial-gradient(circle 50px at calc(100% - 90px) 50%, ${props.color1} 50%, rgba(144, 202, 249, 0) 100%),
-            radial-gradient(circle 80px at 100% 30%,${props.color2} 70%, rgba(144, 202, 249, 0) 100%)`
-        : '#082b40',
-
-          
-      }} 
-   */
-    >
-      <div className={classes.content}>
-        <div className={classes.title}>{props.title}</div>
-      {/* } <div className={classes.subtitle}>{props.subtitle}</div>  */}
-        <div className={classes.value}>
-          {props.amount}
-          <sup className={classes.sup}>{props.measurement}</sup>
-        </div>
-        <div className={classes.icon}>{props.icon}</div>
-      </div>
-    </Card>
+      <Card
+        className={`amplify-card ${theme}`}
+        height="100%"
+        borderRadius="15px"
+        position= 'relative'
+        paddingTop={8}
+        margin="0"
+        padding="0"
+      >
+        <Content>
+          <Title>{props.title}</Title>
+          <Subtitle>{props.subtitle}</Subtitle>
+          <Value>
+            {props.amount}
+            <Sup>{props.measurement}</Sup>
+          </Value>
+          <Icon>{props.icon}</Icon>
+        </Content>
+      </Card>
     </>
   );
 };

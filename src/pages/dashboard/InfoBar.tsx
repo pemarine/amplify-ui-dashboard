@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 
 //import { Vessel } from 'src/models';
 import './VesselBox.css'
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
+//import IconButton from '@material-ui/core/IconButton';
+//import CloseIcon from '@material-ui/icons/Close';
+import { IconButton } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 import { Icon } from "@aws-amplify/ui-react";
 

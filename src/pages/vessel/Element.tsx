@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from "../../themes/ThemeContext";
 import { Card } from '@aws-amplify/ui-react';
-import { makeStyles } from '@material-ui/core';
+//import { makeStyles } from '@material-ui/core';
+import { makeStyles } from '@mui/styles';
 
 
 
