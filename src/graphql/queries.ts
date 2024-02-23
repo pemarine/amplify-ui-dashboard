@@ -13,6 +13,7 @@ export const getVessel = /* GraphQL */ `query GetVessel($id: ID!) {
     id
     clientID
     outsideTemp
+    HVAC_P_status
     IMO
     MMSI
     SHIPNAME
@@ -50,6 +51,7 @@ export const listVessels = /* GraphQL */ `query ListVessels(
       id
       clientID
       outsideTemp
+      HVAC_P_status
       IMO
       MMSI
       SHIPNAME
@@ -100,6 +102,7 @@ export const syncVessels = /* GraphQL */ `query SyncVessels(
       id
       clientID
       outsideTemp
+      HVAC_P_status
       IMO
       MMSI
       SHIPNAME

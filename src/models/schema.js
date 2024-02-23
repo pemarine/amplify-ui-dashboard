@@ -24,6 +24,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "HVAC_P_status": {
+                    "name": "HVAC_P_status",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "IMO": {
                     "name": "IMO",
                     "isArray": false,
@@ -211,5 +218,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "0d508641126a8bef22ac29cb6053a067"
+    "version": "82059ce1df7cbeb1b1ecf3bd459f6870"
 };

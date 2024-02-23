@@ -14,6 +14,7 @@ type EagerVessel = {
   readonly id: string;
   readonly clientID?: string | null;
   readonly outsideTemp?: string | null;
+  readonly HVAC_P_status?: string | null;
   readonly IMO?: string | null;
   readonly MMSI?: string | null;
   readonly SHIPNAME?: string | null;
@@ -44,6 +45,7 @@ type LazyVessel = {
   readonly id: string;
   readonly clientID?: string | null;
   readonly outsideTemp?: string | null;
+  readonly HVAC_P_status?: string | null;
   readonly IMO?: string | null;
   readonly MMSI?: string | null;
   readonly SHIPNAME?: string | null;

@@ -123,8 +123,8 @@ class Vessel {
         __typename,
         _lastChangedAt,
         _version,
-        clientID,
-        outsideTemp,
+        //clientID,
+        //outsideTemp,
         AVG_SPEED,
         createdAt,
         CURRENT_PORT,
@@ -150,8 +150,8 @@ class Vessel {
         this.__typename = __typename;
         this._lastChangedAt = _lastChangedAt;
         this._version = _version;
-        this.clientID = clientID;
-        this.outsideTemp = outsideTemp;
+      //  this.clientID = clientID;
+       // this.outsideTemp = outsideTemp;
         this.AVG_SPEED = AVG_SPEED;
         this.createdAt = createdAt;
         this.CURRENT_PORT = CURRENT_PORT;
@@ -176,7 +176,7 @@ class Vessel {
 }
 
 async function createOrUpdateVessel(vessel) {
-   // DataStore.save(vessel);
+    //DataStore.save(vessel);
     const queryParams = {
         TableName: 'Vessel-47tnpcgmffejfjbi2tuaoydnhu-dev',
         IndexName: 'IMO-index', // replace with the name of your index
@@ -196,7 +196,7 @@ async function createOrUpdateVessel(vessel) {
                 Key: {
                     'id': data.Items[0].id
                 },
-                UpdateExpression: "set #__typename = :t, #_lastChangedAt = :l, #_version = :v, AVG_SPEED = :as, createdAt = :c, CURRENT_PORT = :cp, DISTANCE_TO_GO = :dtg, DISTANCE_TRAVELLED = :dt, DESTINATION = :dst, FLAG = :f, IMO = :i, LAST_PORT = :lp, LAT = :lat, LON = :lon, MARKET = :m, MAX_SPEED = :ms, MMSI = :mmsi, NEXT_PORT = :np, NEXT_PORT_NAME = :npn, SHIPNAME = :sn, SPEED = :s, TYPE_NAME = :tn, updatedAt = :u, outsideTemp = :ot, clientID = :cid",
+                UpdateExpression: "set #__typename = :t, #_lastChangedAt = :l, #_version = :v, AVG_SPEED = :as, createdAt = :c, CURRENT_PORT = :cp, DISTANCE_TO_GO = :dtg, DISTANCE_TRAVELLED = :dt, DESTINATION = :dst, FLAG = :f, IMO = :i, LAST_PORT = :lp, LAT = :lat, LON = :lon, MARKET = :m, MAX_SPEED = :ms, MMSI = :mmsi, NEXT_PORT = :np, NEXT_PORT_NAME = :npn, SHIPNAME = :sn, SPEED = :s, TYPE_NAME = :tn, updatedAt = :u",
                 ExpressionAttributeNames: {
                     '#__typename': '__typename',
                     '#_version': '_version',
@@ -226,8 +226,8 @@ async function createOrUpdateVessel(vessel) {
                     ':s': vessel.SPEED,
                     ':tn': vessel.TYPE_NAME,
                     ':u': new Date().toISOString(),
-                    ':ot': vessel.outsideTemp,
-                    ':cid': vessel.clientID
+                //    ':ot': vessel.outsideTemp,
+              //      ':cid': vessel.clientID
                     
                 },
                 ReturnValues: "UPDATED_NEW"

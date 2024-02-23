@@ -5,6 +5,7 @@ import { Card } from '@aws-amplify/ui-react';
 import { Box, LinearProgress } from '@mui/material';
 
 
+import './VesselPage.css'; // Import the CSS file
 
 
 
@@ -22,10 +23,11 @@ const RouteBar = ({vessel}) => {
     return (
         <>
         <Card
-            className={`amplify-card ${theme}`}
-            marginTop="15px"
+            className={`title ${theme}`}
+            marginTop="2px"
            padding="10px"
             borderRadius="150px"
+        //   backgroundColor="black"
         >
             <Box 
                 display="flex"
@@ -35,11 +37,11 @@ const RouteBar = ({vessel}) => {
                 bottom={0}
                 width="100%"
             >
-                <p style={{ marginRight: '8px' }}>{vessel.LAST_PORT}</p>
+                <p style={{ fontSize: '15px', marginRight: '8px' }}>{vessel.LAST_PORT}</p>
                 <Box flexGrow={1}>
                     <LinearProgress variant="determinate" value={progress} />
                 </Box>
-                <p style={{ margin: '0px', marginLeft: '8px' }}>{vessel.DESTINATION}</p>
+                <p style={{ fontSize: '15px', margin: '0px', marginLeft: '8px' }}>{vessel.DESTINATION}</p>
             </Box>
 
         </Card>

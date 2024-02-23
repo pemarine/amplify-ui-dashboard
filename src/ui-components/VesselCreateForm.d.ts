@@ -24,6 +24,7 @@ export declare type ValidationFunction<T> = (value: T, validationResponse: Valid
 export declare type VesselCreateFormInputValues = {
     clientID?: string;
     outsideTemp?: string;
+    HVAC_P_status?: string;
     IMO?: string;
     MMSI?: string;
     SHIPNAME?: string;
@@ -47,6 +48,7 @@ export declare type VesselCreateFormInputValues = {
 export declare type VesselCreateFormValidationValues = {
     clientID?: ValidationFunction<string>;
     outsideTemp?: ValidationFunction<string>;
+    HVAC_P_status?: ValidationFunction<string>;
     IMO?: ValidationFunction<string>;
     MMSI?: ValidationFunction<string>;
     SHIPNAME?: ValidationFunction<string>;
@@ -72,6 +74,7 @@ export declare type VesselCreateFormOverridesProps = {
     VesselCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
     clientID?: PrimitiveOverrideProps<TextFieldProps>;
     outsideTemp?: PrimitiveOverrideProps<TextFieldProps>;
+    HVAC_P_status?: PrimitiveOverrideProps<TextFieldProps>;
     IMO?: PrimitiveOverrideProps<TextFieldProps>;
     MMSI?: PrimitiveOverrideProps<TextFieldProps>;
     SHIPNAME?: PrimitiveOverrideProps<TextFieldProps>;

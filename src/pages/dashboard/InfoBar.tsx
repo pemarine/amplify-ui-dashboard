@@ -1,11 +1,20 @@
 import React, { useContext } from 'react';
 import { Card } from '@aws-amplify/ui-react';
 import { ThemeContext } from "../../themes/ThemeContext";
+import { Link } from 'react-router-dom';
+
 //import { Vessel } from 'src/models';
 import './VesselBox.css'
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 
+import { Icon } from "@aws-amplify/ui-react";
+
+import {
+ // MdModeEditOutline,
+  MdOutlineChevronRight,
+ // MdOutlineTableChart,
+} from "react-icons/md";
 
 interface InfoBarProps {
   selectedMarker: any;
@@ -50,7 +59,7 @@ interface InfoBarProps {
         <img src={`/vessels/${selectedMarker.IMO}.jpg`} height={100} alt="Vessel" style={{ marginRight: '15px',  width:'155px',  borderRadius: '15px'
 }} />
         <div style={{ display: 'flex', flexDirection: 'column' }}> {/* Add this div */}
-          <div style={{ display: 'flex', alignItems: 'center', padding: '0px', margin: '0px', marginTop: '5px'}}>
+          <div style={{ display: 'flex', alignItems: 'center', padding: '0px', margin: '0px'}}>
             <img src={`/flags/${selectedMarker.FLAG}.png`}
               height={20}
               alt="Flag"
@@ -61,6 +70,7 @@ interface InfoBarProps {
                 }}
              />
             <h2 style={{fontSize: '1.2rem'}}>M/S {selectedMarker.SHIPNAME}</h2>
+           
           </div>
           <div style={{marginTop: '5px'}}> {/* Add this div */}
             <p style={{fontSize: '0.9rem'}}>IMO: {selectedMarker.IMO}</p> {/* Replace with your IMO data */}
@@ -75,9 +85,30 @@ interface InfoBarProps {
             SPEED: {Number(selectedMarker.SPEED) / 10} Knots
                         </p>
           </div>
-
         </div>
-      </div>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', marginTop: '2px' }}>
+          <Link to={`/vessel/${selectedMarker.id}`} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+            <div style={{ 
+              display: 'flex',
+              margin: '0px',
+              padding: '0px', 
+              justifyContent: 'center', 
+              alignItems: 'center', 
+              borderRadius: '50%',
+              border: '2px solid white', 
+              marginLeft: '15px',
+              width: '23px', 
+              height: '23px' 
+            }}>
+                <Icon as={MdOutlineChevronRight} style={{ fontSize: '23px', color: 'white' }}/>
+
+              </div>
+              <p style={{ fontSize: '15px', color: 'white', marginLeft: '5px' }}>VIEW</p>
+
+            </Link>
+        </div>
+          
+        </div>
     </Card>
    /*</>     <div style={{
           position: 'absolute',

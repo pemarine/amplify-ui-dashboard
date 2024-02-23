@@ -17,7 +17,7 @@ const Title = ({vessel}) => {
             paddingTop="0px"
             margin="0"
             paddingLeft="3px"
-            paddingBottom="13px"
+            paddingBottom="10px"
           
         >
             <Box display="flex" alignItems="center"  style={{ position: 'relative' }}>

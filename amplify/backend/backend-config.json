@@ -56,6 +56,11 @@
     }
   },
   "function": {
+    "updateVesselsMQTT": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "updateVesselsMT": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -63,6 +68,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_updateVesselsMQTT_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updateVesselsMQTT"
+        }
+      ]
+    },
+    "AMPLIFY_function_updateVesselsMQTT_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "updateVesselsMQTT"
+        }
+      ]
+    },
     "AMPLIFY_function_updateVesselsMT_deploymentBucketName": {
       "usedBy": [
         {
