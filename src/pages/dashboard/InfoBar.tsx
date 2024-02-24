@@ -99,13 +99,13 @@ interface InfoBarProps {
               borderRadius: '50%',
               border: '2px solid white', 
               marginLeft: '15px',
-              width: '23px', 
-              height: '23px' 
+              width: '21px', 
+              height: '21px' 
             }}>
-                <Icon as={MdOutlineChevronRight} style={{ fontSize: '23px', color: 'white' }}/>
+                <Icon as={MdOutlineChevronRight} style={{ fontSize: '21px', color: 'white' }}/>
 
               </div>
-              <p style={{ fontSize: '15px', color: 'white', marginLeft: '5px' }}>VIEW</p>
+            {/*  <p style={{ fontSize: '15px', color: 'white', marginLeft: '5px' }}>VIEW</p> */}
 
             </Link>
         </div>
