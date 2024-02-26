@@ -71,10 +71,7 @@
     "@types/react": "^18.2.58",
 
     "react-app-rewired": "^2.2.1",
-
-
     "ts-node": "^10.9.2"
-
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
