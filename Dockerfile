@@ -1,4 +1,4 @@
-FROM node:18.12
+FROM node:21.6.2
 
 # Install dependencies specific to your application
 
