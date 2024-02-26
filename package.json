@@ -15,7 +15,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.10",
     "@mui/material": "^5.15.10",
-    "@mui/styles": "^5.15.10",
+    "@mui/styles": "^5.15.11",
     "@react-google-maps/api": "^2.19.2",
     "@testing-library/dom": "^9.3.4",
     "@testing-library/jest-dom": "^6.1.0",
@@ -104,6 +104,7 @@
     "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
     "react-app-rewired": "^2.2.1",
+    "rollup": "^2.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "source-map-loader": "^5.0.0",
     "sourcemap-codec": "^1.4.8",
@@ -113,6 +114,10 @@
     "w3c-hr-time": "^1.0.2",
     "workbox-build": "^7.0.0",
     "workbox-webpack-plugin": "^7.0.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
   },
   "main": "index.js",
   "repository": "https://github.com/pemarine/amplify-ui-dashboard.git",
