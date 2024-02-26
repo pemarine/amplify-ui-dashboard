@@ -41,7 +41,7 @@
     "reactjs-popup": "^2.0.6",
 
     "typescript": "^5.3.3",
-    "uuid": "^9.0.1",
+    "uuid": "^9.0.1"
 
   },
   "scripts": {
@@ -84,7 +84,7 @@
 
     "source-map-loader": "^5.0.0",
 
-    "ts-node": "^10.9.2",
+    "ts-node": "^10.9.2"
 
   },
   "peerDependencies": {
