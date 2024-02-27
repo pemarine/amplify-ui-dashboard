@@ -93,12 +93,13 @@ interface InfoBarProps {
             <div style={{ 
               display: 'flex',
               margin: '0px',
+              marginTop: '1px',
               padding: '0px', 
               justifyContent: 'center', 
               alignItems: 'center', 
               borderRadius: '50%',
               border: '2px solid white', 
-              marginLeft: '15px',
+              marginLeft: '10px',
               width: '21px', 
               height: '21px' 
             }}>

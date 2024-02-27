@@ -85,7 +85,16 @@ const styles = {
 
 const Content = styled('div')(styles.content);
 const Title = styled('div')(styles.title);
-const Subtitle = styled('div')(styles.subtitle);
+const Subtitle = styled('span')`
+  fontSize: '12px';
+  paddingLeft: '20px';
+  paddingBottom: '15px';
+  color: '#fff';
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+`;
+
 const Value = styled('div')(styles.value);
 //const Unit = styled('div')(styles.unit);
 //const Icon = styled('div')(styles.icon);
