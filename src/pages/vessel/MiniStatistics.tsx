@@ -39,6 +39,9 @@ const styles = {
     paddingLeft: '20px',
     paddingBottom: '15px',
     color: '#ececeb',
+    visibility: 'hidden', // hide the element
+    opacity: 0,
+    transition: 'visibility 0s, opacity 0.5s linear',
     // other styles you want...
   },
   value: {

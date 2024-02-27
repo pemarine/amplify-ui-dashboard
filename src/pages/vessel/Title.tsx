@@ -21,7 +21,7 @@ const Title = ({vessel}) => {
           
         >
             <Box display="flex" alignItems="center"  style={{ position: 'relative' }}>
-                <img src={`/flags/${vessel.FLAG.toUpperCase()}.png`} alt={vessel.FLAG} width="24" height="16" style={{ marginRight: '8px' }}/>         
+                <img src={`/flags/${vessel.FLAG.toLowerCase()}.png`} alt={vessel.FLAG} width="24" height="16" style={{ marginRight: '8px' }}/>         
                 <p style={{ fontSize: '19px', fontWeight: 'bold' }}>M/S {vessel.SHIPNAME}</p>
                 <p style={{ fontSize: '17px', marginLeft: 'auto' }}>IMO: {vessel.IMO}</p>
             </Box>
