@@ -62,7 +62,7 @@ interface InfoBarProps {
 }} />
         <div style={{ display: 'flex', flexDirection: 'column' }}> {/* Add this div */}
           <div style={{ display: 'flex', alignItems: 'center', padding: '0px', margin: '0px'}}>
-            <img src={`/flags/${selectedMarker.FLAG}.png`}
+            <img src={`/flags/${selectedMarker.FLAG.toLowerCase()}.png`}
               height={20}
               alt="Flag"
               style={{ 

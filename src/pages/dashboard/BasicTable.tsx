@@ -83,7 +83,7 @@ const BasicTable = ({onRowClick}) => {
             
             <TableRow onClick={() => onRowClick(vessel)}>
               <TableCell className='flag' style={{width: '20%'}}>
-                {vessel.FLAG && <img src={`/flags/${vessel.FLAG}.png`} alt={vessel.FLAG} width="30" height="20"/>}
+                {vessel.FLAG && <img src={`/flags/${vessel.FLAG.toLowerCase()}.png`} alt={vessel.FLAG} width="30" height="20"/>}
               </TableCell>
               <TableCell style={{width: '60%'}}>M/S {vessel.SHIPNAME}</TableCell>
               <TableCell style={{width: '20%'}}>
