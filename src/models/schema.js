@@ -31,6 +31,20 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "En_Vent_P_status": {
+                    "name": "En_Vent_P_status",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Pumps_P_status": {
+                    "name": "Pumps_P_status",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "IMO": {
                     "name": "IMO",
                     "isArray": false,
@@ -218,5 +232,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "82059ce1df7cbeb1b1ecf3bd459f6870"
+    "version": "c29330fa88749d0168285bbfccaf004a"
 };

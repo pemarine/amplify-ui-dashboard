@@ -4,7 +4,7 @@ import "./VesselPage.css"
 import { ThemeContext } from "../../themes/ThemeContext";
 //import { makeStyles } from '@material-ui/core';
 import { styled } from '@mui/system';
-import Icon from "@mui/material/Icon";
+//import Icon from "@mui/material/Icon";
 
 
 //import styled, { keyframes } from 'styled-components';
@@ -31,10 +31,10 @@ const styles = {
     fontSize: '18px',
     paddingTop: '15px',
     paddingLeft: '20px',
-    marginDown: '20px',
+    marginDown: '10px',
     margin: '0',
   },
-  subtitle: {
+/* subtitle: {
     fontSize: '12px',
     paddingLeft: '20px',
     paddingBottom: '15px',
@@ -43,9 +43,9 @@ const styles = {
     opacity: 0,
     transition: 'visibility 0s, opacity 0.5s linear',
     // other styles you want...
-  },
+  }, */
   value: {
-    borderTop: '3px solid #1A223F',
+    borderTop: '4px solid #1A223F',
     margin: '0px',
     display: 'flex',
     justifyContent: 'center',
@@ -85,7 +85,7 @@ const styles = {
 
 const Content = styled('div')(styles.content);
 const Title = styled('div')(styles.title);
-const Subtitle = styled('span')`
+/*const Subtitle = styled('span')`
   fontSize: '12px';
   paddingLeft: '20px';
   paddingBottom: '15px';
@@ -93,7 +93,7 @@ const Subtitle = styled('span')`
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
-`;
+`;*/
 
 const Value = styled('div')(styles.value);
 //const Unit = styled('div')(styles.unit);
@@ -116,12 +116,12 @@ const MiniStatistics = (props: MiniStatisticProps) => {
       >
         <Content>
           <Title>{props.title}</Title>
-          <Subtitle>{props.subtitle}</Subtitle>
+      {/*}    <Subtitle>{props.subtitle}</Subtitle> */}
           <Value>
             {props.amount}
             <Sup>{props.measurement}</Sup>
           </Value>
-          <Icon>{props.icon}</Icon>
+         {/*} <Icon>{props.icon}</Icon> */}
         </Content>
       </Card>
     </>

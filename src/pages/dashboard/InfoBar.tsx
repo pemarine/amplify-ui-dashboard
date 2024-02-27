@@ -93,17 +93,17 @@ interface InfoBarProps {
             <div style={{ 
               display: 'flex',
               margin: '0px',
-              marginTop: '1px',
+              marginTop: '2px',
               padding: '0px', 
               justifyContent: 'center', 
               alignItems: 'center', 
               borderRadius: '50%',
               border: '2px solid white', 
               marginLeft: '10px',
-              width: '21px', 
-              height: '21px' 
+              width: '19px', 
+              height: '19px' 
             }}>
-                <Icon as={MdOutlineChevronRight} style={{ fontSize: '21px', color: 'white' }}/>
+                <Icon as={MdOutlineChevronRight} style={{ fontSize: '18px', color: 'white' }}/>
 
               </div>
             {/*  <p style={{ fontSize: '15px', color: 'white', marginLeft: '5px' }}>VIEW</p> */}

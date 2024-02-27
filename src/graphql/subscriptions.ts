@@ -14,6 +14,8 @@ export const onCreateVessel = /* GraphQL */ `subscription OnCreateVessel($filter
     clientID
     outsideTemp
     HVAC_P_status
+    En_Vent_P_status
+    Pumps_P_status
     IMO
     MMSI
     SHIPNAME
@@ -50,6 +52,8 @@ export const onUpdateVessel = /* GraphQL */ `subscription OnUpdateVessel($filter
     clientID
     outsideTemp
     HVAC_P_status
+    En_Vent_P_status
+    Pumps_P_status
     IMO
     MMSI
     SHIPNAME
@@ -86,6 +90,8 @@ export const onDeleteVessel = /* GraphQL */ `subscription OnDeleteVessel($filter
     clientID
     outsideTemp
     HVAC_P_status
+    En_Vent_P_status
+    Pumps_P_status
     IMO
     MMSI
     SHIPNAME

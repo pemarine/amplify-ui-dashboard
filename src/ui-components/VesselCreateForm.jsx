@@ -25,6 +25,8 @@ export default function VesselCreateForm(props) {
     clientID: "",
     outsideTemp: "",
     HVAC_P_status: "",
+    En_Vent_P_status: "",
+    Pumps_P_status: "",
     IMO: "",
     MMSI: "",
     SHIPNAME: "",
@@ -51,6 +53,12 @@ export default function VesselCreateForm(props) {
   );
   const [HVAC_P_status, setHVAC_P_status] = React.useState(
     initialValues.HVAC_P_status
+  );
+  const [En_Vent_P_status, setEn_Vent_P_status] = React.useState(
+    initialValues.En_Vent_P_status
+  );
+  const [Pumps_P_status, setPumps_P_status] = React.useState(
+    initialValues.Pumps_P_status
   );
   const [IMO, setIMO] = React.useState(initialValues.IMO);
   const [MMSI, setMMSI] = React.useState(initialValues.MMSI);
@@ -86,6 +94,8 @@ export default function VesselCreateForm(props) {
     setClientID(initialValues.clientID);
     setOutsideTemp(initialValues.outsideTemp);
     setHVAC_P_status(initialValues.HVAC_P_status);
+    setEn_Vent_P_status(initialValues.En_Vent_P_status);
+    setPumps_P_status(initialValues.Pumps_P_status);
     setIMO(initialValues.IMO);
     setMMSI(initialValues.MMSI);
     setSHIPNAME(initialValues.SHIPNAME);
@@ -111,6 +121,8 @@ export default function VesselCreateForm(props) {
     clientID: [],
     outsideTemp: [],
     HVAC_P_status: [],
+    En_Vent_P_status: [],
+    Pumps_P_status: [],
     IMO: [],
     MMSI: [],
     SHIPNAME: [],
@@ -160,6 +172,8 @@ export default function VesselCreateForm(props) {
           clientID,
           outsideTemp,
           HVAC_P_status,
+          En_Vent_P_status,
+          Pumps_P_status,
           IMO,
           MMSI,
           SHIPNAME,
@@ -236,6 +250,8 @@ export default function VesselCreateForm(props) {
               clientID: value,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -281,6 +297,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp: value,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -326,6 +344,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status: value,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -360,6 +380,100 @@ export default function VesselCreateForm(props) {
         {...getOverrideProps(overrides, "HVAC_P_status")}
       ></TextField>
       <TextField
+        label="En vent p status"
+        isRequired={false}
+        isReadOnly={false}
+        value={En_Vent_P_status}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              clientID,
+              outsideTemp,
+              HVAC_P_status,
+              En_Vent_P_status: value,
+              Pumps_P_status,
+              IMO,
+              MMSI,
+              SHIPNAME,
+              FLAG,
+              MARKET,
+              TYPE_NAME,
+              LAT,
+              LON,
+              LAST_PORT,
+              CURRENT_PORT,
+              NEXT_PORT,
+              NEXT_PORT_NAME,
+              DISTANCE_TO_GO,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
+              SPEED,
+              AVG_SPEED,
+              MAX_SPEED,
+              updatedAt,
+            };
+            const result = onChange(modelFields);
+            value = result?.En_Vent_P_status ?? value;
+          }
+          if (errors.En_Vent_P_status?.hasError) {
+            runValidationTasks("En_Vent_P_status", value);
+          }
+          setEn_Vent_P_status(value);
+        }}
+        onBlur={() => runValidationTasks("En_Vent_P_status", En_Vent_P_status)}
+        errorMessage={errors.En_Vent_P_status?.errorMessage}
+        hasError={errors.En_Vent_P_status?.hasError}
+        {...getOverrideProps(overrides, "En_Vent_P_status")}
+      ></TextField>
+      <TextField
+        label="Pumps p status"
+        isRequired={false}
+        isReadOnly={false}
+        value={Pumps_P_status}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              clientID,
+              outsideTemp,
+              HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status: value,
+              IMO,
+              MMSI,
+              SHIPNAME,
+              FLAG,
+              MARKET,
+              TYPE_NAME,
+              LAT,
+              LON,
+              LAST_PORT,
+              CURRENT_PORT,
+              NEXT_PORT,
+              NEXT_PORT_NAME,
+              DISTANCE_TO_GO,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
+              SPEED,
+              AVG_SPEED,
+              MAX_SPEED,
+              updatedAt,
+            };
+            const result = onChange(modelFields);
+            value = result?.Pumps_P_status ?? value;
+          }
+          if (errors.Pumps_P_status?.hasError) {
+            runValidationTasks("Pumps_P_status", value);
+          }
+          setPumps_P_status(value);
+        }}
+        onBlur={() => runValidationTasks("Pumps_P_status", Pumps_P_status)}
+        errorMessage={errors.Pumps_P_status?.errorMessage}
+        hasError={errors.Pumps_P_status?.hasError}
+        {...getOverrideProps(overrides, "Pumps_P_status")}
+      ></TextField>
+      <TextField
         label="Imo"
         isRequired={false}
         isReadOnly={false}
@@ -371,6 +485,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO: value,
               MMSI,
               SHIPNAME,
@@ -416,6 +532,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI: value,
               SHIPNAME,
@@ -461,6 +579,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME: value,
@@ -506,6 +626,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -551,6 +673,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -596,6 +720,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -641,6 +767,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -686,6 +814,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -731,6 +861,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -776,6 +908,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -821,6 +955,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -866,6 +1002,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -911,6 +1049,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -956,6 +1096,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -1003,6 +1145,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -1048,6 +1192,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -1093,6 +1239,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -1138,6 +1286,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,
@@ -1183,6 +1333,8 @@ export default function VesselCreateForm(props) {
               clientID,
               outsideTemp,
               HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
               IMO,
               MMSI,
               SHIPNAME,

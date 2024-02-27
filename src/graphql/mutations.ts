@@ -17,6 +17,8 @@ export const createVessel = /* GraphQL */ `mutation CreateVessel(
     clientID
     outsideTemp
     HVAC_P_status
+    En_Vent_P_status
+    Pumps_P_status
     IMO
     MMSI
     SHIPNAME
@@ -56,6 +58,8 @@ export const updateVessel = /* GraphQL */ `mutation UpdateVessel(
     clientID
     outsideTemp
     HVAC_P_status
+    En_Vent_P_status
+    Pumps_P_status
     IMO
     MMSI
     SHIPNAME
@@ -95,6 +99,8 @@ export const deleteVessel = /* GraphQL */ `mutation DeleteVessel(
     clientID
     outsideTemp
     HVAC_P_status
+    En_Vent_P_status
+    Pumps_P_status
     IMO
     MMSI
     SHIPNAME

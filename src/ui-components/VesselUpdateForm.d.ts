@@ -26,6 +26,8 @@ export declare type VesselUpdateFormInputValues = {
     clientID?: string;
     outsideTemp?: string;
     HVAC_P_status?: string;
+    En_Vent_P_status?: string;
+    Pumps_P_status?: string;
     IMO?: string;
     MMSI?: string;
     SHIPNAME?: string;
@@ -50,6 +52,8 @@ export declare type VesselUpdateFormValidationValues = {
     clientID?: ValidationFunction<string>;
     outsideTemp?: ValidationFunction<string>;
     HVAC_P_status?: ValidationFunction<string>;
+    En_Vent_P_status?: ValidationFunction<string>;
+    Pumps_P_status?: ValidationFunction<string>;
     IMO?: ValidationFunction<string>;
     MMSI?: ValidationFunction<string>;
     SHIPNAME?: ValidationFunction<string>;
@@ -76,6 +80,8 @@ export declare type VesselUpdateFormOverridesProps = {
     clientID?: PrimitiveOverrideProps<TextFieldProps>;
     outsideTemp?: PrimitiveOverrideProps<TextFieldProps>;
     HVAC_P_status?: PrimitiveOverrideProps<TextFieldProps>;
+    En_Vent_P_status?: PrimitiveOverrideProps<TextFieldProps>;
+    Pumps_P_status?: PrimitiveOverrideProps<TextFieldProps>;
     IMO?: PrimitiveOverrideProps<TextFieldProps>;
     MMSI?: PrimitiveOverrideProps<TextFieldProps>;
     SHIPNAME?: PrimitiveOverrideProps<TextFieldProps>;

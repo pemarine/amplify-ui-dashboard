@@ -15,9 +15,13 @@ async function updateVessel(vessel, response) {
     const data = JSON.parse(response);
     const outsideTempObj = data.metrics.find(metric => metric.name === 'Outside temp');
     const HVAC_P_statusObj = data.metrics.find(metric => metric.name === 'HVAC_P_status');
+    const En_Vent_P_statusObj = data.metrics.find(metric => metric.name === 'En_Vent_P_status');
+    const Pumps_P_statusObj = data.metrics.find(metric => metric.name === 'Pumps_P_status');
   
     let outsideTemp;
     let HVAC_P_status;
+    let En_Vent_P_status;
+    let Pumps_P_status;
   
     if (outsideTempObj) {
       outsideTemp = outsideTempObj.value.toString();
@@ -32,16 +36,30 @@ async function updateVessel(vessel, response) {
     } else {
       console.log('HVAC_P_status not found');
     }
+    if (En_Vent_P_statusObj) {
+      En_Vent_P_status = En_Vent_P_statusObj.value.toString();
+      console.log('En_Vent_P_status:', En_Vent_P_status);
+    } else {
+      console.log('En_Vent_P_status not found');
+    }
+    if (Pumps_P_statusObj) {
+      Pumps_P_status = Pumps_P_statusObj.value.toString();
+      console.log('Pumps_P_status:', Pumps_P_status);
+    } else {
+      console.log('Pumps_P_status not found');
+    }
   
     const params = {
       TableName: 'Vessel-47tnpcgmffejfjbi2tuaoydnhu-dev',
       Key: {
         id: vessel.id, // Assuming 'id' is the primary key for your table
       },
-      UpdateExpression: 'set outsideTemp = :outsideTemp, HVAC_P_status = :HVAC_P_status',
+      UpdateExpression: 'set outsideTemp = :outsideTemp, HVAC_P_status = :HVAC_P_status, En_Vent_P_status = :En_Vent_P_status, Pumps_P_status = :Pumps_P_status',
       ExpressionAttributeValues: {
         ':outsideTemp': outsideTemp, // The new value for 'outsideTemp'
         ':HVAC_P_status': HVAC_P_status, // The new value for 'HVAC_P_status'
+        ':En_Vent_P_status': En_Vent_P_status, // The new value for 'En_Vent_P_status'
+        ':Pumps_P_status': Pumps_P_status, // The new value for 'Pumps_P_status'
       },
       ReturnValues: 'UPDATED_NEW',
     };

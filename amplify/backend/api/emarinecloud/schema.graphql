@@ -3,6 +3,8 @@ type Vessel @model @auth(rules: [{allow: public}]) @aws_api_key @aws_cognito_use
   clientID: String
   outsideTemp: String
   HVAC_P_status: String
+  En_Vent_P_status: String
+  Pumps_P_status: String
   IMO: String
   MMSI: String
   SHIPNAME: String
