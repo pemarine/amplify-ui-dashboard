@@ -75,7 +75,12 @@ AWS.config.update({
 DataStore.start();
 // Create the context
 
+/*async function refreshDataStore() {
+  await DataStore.clear();
+  await DataStore.start();
+}
 
+refreshDataStore(); */
 
 
 
@@ -85,7 +90,7 @@ export const VesselsContext = createContext<Vessel[]>([]);
 
 export const VesselsProvider = ({ children }) => {
 /*  async function createVessel() {
-    const newVessel = await DataStore.save(
+    const newVessel = await DyataStore.save(
       new Vessel({
         SHIPNAME: "Ship Name",
         LAT: "22",
