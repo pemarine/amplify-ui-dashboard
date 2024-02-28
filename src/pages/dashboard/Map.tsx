@@ -1,16 +1,24 @@
-import { GoogleMap, Marker } from '@react-google-maps/api';
+import { OverlayView } from '@react-google-maps/api';
 
 import React, { useContext } from 'react';
+//import { useLottie, LottieOptions } from 'lottie-react';
+import { GoogleMap } from '@react-google-maps/api';
+//import { View } from '@aws-amplify/ui-react';
+import Lottie from 'lottie-react';
+
 //import axios from 'axios';
 
-import markerIcon from '../../assets/icons/animated_marker.gif';
-import GreenAnimatedMarker from '../../assets/icons/GreenAnimatedMarker.gif';
+//import BlueAnimatedMarker from '../../assets/icons/AnimatedBlueMarker.gif';
+//import GreenAnimatedMarker from '../../assets/icons/GreenAnimatedMarker.gif';
+//import YellowAnimatedMarker from '../../assets/icons/YellowAnimatedMarker.gif';
+//import RedAnimatedMarker from '../../assets/icons/RedAnimatedMarker.gif';
 
 //import { fetchVessels } from './api';
 //import VesselInfoBox from './VesselBox';
 //import { Vessel } from './types';
 //import { Vessel } from '../../models'
 import { VesselsContext } from '../../utils/VesselsContext';
+import { Vessel } from 'src/models';
 //import { Vessel } from 'src/models';
 
 /*
@@ -20,6 +28,18 @@ interface Vessel {
   // Add other properties as needed
 }
 */
+
+import BlueAnimatedMarker from '../../assets/lottie/BlueAnimatedMarker.json';
+import GreenAnimatedMarker from '../../assets/lottie/GreenAnimatedMarker.json';
+import YellowAnimatedMarker from '../../assets/lottie/YellowAnimatedMarker.json';
+import RedAnimatedMarker from '../../assets/lottie/RedAnimatedMarker.json';
+
+const lottieFiles = {
+  BlueAnimatedMarker,
+  GreenAnimatedMarker,
+  YellowAnimatedMarker,
+  RedAnimatedMarker,
+};
 
 interface MapProps {
   setSelectedMarker: (marker: any) => void;
@@ -38,10 +58,12 @@ const Map: React.FC<MapProps> = ({ setSelectedVesselId, selectedVesselId, setSel
 
   const vessels = useContext(VesselsContext);
   const mapHeight = isInfoBarOpen ? '10vh' : '80vh';
+  const [center, setCenter] = React.useState({ lat: 25, lng: 0 });
+
 
 
  // const [selectedVessel, setSelectedVessel] = React.useState<Vessel | null>(null);
-// const [isPopupOpen, setIsPopupOpen] = React.useState(false);
+// const [isPopupOpen,c setIsPopupOpen] = React.useState(false);
   /*
   React.useEffect(() => {
     const fetchData = async () wwh=> {
@@ -87,13 +109,33 @@ const Map: React.FC<MapProps> = ({ setSelectedVesselId, selectedVesselId, setSel
             ]
         }
     ];  
-   // const [map, setMap] = React.useState<GoogleMap | null>(null);
-    const [center, setCenter] = React.useState({ lat: 25, lng: 0 });
 
-    const onMapLoad = React.useCallback((map) => {
-      setCenter(map);
-    }, []);
-
+  
+    const getLottieFile = (vessel: Vessel) => {
+      // Add the properties to the Vessel interface
+      if (vessel.id === selectedVesselId) {
+        return 'BlueAnimatedMarker';
+      }
+      else{
+        const highestValue = Math.max(
+          parseFloat(vessel.HVAC_P_status || "0"),
+          parseFloat(vessel.En_Vent_P_status || "0"),
+          parseFloat(vessel.Pumps_P_status || "0")
+        );
+    
+        switch (highestValue) {
+          case 0:
+            return 'GreenAnimatedMarker';
+          case 1:
+            return 'YellowAnimatedMarker';
+          case 2:
+            return 'RedAnimatedMarker';
+          default:
+            return 'BlueAnimatedMarker';
+        }
+      }
+     
+    };
     const onMarkerClick = (vessel: any) => {
       setSelectedVesselId(vessel.id);
 
@@ -107,66 +149,43 @@ const Map: React.FC<MapProps> = ({ setSelectedVesselId, selectedVesselId, setSel
 
     };
 
- 
 
-  
-    return (
-      <div className='map-container'style={{ height: mapHeight, width: '100%', marginTop: '15px' }}>
-
-
-    {/*  <LoadScript googleMapsApiKey='AIzaSyBxU5YOF-cbBZaoc6hgovIsf0-oYuqFT9M'> */}
-      <GoogleMap
-         key={isInfoBarOpen ? 'open' : 'closed'}
-         onLoad={onMapLoad}
-
-        mapContainerStyle={{width: '100%', height: mapHeight, borderRadius: '15px'}}
-        zoom={3}
-        center={center}
-        options={{
-          styles: mapStyles,
-          streetViewControl: false,
-        }}
-        
-
-      >
-      {vessels.map((vessel, index) => {
-      return (
-        <Marker
-        key={index}
-        position={{
-          lat: vessel.LAT ? parseFloat(vessel.LAT) : 0, // Replace 0 with your default latitude
-          lng: vessel.LON ? parseFloat(vessel.LON) : 0, // Replace 0 with your default longitude
-        }}
-        icon={{
-          
-          url: vessel.id === selectedVesselId ? GreenAnimatedMarker : markerIcon,
-          scaledSize: new window.google.maps.Size(60, 60), // Adjust size as needed
-          anchor: new window.google.maps.Point(30, 30),
-
-        }}
-        onClick={() => {
-          //setSelectedVessel(vessel);
-     
-          onMarkerClick(vessel);
-          
-          //setIsPopupOpen(true);
-        }}
-        />
-        );
-})}
-       
-      </GoogleMap>
-   {/*  </LoadScript> 
-     {selectedVessel && (
-      <VesselInfoBox 
-        vessel={selectedVessel} 
-        open={isPopupOpen} 
-        close={() => setIsPopupOpen(false)} 
-      />
-    )}
-    */}
+return (
+  <div className='map-container' style={{ height: mapHeight, width: '100%', marginTop: '15px' }}>
+    <GoogleMap
+      key={isInfoBarOpen ? 'open' : 'closed'}
+      mapContainerStyle={{width: '100%', height: mapHeight, borderRadius: '15px'}}
+      zoom={3}
+      center={center}
+      options={{
+        styles: mapStyles,
+        streetViewControl: false,
+      }}
+      
+    >
+      {vessels.map((vessel, index) => (
+  <OverlayView
+    key={index} // include zoom level in key
+    position={{
+      lat: vessel.LAT ? parseFloat(vessel.LAT) : 0,
+      lng: vessel.LON ? parseFloat(vessel.LON) : 0,
+    }}
+    mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+  >
+    <div
+      onClick={() => onMarkerClick(vessel)}
+      style={{
+        position: 'absolute',
+        transform: 'translate(-50%, -50%)', // center the marker
+      }}
+    >
+      <Lottie animationData={lottieFiles[getLottieFile(vessel)]} style={{ width: 30, height: 30 }} />
     </div>
-    )
-  }
+  </OverlayView>
+))}
+    </GoogleMap>
+  </div>
+)
+}
 
 export default Map;

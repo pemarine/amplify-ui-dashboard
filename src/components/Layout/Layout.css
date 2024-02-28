@@ -6,7 +6,7 @@ background-color: var(--amplify-colors-background-secondary);
 
 .page-container {
     padding-right: 10px;
-    padding-left: 215px;
+    padding-left: 195px;
     padding-top: 50px;
     transition: padding 0.5s;
     overflow-x: hidden;
@@ -14,7 +14,7 @@ background-color: var(--amplify-colors-background-secondary);
 
 .page-container.dark {
     padding-right: 10px;
-    padding-left: 215px;
+    padding-left: 195px;
     padding-top: 50px;
     transition: padding 0.5s;
     overflow-x: hidden;
