@@ -179,7 +179,7 @@ return (
         transform: 'translate(-50%, -50%)', // center the marker
       }}
     >
-      <Lottie animationData={lottieFiles[getLottieFile(vessel)]} style={{ width: 30, height: 30 }} />
+      <Lottie animationData={lottieFiles[getLottieFile(vessel)]} style={{ width: 28, height: 28 }} />
     </div>
   </OverlayView>
 ))}
