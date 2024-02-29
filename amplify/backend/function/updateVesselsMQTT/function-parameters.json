@@ -1,3 +1,13 @@
 {
-  "lambdaLayers": []
+  "lambdaLayers": [],
+  "permissions": {
+    "function": {
+      "updateVesselsMT": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  }
 }

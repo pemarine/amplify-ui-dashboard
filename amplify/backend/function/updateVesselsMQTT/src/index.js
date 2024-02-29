@@ -1,4 +1,8 @@
-
+/* Amplify Params - DO NOT EDIT
+	ENV
+	FUNCTION_UPDATEVESSELSMT_NAME
+	REGION
+Amplify Params - DO NOT EDIT */
 
 /**
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
@@ -66,7 +70,9 @@ async function updateVessel(vessel, response) {
   
     try {
       const result = await dynamodb.update(params).promise();
+      console.log(vessel.SHIP_NAME);
       console.log('Update result:', result);
+      
     } catch (error) {
       console.error('Update error:', error);
     }
@@ -120,7 +126,7 @@ exports.handler = async (event) => {
               throw error;
             }
   
-            console.log('Subscribed to my/test/topic');
+            console.log('Subscribed to topic');
           });
   
           // Wait for the message event to be triggered

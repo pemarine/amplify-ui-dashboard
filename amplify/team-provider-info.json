@@ -25,7 +25,7 @@
         },
         "updateVesselsMQTT": {
           "deploymentBucketName": "amplify-emarinecloud-dev-170110-deployment",
-          "s3Key": "amplify-builds/updateVesselsMQTT-7544675a4e4547383658-build.zip"
+          "s3Key": "amplify-builds/updateVesselsMQTT-35645544582f4a4f5464-build.zip"
         }
       }
     }

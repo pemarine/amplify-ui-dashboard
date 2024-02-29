@@ -58,6 +58,15 @@
   "function": {
     "updateVesselsMQTT": {
       "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "updateVesselsMT"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
