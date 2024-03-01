@@ -24,7 +24,6 @@ const RouteBar = ({vessel}) => {
         <>
         <Card
             className={`title ${theme}`}
-            marginTop="2px"
            padding="10px"
             borderRadius="150px"
         //   backgroundColor="black"

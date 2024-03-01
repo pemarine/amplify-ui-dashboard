@@ -31,6 +31,7 @@ export const baseConfig = {
       <img
         src={process.env.PUBLIC_URL + "/logo.svg"}
         alt="logo"
+        style={{ width: '150px' }}
 
       />
     </>

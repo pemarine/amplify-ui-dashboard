@@ -15,18 +15,20 @@ const AWS = require('aws-sdk');
 async function updateVessel(vessel, response) {
     // Parse the JSON string into an object
     const dynamodb = new AWS.DynamoDB.DocumentClient();
-  
+      
+    // Use optional chaining and nullish coalescing to handle missing metrics
     const data = JSON.parse(response);
     const outsideTempObj = data.metrics.find(metric => metric.name === 'Outside temp');
     const HVAC_P_statusObj = data.metrics.find(metric => metric.name === 'HVAC_P_status');
     const En_Vent_P_statusObj = data.metrics.find(metric => metric.name === 'En_Vent_P_status');
     const Pumps_P_statusObj = data.metrics.find(metric => metric.name === 'Pumps_P_status');
-  
+
     let outsideTemp;
     let HVAC_P_status;
     let En_Vent_P_status;
     let Pumps_P_status;
-  
+    
+    
     if (outsideTempObj) {
       outsideTemp = outsideTempObj.value.toString();
       console.log('Outside temp:', outsideTemp); // Logs: Outside temp: 45
@@ -34,13 +36,13 @@ async function updateVessel(vessel, response) {
       console.log('Outside temp not found');
     }
   
-    if (HVAC_P_statusObj) {
+    if (outsideTempObj) {
       HVAC_P_status = HVAC_P_statusObj.value.toString();
       console.log('HVAC_P_status:', HVAC_P_status);
     } else {
       console.log('HVAC_P_status not found');
     }
-    if (En_Vent_P_statusObj) {
+    if (outsideTempObj) {
       En_Vent_P_status = En_Vent_P_statusObj.value.toString();
       console.log('En_Vent_P_status:', En_Vent_P_status);
     } else {
@@ -78,85 +80,12 @@ async function updateVessel(vessel, response) {
     }
   };
 
-exports.handler = async (event) => {
+  exports.handler = async (event) => {
     const dynamoDB = new AWS.DynamoDB.DocumentClient();
   
     // Retrieve all the vessel records from the DynamoDB table
     const vessels = await dynamoDB.scan({ TableName: 'Vessel-47tnpcgmffejfjbi2tuaoydnhu-dev' }).promise();
   
-    // Use Promise.all to wait for all the MQTT operations to complete
-    await Promise.all(vessels.Items.map(async (vessel) => {
-      // If there is no clientId for this vessel, skip it
-      if (!vessel.clientID) {
-        console.log(`Skipping vessel ${vessel.id} because it has no clientId`);
-        return;
-      } else {
-        const options = {
-          host: '88ded4b39cac41f5aa4cad288690a3a6.s2.eu.hivemq.cloud',
-          port: 8883,
-          protocol: 'mqtts',
-          username: vessel.clientID,
-          password: 'h37teXC90',
-        };
-        const client = mqtt.connect(options);
-  
-        // Wrap MQTT events in promises
-        const connectPromise = new Promise((resolve, reject) => {
-          client.on('connect', () => resolve('Connected'));
-          client.on('error', (error) => reject(error));
-        });
-        let message;
-        const messagePromise = new Promise((resolve, reject) => {
-          client.on('message', (topic, msg) => {
-            console.log('Received message:', topic, msg.toString());
-            message = msg.toString();
-            resolve();
-          });
-        });
-  
-        // Wait for the connection to be established
-        try {
-          await connectPromise;
-          console.log('MQTT Connection Established');
-  
-          // Subscribe to the MQTT topic
-          client.subscribe('topic', (error) => {
-            if (error) {
-              console.error('Subscription Error:', error);
-              throw error;
-            }
-  
-            console.log('Subscribed to topic');
-          });
-  
-          // Wait for the message event to be triggered
-          await messagePromise;
-          await updateVessel(vessel, message);
-  
-          // Disconnect the MQTT client
-          client.end();
-        } catch (error) {
-          console.error('Error:', error);
-  
-          // Disconnect the MQTT client in case of an error
-          client.end();
-        }
-      }
-    }));
-  
-    return {
-      statusCode: 200,
-      body: 'Lambda execution completed.',
-    };
-  };
-
-/*
-
-const AWS = require('aws-sdk');
-const mqtt = require('mqtt');
-
-exports.handler = async (event, context) => {
-    // Your MQTT broker connection options
     const options = {
         host: '88ded4b39cac41f5aa4cad288690a3a6.s2.eu.hivemq.cloud',
         port: 8883,
@@ -164,21 +93,12 @@ exports.handler = async (event, context) => {
         username: '6G0jW1rCKC1g',
         password: 'h37teXC90',
     };
-
-    // Initialize the MQTT client
     const client = mqtt.connect(options);
-
+  
     // Wrap MQTT events in promises
     const connectPromise = new Promise((resolve, reject) => {
         client.on('connect', () => resolve('Connected'));
         client.on('error', (error) => reject(error));
-    });
-
-    const messagePromise = new Promise((resolve, reject) => {
-        client.on('message', (topic, message) => {
-            console.log('Received message:', topic, message.toString());
-            resolve();
-        });
     });
 
     // Wait for the connection to be established
@@ -186,65 +106,53 @@ exports.handler = async (event, context) => {
         await connectPromise;
         console.log('MQTT Connection Established');
 
-        // Subscribe to the MQTT topic
-        client.subscribe('my/test/topic', (error) => {
-            if (error) {
-                console.error('Subscription Error:', error);
-                throw error;
+        for (const vessel of vessels.Items) {
+            if (!vessel.clientID) {
+                console.log(`Skipping vessel ${vessel.id} because it has no clientId`);
+                continue;
             }
 
-            console.log('Subscribed to my/test/topic');
+            let name = vessel.SHIPNAME.toLowerCase().split(' ');
+            let topic = name.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
 
-            // Publish a message to the MQTT topic
-            client.publish('my/test/topic', 'Hello', (error) => {
+            const messagePromise = new Promise((resolve, reject) => {
+                client.on('message', (topic, msg) => {
+                    console.log('Received message:', topic, msg.toString());
+                    resolve(msg.toString());
+                });
+            });
+
+            client.subscribe(topic, (error) => {
                 if (error) {
-                    console.error('Publish Error:', error);
+                    console.error('Subscription Error:', error);
                     throw error;
                 }
-
-                console.log('Message Published');
+                console.log('Subscribed to topic', topic);
             });
-        });
 
-        // Wait for the message event to be triggered
-        await messagePromise;
+            const message = await messagePromise;
+            await updateVessel(vessel, message);
+
+            client.unsubscribe(topic, (error) => {
+                if (error) {
+                    console.error('Unsubscription Error:', error);
+                    throw error;
+                }
+                console.log('Unsubscribed from topic', topic);
+            });
+        }
 
         // Disconnect the MQTT client
         client.end();
-
-        return {
-            statusCode: 200,
-            body: 'Lambda execution completed.',
-        };
     } catch (error) {
         console.error('Error:', error);
 
         // Disconnect the MQTT client in case of an error
         client.end();
-
-        return {
-            statusCode: 500,
-            body: 'Lambda execution encountered an error.',
-        };
     }
-};
-
-*/
-
-
-
-/*
-exports.handler = async (event) => {
-    console.log(`EVENT: ${JSON.stringify(event)}`);
+  
     return {
         statusCode: 200,
-    //  Uncomment below to enable CORS requests
-    //  headers: {
-    //      "Access-Control-Allow-Origin": "*",
-    //      "Access-Control-Allow-Headers": "*"
-    //  },
-        body: JSON.stringify('Hello from Lambda!'),
+        body: 'Lambda execution completed.',
     };
 };
-*/
-

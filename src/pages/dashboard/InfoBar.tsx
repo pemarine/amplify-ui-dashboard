@@ -4,7 +4,8 @@ import { ThemeContext } from "../../themes/ThemeContext";
 import { Link } from 'react-router-dom';
 
 //import { Vessel } from 'src/models';
-import './VesselBox.css'
+import './VesselBox.css';
+import './Animation.css';
 //import IconButton from '@material-ui/core/IconButton';
 //import CloseIcon from '@material-ui/icons/Close';
 import { IconButton } from '@mui/material';
@@ -37,7 +38,7 @@ interface InfoBarProps {
     return (
      
       <Card
-      className={`amplify-card ${theme}`}
+      className={`amplify-card ${theme} slideUpFadeIn`}
       borderRadius="15px"
       padding="0px"
       margin="0px"

@@ -28,6 +28,7 @@ interface Vessel {
   // Add other properties as needed
 }
 */
+import './Animation.css';
 
 import BlueAnimatedMarker from '../../assets/lottie/BlueAnimatedMarker.json';
 import GreenAnimatedMarker from '../../assets/lottie/GreenAnimatedMarker.json';
@@ -151,7 +152,7 @@ const Map: React.FC<MapProps> = ({ setSelectedVesselId, selectedVesselId, setSel
 
 
 return (
-  <div className='map-container' style={{ height: mapHeight, width: '100%', marginTop: '15px' }}>
+  <div className='mapAnimation' style={{ height: mapHeight, width: '100%', marginTop: '15px' }}>
     <GoogleMap
       key={isInfoBarOpen ? 'open' : 'closed'}
       mapContainerStyle={{width: '100%', height: mapHeight, borderRadius: '15px'}}
