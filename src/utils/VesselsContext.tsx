@@ -4,28 +4,26 @@ import { Vessel } from '../models';
 //import env from "dotenv"
 //import { DataStore } from 'aws-amplify/datastore';
 //import { DataStore } from '@aws-amplify/datastore';
-import awsconfig from '../aws-exports';
+//import awsconfig from '../aws-exports';
+import { vesselPositionHistory } from './VesselPositionHistory';
 
 const AWS = require('aws-sdk');
 const { DataStore } = require('@aws-amplify/datastore');
 
 // Set the region 
-AWS.config.update({region: 'eu-north-1'}); // replace 'REGION' with your region
-AWS.config.update(awsconfig);
-const ddb = new AWS.DynamoDB.DocumentClient();
+AWS.config.update({ region: 'eu-north-1' }); // replace 'REGION' with your region
+//AWS.config.update(awsconfig);
 
-const params = {
-  TableName: 'Vessel-7zpyoegrijazphw7d7mhvjomfu-emarinedev',
-};
 
-// Call DynamoDB to read the item from the table
-ddb.scan(params, function(err, data) {
+// Call DynamoDB to read the item from the table 
+/*
+ddb.scan(params, function (err, data) {
   if (err) {
     console.log("Error", err);
   } else {
     console.log("Success", data.Items);
   }
-});
+}); */
 //AWS.config.update(awsconfig);
 //DataStore.configure(awsconfig);
 //DataStore.start();
@@ -89,19 +87,19 @@ export const VesselsContext = createContext<Vessel[]>([]);
 // Create the provider component
 
 export const VesselsProvider = ({ children }) => {
-/*  async function createVessel() {
-    const newVessel = await DyataStore.save(
-      new Vessel({
-        SHIPNAME: "Ship Name",
-        LAT: "22",
-        LON: "33",
-        // Add other fields here...
-      })
-    );
-  
-    console.log("New vessel created: ", newVessel);
-  }
-  createVessel(); */
+  /*  async function createVessel() {
+      const newVessel = await DyataStore.save(
+        new Vessel({
+          SHIPNAME: "Ship Name",
+          LAT: "22",
+          LON: "33",
+          // Add other fields here...
+        })
+      );
+    
+      console.log("New vessel created: ", newVessel);
+    }
+    createVessel(); */
 
 
   const [_vessels, setVessels] = useState<Vessel[]>([]);
@@ -114,21 +112,22 @@ export const VesselsProvider = ({ children }) => {
         const vessels = await DataStore.query(Vessel);
         console.log("JEELEELE", vessels);
         console.log("hej" + vessels); // This will log an array of Vessel objects
-    
+
         // If you want to convert this to a list of plain objects:
-        const vesselList = vessels.map(vessel => {
+        const vesselList = await Promise.all(vessels.map(async vessel => {
+          const positions = await vesselPositionHistory(vessel);
+
           return {
             ...vessel,
-            // Replace 'field1', 'field2', etc. with the actual fields of your Vessel model
             id: vessel.id,
             SHIPNAME: vessel.SHIPNAME,
-              
-            // ...
+            positionsList: positions
           };
-        });
+        }));
         setVessels(vesselList);
-    
+
         console.log(vesselList); // This will log an array of plain objects
+
       } catch (error) {
         console.error("Error fetching vessels: ", error);
       }

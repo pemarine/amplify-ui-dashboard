@@ -1,5 +1,9 @@
 
-
+@keyframes color-shift {
+  0% {border-color: #00ce48;}
+  50% {border-color: #00ce48;}
+  100% {border-color: #03c246;}
+}
 
 
 .amplify-card.light {
@@ -117,7 +121,7 @@
     display: flex!important;
     align-items: center;
     
-    padding:4px 13px;
+    padding:3px 12px;
     border: 2px solid #d9d9d6; /* Coral color */
     border-radius: 15px;
     color: #f6f6f5; /* Coral color */
@@ -126,18 +130,28 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 3px 1px;
+    font-size: 17px;
+    margin: 2px 1px;
     cursor: pointer;
     transition-duration: 0.4s;
   }
   .footer-button > p {
     margin: 0;
     margin-left: 6px;
+    margin-right: 3px;
+    font-size: 16px;
     padding: 0;
+    text-decoration: none;
   }
+
   .footer-button:hover {
     background-color: #082b40e8; /* Coral color */
     color: #fff;
     border: 1px solid #00c9ff;
+  }
+  .vessel-footer-speed {
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }

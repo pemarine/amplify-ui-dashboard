@@ -176,6 +176,58 @@ export type DeleteVesselInput = {
   _version?: number | null,
 };
 
+export type CreateVesselsAISHistoryInput = {
+  id?: string | null,
+  imo?: string | null,
+  vessel_name?: string | null,
+  timestamp?: string | null,
+  latitude?: string | null,
+  longitude?: string | null,
+  _version?: number | null,
+};
+
+export type ModelVesselsAISHistoryConditionInput = {
+  imo?: ModelStringInput | null,
+  vessel_name?: ModelStringInput | null,
+  timestamp?: ModelStringInput | null,
+  latitude?: ModelStringInput | null,
+  longitude?: ModelStringInput | null,
+  and?: Array< ModelVesselsAISHistoryConditionInput | null > | null,
+  or?: Array< ModelVesselsAISHistoryConditionInput | null > | null,
+  not?: ModelVesselsAISHistoryConditionInput | null,
+  _deleted?: ModelBooleanInput | null,
+};
+
+export type VesselsAISHistory = {
+  __typename: "VesselsAISHistory",
+  id: string,
+  imo?: string | null,
+  vessel_name?: string | null,
+  timestamp?: string | null,
+  latitude?: string | null,
+  longitude?: string | null,
+  createdAt: string,
+  updatedAt: string,
+  _version: number,
+  _deleted?: boolean | null,
+  _lastChangedAt: number,
+};
+
+export type UpdateVesselsAISHistoryInput = {
+  id: string,
+  imo?: string | null,
+  vessel_name?: string | null,
+  timestamp?: string | null,
+  latitude?: string | null,
+  longitude?: string | null,
+  _version?: number | null,
+};
+
+export type DeleteVesselsAISHistoryInput = {
+  id: string,
+  _version?: number | null,
+};
+
 export type ModelVesselFilterInput = {
   id?: ModelIDInput | null,
   clientID?: ModelStringInput | null,
@@ -227,6 +279,26 @@ export type ModelIDInput = {
 export type ModelVesselConnection = {
   __typename: "ModelVesselConnection",
   items:  Array<Vessel | null >,
+  nextToken?: string | null,
+  startedAt?: number | null,
+};
+
+export type ModelVesselsAISHistoryFilterInput = {
+  id?: ModelIDInput | null,
+  imo?: ModelStringInput | null,
+  vessel_name?: ModelStringInput | null,
+  timestamp?: ModelStringInput | null,
+  latitude?: ModelStringInput | null,
+  longitude?: ModelStringInput | null,
+  and?: Array< ModelVesselsAISHistoryFilterInput | null > | null,
+  or?: Array< ModelVesselsAISHistoryFilterInput | null > | null,
+  not?: ModelVesselsAISHistoryFilterInput | null,
+  _deleted?: ModelBooleanInput | null,
+};
+
+export type ModelVesselsAISHistoryConnection = {
+  __typename: "ModelVesselsAISHistoryConnection",
+  items:  Array<VesselsAISHistory | null >,
   nextToken?: string | null,
   startedAt?: number | null,
 };
@@ -290,6 +362,18 @@ export type ModelSubscriptionStringInput = {
   beginsWith?: string | null,
   in?: Array< string | null > | null,
   notIn?: Array< string | null > | null,
+};
+
+export type ModelSubscriptionVesselsAISHistoryFilterInput = {
+  id?: ModelSubscriptionIDInput | null,
+  imo?: ModelSubscriptionStringInput | null,
+  vessel_name?: ModelSubscriptionStringInput | null,
+  timestamp?: ModelSubscriptionStringInput | null,
+  latitude?: ModelSubscriptionStringInput | null,
+  longitude?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionVesselsAISHistoryFilterInput | null > | null,
+  or?: Array< ModelSubscriptionVesselsAISHistoryFilterInput | null > | null,
+  _deleted?: ModelBooleanInput | null,
 };
 
 export type CreateVesselMutationVariables = {
@@ -406,6 +490,72 @@ export type DeleteVesselMutation = {
     MAX_SPEED?: string | null,
     updatedAt?: string | null,
     createdAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type CreateVesselsAISHistoryMutationVariables = {
+  input: CreateVesselsAISHistoryInput,
+  condition?: ModelVesselsAISHistoryConditionInput | null,
+};
+
+export type CreateVesselsAISHistoryMutation = {
+  createVesselsAISHistory?:  {
+    __typename: "VesselsAISHistory",
+    id: string,
+    imo?: string | null,
+    vessel_name?: string | null,
+    timestamp?: string | null,
+    latitude?: string | null,
+    longitude?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type UpdateVesselsAISHistoryMutationVariables = {
+  input: UpdateVesselsAISHistoryInput,
+  condition?: ModelVesselsAISHistoryConditionInput | null,
+};
+
+export type UpdateVesselsAISHistoryMutation = {
+  updateVesselsAISHistory?:  {
+    __typename: "VesselsAISHistory",
+    id: string,
+    imo?: string | null,
+    vessel_name?: string | null,
+    timestamp?: string | null,
+    latitude?: string | null,
+    longitude?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type DeleteVesselsAISHistoryMutationVariables = {
+  input: DeleteVesselsAISHistoryInput,
+  condition?: ModelVesselsAISHistoryConditionInput | null,
+};
+
+export type DeleteVesselsAISHistoryMutation = {
+  deleteVesselsAISHistory?:  {
+    __typename: "VesselsAISHistory",
+    id: string,
+    imo?: string | null,
+    vessel_name?: string | null,
+    timestamp?: string | null,
+    latitude?: string | null,
+    longitude?: string | null,
+    createdAt: string,
+    updatedAt: string,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
@@ -544,6 +694,84 @@ export type SyncVesselsQuery = {
   } | null,
 };
 
+export type GetVesselsAISHistoryQueryVariables = {
+  id: string,
+};
+
+export type GetVesselsAISHistoryQuery = {
+  getVesselsAISHistory?:  {
+    __typename: "VesselsAISHistory",
+    id: string,
+    imo?: string | null,
+    vessel_name?: string | null,
+    timestamp?: string | null,
+    latitude?: string | null,
+    longitude?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type ListVesselsAISHistoriesQueryVariables = {
+  filter?: ModelVesselsAISHistoryFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListVesselsAISHistoriesQuery = {
+  listVesselsAISHistories?:  {
+    __typename: "ModelVesselsAISHistoryConnection",
+    items:  Array< {
+      __typename: "VesselsAISHistory",
+      id: string,
+      imo?: string | null,
+      vessel_name?: string | null,
+      timestamp?: string | null,
+      latitude?: string | null,
+      longitude?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type SyncVesselsAISHistoriesQueryVariables = {
+  filter?: ModelVesselsAISHistoryFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  lastSync?: number | null,
+};
+
+export type SyncVesselsAISHistoriesQuery = {
+  syncVesselsAISHistories?:  {
+    __typename: "ModelVesselsAISHistoryConnection",
+    items:  Array< {
+      __typename: "VesselsAISHistory",
+      id: string,
+      imo?: string | null,
+      vessel_name?: string | null,
+      timestamp?: string | null,
+      latitude?: string | null,
+      longitude?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
 export type OnCreateVesselSubscriptionVariables = {
   filter?: ModelSubscriptionVesselFilterInput | null,
 };
@@ -655,6 +883,69 @@ export type OnDeleteVesselSubscription = {
     MAX_SPEED?: string | null,
     updatedAt?: string | null,
     createdAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnCreateVesselsAISHistorySubscriptionVariables = {
+  filter?: ModelSubscriptionVesselsAISHistoryFilterInput | null,
+};
+
+export type OnCreateVesselsAISHistorySubscription = {
+  onCreateVesselsAISHistory?:  {
+    __typename: "VesselsAISHistory",
+    id: string,
+    imo?: string | null,
+    vessel_name?: string | null,
+    timestamp?: string | null,
+    latitude?: string | null,
+    longitude?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnUpdateVesselsAISHistorySubscriptionVariables = {
+  filter?: ModelSubscriptionVesselsAISHistoryFilterInput | null,
+};
+
+export type OnUpdateVesselsAISHistorySubscription = {
+  onUpdateVesselsAISHistory?:  {
+    __typename: "VesselsAISHistory",
+    id: string,
+    imo?: string | null,
+    vessel_name?: string | null,
+    timestamp?: string | null,
+    latitude?: string | null,
+    longitude?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnDeleteVesselsAISHistorySubscriptionVariables = {
+  filter?: ModelSubscriptionVesselsAISHistoryFilterInput | null,
+};
+
+export type OnDeleteVesselsAISHistorySubscription = {
+  onDeleteVesselsAISHistory?:  {
+    __typename: "VesselsAISHistory",
+    id: string,
+    imo?: string | null,
+    vessel_name?: string | null,
+    timestamp?: string | null,
+    latitude?: string | null,
+    longitude?: string | null,
+    createdAt: string,
+    updatedAt: string,
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,

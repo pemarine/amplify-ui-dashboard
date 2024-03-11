@@ -122,3 +122,69 @@ export const onDeleteVessel = /* GraphQL */ `subscription OnDeleteVessel($filter
   APITypes.OnDeleteVesselSubscriptionVariables,
   APITypes.OnDeleteVesselSubscription
 >;
+export const onCreateVesselsAISHistory = /* GraphQL */ `subscription OnCreateVesselsAISHistory(
+  $filter: ModelSubscriptionVesselsAISHistoryFilterInput
+) {
+  onCreateVesselsAISHistory(filter: $filter) {
+    id
+    imo
+    vessel_name
+    timestamp
+    latitude
+    longitude
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateVesselsAISHistorySubscriptionVariables,
+  APITypes.OnCreateVesselsAISHistorySubscription
+>;
+export const onUpdateVesselsAISHistory = /* GraphQL */ `subscription OnUpdateVesselsAISHistory(
+  $filter: ModelSubscriptionVesselsAISHistoryFilterInput
+) {
+  onUpdateVesselsAISHistory(filter: $filter) {
+    id
+    imo
+    vessel_name
+    timestamp
+    latitude
+    longitude
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateVesselsAISHistorySubscriptionVariables,
+  APITypes.OnUpdateVesselsAISHistorySubscription
+>;
+export const onDeleteVesselsAISHistory = /* GraphQL */ `subscription OnDeleteVesselsAISHistory(
+  $filter: ModelSubscriptionVesselsAISHistoryFilterInput
+) {
+  onDeleteVesselsAISHistory(filter: $filter) {
+    id
+    imo
+    vessel_name
+    timestamp
+    latitude
+    longitude
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteVesselsAISHistorySubscriptionVariables,
+  APITypes.OnDeleteVesselsAISHistorySubscription
+>;

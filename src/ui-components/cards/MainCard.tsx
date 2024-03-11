@@ -36,6 +36,8 @@ const MainCard: React.ForwardRefRenderFunction<HTMLDivElement, MainCardProps> = 
     shadow,
     sx = {},
     title,
+    //component,
+    ref,
     ...others
   },
 ) => {

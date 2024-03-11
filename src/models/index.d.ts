@@ -37,6 +37,8 @@ type EagerVessel = {
   readonly MAX_SPEED?: string | null;
   readonly updatedAt?: string | null;
   readonly createdAt?: string | null;
+  readonly positionsList?: { lat: string, lng: string, timestamp: string }[];
+
 }
 
 type LazyVessel = {
@@ -70,10 +72,48 @@ type LazyVessel = {
   readonly MAX_SPEED?: string | null;
   readonly updatedAt?: string | null;
   readonly createdAt?: string | null;
+  readonly positionsList?: { lat: string, lng: string, timestamp: string }[];
+
 }
 
 export declare type Vessel = LazyLoading extends LazyLoadingDisabled ? EagerVessel : LazyVessel
 
 export declare const Vessel: (new (init: ModelInit<Vessel>) => Vessel) & {
   copyOf(source: Vessel, mutator: (draft: MutableModel<Vessel>) => MutableModel<Vessel> | void): Vessel;
+}
+
+type EagerVesselsAISHistory = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<VesselsAISHistory, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly imo?: string | null;
+  readonly vessel_name?: string | null;
+  readonly timestamp?: string | null;
+  readonly latitude?: string | null;
+  readonly longitude?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyVesselsAISHistory = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<VesselsAISHistory, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly imo?: string | null;
+  readonly vessel_name?: string | null;
+  readonly timestamp?: string | null;
+  readonly latitude?: string | null;
+  readonly longitude?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type VesselsAISHistory = LazyLoading extends LazyLoadingDisabled ? EagerVesselsAISHistory : LazyVesselsAISHistory
+
+export declare const VesselsAISHistory: (new (init: ModelInit<VesselsAISHistory>) => VesselsAISHistory) & {
+  copyOf(source: VesselsAISHistory, mutator: (draft: MutableModel<VesselsAISHistory>) => MutableModel<VesselsAISHistory> | void): VesselsAISHistory;
 }

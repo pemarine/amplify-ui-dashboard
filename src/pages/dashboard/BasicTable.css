@@ -20,6 +20,8 @@
   border-style:dashed;
   border-left: none;
   border-right: none;
+  padding: 10px;
+  font-size: 14px;
 }
 
 .amplify-table.dark > thead > tr > th {
@@ -46,7 +48,14 @@
   margin: none;
 
 }
-
+.amplify-table > tbody > tr > td:last-child > svg {
+  margin: auto;
+  text-align: center;
+  align-items: center;
+}
+.amplify-table > tbody > tr:hover > td {
+  color: black;
+}
 
 
 /*  DARK THEME   */

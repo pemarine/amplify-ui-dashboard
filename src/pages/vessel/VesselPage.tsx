@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { VesselsContext } from '../../utils/VesselsContext';
-import { Vessel } from 'src/models';
+import { Vessel } from '../../models';
 import { Card, Grid, View } from '@aws-amplify/ui-react';
 import { ThemeContext } from "../../themes/ThemeContext";
 import './VesselPage.css';

@@ -30,7 +30,13 @@ const VesselCard = ({ vessel }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       
-      style={{ backgroundImage: `url(/vessels/${vessel.IMO}.jpg)`, borderTop: '2px solid #00c9ff' }} // Replace .jpg with the actual image extension
+      style={{
+        backgroundImage: `url(/vessels/${vessel.IMO}.jpg)`,
+        borderTop: '2px solid #00c9ff',
+      //  animation: 'color-shift 4s infinite linear'
+      
+
+      }} // Replace .jpg with the actual image extension
       >
      
       {isHovered && (
@@ -42,13 +48,20 @@ const VesselCard = ({ vessel }) => {
         </div>
       )}
       <div className="vessel-footer">
-        <Link to={`/vessel/${vessel.id}`}>
+        <Link to={`/vessel/${vessel.id}`} style={{textDecoration: 'none'}}>
           <button className="footer-button">
             <Icon as={MdAnchor} size={25}/>
-            <p>OVERVIEW</p>
+            <p>Overview</p>
           </button>
         </Link>
-        <button className="footer-button">CLOUD VPN</button>
+        {/*}
+        <div className="vessel-footer-speed">
+          <p>
+          {vessel.SPEED} Knots
+          </p>
+        </div>
+        */}
+      {/*}  <button className="footer-button">CLOUD VPN</button> */}
       </div>
     </Card>
   );

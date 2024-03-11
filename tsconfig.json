@@ -15,7 +15,7 @@
     "module": "esnext",
     "jsx": "preserve",
     "skipLibCheck": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "lib": [
       "dom",
       "dom.iterable",
@@ -40,6 +40,9 @@
     "./src/**/*.svg",
     "./src/**/*.json",
     "./src/**/*.css",
-    "./src/**/*.mov", "src/utils/CreateVessels", "amplify/backend/function/updateVesselsMT/models/schema.mjs", "amplify/backend/function/updateVesselsMT/models/index.mjs",
+    "./src/**/*.mov",
+    "src/utils/CreateVessels", 
+    "amplify/backend/function/updateVesselsMT/models/schema.mjs", 
+    "amplify/backend/function/updateVesselsMT/models/index.mjs"
   ]
 }

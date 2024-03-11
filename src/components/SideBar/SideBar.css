@@ -83,8 +83,9 @@ line-height: 1.25;
 }
 
 .sidebar-nav ul li a:hover {
-color: var(--amplify-components-link-color);
+color:black!important;
 background-color: #f5f8fa;
+z-index: 2;
 }
 
 .sidebar-nav ul li a.active {

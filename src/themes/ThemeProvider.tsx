@@ -4,7 +4,7 @@ import { ThemeContext } from './ThemeContext';
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
     const storedTheme = localStorage.getItem('theme');
-    return storedTheme ? storedTheme : 'light';
+    return storedTheme ? storedTheme : 'dark';
   });
 
   useEffect(() => {

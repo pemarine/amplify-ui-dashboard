@@ -4,8 +4,9 @@ import { schema } from './schema';
 
 
 
-const { Vessel } = initSchema(schema);
+const { Vessel, VesselsAISHistory } = initSchema(schema);
 
 export {
-  Vessel
+  Vessel,
+  VesselsAISHistory
 };

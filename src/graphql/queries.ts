@@ -143,3 +143,91 @@ export const syncVessels = /* GraphQL */ `query SyncVessels(
   APITypes.SyncVesselsQueryVariables,
   APITypes.SyncVesselsQuery
 >;
+export const getVesselsAISHistory = /* GraphQL */ `query GetVesselsAISHistory($id: ID!) {
+  getVesselsAISHistory(id: $id) {
+    id
+    imo
+    vessel_name
+    timestamp
+    latitude
+    longitude
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetVesselsAISHistoryQueryVariables,
+  APITypes.GetVesselsAISHistoryQuery
+>;
+export const listVesselsAISHistories = /* GraphQL */ `query ListVesselsAISHistories(
+  $filter: ModelVesselsAISHistoryFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listVesselsAISHistories(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      imo
+      vessel_name
+      timestamp
+      latitude
+      longitude
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListVesselsAISHistoriesQueryVariables,
+  APITypes.ListVesselsAISHistoriesQuery
+>;
+export const syncVesselsAISHistories = /* GraphQL */ `query SyncVesselsAISHistories(
+  $filter: ModelVesselsAISHistoryFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncVesselsAISHistories(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      imo
+      vessel_name
+      timestamp
+      latitude
+      longitude
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.SyncVesselsAISHistoriesQueryVariables,
+  APITypes.SyncVesselsAISHistoriesQuery
+>;

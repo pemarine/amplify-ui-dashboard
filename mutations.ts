@@ -131,3 +131,72 @@ export const deleteVessel = /* GraphQL */ `mutation DeleteVessel(
   APITypes.DeleteVesselMutationVariables,
   APITypes.DeleteVesselMutation
 >;
+export const createVesselsAISHistory = /* GraphQL */ `mutation CreateVesselsAISHistory(
+  $input: CreateVesselsAISHistoryInput!
+  $condition: ModelVesselsAISHistoryConditionInput
+) {
+  createVesselsAISHistory(input: $input, condition: $condition) {
+    id
+    imo
+    vessel_name
+    timestamp
+    latitude
+    longitude
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateVesselsAISHistoryMutationVariables,
+  APITypes.CreateVesselsAISHistoryMutation
+>;
+export const updateVesselsAISHistory = /* GraphQL */ `mutation UpdateVesselsAISHistory(
+  $input: UpdateVesselsAISHistoryInput!
+  $condition: ModelVesselsAISHistoryConditionInput
+) {
+  updateVesselsAISHistory(input: $input, condition: $condition) {
+    id
+    imo
+    vessel_name
+    timestamp
+    latitude
+    longitude
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateVesselsAISHistoryMutationVariables,
+  APITypes.UpdateVesselsAISHistoryMutation
+>;
+export const deleteVesselsAISHistory = /* GraphQL */ `mutation DeleteVesselsAISHistory(
+  $input: DeleteVesselsAISHistoryInput!
+  $condition: ModelVesselsAISHistoryConditionInput
+) {
+  deleteVesselsAISHistory(input: $input, condition: $condition) {
+    id
+    imo
+    vessel_name
+    timestamp
+    latitude
+    longitude
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteVesselsAISHistoryMutationVariables,
+  APITypes.DeleteVesselsAISHistoryMutation
+>;
