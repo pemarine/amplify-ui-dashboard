@@ -107,7 +107,7 @@ const speedList = vessels.map(() => speeds[Math.floor(Math.random() * speeds.len
         <TableBody>
           {vessels.map((vessel, index) => (
 
-            <TableRow onClick={() => onRowClick(vessel)}>
+            <TableRow key={index} onClick={() => onRowClick(vessel)}>
               <TableCell className='flag' style={{ width: '45px' }}>
                 {vessel.FLAG && <img src={`/flags/${vessel.FLAG.toLowerCase()}.png`} alt={vessel.FLAG} width="26" height="17" />}
               </TableCell>

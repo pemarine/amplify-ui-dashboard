@@ -1,0 +1,6 @@
+.InfoBar {
+
+}
+.InfoBar.dark {
+ background: transparent!important;
+}

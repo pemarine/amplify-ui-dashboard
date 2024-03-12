@@ -119,7 +119,7 @@ const Map: React.FC<MapProps> = ({ setSelectedVesselId, selectedVesselId, setSel
   };
 
   return (
-    <div className='mapAnimation' style={{ height: mapHeight, width: '100%', marginTop: '15px' }}>
+    <div className='mapAnimation' style={{ height: mapHeight, width: '100%', marginTop: '5px' }}>
       <GoogleMap
         key={isInfoBarOpen ? 'open' : 'closed'}
         mapContainerStyle={{ width: '100%', height: mapHeight, borderRadius: '15px' }}
@@ -130,7 +130,7 @@ const Map: React.FC<MapProps> = ({ setSelectedVesselId, selectedVesselId, setSel
           streetViewControl: false,
         }}
       >
-        {}
+        
         {vessels.map((vessel, index) => (
           <React.Fragment key={index}>
             <OverlayView

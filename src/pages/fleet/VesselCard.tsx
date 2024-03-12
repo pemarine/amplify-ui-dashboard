@@ -50,7 +50,7 @@ const VesselCard = ({ vessel }) => {
       <div className="vessel-footer">
         <Link to={`/vessel/${vessel.id}`} style={{textDecoration: 'none'}}>
           <button className="footer-button">
-            <Icon as={MdAnchor} size={25}/>
+            <Icon as={MdAnchor} size={22}/>
             <p>Overview</p>
           </button>
         </Link>

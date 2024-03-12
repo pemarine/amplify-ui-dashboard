@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 //import { Vessel } from 'src/models';
 import './VesselBox.css';
+import './InfoBar.css';
 import './Animation.css';
 //import IconButton from '@material-ui/core/IconButton';
 //import CloseIcon from '@material-ui/icons/Close';
@@ -38,11 +39,12 @@ interface InfoBarProps {
     return (
      
       <Card
-      className={`amplify-card ${theme} slideUpFadeIn`}
+      className={`InfoBar ${theme}`}
       borderRadius="15px"
       padding="0px"
       margin="0px"
       margin-block-end="0px"
+      marginBottom="10px"
       style={{ position: 'relative', overflow:'hidden'}}
     >
       <IconButton
@@ -57,7 +59,7 @@ interface InfoBarProps {
        <CloseIcon style={{ color: 'white' }} fontSize="small" />
       </IconButton>
       
-      <div style={{ display: 'flex', alignItems: 'stretch', overflow: 'hidden', background: '#1A223F'}}> {/* Add this div */}
+      <div style={{ display: 'flex', alignItems: 'stretch', overflow: 'hidden'}}> {/* Add this div */}
       
         <img src={`/vessels/${selectedMarker.IMO}.jpg`} height={100} alt="Vessel" style={{ marginRight: '15px',  width:'155px',  borderRadius: '15px'
 }} />

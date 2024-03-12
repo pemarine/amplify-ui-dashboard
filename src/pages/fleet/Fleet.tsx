@@ -20,7 +20,7 @@ const Fleet = () => {
   //const { theme } = useContext(ThemeContext);
 
   return (
-    <View borderRadius="6px" maxWidth="100%" padding="0rem" minHeight="100vh" marginTop="15px">
+    <View borderRadius="6px" maxWidth="100%" padding="0rem" minHeight="100vh" marginTop="5px">
       <Grid 
         templateColumns={{ base: "repeat(4, 1fr)", large: "repeat(4, 1fr)" }}
         gap={tokens.space.medium}
@@ -28,9 +28,9 @@ const Fleet = () => {
       >
 
         {vessels.map((vessel, index) => (
-          <div style={{ display: 'flex', flexDirection: 'column', marginTop: '8px' }}>
-          <Title key={index} vessel={vessel} />
-          <VesselCard key={index} vessel={vessel} />
+          <div key={index} style={{ display: 'flex', flexDirection: 'column', marginTop: '8px' }}>
+          <Title vessel={vessel} />
+          <VesselCard vessel={vessel} />
         </div>
         ))}
       </Grid>

@@ -24,10 +24,10 @@
 
 }
 .title{
- background: #FAFAFA!important;
+ background: transparent!important;
 }
 .title.dark {
-  background: #1A223F!important;
+  background: transparent!important;
 }
 
 .vessel-card {

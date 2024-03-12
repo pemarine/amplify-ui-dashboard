@@ -5,7 +5,7 @@ import { Vessel } from '../models';
 //import { DataStore } from 'aws-amplify/datastore';
 //import { DataStore } from '@aws-amplify/datastore';
 //import awsconfig from '../aws-exports';
-import { vesselPositionHistory } from './VesselPositionHistory';
+//import { vesselPositionHistory } from './VesselPositionHistory';
 
 const AWS = require('aws-sdk');
 const { DataStore } = require('@aws-amplify/datastore');
@@ -115,13 +115,13 @@ export const VesselsProvider = ({ children }) => {
 
         // If you want to convert this to a list of plain objects:
         const vesselList = await Promise.all(vessels.map(async vessel => {
-          const positions = await vesselPositionHistory(vessel);
+      //    const positions = await vesselPositionHistory(vessel);
 
           return {
             ...vessel,
             id: vessel.id,
             SHIPNAME: vessel.SHIPNAME,
-            positionsList: positions
+        //    positionsList: positions,
           };
         }));
         setVessels(vesselList);

@@ -45,7 +45,7 @@ const styles = {
     // other styles you want...
   }, */
   value: {
-    borderTop: '4px solid #1A223F',
+    borderTop: '4px solid #072f47',
     margin: '0px',
     display: 'flex',
     justifyContent: 'center',
