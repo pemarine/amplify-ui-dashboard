@@ -1,5 +1,8 @@
 import React from "react";
 import { Icon } from "@aws-amplify/ui-react";
+import { Title } from "./utils/TitleTag";
+
+
 
 import {
   MdDashboard,
@@ -43,19 +46,19 @@ export const appNavs = [
   {
     eventKey: "dashboard",
     icon: <Icon as={MdMap} />,
-    title: "Map",
+    title: <Title>Map</Title>,
     to: "/",
   },
   {
-    eventKey: "dashboard2",
+    eventKey: "dashboard",
     icon: <Icon as={MdDashboard} />,
-    title: "Dashboard2",
-    to: "/dashboard2",
+    title: <Title>Dashboard</Title>,
+    to: "/dashboard",
   },
   {
     eventKey: "fleet",
     icon: <Icon as={MdAnchor} />,
-    title: "Fleet",
+    title: <Title>Fleet</Title>,
     to: "/fleet",
   },
 /*
@@ -100,7 +103,7 @@ export const appNavs = [
   {
     eventKey: "profile",
     icon: <Icon as={MdAccountBox} />,
-    title: "Profile",
+    title: <Title>Profile</Title>,
     to: "/profile",
   },
 ];

@@ -6,17 +6,21 @@ background-color: var(--amplify-colors-background-secondary);
 
 .page-container {
     padding-right: 10px;
-    padding-left: 195px;
+    padding-left: 90px;
     padding-top: 50px;
     transition: padding 0.5s;
     overflow-x: hidden;
 }
+.page-container.sidebar-visible {
+    padding-left: 195px; /* adjust this value as needed */
+  }
 
 .page-container.dark {
     padding-right: 10px;
-    padding-left: 195px;
+   /* padding-left: 195px; */
     padding-top: 50px;
     transition: padding 0.5s;
+    width: 100%;
     overflow-x: hidden;
     background-color: #072f47;
     

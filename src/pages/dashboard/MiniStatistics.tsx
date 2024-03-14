@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card } from "@aws-amplify/ui-react";
+import "./Dashboard.css"
+import { ThemeContext } from "../../themes/ThemeContext";
+
 
 interface MiniStatisticProps {
   title: string;
@@ -9,8 +12,14 @@ interface MiniStatisticProps {
 }
 
 const MiniStatistics = (props: MiniStatisticProps) => {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <Card height="100%" borderRadius="15px" className="bg-gradient-red">
+    <Card
+    className={`amplify-card ${theme}`}
+    height="100%"
+      borderRadius="15px"
+    >
       <div className="card-content">
         <div className="card-title"> {props.title} </div>
         <div className="card-statistics-amount">{props.amount}</div>

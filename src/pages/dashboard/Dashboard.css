@@ -53,20 +53,21 @@
     font-size: 30px;
 }
 
+.amplify-card.dark, .amplify-card.dark > .chart-wrap > .row > div > div > svg > g > g > text{
 
-
-/*  DARK THEME  */
-
-.amplify-card.dark {
-    color: #fff;
+    background-color: #212946;
+    color: #fff!important;
+    fill: #fff!important;
 }
-.amplify-card {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-  }
+.amplify-card.dark, .amplify-card.dark > .chart-wrap > .row > div > div > svg > g > g > g > text{
 
-.table-vessels.dark {
-  background-color: #111936;
-  color: #fff;
+    background-color: #212946;
+    color: #fff!important;
+    fill: #fff!important;
+}
+
+.amplify-card.dark, .amplify-card.dark > .chart-wrap > div > div > svg > foreignObject > div > div > span{
+
+    background-color: #212946;
+    color: #fff!important;
 }

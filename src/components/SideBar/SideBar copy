@@ -2,46 +2,21 @@
 
 .sidebar {
     transition: width 0.5s;
-  width: 65px;
+  width: 50px;
 background-color: #fff;
 color: #fff; 
 position: fixed;
 top: 0px;
 height: 100vh;
 z-index: 3;
+width: 175px; 
 }
-.sidebar-nav ul li a > svg {
-    opacity: 1!important;
-}
-.sidebar-nav ul li a > p {
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; /* add transition for transform */
-
-
-
-}
-.sidebar.visible > .sidebar-nav > ul li a > p {
-    opacity: 1;
-
-}
-.sidebar.visible {
-    width: 175px; /* Width of the sidebar when expanded */
-  }
-  
-  .sidebar .nav-text {
-    transition: opacity 0.5s;
-    opacity: 0; /* Hide the text when the sidebar is collapsed */
-  }
-  
-  .sidebar.visible .nav-text {
-    opacity: 1; /* Show the text when the sidebar is expanded */
-  }
 
 .sidebar.dark {
     background-color: #082b40;
 
 }
-/*
+
 @media (max-width: 1024px) {
     .sidebar {
         width: 300px;
@@ -56,7 +31,7 @@ z-index: 3;
         transform: translateX(0px);
     }
 }
-*/
+
 
 .sidebar a {
 color: var(--amplify-components-text-color); 
@@ -124,15 +99,7 @@ color: #101820;
     /*color: var(--amplify-components-link-color);*/
     color: #ffffff;
     }
-/*
-.sidebar-nav.dark ul li a {
-    opacity: 0;
-}
 
-.sidebar-nav.dark ul li a svg {
-    opacity: 1!important;
-}
-*/
 .btn-sidebar-nav {
 background-color: #fff;
 position: fixed;

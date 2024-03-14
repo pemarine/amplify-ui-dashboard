@@ -92,7 +92,7 @@ const speedList = vessels.map(() => speeds[Math.floor(Math.random() * speeds.len
         className={`amplify-table ${theme}`}
         //className="amplify-table__th"
         // className="amplify-table"
-        style={{ width: '420px' }}
+        style={{ width: 'auto' }}
       >
         <TableHead>
           <TableRow>

@@ -13,7 +13,7 @@ const Image = ({vessel}) => {
     return (
         <><Card
             className={`amplify-card ${theme}`}
-            height="22vh"
+            height="210px"
             borderRadius="15px"
             padding="0"
             margin="0"

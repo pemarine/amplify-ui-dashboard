@@ -50,24 +50,23 @@
     font-size: 16px;
 }
 .card-statistics-amount {
-    font-size: 30px;
+    font-size: 26px;
 }
 
-.amplify-card.dark, .amplify-card.dark > .chart-wrap > .row > div > div > svg > g > g > text{
 
-    background-color: #212946;
-    color: #fff!important;
-    fill: #fff!important;
+
+/*  DARK THEME  */
+
+.amplify-card.dark {
+    color: #fff;
 }
-.amplify-card.dark, .amplify-card.dark > .chart-wrap > .row > div > div > svg > g > g > g > text{
+.amplify-card {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
 
-    background-color: #212946;
-    color: #fff!important;
-    fill: #fff!important;
-}
-
-.amplify-card.dark, .amplify-card.dark > .chart-wrap > div > div > svg > foreignObject > div > div > span{
-
-    background-color: #212946;
-    color: #fff!important;
+.table-vessels.dark {
+  background-color: #111936;
+  color: #fff;
 }

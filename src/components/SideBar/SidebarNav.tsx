@@ -7,7 +7,7 @@ import { ThemeContext } from "../../themes/ThemeContext";
 
 export interface NavItemData {
   eventKey?: string;
-  title?: string;
+  title?: any;
   icon?: any;
   to?: any;
   target?: string;

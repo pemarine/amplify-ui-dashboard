@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
 import { Amplify } from 'aws-amplify';
@@ -16,8 +16,8 @@ import { ThemeProvider } from './themes/ThemeProvider';
 
 
 import Layout from "./components/Layout";
+import Map from "./pages/map";
 import Dashboard from "./pages/dashboard";
-import Dashboard2 from "./pages/dashboard2";
 import Fleet from "./pages/fleet";
 import Profile from "./pages/profile";
 import Tables from "./pages/tables";
@@ -32,6 +32,9 @@ import "./styles.css";
 
 
 import "@aws-amplify/ui-react/styles.css";
+
+import { ExpandContext } from './utils/ExpandContext';
+
 //import { studioTheme } from "./ui-components";
 
 /*Amplify.configure({
@@ -53,7 +56,11 @@ Amplify.configure(awsconfig);
 
 
 export function App() {
+  const [expand, setExpand] = useState(false);
+
   return (
+    <ExpandContext.Provider value={{ expand, setExpand }}>
+
     <ThemeProvider>
       <div>
         {/* Routes nest inside one another. Nested route paths build upon
@@ -61,8 +68,8 @@ export function App() {
             parent route elements. See the note about <Outlet> below. */}
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="dashboard2" element={<Dashboard2 />} />
+            <Route index element={<Map />} />
+            <Route path="dashboard" element={<Dashboard />} />
             <Route path="fleet" element={<Fleet />} />
             <Route path="forms" element={<Forms />} />
             <Route path="edit-form" element={<EditForm />} />
@@ -80,6 +87,7 @@ export function App() {
         </Routes>
       </div>
     </ThemeProvider>
+    </ExpandContext.Provider>
   );
 }
 

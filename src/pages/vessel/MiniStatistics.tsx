@@ -28,7 +28,7 @@ const styles = {
 
   title: {
     alignSelf: 'start',
-    fontSize: '18px',
+    fontSize: '16px',
     paddingTop: '15px',
     paddingLeft: '20px',
     marginDown: '10px',
@@ -52,7 +52,7 @@ const styles = {
     padding: '15px',
     marginTop: '11px',
 
-    fontSize: '35px',
+    fontSize: '28px',
     marginBottom: '5px',
     alignSelf: 'center',
     justifySelf: 'center',
@@ -110,7 +110,6 @@ const MiniStatistics = (props: MiniStatisticProps) => {
         height="100%"
         borderRadius="15px"
         position= 'relative'
-        paddingTop={8}
         margin="0"
         padding="0"
       >

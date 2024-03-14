@@ -61,8 +61,9 @@ const Map: React.FC<MapProps> = ({ setSelectedVesselId, selectedVesselId, setSel
   //const [vessels, setVessels] = React.useState<Vessel[]>([]);
   //const [localSelectedMarker, setLocalSelectedMarker] = React.useState<Vessel | null>(null);
   const vessels = useContext(VesselsContext);
-  const mapHeight = isInfoBarOpen ? '10vh' : '80vh';
+  const mapHeight = isInfoBarOpen ? '10vh' : '90vh';
   const [center, setCenter] = React.useState({ lat: 25, lng: 0 });
+  
   // const [selectedVessel, setSelectedVessel] = React.useState<Vessel | null>(null);
   // const [isPopupOpen,c setIsPopupOpen] = React.useState(false);
   /*

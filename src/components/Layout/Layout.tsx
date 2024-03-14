@@ -7,6 +7,8 @@ import Footer from "../Footer";
 import "./Layout.css";
 
 import { ThemeContext } from "../../themes/ThemeContext";
+import { ExpandContext } from '../../utils/ExpandContext';
+
 
 
 export interface LayoutProps {
@@ -15,6 +17,8 @@ export interface LayoutProps {
 
 const Layout = () => {
   const { theme } = useContext(ThemeContext);
+  const { expand } = useContext(ExpandContext);
+
 
   return (
     <div className="layout-container">
@@ -24,7 +28,7 @@ const Layout = () => {
       {/* An <Outlet> renders whatever child route is currently active,
           so you can think about this <Outlet> as a placeholder for
           the child routes we defined above. */}
-      <div className={`page-container ${theme}`}>
+      <div className={`page-container ${theme} ${expand ? 'sidebar-visible' : ''}`}>
         <Outlet />
       </div>
       {baseConfig.footer ? <Footer /> : <></>}

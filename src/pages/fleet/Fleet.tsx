@@ -28,7 +28,7 @@ const Fleet = () => {
       >
 
         {vessels.map((vessel, index) => (
-          <div key={index} style={{ display: 'flex', flexDirection: 'column', marginTop: '8px' }}>
+          <div key={index} style={{ display: 'flex', flexDirection: 'column', marginTop: '6px' }}>
           <Title vessel={vessel} />
           <VesselCard vessel={vessel} />
         </div>
