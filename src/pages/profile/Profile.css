@@ -3,12 +3,12 @@
     min-height: 100vh;
 }
 .amplify-profile.dark{
-background-color: #1a223f;
+background-color: ##083450;
 
 }
 
 .amplify-profile.dark > .amplify-flex > div {
-background-color: #212946!important;
+background-color: #083450!important;
 }
 .profile-element.dark {
     /*background-color: #212946;

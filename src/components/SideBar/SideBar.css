@@ -15,6 +15,7 @@ z-index: 3;
 }
 .sidebar-nav ul li a > p {
     opacity: 0;
+    visibility: hidden;
     transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; /* add transition for transform */
 
 
@@ -22,6 +23,7 @@ z-index: 3;
 }
 .sidebar.visible > .sidebar-nav > ul li a > p {
     opacity: 1;
+    visibility: visible;
 
 }
 .sidebar.visible {
@@ -133,6 +135,7 @@ color: #101820;
     opacity: 1!important;
 }
 */
+/*
 .btn-sidebar-nav {
 background-color: #fff;
 position: fixed;
@@ -144,9 +147,11 @@ width: 50px;
 padding: 5px 1px;
 
 }
-
+*/
+/*
 @media (min-width: 1024px) {
     .btn-sidebar-nav {
     display: none;
     }
 }
+*/

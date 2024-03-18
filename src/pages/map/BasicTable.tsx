@@ -108,14 +108,14 @@ const speedList = vessels.map(() => speeds[Math.floor(Math.random() * speeds.len
           {vessels.map((vessel, index) => (
 
             <TableRow key={index} onClick={() => onRowClick(vessel)}>
-              <TableCell className='flag' style={{ width: '45px' }}>
+              <TableCell className='flag' style={{ width: '10%' }}>
                 {vessel.FLAG && <img src={`/flags/${vessel.FLAG.toLowerCase()}.png`} alt={vessel.FLAG} width="26" height="17" />}
               </TableCell>
-              <TableCell style={{ width: '340px', paddingLeft: '20px' }}>M/S {vessel.SHIPNAME}</TableCell>
-              <TableCell style={{ width: '80px', padding: '0px', margin: '0px' }}>
+              <TableCell style={{ width: '80%', paddingLeft: '20px' }}>M/S {vessel.SHIPNAME}</TableCell>
+              <TableCell style={{ width: '10%', padding: '0px', margin: '0px' }}>
                 <Lottie
                   animationData={{ ...lottieFiles[getStatusIcon(vessel)], speed: speedList[index] }}
-                  style={{ width: 22, height: 22, padding: 0, margin: 0, filter: 'brightness(110%)', alignContent: 'center'}}
+                  style={{ width: 19, height: 19, padding: 0, margin: 0, filter: 'brightness(110%)', alignContent: 'center'}}
                 />
               </TableCell>
              {/*} <TableCell style={{ width: '80px' }}>

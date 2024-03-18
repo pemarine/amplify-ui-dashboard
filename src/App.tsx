@@ -34,6 +34,7 @@ import "./styles.css";
 import "@aws-amplify/ui-react/styles.css";
 
 import { ExpandContext } from './utils/ExpandContext';
+import { SortProvider } from './utils/SortContext'; // Import SortProvider
 
 //import { studioTheme } from "./ui-components";
 
@@ -59,6 +60,7 @@ export function App() {
   const [expand, setExpand] = useState(false);
 
   return (
+    <SortProvider> {/* Add this */}
     <ExpandContext.Provider value={{ expand, setExpand }}>
 
     <ThemeProvider>
@@ -88,6 +90,7 @@ export function App() {
       </div>
     </ThemeProvider>
     </ExpandContext.Provider>
+    </SortProvider>
   );
 }
 

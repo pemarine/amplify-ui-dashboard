@@ -15,7 +15,7 @@
 }
 .amplify-card.dark {
   
-  background: #1A223F;
+  /*background: #fff!important;*/
   position: relative;
   background-size: cover;
   background-position: center;

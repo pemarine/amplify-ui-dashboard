@@ -1,0 +1,37 @@
+.fleet-header {
+    height: 40px;
+    margin-bottom: 8px;
+    margin-top: 7px;
+}
+.fleet-header.dark > div {
+    color: #fff;
+}
+.sort-button > Button {
+    background-color: #083450;
+
+    color: #101820;
+    
+    
+}
+.sort-button > p {
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    font-size: 14px;
+}
+.sort-button.dark > Button {
+    color: #fff;
+}
+.sort-button.dark > .button-menu > .menu-item > p {
+    color: #ffffff;
+}
+/*
+.menu {
+    background-color: #083450;
+
+}
+.menu-item {
+    background-color: #083450;
+
+}
+*/

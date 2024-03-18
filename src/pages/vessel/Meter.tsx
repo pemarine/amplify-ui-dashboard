@@ -142,7 +142,7 @@ export function Meter(props: MeterProps) {
               cx={center}
               cy={center}
               r={r}
-              stroke="dodgerblue"
+              stroke="#00c9ff"
               strokeOpacity={0.2}
               strokeDasharray={`${a} ${c}`}
               strokeLinecap="round"

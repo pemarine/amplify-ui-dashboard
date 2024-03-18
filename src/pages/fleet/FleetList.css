@@ -1,0 +1,14 @@
+.fleet-list {
+    border-radius: 15px;
+    text-align: left;
+}
+/*.fleet-list > li > div > span{
+    text-align: left;
+}*/
+.fleet-list-text > div {
+    text-align: left;
+}
+.fleet-list.dark {
+    background-color: #082b40;
+    color: #ffffff;
+}
