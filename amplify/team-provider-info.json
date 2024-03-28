@@ -13,7 +13,8 @@
     },
     "categories": {
       "api": {
-        "emarinecloud": {}
+        "emarinecloud": {},
+        "pingServerAPI": {}
       },
       "auth": {
         "eMarineCloud": {}
@@ -25,7 +26,11 @@
         },
         "updateVesselsMQTT": {
           "deploymentBucketName": "amplify-emarinecloud-dev-170110-deployment",
-          "s3Key": "amplify-builds/updateVesselsMQTT-5373692f543974734f4a-build.zip"
+          "s3Key": "amplify-builds/updateVesselsMQTT-6649554c565550722b4c-build.zip"
+        },
+        "pingServerFunction": {
+          "deploymentBucketName": "amplify-emarinecloud-dev-170110-deployment",
+          "s3Key": "amplify-builds/pingServerFunction-676e574476516852796b-build.zip"
         }
       }
     }

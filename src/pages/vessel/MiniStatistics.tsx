@@ -28,11 +28,17 @@ const styles = {
 
   title: {
     alignSelf: 'start',
-    fontSize: '16px',
+    fontSize: '15px',
     paddingTop: '15px',
     paddingLeft: '20px',
     marginDown: '10px',
     margin: '0',
+  },
+  subtitle: {
+    fontSize: '10px',
+    paddingLeft: '20px',
+    color: '#d9d9d6',
+
   },
 /* subtitle: {
     fontSize: '12px',
@@ -52,7 +58,7 @@ const styles = {
     padding: '15px',
     marginTop: '11px',
 
-    fontSize: '28px',
+    fontSize: '25px',
     marginBottom: '5px',
     alignSelf: 'center',
     justifySelf: 'center',
@@ -85,6 +91,7 @@ const styles = {
 
 const Content = styled('div')(styles.content);
 const Title = styled('div')(styles.title);
+const Subtitle = styled('div')(styles.subtitle);
 /*const Subtitle = styled('span')`
   fontSize: '12px';
   paddingLeft: '20px';
@@ -115,7 +122,7 @@ const MiniStatistics = (props: MiniStatisticProps) => {
       >
         <Content>
           <Title>{props.title}</Title>
-      {/*}    <Subtitle>{props.subtitle}</Subtitle> */}
+          <Subtitle>total for time period (default this year)</Subtitle>
           <Value>
             {props.amount}
             <Sup>{props.measurement}</Sup>

@@ -1,5 +1,10 @@
+.vessel-page-container{
+    max-width: 2000px;
+    margin: auto;
+    margin-top: 15px;
+}
 .amplify-card{
-    background: white;
+    background: #083450!important;
 }
 
 .title {

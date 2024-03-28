@@ -33,7 +33,7 @@ interface Vessel {
 }
 */
 import './Animation.css';
-
+/*
 import BlueAnimatedMarker from '../../assets/lottie/BlueAnimatedMarker.json';
 import GreenAnimatedMarker from '../../assets/lottie/GreenAnimatedMarker.json';
 import YellowAnimatedMarker from '../../assets/lottie/YellowAnimatedMarker.json';
@@ -44,8 +44,7 @@ const lottieFiles = {
   GreenAnimatedMarker,
   YellowAnimatedMarker,
   RedAnimatedMarker,
-};
-
+}; */
 interface MapProps {
   setSelectedMarker: (marker: any) => void;
   isInfoBarOpen: boolean;
@@ -63,7 +62,9 @@ const Map: React.FC<MapProps> = ({ setSelectedVesselId, selectedVesselId, setSel
   const vessels = useContext(VesselsContext);
   const mapHeight = isInfoBarOpen ? '10vh' : '90vh';
   const [center, setCenter] = React.useState({ lat: 25, lng: 0 });
-  
+
+  const [hoveredVessel, setHoveredVessel] = React.useState<string | null>(null);
+
   // const [selectedVessel, setSelectedVessel] = React.useState<Vessel | null>(null);
   // const [isPopupOpen,c setIsPopupOpen] = React.useState(false);
   /*
@@ -131,7 +132,7 @@ const Map: React.FC<MapProps> = ({ setSelectedVesselId, selectedVesselId, setSel
           streetViewControl: false,
         }}
       >
-        
+
         {vessels.map((vessel, index) => (
           <React.Fragment key={index}>
             <OverlayView
@@ -146,12 +147,37 @@ const Map: React.FC<MapProps> = ({ setSelectedVesselId, selectedVesselId, setSel
                 style={{
                   position: 'absolute',
                   transform: 'translate(-50%, -50%)',
+                  zIndex: '90',
                 }}
+                onMouseEnter={() => setHoveredVessel(vessel.SHIPNAME || null)}
+                onMouseLeave={() => setHoveredVessel(null)}
               >
-                <Lottie animationData={lottieFiles[getStatusMarker(vessel, selectedVesselId || '')]} style={{ width: 28, height: 28 }} />
+                <Lottie animationData={getStatusMarker(vessel, selectedVesselId || '')} style={{ width: 23, height: 23 }} />
+                {hoveredVessel === vessel.SHIPNAME && (
+                  <div style={{
+                    position: 'absolute',
+                    fontSize: '10px',
+                    top: '50%', // Modify this line
+                    right: '100%', // Modify this line
+                    transform: 'translate(0, -50%)', // Modify this line
+                    zIndex: '1000',
+                  
+
+                    backgroundColor: 'rgba(16, 24, 32, 0.85)',
+                    color: 'white',
+                    padding: '5px',
+                    borderRadius: '5px',
+                  //  margin: '6px',
+                    whiteSpace: 'nowrap',
+                    boxShadow: '0px 0px 10px 2px rgba(0, 0, 0, 0.2)', // Add this line
+
+                  }}>
+                    {vessel.SHIPNAME}
+                  </div>
+                )}
               </div>
             </OverlayView>
-           {/* {(vessel.positionsList ?? []).sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()).map((position, index, arr) => {
+            {/* {(vessel.positionsList ?? []).sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()).map((position, index, arr) => {
               if (index < arr.length - 1) {
                 const nextPosition = arr[index + 1];
                 return (

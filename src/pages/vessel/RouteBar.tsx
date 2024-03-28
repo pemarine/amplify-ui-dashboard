@@ -36,11 +36,11 @@ const RouteBar = ({vessel}) => {
                 bottom={0}
                 width="100%"
             >
-                <p style={{ fontSize: '15px', marginRight: '8px' }}>{vessel.LAST_PORT}</p>
+                <p style={{ fontSize: '11px', marginRight: '8px' }}>{vessel.LAST_PORT}</p>
                 <Box flexGrow={1}>
                     <LinearProgress variant="determinate" value={progress} />
                 </Box>
-                <p style={{ fontSize: '15px', margin: '0px', marginLeft: '8px' }}>{vessel.DESTINATION}</p>
+                <p style={{ fontSize: '11px', margin: '0px', marginLeft: '8px' }}>{vessel.DESTINATION}</p>
             </Box>
 
         </Card>

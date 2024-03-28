@@ -68,8 +68,8 @@ const styles = {
 
   },
   meter: {
-    borderTop: '4px solid #072f47',
-    paddingTop: '8px',
+    //borderTop: '4px solid #072f47',
+    //paddingTop: '8px',
     paddingBottom: '14px',
     display: 'flex',
     justifyContent: 'center', // Align items to the start of the flex container

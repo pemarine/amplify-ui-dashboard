@@ -20,6 +20,20 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "AppSync"
+    },
+    "pingServerAPI": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "pingServerFunction"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
     }
   },
   "auth": {
@@ -56,6 +70,11 @@
     }
   },
   "function": {
+    "pingServerFunction": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "updateVesselsMQTT": {
       "build": true,
       "dependsOn": [
@@ -77,6 +96,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_pingServerFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "pingServerFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_pingServerFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "pingServerFunction"
+        }
+      ]
+    },
     "AMPLIFY_function_updateVesselsMQTT_deploymentBucketName": {
       "usedBy": [
         {

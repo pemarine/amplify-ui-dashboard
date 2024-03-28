@@ -23,7 +23,7 @@ export const baseConfig = {
   footer: true,
   footerText: (
     <>
-      <span style={{ fontSize: '17px'}}>
+      <span style={{ fontSize: '13px'}}>
         © {new Date().getFullYear()} eMarine Engineering Nordic AB, All Rights Reserved.
       </span>
     </>

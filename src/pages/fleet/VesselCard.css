@@ -48,7 +48,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: radial-gradient(circle at center, transparent, #0f111d86);    z-index: 1;
+    background: radial-gradient(circle at center, transparent, #0f111d86); 
+   /*z-index: -3;*/
     transition: transform 3s ease-in-out; /* Adjust the duration as needed */
 
   }

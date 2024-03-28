@@ -7,7 +7,7 @@
 .amplify-table > thead > tr > th {
   color: black;
   padding-top: 0px;
-  font-size: 14px;
+  font-size: 12px;
   border-color: #00c9ff;
   border-width: 2px;
 
@@ -21,7 +21,7 @@
   border-left: none;
   border-right: none;
   padding: 10px;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .amplify-table.dark > thead > tr > th {

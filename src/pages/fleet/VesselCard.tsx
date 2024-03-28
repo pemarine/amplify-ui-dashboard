@@ -33,10 +33,8 @@ const VesselCard = ({ vessel }) => {
       style={{
         backgroundImage: `url(/vessels/${vessel.IMO}.jpg)`,
         borderTop: '2px solid #00c9ff',
-      //  animation: 'color-shift 4s infinite linear'
-      
-
-      }} // Replace .jpg with the actual image extension
+        //  animation: 'color-shift 4s infinite linear'
+    }}
       >
      
       {isHovered && (

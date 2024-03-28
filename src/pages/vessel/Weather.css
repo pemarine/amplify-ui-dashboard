@@ -1,0 +1,39 @@
+.weather-widget > .daniel-szulc-weather-widget > {
+    
+    /* other styles... */
+  }
+  .daniel-szulc-weather-widget {
+
+  }
+  .daniel-szulc-weather-widget .weather-widget .content {
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 6px;
+    height: 18%;
+  }
+
+  .daniel-szulc-weather-widget .weather-widget .content > h2 {
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    padding: 0px;
+  }
+  .daniel-szulc-weather-widget .weather-widget .weather-icon{
+    height:24%;
+   /* transform: translateX(40px); */
+  }
+  .daniel-szulc-weather-widget .weather-widget .current-weather {
+    display: flex;
+    align-items: center;
+    padding-top: 6px;
+    height: 20%;
+  }
+  .daniel-szulc-weather-widget .weather-widget .current-weather > h1 {
+  /*  transform: translateY(-50px);  */
+    font-size: 40px;
+  }
+  .daniel-szulc-weather-widget .weather-widget .current-weather > h3 {
+    font-size: 20px;
+    padding: 0px;
+  /*  transform: translateX(90px) ;  */
+  }

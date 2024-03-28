@@ -33,45 +33,54 @@ const styles = {
 
     },
     header: {
-        display: 'flex',
         justifyContent: 'space-between', // Add this
         alignItems: 'center', // Add this
-        paddingBottom: '7px',
-        paddingTop: '7px',
-        borderBottom: '4px solid #072f47',
+        paddingLeft: '20px',
+
+        //paddingBottom: '7px',
+        paddingTop: '12px',
+        //borderBottom: '4px solid #072f47',
 
         //  padding: '12px',
     },
     title: {
         alignSelf: 'start',
         fontSize: '14px',
-        paddingTop: '9px',
-        paddingLeft: '20px',
+        // paddingTop: '14px',
         margin: '0px',
-        paddingBottom: '3px',
+        //paddingBottom: '3px',
         width: '100%',
     },
     percentage: {
-        paddingTop: '4px',
-
+        paddingTop: '14px',
+        color: '#d9d9d6',
         margin: '0px',
-        paddong: '0px',
-        fontSize: '15px', // Adjust as needed
-        paddingRight: '20px', // Adjust as needed
+        padding: '0px',
+        fontSize: '14px', // Adjust as needed
 
     },
+    gaugeContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        
+        padding: '0px',
+        //paddingTop: '0px',
+        //paddingBottom: '0px',
+        //borderBottom: '4px solid #072f47',
+    },
     gauge: {
-        width: '100%',
-        height: '100%',
-        paddingTop: '8px',
-        paddingBottom: '0px',
-        //display: 'flex',
-        //        justifyContent: 'center',
+        //paddingTop: '8px',
+        //paddingBottom: '0px',
+        padding: '0px',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     value: {
         display: 'flex',
         justifyContent: 'center',
-        fontSize: '17px',
+
+        fontSize: '16px',
         padding: '8px',
         paddingTop: '0px',
         // borderTop: '4px solid #072f47',
@@ -82,7 +91,7 @@ const styles = {
         borderBottomLeftRadius: '15px',
         borderBottomRightRadius: '15px',
         display: 'flex',
-        fontSize: '16px',
+        fontSize: '14px',
         justifyContent: 'center',
         alignItems: 'center',
         padding: '7px',
@@ -99,6 +108,7 @@ const Content = styled('div')(styles.content);
 const Header = styled('div')(styles.header);
 const Title = styled('div')(styles.title);
 const Percentage = styled('div')(styles.percentage);
+const GaugeContainer = styled('div')(styles.gaugeContainer);
 const GaugeWrapper = styled('div')(styles.gauge);
 const Value = styled('div')(styles.value);
 const Footer = styled('div')(({ bottomColor1, bottomColor2 }: FooterProps) => styles.footer(bottomColor1 || '#083450', bottomColor2 || 'rgb(0, 163, 57, 0.7)'));
@@ -109,7 +119,9 @@ const GaugeChart: React.FC<GaugeChartProps> = ({ title, id, nrOfLevels, percent,
 
     return (
         <>
-            <div>
+            <div
+
+            >
                 <Card
                     className={`amplify-card ${theme}`}
                     style={{
@@ -128,9 +140,15 @@ const GaugeChart: React.FC<GaugeChartProps> = ({ title, id, nrOfLevels, percent,
                             <Title>{title}</Title>
                             <Percentage>{(percent * 100).toFixed(0)}%</Percentage>
                         </Header>
-                        <GaugeWrapper style={{ width: ((width * 0.4) - 80) / 3 }}>
-                            <Gauge className="percentNumber" id={id} nrOfLevels={nrOfLevels} percent={percent} arcWidth={arcWidth} marginInPercent={marginInPercent} colors={colors} needleColor={needleColor} textColor={textColor} hideText={hideText} />
-                        </GaugeWrapper>
+                        <GaugeContainer>
+                            <GaugeWrapper style={{
+                                width: (((width - 500)) * 0.5) / 3,
+                                alignContent: 'center',
+                                height: '100px',
+                            }}>
+                                <Gauge className="percentNumber" id={id} nrOfLevels={nrOfLevels} percent={percent} arcWidth={arcWidth} marginInPercent={marginInPercent} colors={colors} needleColor={needleColor} textColor={textColor} hideText={hideText} />
+                            </GaugeWrapper>
+                        </GaugeContainer>
                         <Value>
                             70.2 MWh
                         </Value>
