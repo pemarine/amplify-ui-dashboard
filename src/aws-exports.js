@@ -10,7 +10,7 @@ const awsmobile = {
     "aws_cloud_logic_custom": [
         {
             "name": "pingServerAPI",
-            "endpoint": "https://eeng7n64mb.execute-api.eu-north-1.amazonaws.com/dev",
+            "endpoint": "https://5dy0mw2uoe.execute-api.eu-north-1.amazonaws.com/dev",
             "region": "eu-north-1"
         }
     ],

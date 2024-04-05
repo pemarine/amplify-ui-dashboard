@@ -24,6 +24,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "Outside_Temp_LastDay": {
+                    "name": "Outside_Temp_LastDay",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "HVAC_P_status": {
                     "name": "HVAC_P_status",
                     "isArray": false,
@@ -173,6 +180,76 @@ export const schema = {
                 },
                 "updatedAt": {
                     "name": "updatedAt",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "En_Vent_Power": {
+                    "name": "En_Vent_Power",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "En_Vent_Power_Percent": {
+                    "name": "En_Vent_Power_Percent",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "HVAC_Power": {
+                    "name": "HVAC_Power",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "HVAC_Power_Percent": {
+                    "name": "HVAC_Power_Percent",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Total_Power": {
+                    "name": "Total_Power",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Saved_CO2_LastDay": {
+                    "name": "Saved_CO2_LastDay",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Saved_Fuel_LastDay": {
+                    "name": "Saved_Fuel_LastDay",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Saved_Energy_LastDay": {
+                    "name": "Saved_Energy_LastDay",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Pumps_Power": {
+                    "name": "Pumps_Power",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Pumps_Power_Percent": {
+                    "name": "Pumps_Power_Percent",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -335,5 +412,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "2760a978e624cc931b8d5ac66f38268d"
+    "version": "1017fd7c5f79b44c2c3c0c7258482a74"
 };

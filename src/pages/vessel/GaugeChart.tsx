@@ -19,13 +19,12 @@ interface GaugeChartProps {
     textColor?: string;
     hideText?: boolean;
     status?: number;
-    bottomColor1?: string;
-    bottomColor2?: string;
+    value?: string;
+    statusElement?: any;
 
 }
 interface FooterProps {
-    bottomColor1?: string;
-    bottomColor2?: string;
+    statusElement?: any;
 }
 
 const styles = {
@@ -86,7 +85,7 @@ const styles = {
         // borderTop: '4px solid #072f47',
 
     },
-    footer: (bottomColor1: string, bottomColor2: string) => ({
+    footer: (statusElement: any) => ({
         borderTop: '4px solid #072f47',
         borderBottomLeftRadius: '15px',
         borderBottomRightRadius: '15px',
@@ -95,7 +94,8 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         padding: '7px',
-        background: `radial-gradient(circle 200px, ${bottomColor1}, ${bottomColor2})`
+       // background: `radial-gradient(circle 200px, ${bottomColor1}, ${bottomColor2})`
+       background: `${statusElement.color}`
     }),
     status: {
         fontSize: '14px',
@@ -111,8 +111,8 @@ const Percentage = styled('div')(styles.percentage);
 const GaugeContainer = styled('div')(styles.gaugeContainer);
 const GaugeWrapper = styled('div')(styles.gauge);
 const Value = styled('div')(styles.value);
-const Footer = styled('div')(({ bottomColor1, bottomColor2 }: FooterProps) => styles.footer(bottomColor1 || '#083450', bottomColor2 || 'rgb(0, 163, 57, 0.7)'));
-const GaugeChart: React.FC<GaugeChartProps> = ({ title, id, nrOfLevels, percent, arcWidth, marginInPercent, colors, needleColor, textColor, hideText, bottomColor1, bottomColor2, width }) => {
+const Footer = styled('div')(({ statusElement }: FooterProps) => styles.footer(statusElement || ''));
+const GaugeChart: React.FC<GaugeChartProps> = ({ title, id, nrOfLevels, percent, arcWidth, marginInPercent, colors, needleColor, textColor, hideText, width, value, statusElement }) => {
     const { theme } = useContext(ThemeContext);
     //const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -142,18 +142,18 @@ const GaugeChart: React.FC<GaugeChartProps> = ({ title, id, nrOfLevels, percent,
                         </Header>
                         <GaugeContainer>
                             <GaugeWrapper style={{
-                                width: (((width - 500)) * 0.5) / 3,
+                                width: (((width - 700)) * 0.5) / 3,
                                 alignContent: 'center',
-                                height: '100px',
+                                height: '120px',
                             }}>
                                 <Gauge className="percentNumber" id={id} nrOfLevels={nrOfLevels} percent={percent} arcWidth={arcWidth} marginInPercent={marginInPercent} colors={colors} needleColor={needleColor} textColor={textColor} hideText={hideText} />
                             </GaugeWrapper>
                         </GaugeContainer>
                         <Value>
-                            70.2 MWh
+                            {value} MWh
                         </Value>
-                        <Footer bottomColor1={bottomColor1} bottomColor2={bottomColor2}>
-                            Power Good
+                        <Footer statusElement={statusElement}>
+                            {statusElement.statusText}
                         </Footer>
                     </Content>
                 </Card>

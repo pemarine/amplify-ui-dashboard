@@ -16,6 +16,7 @@ export const createVessel = /* GraphQL */ `mutation CreateVessel(
     id
     clientID
     outsideTemp
+    Outside_Temp_LastDay
     HVAC_P_status
     En_Vent_P_status
     Pumps_P_status
@@ -38,6 +39,16 @@ export const createVessel = /* GraphQL */ `mutation CreateVessel(
     AVG_SPEED
     MAX_SPEED
     updatedAt
+    En_Vent_Power
+    En_Vent_Power_Percent
+    HVAC_Power
+    HVAC_Power_Percent
+    Total_Power
+    Saved_CO2_LastDay
+    Saved_Fuel_LastDay
+    Saved_Energy_LastDay
+    Pumps_Power
+    Pumps_Power_Percent
     createdAt
     _version
     _deleted
@@ -57,6 +68,7 @@ export const updateVessel = /* GraphQL */ `mutation UpdateVessel(
     id
     clientID
     outsideTemp
+    Outside_Temp_LastDay
     HVAC_P_status
     En_Vent_P_status
     Pumps_P_status
@@ -79,6 +91,16 @@ export const updateVessel = /* GraphQL */ `mutation UpdateVessel(
     AVG_SPEED
     MAX_SPEED
     updatedAt
+    En_Vent_Power
+    En_Vent_Power_Percent
+    HVAC_Power
+    HVAC_Power_Percent
+    Total_Power
+    Saved_CO2_LastDay
+    Saved_Fuel_LastDay
+    Saved_Energy_LastDay
+    Pumps_Power
+    Pumps_Power_Percent
     createdAt
     _version
     _deleted
@@ -98,6 +120,7 @@ export const deleteVessel = /* GraphQL */ `mutation DeleteVessel(
     id
     clientID
     outsideTemp
+    Outside_Temp_LastDay
     HVAC_P_status
     En_Vent_P_status
     Pumps_P_status
@@ -120,6 +143,16 @@ export const deleteVessel = /* GraphQL */ `mutation DeleteVessel(
     AVG_SPEED
     MAX_SPEED
     updatedAt
+    En_Vent_Power
+    En_Vent_Power_Percent
+    HVAC_Power
+    HVAC_Power_Percent
+    Total_Power
+    Saved_CO2_LastDay
+    Saved_Fuel_LastDay
+    Saved_Energy_LastDay
+    Pumps_Power
+    Pumps_Power_Percent
     createdAt
     _version
     _deleted

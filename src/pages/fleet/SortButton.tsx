@@ -46,9 +46,8 @@ const SortButton = () => { // Remove vessels and onSort props
                         borderBottom: '1px solid #00c9ff',
                         borderBottomLeftRadius: menuOpen ? '0' : '',
                         borderBottomRightRadius: menuOpen ? '0' : '',
-                        paddingTop: '2px',
-                        paddingBottom: '2px',
-                        width: '75px',
+                        padding: '2px',
+                        width: '65px',
                     },
                 },
             },
@@ -72,7 +71,7 @@ const SortButton = () => { // Remove vessels and onSort props
                         borderTopLeftRadius: '0px',
                         borderTopRightRadius: '0px',
                         paddingBottom: '2px',
-                        width: '75px',
+                        width: '65px',
 
                     },
                 },
@@ -84,7 +83,7 @@ const SortButton = () => { // Remove vessels and onSort props
                         paddingLeft: '10px',
                         margin: '0px',
                         backgroundColor: '#083450',
-                        fontSize: '14px',
+                        fontSize: '13px',
                         color: '#fff' // Change this to the color you want
                     },
                 },
@@ -103,10 +102,10 @@ const SortButton = () => { // Remove vessels and onSort props
                     onClick={handleClick}
                     sx={{
                         textTransform: 'none',
-                        fontSize: '14px',
+                        fontSize: '12px',
                     }}
                 >
-                    Sort by
+                    SORT BY
                 </Button>
                 <p>{sortOption}</p>
                 <Menu

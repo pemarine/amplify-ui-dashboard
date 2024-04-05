@@ -56,3 +56,15 @@ export const getStatusIcon = (vessel: Vessel) => {
     }
 
 };
+export const getStatusColor = (status: string) => {
+    switch (status) {
+        case "1":
+            return { color: '#00a339', statusText: 'Power Good' };
+        case "2":
+            return { color: '#ffc01d', statusText: 'Power OK' }; // replace with the actual status text for 2
+        case "3":
+            return { color: 'red', statusText: 'Power High' }; // replace with the actual status text for 3
+        default:
+            return { color: '#00a339', statusText: 'Power good' };
+    }
+};

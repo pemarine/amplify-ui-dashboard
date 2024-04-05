@@ -14,6 +14,7 @@ type EagerVessel = {
   readonly id: string;
   readonly clientID?: string | null;
   readonly outsideTemp?: string | null;
+  readonly Outside_Temp_LastDay?: string | null;
   readonly HVAC_P_status?: string | null;
   readonly En_Vent_P_status?: string | null;
   readonly Pumps_P_status?: string | null;
@@ -36,9 +37,17 @@ type EagerVessel = {
   readonly AVG_SPEED?: string | null;
   readonly MAX_SPEED?: string | null;
   readonly updatedAt?: string | null;
+  readonly En_Vent_Power?: string | null;
+  readonly En_Vent_Power_Percent?: string | null;
+  readonly HVAC_Power?: string | null;
+  readonly HVAC_Power_Percent?: string | null;
+  readonly Total_Power?: string | null;
+  readonly Saved_CO2_LastDay?: string | null;
+  readonly Saved_Fuel_LastDay?: string | null;
+  readonly Saved_Energy_LastDay?: string | null;
+  readonly Pumps_Power?: string | null;
+  readonly Pumps_Power_Percent?: string | null;
   readonly createdAt?: string | null;
-  readonly positionsList?: { lat: string, lng: string, timestamp: string }[];
-
 }
 
 type LazyVessel = {
@@ -49,6 +58,7 @@ type LazyVessel = {
   readonly id: string;
   readonly clientID?: string | null;
   readonly outsideTemp?: string | null;
+  readonly Outside_Temp_LastDay?: string | null;
   readonly HVAC_P_status?: string | null;
   readonly En_Vent_P_status?: string | null;
   readonly Pumps_P_status?: string | null;
@@ -71,9 +81,17 @@ type LazyVessel = {
   readonly AVG_SPEED?: string | null;
   readonly MAX_SPEED?: string | null;
   readonly updatedAt?: string | null;
+  readonly En_Vent_Power?: string | null;
+  readonly En_Vent_Power_Percent?: string | null;
+  readonly HVAC_Power?: string | null;
+  readonly HVAC_Power_Percent?: string | null;
+  readonly Total_Power?: string | null;
+  readonly Saved_CO2_LastDay?: string | null;
+  readonly Saved_Fuel_LastDay?: string | null;
+  readonly Saved_Energy_LastDay?: string | null;
+  readonly Pumps_Power?: string | null;
+  readonly Pumps_Power_Percent?: string | null;
   readonly createdAt?: string | null;
-  readonly positionsList?: { lat: string, lng: string, timestamp: string }[];
-
 }
 
 export declare type Vessel = LazyLoading extends LazyLoadingDisabled ? EagerVessel : LazyVessel

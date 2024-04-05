@@ -23,8 +23,11 @@ import { MdOilBarrel } from "react-icons/md";
 import { Meter } from './Meter';
 import RouteBar from './RouteBar';
 import GaugeChart from './GaugeChart';
-import Ping from './Ping';
+//import Ping from './Ping';
 import Weather from './Weather';
+import _BarStack from './BarStack';
+import Threshold from './Threshold';
+import { getStatusColor } from '../../utils/VesselStatus';
 //<Customers />
 
 //import Element from "./Element"
@@ -83,8 +86,8 @@ const VesselPage = () => {
                 <Grid
                     templateColumns="1fr 3fr 1fr"
                     marginTop="10px"
+                    height="315px"
                     gap="9px"
-                    height="20%"
                     padding="0"
                     alignItems="stretch"
                 >
@@ -144,27 +147,27 @@ const VesselPage = () => {
                         </Grid>
                         <Grid templateColumns="1fr 1fr 1fr 1fr 1fr" gap="9px">
                             <View>
-                                <Meter vessel={{ SPEED: ((parseFloat(vessel.SPEED || '0') / 10).toString()) }} title='Speed' minValue={0} maxValue={30} unit='knots' />
+                                <Meter value={(parseFloat(vessel.SPEED || '0') / 10)} title='Speed' minValue={0} maxValue={30} unit='knots' />
 
 
                             </View>
                             <View>
-                                <Meter vessel={{ SPEED: ((parseFloat(vessel.SPEED || '0') / 10).toString()) }} title='Outdoor temp' minValue={0} maxValue={60} unit='˚C' />
+                                <Meter value={(parseFloat(vessel.outsideTemp || '0') / 10)} title='Outdoor temp' minValue={0} maxValue={60} unit='˚C' />
 
 
                             </View>
 
                             <View>
-                                <Meter vessel={{ SPEED: ((parseFloat(vessel.SPEED || '0') / 10).toString()) }} title='E/R temp' minValue={0} maxValue={60} unit='˚C' />
+                                <Meter value={(parseFloat(vessel.SPEED || '0') / 10)} title='E/R temp' minValue={0} maxValue={60} unit='˚C' />
 
                             </View>
 
                             <View>
-                                <Meter vessel={{ SPEED: ((parseFloat(vessel.SPEED || '0') / 10).toString()) }} title='LT temp' minValue={0} maxValue={30} unit='˚C' />
+                                <Meter value={(parseFloat(vessel.SPEED || '0') / 10)} title='LT temp' minValue={0} maxValue={30} unit='˚C' />
 
                             </View>
                             <View>
-                                <Meter vessel={{ SPEED: ((parseFloat(vessel.SPEED || '0') / 10).toString()) }} title='SW temp' minValue={0} maxValue={30} unit='˚C' />
+                                <Meter value={(parseFloat(vessel.SPEED || '0') / 10)}title='SW temp' minValue={0} maxValue={30} unit='˚C' />
 
                             </View>
                         </Grid>
@@ -189,11 +192,13 @@ const VesselPage = () => {
                     templateColumns="1fr 2fr 1fr"
                     gap="9px"
                     padding="0"
-                    marginTop="3px"
+                    marginTop="0px"
                     alignItems="stretch"
                 >
                     <View>
-                        <Ping apiName="https://hhteca69h3.execute-api.eu-north-1.amazonaws.com/dev" ip="213.112.114.12" />
+                        {/* <Ping apiName="https://hhteca69h3.execute-api.eu-north-1.amazonaws.com/dev" ip="213.112.114.12" />*/}
+
+
                     </View>
                     <View>
                         <Grid
@@ -215,11 +220,13 @@ const VesselPage = () => {
 
                                     //colors={["#FF5F6D", "#FFC371"]}
                                     // arcWidth={0.3}
-                                    percent={0.37}
+                                    percent={(Number(vessel.HVAC_Power_Percent) / 1000) ?? 0}
                                     arcWidth={0.2}
                                     marginInPercent={0.11}
-                                    bottomColor1="#00a339"
-                                    bottomColor2="#029636"
+                                    statusElement={getStatusColor(vessel.HVAC_P_status || '') || "#00a339"}
+                                   // bottomColor={getStatusColor(vessel.HVAC_P_status || '') || "#00a339"}
+                                  //  bottomColor2="#029636"
+                                    value={vessel.HVAC_Power ?? undefined} 
                                 //textColor="#000000"
                                 />
                             </View>
@@ -230,17 +237,19 @@ const VesselPage = () => {
                                     colors={["#04C220", "#ffc01d", "#EE2219"]}
                                     needleColor="#d9d9d6"
                                     hideText={true}
-                                    bottomColor1="#d89e09"
-                                    bottomColor2="#ffc01d"
+                                    statusElement={getStatusColor(vessel.Pumps_P_status || '') || "#00a339"}
+
 
                                     width={containerWidth}
+                                    percent={(Number(vessel.Pumps_Power_Percent) / 1000) ?? 0}
+                                    value={vessel.Pumps_Power ?? undefined}
+
 
 
 
                                     nrOfLevels={3}
                                     //colors={["#FF5F6D", "#FFC371"]}
                                     // arcWidth={0.3}
-                                    percent={0.37}
                                     arcWidth={0.2}
                                     marginInPercent={0.11}
                                 //textColor="#000000"
@@ -254,14 +263,18 @@ const VesselPage = () => {
                                     colors={["#04C220", "#ffc01d", "#EE2219"]}
                                     needleColor="#d9d9d6"
                                     hideText={true}
-                                    bottomColor1="#00a339"
-                                    bottomColor2="#029636"
+                                    statusElement={getStatusColor(vessel.En_Vent_P_status || '') || "#00a339"}
+
 
                                     width={containerWidth}
+                                    percent={(Number(vessel.En_Vent_Power_Percent) / 1000) ?? 0}
+                                    value={vessel.En_Vent_Power ?? undefined}
+
+
 
 
                                     // arcWidth={0.3}
-                                    percent={0.37}
+                                    //percent={0.37}
                                     arcWidth={0.2}
                                     marginInPercent={0.12}
                                 //textColor="#000000"
@@ -275,22 +288,22 @@ const VesselPage = () => {
 
                     <View>
                         <Grid templateColumns="1fr 1fr" gap="9px">
-                          <View>
-                            <Card
-                            className={`amplify-card`}
-                              borderRadius="15px"
-                              height="100%"
-                              backgroundColor="#083450!important"
-                              >
-                            </Card>
+                            <View>
+                                <Card
+                                    className={`amplify-card`}
+                                    borderRadius="15px"
+                                    height="100%"
+                                    backgroundColor="#083450!important"
+                                >
+                                </Card>
 
-                          </View>
-                          <View>
-                          <Weather lat={Number(vessel.LAT)} lon={Number(vessel.LON)} />
+                            </View>
+                            <View>
+                                <Weather lat={Number(vessel.LAT)} lon={Number(vessel.LON)} />
 
-                          </View>
+                            </View>
 
-                       </Grid>
+                        </Grid>
 
                     </View>
 
@@ -301,6 +314,25 @@ const VesselPage = () => {
 
 
                 </Grid>
+                <Grid
+                    templateColumns="1fr 1fr 1fr"
+                    gap="9px"
+                    padding="0"
+                    marginTop="6px"
+                    alignItems="stretch"
+                >
+                    <View>
+
+                    </View>
+                    <View>
+                        <_BarStack width={680} height={300} />
+                    </View>
+                    <View>
+                        <Threshold width={680} height={300} />
+
+                    </View>
+                </Grid>
+
             </div>
         </>
 

@@ -41,14 +41,16 @@ interface LocationData {
 
 // Create a mapping of weather conditions to icons
 const weatherIcons = {
-    'Sunny': <WiDaySunny style={{ fontSize: "55px", color: "#d9d9d6" }} />,
-    'Rainy': <WiRain style={{ fontSize: "55px", color: "#d9d9d6"  }}/>,
-    'Light rain': <WiRain style={{ fontSize: "55px", color: "#d9d9d6"  }}/>,
-    'Cloudy': <WiCloudy style={{ fontSize: "55px" }} />,
-    'Partly cloudy': <WiDayCloudy style={{ fontSize: "55px", color: "#d9d9d6" }}/>,
-    'Overcast': <WiDaySunnyOvercast style={{ fontSize: "55px", color: "#d9d9d6"  }} />,
-    'Clear': <WiDaySunny style={{ fontSize: "55px", color: "#d9d9d6"  }} />,
-    
+    'sunny': <WiDaySunny style={{ fontSize: "55px", color: "#d9d9d6" }} />,
+    'rainy': <WiRain style={{ fontSize: "55px", color: "#d9d9d6" }} />,
+    'light rain': <WiRain style={{ fontSize: "55px", color: "#d9d9d6" }} />,
+    'moderate rain': <WiRain style={{ fontSize: "55px", color: "#d9d9d6" }} />,
+
+    'cloudy': <WiCloudy style={{ fontSize: "55px" }} />,
+    'partly cloudy': <WiDayCloudy style={{ fontSize: "55px", color: "#d9d9d6" }} />,
+    'overcast': <WiDaySunnyOvercast style={{ fontSize: "55px", color: "#d9d9d6" }} />,
+    'clear': <WiDaySunny style={{ fontSize: "55px", color: "#d9d9d6" }} />,
+
     // Add a mapping for partly cloudy weather
     // Add more mappings as needed
 };
@@ -73,7 +75,7 @@ const styles = {
         marginTop: '14px',
 
     },
-   
+
     headerRight: {
         justifyContent: 'center',
         padding: '0px',
@@ -104,17 +106,18 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         color: '#ffc01d',
-        paddingTop: '8px',
+        paddingTop: '12px',
         paddingBottom: '8px',
     },
     footer: {
         padding: '8px',
-        paddingTop: '12px',
+        paddingTop: '5px',
         paddingBottom: '12px',
-        height: '100%', 
-      },
+        height: '100%',
+    },
     footerTitle: {
         padding: '0px',
+        color: '#d9d9d6',
         fontSize: '11px',
 
     },
@@ -158,7 +161,7 @@ const styles = {
         color: '#00C9FF',
 
     },
-    
+
     grid: {
         display: 'grid',
         gridTemplateColumns: 'repeat(4, 1fr)',
@@ -250,20 +253,27 @@ const Weather: React.FC<WeatherProps> = ({ lat, lon }) => {
         <>
             <Card className={`amplify-card ${theme}`} height="100%" borderRadius="15px" position="relative" margin="0" padding="0">
                 <Header>
-                        <Box display="flex" alignItems="center" style={{ position: 'relative' }}>
-                            <h2 style={styles.headerTitle}>{title}</h2>
-                            <img src={`/flags(Country)/${location?.country}.png`} width="20" height="13" style={{ marginLeft: '8px' }} />
-                        </Box>
-                        <p style={styles.headerSub}>{weather?.condition.text}</p>
-                 
+                    <Box display="flex" alignItems="center" style={{ position: 'relative' }}>
+                        <img src={`/flags(Country)/${location?.country}.png`} width="16" height="10" style={{ marginRight: '8px' }} />
+
+                        <h2 style={styles.headerTitle}>{title}</h2>
+                    </Box>
+                    <p style={styles.headerSub}>{weather?.condition.text}</p>
+
                 </Header>
+                <div style={{
+                    padding: '0px',
+                    margin: '0px',
+                    minHeight: '95px',
+                    alignContent: 'center',
+                }}>
+                    <WeatherIcon>
+                        {weather ? weatherIcons[weather.condition.text.toLowerCase()] : null}
+                    </WeatherIcon>
+                </div>
 
-                <WeatherIcon>
-                    {weather ? weatherIcons[weather.condition.text] : null}
-
-                </WeatherIcon>
                 <Temp>
-                <TempValue>{weather?.temp_c} °C</TempValue>
+                    <TempValue>{weather?.temp_c} °C</TempValue>
 
 
                 </Temp>
@@ -289,7 +299,7 @@ const Weather: React.FC<WeatherProps> = ({ lat, lon }) => {
                                 <FooterValue>{weather.humidity}%</FooterValue>
                             </Box>
                             <Box sx={styles.item}>
-                                
+
                                 <FooterTitle>Pressure</FooterTitle>
 
                                 <FooterValue>{weather.pressure_mb} mb</FooterValue>

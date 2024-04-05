@@ -1,8 +1,15 @@
-
 @keyframes color-shift {
-  0% {border-color: #00ce48;}
-  50% {border-color: #00ce48;}
-  100% {border-color: #03c246;}
+  0% {
+    border-color: #00ce48;
+  }
+
+  50% {
+    border-color: #00ce48;
+  }
+
+  100% {
+    border-color: #03c246;
+  }
 }
 
 
@@ -13,8 +20,9 @@
   background-position: center;
 
 }
+
 .amplify-card.dark {
-  
+
   /*background: #fff!important;*/
   position: relative;
   background-size: cover;
@@ -23,136 +31,156 @@
 
 
 }
-.title{
- background: transparent!important;
+
+.title {
+  background: transparent !important;
 }
+
 .title.dark {
-  background: transparent!important;
+  background: transparent !important;
 }
 
 .vessel-card {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    transition: all 0.3s ease-in-out;
-    border:#0f111d px solid;
-    box-shadow:#1a1c28 0px 0px 3px;
-    overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.3s ease-in-out;
+  border: #0f111d px solid;
+  box-shadow: #1a1c28 0px 0px 3px;
+  overflow: hidden;
 
-  }
+}
 
-  .vessel-card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: radial-gradient(circle at center, transparent, #0f111d86); 
-   /*z-index: -3;*/
-    transition: transform 3s ease-in-out; /* Adjust the duration as needed */
+.vessel-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(circle at center, transparent, #0f111d86);
+  /*z-index: -3;*/
+  transition: transform 3s ease-in-out;
+  /* Adjust the duration as needed */
 
-  }
-  .vessel-card:hover::after {
-    transform: scale(1.1); /* Adjust the scale factor as needed */
-  }
-  
+}
 
-  .vessel-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.vessel-card:hover::after {
+  transform: scale(1.1);
+  /* Adjust the scale factor as needed */
+}
+.vessel-content {
+  height: 100%;
+}
 
-    padding-bottom: 8px;
-    border-bottom: 2px solid #00c9ff;
-    margin: 0;
-  }
-  .vessel-header > div {
-    display: flex;
-    align-items: center;
-  }
-  .vessel-header > div > p,
-  .vessel-header > .veseel-header-imo {
+
+.vessel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 8px;
+  border-bottom: 2px solid #00c9ff;
+  margin: 0;
+}
+
+.vessel-header>div {
+  display: flex;
+  align-items: center;
+}
+
+.vessel-header>div>p,
+.vessel-header>.veseel-header-imo {
   margin: 0;
   padding: 0;
 
 }
 
 
-  .vessel-header, .vessel-info, .additional-info, .vessel-footer {
-  position: relative;
+.vessel-header,
+.vessel-info,
+.additional-info,
+.vessel-footer {
   z-index: 2;
 }
 
-  .vessel-header > p {
-    margin: 0;
-    font-size: 17px;
-  }
-  
-
-  
-  .vessel-info {
-    transition: all 0.3s ease-in-out;
-  }
-  
-
-  .additional-info {
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .vessel-card:hover .additional-info {
-    opacity: 1;
-  }
+.vessel-header>p {
+  margin: 0;
+  font-size: 17px;
+}
 
 
-  /* FOOTER */
 
-  .vessel-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4px; /* Adjust the space as needed */
-    padding: 10px 0;
-    position: absolute;
-    bottom: 0;
-  }
-  
-  .footer-button {
-    display: flex!important;
-    align-items: center;
-    
-    padding:3px 12px;
-    border: 2px solid #d9d9d6; /* Coral color */
-    border-radius: 15px;
-    color: #f6f6f5; /* Coral color */
-    background-color: transparent;
-    font-size: 1rem!important;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 17px;
-    margin: 2px 1px;
-    cursor: pointer;
-    transition-duration: 0.4s;
-  }
-  .footer-button > p {
-    margin: 0;
-    margin-left: 6px;
-    margin-right: 3px;
-    font-size: 16px;
-    padding: 0;
-    text-decoration: none;
-  }
+.vessel-info {
+  transition: all 0.3s ease-in-out;
+}
 
-  .footer-button:hover {
-    background-color: #082b40e8; /* Coral color */
-    color: #fff;
-    border: 1px solid #00c9ff;
-  }
-  .vessel-footer-speed {
-    margin-left: 5px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
+
+.additional-info {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.vessel-card:hover .additional-info {
+  opacity: 1;
+}
+
+
+/* FOOTER */
+
+.vessel-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /*gap: 4px;
+   Adjust the space as needed 
+  padding-bottom: 12px; */
+  position: absolute;
+  bottom: 0;
+  padding: 6px;
+
+}
+
+.footer-button {
+  display: flex !important;
+  align-items: center;
+
+  padding: 3px 12px;
+  border: 2px solid #d9d9d6;
+  /* Coral color */
+  border-radius: 15px;
+  color: #f6f6f5;
+  /* Coral color */
+  background-color: transparent;
+  font-size: 1rem !important;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  margin: 2px 1px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.footer-button>p {
+  margin: 0;
+  margin-left: 6px;
+  margin-right: 3px;
+  font-size: 16px;
+  padding: 0;
+  text-decoration: none;
+}
+
+.footer-button:hover {
+  background-color: #082b40e8;
+  /* Coral color */
+  color: #fff;
+  border: 1px solid #00c9ff;
+}
+
+.vessel-footer-speed {
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

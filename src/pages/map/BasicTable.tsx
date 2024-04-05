@@ -115,7 +115,7 @@ const speedList = vessels.map(() => speeds[Math.floor(Math.random() * speeds.len
               <TableCell style={{ width: '10%', padding: '0px', margin: '0px' }}>
                 <Lottie
                   animationData={{ ...lottieFiles[getStatusIcon(vessel)], speed: speedList[index] }}
-                  style={{ width: 16, height: 16, padding: 0, margin: 0, filter: 'brightness(110%)', alignContent: 'center'}}
+                  style={{ width: 14, height: 14, padding: 0, margin: 0, filter: 'brightness(110%)', alignContent: 'center'}}
                 />
               </TableCell>
              {/*} <TableCell style={{ width: '80px' }}>

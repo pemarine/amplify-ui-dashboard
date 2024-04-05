@@ -1,0 +1,11 @@
+.visx-legend-label {
+    fill: #ffffff; /* white */
+    color: #fff;
+}
+.visx-group{
+    margin-left: 80px!important;
+}
+.barstack-title{
+    color: #ffffff;
+    text-align: center;
+}

@@ -57,7 +57,7 @@ const InfoBar: React.FC<InfoBarProps> = ({ selectedMarker, setSelectedMarker }) 
 
     <Card
       className={`InfoBar ${theme}`}
-  //    borderRadius="15px"
+      //    borderRadius="15px"
       padding="0px"
       margin="0px"
       margin-block-end="0px"
@@ -76,8 +76,8 @@ const InfoBar: React.FC<InfoBarProps> = ({ selectedMarker, setSelectedMarker }) 
         <CloseIcon style={{ color: 'white' }} fontSize="small" />
       </IconButton>
 
-      <div style={{ display: 'flex', alignItems: 'stretch', overflow: 'hidden'}}> {/* Add this div */}
-        <div style={{ display: 'flex', flexDirection: 'column', height: '100%', marginRight: '9px', width: '370px'}}>
+      <div style={{ display: 'flex', alignItems: 'stretch', overflow: 'hidden' }}> {/* Add this div */}
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100%', marginRight: '9px', width: '370px' }}>
           <div style={{ display: 'flex', alignItems: 'center', paddingBottom: '2px' }}>
             <img src={`/flags/${selectedMarker.FLAG.toLowerCase()}.png`}
               height={13}
@@ -89,11 +89,11 @@ const InfoBar: React.FC<InfoBarProps> = ({ selectedMarker, setSelectedMarker }) 
               }}
             />
             <h2 style={{ fontSize: '16px' }}>M/S {selectedMarker.SHIPNAME}</h2>
-            <Link to={`/vessel/${selectedMarker.id}`} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+            <Link to={`/vessel/${selectedMarker.id}`} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
               <div style={{
                 display: 'flex',
                 margin: '0px',
-               // marginTop: '2px',
+                // marginTop: '2px',
                 padding: '0px',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -111,7 +111,7 @@ const InfoBar: React.FC<InfoBarProps> = ({ selectedMarker, setSelectedMarker }) 
             <img src={`/vessels/${selectedMarker.IMO}.jpg`} alt="Vessel" style={{
               marginRight: '0px', height: '130px', width: '205px', borderRadius: '15px'
             }} />
-         {/*}   <Card
+            {/*}   <Card
                         className={`amplify-card ${theme}`}
                         style={{
                             height: '100%',
@@ -127,18 +127,38 @@ const InfoBar: React.FC<InfoBarProps> = ({ selectedMarker, setSelectedMarker }) 
             <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '9px' }}>
               <p style={{ fontSize: '12px' }}>IMO: {selectedMarker.IMO}</p>
               <p style={{ fontSize: '12px' }}>
-                MARKET: {selectedMarker.MARKET.charAt(0).toUpperCase() + selectedMarker.MARKET.slice(1).toLowerCase()}
+                TYPE: {selectedMarker.MARKET.charAt(0).toUpperCase() + selectedMarker.MARKET.slice(1).toLowerCase()}
               </p>
               <p style={{ fontSize: '12px' }}>
                 SPEED: {Number(selectedMarker.SPEED) / 10} Knots
               </p>
             </div>
-           {/*} </Card> */}
+            {/*} </Card> */}
 
           </div>
           <RouteBar vessel={selectedMarker} />
         </div>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
+        <GaugeChart
+            title="Engine Vent Power"
+            id="gauge-chart1"
+            nrOfLevels={3}
+            colors={["#04C220", "#ffc01d", "#EE2219"]}
+            needleColor="#d9d9d6"
+            hideText={true}
+            bottomColor1="#00a339"
+            bottomColor2="#029636"
+            width={containerWidth}
+
+
+
+            // arcWidth={0.3}
+            percent={0.37}
+            arcWidth={0.2}
+            marginInPercent={0.11}
+          //textColor="#000000"
+          />
           <GaugeChart
             title="Engine Vent Power"
             id="gauge-chart1"
@@ -157,7 +177,28 @@ const InfoBar: React.FC<InfoBarProps> = ({ selectedMarker, setSelectedMarker }) 
             arcWidth={0.2}
             marginInPercent={0.11}
           //textColor="#000000"
-          />        </div>
+          />
+          <GaugeChart
+            title="Engine Vent Power"
+            id="gauge-chart1"
+            nrOfLevels={3}
+            colors={["#04C220", "#ffc01d", "#EE2219"]}
+            needleColor="#d9d9d6"
+            hideText={true}
+            bottomColor1="#00a339"
+            bottomColor2="#029636"
+            width={containerWidth}
+
+
+
+            // arcWidth={0.3}
+            percent={0.37}
+            arcWidth={0.2}
+            marginInPercent={0.11}
+          //textColor="#000000"
+          />
+
+        </div>
 
       </div>
     </Card>

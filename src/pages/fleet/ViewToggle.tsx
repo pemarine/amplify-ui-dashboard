@@ -23,8 +23,8 @@ const ViewToggle: React.FC<ViewToggleProps> = ({ view, setView }) => {
             styleOverrides: {
               root: {
                 alignItems: 'center',
-                width: '45px', // Change width of the ToggleButton
-                height: '28px', // Change height of the ToggleButton
+                width: '37px', // Change width of the ToggleButton
+                height: '22px', // Change height of the ToggleButton
                 color: '#fff', // Change text color to white
                 padding: '10px', // Change padding inside the ToggleButton
                 '&.Mui-selected': {
@@ -43,8 +43,8 @@ const ViewToggle: React.FC<ViewToggleProps> = ({ view, setView }) => {
       MuiSvgIcon: {
         styleOverrides: {
           root: {
-            fontSize: '21px', // Change icon size
-            fill: '#fff', // Change icon fill color to white
+            fontSize: '18px', // Change icon size
+            fill: '#fff', // Change1icon fill color to white
             margin: '0 5px', // Add spacing around the SvgIcon
             
           },

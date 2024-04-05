@@ -22,14 +22,14 @@ interface MiniStatisticProps {
 }
 const styles = {
   content: {
-   
+    
     
     },
 
   title: {
     alignSelf: 'start',
     fontSize: '15px',
-    paddingTop: '15px',
+    paddingTop: '18px',
     paddingLeft: '20px',
     marginDown: '10px',
     margin: '0',
@@ -37,7 +37,9 @@ const styles = {
   subtitle: {
     fontSize: '10px',
     paddingLeft: '20px',
+    paddingBottom: '5px',
     color: '#d9d9d6',
+    
 
   },
 /* subtitle: {

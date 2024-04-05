@@ -22,15 +22,15 @@
       "function": {
         "updateVesselsMT": {
           "deploymentBucketName": "amplify-emarinecloud-dev-170110-deployment",
-          "s3Key": "amplify-builds/updateVesselsMT-7154614f776259416755-build.zip"
+          "s3Key": "amplify-builds/updateVesselsMT-337a384330714a6b7278-build.zip"
         },
         "updateVesselsMQTT": {
           "deploymentBucketName": "amplify-emarinecloud-dev-170110-deployment",
-          "s3Key": "amplify-builds/updateVesselsMQTT-6649554c565550722b4c-build.zip"
+          "s3Key": "amplify-builds/updateVesselsMQTT-78757469687a6c754e2b-build.zip"
         },
         "pingServerFunction": {
           "deploymentBucketName": "amplify-emarinecloud-dev-170110-deployment",
-          "s3Key": "amplify-builds/pingServerFunction-676e574476516852796b-build.zip"
+          "s3Key": "amplify-builds/pingServerFunction-536661347475574d786c-build.zip"
         }
       }
     }

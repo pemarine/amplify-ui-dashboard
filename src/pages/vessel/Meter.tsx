@@ -43,7 +43,7 @@ interface MeterProps {
   title: string;
   minValue: number;
   maxValue: number;
-  vessel: any;
+  value: number;
   unit: string;
 }
 const styles = {
@@ -58,19 +58,19 @@ const styles = {
   title: {
     alignSelf: 'start',
     fontSize: '14px',
-    paddingTop: '9px',
+    paddingTop: '12px',
     paddingLeft: '20px',
     //marginBottom: '10px',
     margin: '0px',
 
-    paddingBottom: '6px',
+    paddingBottom: '10px',
     width: '100%',
 
   },
   meter: {
     //borderTop: '4px solid #072f47',
-    //paddingTop: '8px',
-    paddingBottom: '14px',
+    paddingTop: '4px',
+    paddingBottom: '25px',
     display: 'flex',
     justifyContent: 'center', // Align items to the start of the flex container
     
@@ -86,7 +86,7 @@ export function Meter(props: MeterProps) {
   // const classes = useStyles();
 
   const { theme } = useContext(ThemeContext);
-  let { meterProps } = useMeter({ value: props.vessel.SPEED, minValue: props.minValue, maxValue: props.maxValue });
+  let { meterProps } = useMeter({ value: props.value, minValue: props.minValue, maxValue: props.maxValue });
 
   //let { value } = meterProps;
   // let { meterProps } = useMeter(props);
@@ -97,7 +97,7 @@ export function Meter(props: MeterProps) {
   let r = center - strokeWidth;
   let c = 2 * r * Math.PI;
   let a = c * (250 / 360);
-  let percentage = (parseFloat(props.vessel.SPEED) - props.minValue) / (props.maxValue - props.minValue);
+  let percentage = (props.value - props.minValue) / (props.maxValue - props.minValue);
   // let percentage = (vessel.SPEED - minValue) / (maxValue - minValue);
   let offset = c - percentage * a;
 
@@ -107,7 +107,7 @@ export function Meter(props: MeterProps) {
     maximumFractionDigits: 0  // specify the maximum number of decimal places
   });
   // let parts = formatter.formatToParts(vessel.SPEED);
-  let valueString = formatter.format(parseFloat(props.vessel.SPEED));//  let unit = parts.find((p) => p.type === "unit");
+  let valueString = formatter.format(props.value);//  let unit = parts.find((p) => p.type === "unit");
 
 
 

@@ -29,7 +29,7 @@ const FleetGrid = () => {
         >
 
             {sortedVessels.map((vessel, index) => (
-                <div key={index} style={{ display: 'flex', flexDirection: 'column', marginTop: '6px' }}>
+                <div key={index} style={{ display: 'flex', flexDirection: 'column', marginTop: '0px' }}>
                     <Title vessel={vessel} />
                     <VesselCard vessel={vessel} />
                 </div>
