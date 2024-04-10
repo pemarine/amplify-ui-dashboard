@@ -28,7 +28,8 @@ interface GaugePointerProps {
 
 //const GaugePointerValueArc: React.FC<GaugeValueArcProps> = ({ fill }) => {};
 const GlobalStyles = styled('div')<{ statusColor: string }>`
-  & .css-b9rdri-MuiGauge-referenceArc {
+  & .css-b9rdri-MuiGauge-referenceArc,
+  & .css-nxtzjj {
     fill: ${props => props.statusColor} !important;
   }
 `;

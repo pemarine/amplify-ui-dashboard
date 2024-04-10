@@ -13,9 +13,9 @@ import EnergySavingsLeafIcon from '@mui/icons-material/EnergySavingsLeaf';
 
 //import styled, { keyframes } from 'styled-components';
 const colorMapping = {
-  'Energy': '#bfe8ce',
-  'Fuel': '#ffefc6',
-  'CO2': '#bff1ff',
+  'Energy': '#f6f6f5',
+  'Fuel': '#f6f6f5',
+  'CO2': '#f6f6f5',
   // add other title-color pairs here
 };
 
@@ -187,16 +187,16 @@ const MiniStatistics = (props: MiniStatisticProps) => {
   const { theme } = useContext(ThemeContext);
 
   let Icon;
-  let color;
+  //let color;
   if (props.title.startsWith('Energy')) {
     Icon = iconMapping['Energy'];
-    color = colorMapping['Energy'];
+    //color = colorMapping['Energy'];
   } else if (props.title.startsWith('Fuel')) {
     Icon = iconMapping['Fuel'];
-    color = colorMapping['Fuel'];
+    //color = colorMapping['Fuel'];
   } else if (props.title.startsWith('CO2')) {
     Icon = iconMapping['CO2'];
-    color = colorMapping['CO2'];
+    //color = colorMapping['CO2'];
   }
 
   return (
@@ -212,7 +212,7 @@ const MiniStatistics = (props: MiniStatisticProps) => {
         <Content>
           <Header>
             <HeaderLeft>
-              <IconWrapper color={color}>
+              <IconWrapper color="#40d6ff">
                 {Icon}
               </IconWrapper>
 
