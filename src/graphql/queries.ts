@@ -12,6 +12,8 @@ export const getVessel = /* GraphQL */ `query GetVessel($id: ID!) {
   getVessel(id: $id) {
     id
     clientID
+    fleet
+    ip
     outsideTemp
     Outside_Temp_LastDay
     HVAC_P_status
@@ -46,6 +48,8 @@ export const getVessel = /* GraphQL */ `query GetVessel($id: ID!) {
     Saved_Energy_LastDay
     Pumps_Power
     Pumps_Power_Percent
+    HVAC_Avg_Power
+    Energy_Last_Day
     createdAt
     _version
     _deleted
@@ -63,6 +67,8 @@ export const listVessels = /* GraphQL */ `query ListVessels(
     items {
       id
       clientID
+      fleet
+      ip
       outsideTemp
       Outside_Temp_LastDay
       HVAC_P_status
@@ -97,6 +103,8 @@ export const listVessels = /* GraphQL */ `query ListVessels(
       Saved_Energy_LastDay
       Pumps_Power
       Pumps_Power_Percent
+      HVAC_Avg_Power
+      Energy_Last_Day
       createdAt
       _version
       _deleted
@@ -127,6 +135,8 @@ export const syncVessels = /* GraphQL */ `query SyncVessels(
     items {
       id
       clientID
+      fleet
+      ip
       outsideTemp
       Outside_Temp_LastDay
       HVAC_P_status
@@ -161,6 +171,8 @@ export const syncVessels = /* GraphQL */ `query SyncVessels(
       Saved_Energy_LastDay
       Pumps_Power
       Pumps_Power_Percent
+      HVAC_Avg_Power
+      Energy_Last_Day
       createdAt
       _version
       _deleted

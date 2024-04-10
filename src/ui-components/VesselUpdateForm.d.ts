@@ -24,6 +24,8 @@ export declare type ValidationResponse = {
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type VesselUpdateFormInputValues = {
     clientID?: string;
+    fleet?: string;
+    ip?: string;
     outsideTemp?: string;
     Outside_Temp_LastDay?: string;
     HVAC_P_status?: string;
@@ -58,9 +60,13 @@ export declare type VesselUpdateFormInputValues = {
     Saved_Energy_LastDay?: string;
     Pumps_Power?: string;
     Pumps_Power_Percent?: string;
+    HVAC_Avg_Power?: string;
+    Energy_Last_Day?: string;
 };
 export declare type VesselUpdateFormValidationValues = {
     clientID?: ValidationFunction<string>;
+    fleet?: ValidationFunction<string>;
+    ip?: ValidationFunction<string>;
     outsideTemp?: ValidationFunction<string>;
     Outside_Temp_LastDay?: ValidationFunction<string>;
     HVAC_P_status?: ValidationFunction<string>;
@@ -95,11 +101,15 @@ export declare type VesselUpdateFormValidationValues = {
     Saved_Energy_LastDay?: ValidationFunction<string>;
     Pumps_Power?: ValidationFunction<string>;
     Pumps_Power_Percent?: ValidationFunction<string>;
+    HVAC_Avg_Power?: ValidationFunction<string>;
+    Energy_Last_Day?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type VesselUpdateFormOverridesProps = {
     VesselUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
     clientID?: PrimitiveOverrideProps<TextFieldProps>;
+    fleet?: PrimitiveOverrideProps<TextFieldProps>;
+    ip?: PrimitiveOverrideProps<TextFieldProps>;
     outsideTemp?: PrimitiveOverrideProps<TextFieldProps>;
     Outside_Temp_LastDay?: PrimitiveOverrideProps<TextFieldProps>;
     HVAC_P_status?: PrimitiveOverrideProps<TextFieldProps>;
@@ -134,6 +144,8 @@ export declare type VesselUpdateFormOverridesProps = {
     Saved_Energy_LastDay?: PrimitiveOverrideProps<TextFieldProps>;
     Pumps_Power?: PrimitiveOverrideProps<TextFieldProps>;
     Pumps_Power_Percent?: PrimitiveOverrideProps<TextFieldProps>;
+    HVAC_Avg_Power?: PrimitiveOverrideProps<TextFieldProps>;
+    Energy_Last_Day?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type VesselUpdateFormProps = React.PropsWithChildren<{
     overrides?: VesselUpdateFormOverridesProps | undefined | null;

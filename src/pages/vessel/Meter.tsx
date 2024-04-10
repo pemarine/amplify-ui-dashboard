@@ -63,14 +63,14 @@ const styles = {
     //marginBottom: '10px',
     margin: '0px',
 
-    paddingBottom: '10px',
+    paddingBottom: '8px',
     width: '100%',
 
   },
   meter: {
     //borderTop: '4px solid #072f47',
-    paddingTop: '4px',
-    paddingBottom: '25px',
+    paddingTop: '0px',
+    paddingBottom: '20px',
     display: 'flex',
     justifyContent: 'center', // Align items to the start of the flex container
     
@@ -145,7 +145,7 @@ export function Meter(props: MeterProps) {
               stroke="#00c9ff"
               strokeOpacity={0.2}
               strokeDasharray={`${a} ${c}`}
-              strokeLinecap="round"
+            //  strokeLinecap="round"
               transform={`rotate(145 ${center} ${center})`}
             />
             <circle
@@ -156,7 +156,7 @@ export function Meter(props: MeterProps) {
               stroke="#00c9ff"
               strokeDasharray={c}
               strokeDashoffset={offset}
-              strokeLinecap="round"
+           //   strokeLinecap="round"
               transform={`rotate(145 ${center} ${center})`}
             />
             <text

@@ -56,7 +56,7 @@ export const getStatusIcon = (vessel: Vessel) => {
     }
 
 };
-export const getStatusColor = (status: string) => {
+export const getStatusElement = (status: string) => {
     switch (status) {
         case "1":
             return { color: '#00a339', statusText: 'Power Good' };
@@ -66,5 +66,31 @@ export const getStatusColor = (status: string) => {
             return { color: 'red', statusText: 'Power High' }; // replace with the actual status text for 3
         default:
             return { color: '#00a339', statusText: 'Power good' };
+    }
+};
+export const getStatusColor = (HVAC_P_status: string, En_Vent_P_status: string, Pumps_P_status) => {
+    const highestStatus = Math.max(Number(HVAC_P_status), Number(En_Vent_P_status), Number(Pumps_P_status)).toString();
+
+    switch (highestStatus) {
+        case "1":
+            return '#00a339';
+        case "2":
+            return '#ffc01d';
+        case "3":
+            return '#ff0000';
+        default:
+            return '#00a339';
+    }
+};
+export const getStatusColorSingle = (status: string) => {
+    switch (status) {
+        case "1":
+            return '#00a339';
+        case "2":
+            return '#ffc01d';
+        case "3":
+            return '#ff0000';
+        default:
+            return '#00a339';
     }
 };

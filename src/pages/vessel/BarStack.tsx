@@ -12,7 +12,7 @@ import { useTooltip, useTooltipInPortal, defaultStyles } from '@visx/tooltip';
 import { LegendOrdinal } from '@visx/legend';
 import { localPoint } from '@visx/event';
 import './BarStack.css';
-import { Card } from '@aws-amplify/ui-react';
+//import { Card } from '@aws-amplify/ui-react';
 
 type CityName = 'New York' | 'San Francisco' | 'Austin';
 
@@ -108,14 +108,14 @@ export default function _BarStack({
     return width < 10 ? null : (
         <div>
 
-            <div className="barstack-title">
+       {/*}     <div className="barstack-title">
                 <Card
                     backgroundColor={'transparent'}
                 >
                     <h2>Energy savings</h2>
 
                 </Card>
-            </div>
+    </div> */}
             <div className="barstack-content" style={{ position: 'relative' }}>
 
                 <svg ref={containerRef} width={width} height={height}>

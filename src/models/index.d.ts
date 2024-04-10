@@ -13,6 +13,8 @@ type EagerVessel = {
   };
   readonly id: string;
   readonly clientID?: string | null;
+  readonly fleet?: string | null;
+  readonly ip?: string | null;
   readonly outsideTemp?: string | null;
   readonly Outside_Temp_LastDay?: string | null;
   readonly HVAC_P_status?: string | null;
@@ -47,6 +49,8 @@ type EagerVessel = {
   readonly Saved_Energy_LastDay?: string | null;
   readonly Pumps_Power?: string | null;
   readonly Pumps_Power_Percent?: string | null;
+  readonly HVAC_Avg_Power?: string | null;
+  readonly Energy_Last_Day?: string | null;
   readonly createdAt?: string | null;
 }
 
@@ -57,6 +61,8 @@ type LazyVessel = {
   };
   readonly id: string;
   readonly clientID?: string | null;
+  readonly fleet?: string | null;
+  readonly ip?: string | null;
   readonly outsideTemp?: string | null;
   readonly Outside_Temp_LastDay?: string | null;
   readonly HVAC_P_status?: string | null;
@@ -91,6 +97,8 @@ type LazyVessel = {
   readonly Saved_Energy_LastDay?: string | null;
   readonly Pumps_Power?: string | null;
   readonly Pumps_Power_Percent?: string | null;
+  readonly HVAC_Avg_Power?: string | null;
+  readonly Energy_Last_Day?: string | null;
   readonly createdAt?: string | null;
 }
 

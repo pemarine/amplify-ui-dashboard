@@ -4,21 +4,25 @@ import { CardContent, CardMedia } from '@mui/material';
 import { Card } from '@aws-amplify/ui-react';
 import { ThemeContext } from "../../themes/ThemeContext";
 import './Image.css'; // Import the CSS file
+//import { getStatusColor } from '../../utils/VesselStatus';
+import RouteBar from './RouteBar';
 
 
-const Image = ({vessel}) => {
-   // const progress = ((parseFloat(vessel?.DISTANCE_TRAVELLED ?? '0')) / (parseFloat(vessel?.DISTANCE_TO_GO ?? '1'))) * 100;
+const Image = ({ vessel }) => {
+    // const progress = ((parseFloat(vessel?.DISTANCE_TRAVELLED ?? '0')) / (parseFloat(vessel?.DISTANCE_TO_GO ?? '1'))) * 100;
     const { theme } = useContext(ThemeContext);
+    //const statusColor = getStatusColor(vessel.HVAC_P_status, vessel.En_Vent_P_status, vessel.Pumps_P_status); // replace 'status' with the actual status value
+
 
     return (
         <><Card
             className={`amplify-card ${theme}`}
-            height="230px"
+            height="249px"
             borderRadius="15px"
             padding="0"
             margin="0"
             style={{
-                
+
                 position: 'relative',
                 //backgroundImage: `url(/vessels/${vessel.IMO}.jpg)`,
                 backgroundSize: 'cover',
@@ -26,26 +30,25 @@ const Image = ({vessel}) => {
                 overflow: 'hidden',
                 boxShadow: '',
                 borderTop: '2px solid #00c9ff',
-                borderBottom: '1px solid #082b40' 
+                // borderBottom: `1px solid ${statusColor}`, // replace ${statusColor} with the actual color value
+                //  background: 'radial-gradient(circle at center, transparent, #0f111d86)', 
 
-              //  background: 'radial-gradient(circle at center, transparent, #0f111d86)', 
 
-
-             }} // Replace .jpg with the actual image extension
+            }} // Replace .jpg with the actual image extension
         >
             <div className="image">
-            <CardMedia
-                component="img"
-                width="100%"
-                height="100%"
-                image={`/vessels/${vessel.IMO}.jpg`}
-                alt="Your description"
-                sx={{ 
-                    position: 'absolute',
-                }}     
-            />
-          
-            {/*}
+                <CardMedia
+                    component="img"
+                    width="100%"
+                    height="100%"
+                    image={`/vessels/${vessel.IMO}.jpg`}
+                    alt="Your description"
+                    sx={{
+                        position: 'absolute',
+                    }}
+                />
+
+                {/*}
             <div style={{ position: 'relative' }}>
                 <div 
                     style={{
@@ -72,12 +75,28 @@ const Image = ({vessel}) => {
 
             </div>
             {*/}
+
+                <CardContent style={{ position: 'relative' }}>
+                    {/* Your card content here */}
+                </CardContent>
+
+            </div>
+            <div style={{
+                position: 'absolute',
+                bottom: '0',
+                width: '100%',
+                height: '36px',
+                borderRadius: '0px 0px 15px 15px',
+                background: 'rgba(8, 43, 64, 0.75)',
+                boxShadow: '0px -2px 10px 0px rgba(8, 43, 64, 0.88)',
+                justifyContent: 'center',
+                alignItems: 'center',
             
-            <CardContent style={{ position: 'relative'}}>
-                {/* Your card content here */}
-            </CardContent>
-           
-    </div>
+                
+            }}>
+                <RouteBar vessel={vessel} />
+            </div>
+
         </Card>
         </>
     )

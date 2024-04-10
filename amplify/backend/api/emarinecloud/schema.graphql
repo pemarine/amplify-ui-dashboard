@@ -1,6 +1,8 @@
 type Vessel @model @auth(rules: [{allow: public}]) @aws_api_key @aws_cognito_user_pools @aws_iam @aws_lambda {
   id: ID!
   clientID: String
+  fleet: String
+  ip: String
   outsideTemp: String
   Outside_Temp_LastDay: String
   HVAC_P_status: String
@@ -35,6 +37,9 @@ type Vessel @model @auth(rules: [{allow: public}]) @aws_api_key @aws_cognito_use
   Saved_Energy_LastDay: String
   Pumps_Power: String
   Pumps_Power_Percent: String
+  HVAC_Avg_Power: String
+  Energy_Last_Day: String
+
 }
 
 type VesselsAISHistory @model @auth(rules: [{allow: public}]) @aws_api_key @aws_cognito_user_pools @aws_iam @aws_lambda {

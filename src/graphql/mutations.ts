@@ -15,6 +15,8 @@ export const createVessel = /* GraphQL */ `mutation CreateVessel(
   createVessel(input: $input, condition: $condition) {
     id
     clientID
+    fleet
+    ip
     outsideTemp
     Outside_Temp_LastDay
     HVAC_P_status
@@ -49,6 +51,8 @@ export const createVessel = /* GraphQL */ `mutation CreateVessel(
     Saved_Energy_LastDay
     Pumps_Power
     Pumps_Power_Percent
+    HVAC_Avg_Power
+    Energy_Last_Day
     createdAt
     _version
     _deleted
@@ -67,6 +71,8 @@ export const updateVessel = /* GraphQL */ `mutation UpdateVessel(
   updateVessel(input: $input, condition: $condition) {
     id
     clientID
+    fleet
+    ip
     outsideTemp
     Outside_Temp_LastDay
     HVAC_P_status
@@ -101,6 +107,8 @@ export const updateVessel = /* GraphQL */ `mutation UpdateVessel(
     Saved_Energy_LastDay
     Pumps_Power
     Pumps_Power_Percent
+    HVAC_Avg_Power
+    Energy_Last_Day
     createdAt
     _version
     _deleted
@@ -119,6 +127,8 @@ export const deleteVessel = /* GraphQL */ `mutation DeleteVessel(
   deleteVessel(input: $input, condition: $condition) {
     id
     clientID
+    fleet
+    ip
     outsideTemp
     Outside_Temp_LastDay
     HVAC_P_status
@@ -153,6 +163,8 @@ export const deleteVessel = /* GraphQL */ `mutation DeleteVessel(
     Saved_Energy_LastDay
     Pumps_Power
     Pumps_Power_Percent
+    HVAC_Avg_Power
+    Energy_Last_Day
     createdAt
     _version
     _deleted

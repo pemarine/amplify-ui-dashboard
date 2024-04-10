@@ -21,13 +21,14 @@ import { MdOilBarrel } from "react-icons/md";
 
 //import { Customers } from '../../ui-components';
 import { Meter } from './Meter';
-import RouteBar from './RouteBar';
+//import RouteBar from './RouteBar';
 import GaugeChart from './GaugeChart';
 //import Ping from './Ping';
 import Weather from './Weather';
 import _BarStack from './BarStack';
 import Threshold from './Threshold';
-import { getStatusColor } from '../../utils/VesselStatus';
+import GaugePointer from './GaugePointer';
+import { getStatusElement } from '../../utils/VesselStatus';
 //<Customers />
 
 //import Element from "./Element"
@@ -94,7 +95,7 @@ const VesselPage = () => {
                     <View>
                         <Title vessel={vessel} />
                         <Image vessel={vessel} />
-                        <RouteBar vessel={vessel} />
+                     {/*}   <RouteBar vessel={vessel} /> */}
 
 
 
@@ -112,8 +113,8 @@ const VesselPage = () => {
                             <View>
                                 <MiniStatistics
                                     title="Energy savings"
-                                    subtitle="total for time period (default this year)"
-                                    amount="321,236"
+                                    subtitle="total for time period (default last day)"
+                                    amount={vessel.Saved_Energy_LastDay ?? "0"}
                                     icon={<MdOutlineEnergySavingsLeaf />}
                                     measurement="MWh"
                                     color1="#082b40"
@@ -123,21 +124,21 @@ const VesselPage = () => {
                             <View>
                                 <MiniStatistics
                                     title="Fuel savings"
-                                    subtitle="total for time period (default this year)"
-                                    amount="321,236"
+                                    subtitle="total for time period (default last day)"
+                                    amount={vessel.Saved_Fuel_LastDay ?? "0"}
                                     icon={<MdOilBarrel />}
-                                    measurement="t"
+                                    measurement="tonnes"
                                     color1="#082b40"
                                     color2="#063b52"
                                 />
                             </View>
                             <MiniStatistics
                                 title="CO2 savings"
-                                subtitle="total for time period (default this year)"
+                                subtitle="total for time period (default last day)"
 
-                                amount="321,236"
+                                amount={vessel.Saved_CO2_LastDay ?? "0"}
                                 icon={<MdCo2 />}
-                                measurement="t"
+                                measurement=" tonnes"
                                 color1="#082b40"
                                 color2="#063b52"
                             />
@@ -222,8 +223,8 @@ const VesselPage = () => {
                                     // arcWidth={0.3}
                                     percent={(Number(vessel.HVAC_Power_Percent) / 1000) ?? 0}
                                     arcWidth={0.2}
-                                    marginInPercent={0.11}
-                                    statusElement={getStatusColor(vessel.HVAC_P_status || '') || "#00a339"}
+                                    marginInPercent={0.10}
+                                    statusElement={getStatusElement(vessel.HVAC_P_status || '') || "#00a339"}
                                    // bottomColor={getStatusColor(vessel.HVAC_P_status || '') || "#00a339"}
                                   //  bottomColor2="#029636"
                                     value={vessel.HVAC_Power ?? undefined} 
@@ -237,7 +238,7 @@ const VesselPage = () => {
                                     colors={["#04C220", "#ffc01d", "#EE2219"]}
                                     needleColor="#d9d9d6"
                                     hideText={true}
-                                    statusElement={getStatusColor(vessel.Pumps_P_status || '') || "#00a339"}
+                                    statusElement={getStatusElement(vessel.Pumps_P_status || '') || "#00a339"}
 
 
                                     width={containerWidth}
@@ -251,7 +252,7 @@ const VesselPage = () => {
                                     //colors={["#FF5F6D", "#FFC371"]}
                                     // arcWidth={0.3}
                                     arcWidth={0.2}
-                                    marginInPercent={0.11}
+                                    marginInPercent={0.10}
                                 //textColor="#000000"
                                 />
                             </View>
@@ -263,7 +264,7 @@ const VesselPage = () => {
                                     colors={["#04C220", "#ffc01d", "#EE2219"]}
                                     needleColor="#d9d9d6"
                                     hideText={true}
-                                    statusElement={getStatusColor(vessel.En_Vent_P_status || '') || "#00a339"}
+                                    statusElement={getStatusElement(vessel.En_Vent_P_status || '') || "#00a339"}
 
 
                                     width={containerWidth}
@@ -276,7 +277,7 @@ const VesselPage = () => {
                                     // arcWidth={0.3}
                                     //percent={0.37}
                                     arcWidth={0.2}
-                                    marginInPercent={0.12}
+                                    marginInPercent={0.10}
                                 //textColor="#000000"
                                 />
                             </View>
@@ -295,6 +296,9 @@ const VesselPage = () => {
                                     height="100%"
                                     backgroundColor="#083450!important"
                                 >
+                                    <GaugePointer
+                                    />
+
                                 </Card>
 
                             </View>
@@ -325,10 +329,10 @@ const VesselPage = () => {
 
                     </View>
                     <View>
-                        <_BarStack width={680} height={300} />
+                        <_BarStack width={600} height={300} />
                     </View>
                     <View>
-                        <Threshold width={680} height={300} />
+                        <Threshold width={600} height={300} />
 
                     </View>
                 </Grid>

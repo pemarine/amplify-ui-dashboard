@@ -23,6 +23,8 @@ export default function VesselCreateForm(props) {
   } = props;
   const initialValues = {
     clientID: "",
+    fleet: "",
+    ip: "",
     outsideTemp: "",
     Outside_Temp_LastDay: "",
     HVAC_P_status: "",
@@ -57,8 +59,12 @@ export default function VesselCreateForm(props) {
     Saved_Energy_LastDay: "",
     Pumps_Power: "",
     Pumps_Power_Percent: "",
+    HVAC_Avg_Power: "",
+    Energy_Last_Day: "",
   };
   const [clientID, setClientID] = React.useState(initialValues.clientID);
+  const [fleet, setFleet] = React.useState(initialValues.fleet);
+  const [ip, setIp] = React.useState(initialValues.ip);
   const [outsideTemp, setOutsideTemp] = React.useState(
     initialValues.outsideTemp
   );
@@ -131,9 +137,17 @@ export default function VesselCreateForm(props) {
   const [Pumps_Power_Percent, setPumps_Power_Percent] = React.useState(
     initialValues.Pumps_Power_Percent
   );
+  const [HVAC_Avg_Power, setHVAC_Avg_Power] = React.useState(
+    initialValues.HVAC_Avg_Power
+  );
+  const [Energy_Last_Day, setEnergy_Last_Day] = React.useState(
+    initialValues.Energy_Last_Day
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setClientID(initialValues.clientID);
+    setFleet(initialValues.fleet);
+    setIp(initialValues.ip);
     setOutsideTemp(initialValues.outsideTemp);
     setOutside_Temp_LastDay(initialValues.Outside_Temp_LastDay);
     setHVAC_P_status(initialValues.HVAC_P_status);
@@ -168,10 +182,14 @@ export default function VesselCreateForm(props) {
     setSaved_Energy_LastDay(initialValues.Saved_Energy_LastDay);
     setPumps_Power(initialValues.Pumps_Power);
     setPumps_Power_Percent(initialValues.Pumps_Power_Percent);
+    setHVAC_Avg_Power(initialValues.HVAC_Avg_Power);
+    setEnergy_Last_Day(initialValues.Energy_Last_Day);
     setErrors({});
   };
   const validations = {
     clientID: [],
+    fleet: [],
+    ip: [],
     outsideTemp: [],
     Outside_Temp_LastDay: [],
     HVAC_P_status: [],
@@ -206,6 +224,8 @@ export default function VesselCreateForm(props) {
     Saved_Energy_LastDay: [],
     Pumps_Power: [],
     Pumps_Power_Percent: [],
+    HVAC_Avg_Power: [],
+    Energy_Last_Day: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -234,6 +254,8 @@ export default function VesselCreateForm(props) {
         event.preventDefault();
         let modelFields = {
           clientID,
+          fleet,
+          ip,
           outsideTemp,
           Outside_Temp_LastDay,
           HVAC_P_status,
@@ -268,6 +290,8 @@ export default function VesselCreateForm(props) {
           Saved_Energy_LastDay,
           Pumps_Power,
           Pumps_Power_Percent,
+          HVAC_Avg_Power,
+          Energy_Last_Day,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -323,6 +347,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID: value,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -357,6 +383,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.clientID ?? value;
@@ -372,6 +400,130 @@ export default function VesselCreateForm(props) {
         {...getOverrideProps(overrides, "clientID")}
       ></TextField>
       <TextField
+        label="Fleet"
+        isRequired={false}
+        isReadOnly={false}
+        value={fleet}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              clientID,
+              fleet: value,
+              ip,
+              outsideTemp,
+              Outside_Temp_LastDay,
+              HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
+              IMO,
+              MMSI,
+              SHIPNAME,
+              FLAG,
+              MARKET,
+              TYPE_NAME,
+              LAT,
+              LON,
+              LAST_PORT,
+              CURRENT_PORT,
+              NEXT_PORT,
+              NEXT_PORT_NAME,
+              DISTANCE_TO_GO,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
+              SPEED,
+              AVG_SPEED,
+              MAX_SPEED,
+              updatedAt,
+              En_Vent_Power,
+              En_Vent_Power_Percent,
+              HVAC_Power,
+              HVAC_Power_Percent,
+              Total_Power,
+              Saved_CO2_LastDay,
+              Saved_Fuel_LastDay,
+              Saved_Energy_LastDay,
+              Pumps_Power,
+              Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
+            };
+            const result = onChange(modelFields);
+            value = result?.fleet ?? value;
+          }
+          if (errors.fleet?.hasError) {
+            runValidationTasks("fleet", value);
+          }
+          setFleet(value);
+        }}
+        onBlur={() => runValidationTasks("fleet", fleet)}
+        errorMessage={errors.fleet?.errorMessage}
+        hasError={errors.fleet?.hasError}
+        {...getOverrideProps(overrides, "fleet")}
+      ></TextField>
+      <TextField
+        label="Ip"
+        isRequired={false}
+        isReadOnly={false}
+        value={ip}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              clientID,
+              fleet,
+              ip: value,
+              outsideTemp,
+              Outside_Temp_LastDay,
+              HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
+              IMO,
+              MMSI,
+              SHIPNAME,
+              FLAG,
+              MARKET,
+              TYPE_NAME,
+              LAT,
+              LON,
+              LAST_PORT,
+              CURRENT_PORT,
+              NEXT_PORT,
+              NEXT_PORT_NAME,
+              DISTANCE_TO_GO,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
+              SPEED,
+              AVG_SPEED,
+              MAX_SPEED,
+              updatedAt,
+              En_Vent_Power,
+              En_Vent_Power_Percent,
+              HVAC_Power,
+              HVAC_Power_Percent,
+              Total_Power,
+              Saved_CO2_LastDay,
+              Saved_Fuel_LastDay,
+              Saved_Energy_LastDay,
+              Pumps_Power,
+              Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
+            };
+            const result = onChange(modelFields);
+            value = result?.ip ?? value;
+          }
+          if (errors.ip?.hasError) {
+            runValidationTasks("ip", value);
+          }
+          setIp(value);
+        }}
+        onBlur={() => runValidationTasks("ip", ip)}
+        errorMessage={errors.ip?.errorMessage}
+        hasError={errors.ip?.hasError}
+        {...getOverrideProps(overrides, "ip")}
+      ></TextField>
+      <TextField
         label="Outside temp"
         isRequired={false}
         isReadOnly={false}
@@ -381,6 +533,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp: value,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -415,6 +569,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.outsideTemp ?? value;
@@ -439,6 +595,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay: value,
               HVAC_P_status,
@@ -473,6 +631,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.Outside_Temp_LastDay ?? value;
@@ -499,6 +659,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status: value,
@@ -533,6 +695,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.HVAC_P_status ?? value;
@@ -557,6 +721,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -591,6 +757,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.En_Vent_P_status ?? value;
@@ -615,6 +783,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -649,6 +819,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.Pumps_P_status ?? value;
@@ -673,6 +845,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -707,6 +881,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.IMO ?? value;
@@ -731,6 +907,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -765,6 +943,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.MMSI ?? value;
@@ -789,6 +969,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -823,6 +1005,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.SHIPNAME ?? value;
@@ -847,6 +1031,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -881,6 +1067,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.FLAG ?? value;
@@ -905,6 +1093,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -939,6 +1129,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.MARKET ?? value;
@@ -963,6 +1155,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -997,6 +1191,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.TYPE_NAME ?? value;
@@ -1021,6 +1217,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1055,6 +1253,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.LAT ?? value;
@@ -1079,6 +1279,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1113,6 +1315,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.LON ?? value;
@@ -1137,6 +1341,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1171,6 +1377,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.LAST_PORT ?? value;
@@ -1195,6 +1403,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1229,6 +1439,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.CURRENT_PORT ?? value;
@@ -1253,6 +1465,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1287,6 +1501,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.NEXT_PORT ?? value;
@@ -1311,6 +1527,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1345,6 +1563,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.NEXT_PORT_NAME ?? value;
@@ -1369,6 +1589,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1403,6 +1625,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.DISTANCE_TO_GO ?? value;
@@ -1427,6 +1651,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1461,6 +1687,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.DISTANCE_TRAVELLED ?? value;
@@ -1487,6 +1715,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1521,6 +1751,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.DESTINATION ?? value;
@@ -1545,6 +1777,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1579,6 +1813,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.SPEED ?? value;
@@ -1603,6 +1839,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1637,6 +1875,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.AVG_SPEED ?? value;
@@ -1661,6 +1901,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1695,6 +1937,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.MAX_SPEED ?? value;
@@ -1719,6 +1963,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1753,6 +1999,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.updatedAt ?? value;
@@ -1777,6 +2025,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1811,6 +2061,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.En_Vent_Power ?? value;
@@ -1835,6 +2087,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1869,6 +2123,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.En_Vent_Power_Percent ?? value;
@@ -1895,6 +2151,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1929,6 +2187,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.HVAC_Power ?? value;
@@ -1953,6 +2213,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -1987,6 +2249,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.HVAC_Power_Percent ?? value;
@@ -2013,6 +2277,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -2047,6 +2313,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.Total_Power ?? value;
@@ -2071,6 +2339,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -2105,6 +2375,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.Saved_CO2_LastDay ?? value;
@@ -2131,6 +2403,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -2165,6 +2439,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.Saved_Fuel_LastDay ?? value;
@@ -2191,6 +2467,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -2225,6 +2503,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay: value,
               Pumps_Power,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.Saved_Energy_LastDay ?? value;
@@ -2251,6 +2531,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -2285,6 +2567,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power: value,
               Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.Pumps_Power ?? value;
@@ -2309,6 +2593,8 @@ export default function VesselCreateForm(props) {
           if (onChange) {
             const modelFields = {
               clientID,
+              fleet,
+              ip,
               outsideTemp,
               Outside_Temp_LastDay,
               HVAC_P_status,
@@ -2343,6 +2629,8 @@ export default function VesselCreateForm(props) {
               Saved_Energy_LastDay,
               Pumps_Power,
               Pumps_Power_Percent: value,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
             };
             const result = onChange(modelFields);
             value = result?.Pumps_Power_Percent ?? value;
@@ -2358,6 +2646,130 @@ export default function VesselCreateForm(props) {
         errorMessage={errors.Pumps_Power_Percent?.errorMessage}
         hasError={errors.Pumps_Power_Percent?.hasError}
         {...getOverrideProps(overrides, "Pumps_Power_Percent")}
+      ></TextField>
+      <TextField
+        label="Hvac avg power"
+        isRequired={false}
+        isReadOnly={false}
+        value={HVAC_Avg_Power}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              clientID,
+              fleet,
+              ip,
+              outsideTemp,
+              Outside_Temp_LastDay,
+              HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
+              IMO,
+              MMSI,
+              SHIPNAME,
+              FLAG,
+              MARKET,
+              TYPE_NAME,
+              LAT,
+              LON,
+              LAST_PORT,
+              CURRENT_PORT,
+              NEXT_PORT,
+              NEXT_PORT_NAME,
+              DISTANCE_TO_GO,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
+              SPEED,
+              AVG_SPEED,
+              MAX_SPEED,
+              updatedAt,
+              En_Vent_Power,
+              En_Vent_Power_Percent,
+              HVAC_Power,
+              HVAC_Power_Percent,
+              Total_Power,
+              Saved_CO2_LastDay,
+              Saved_Fuel_LastDay,
+              Saved_Energy_LastDay,
+              Pumps_Power,
+              Pumps_Power_Percent,
+              HVAC_Avg_Power: value,
+              Energy_Last_Day,
+            };
+            const result = onChange(modelFields);
+            value = result?.HVAC_Avg_Power ?? value;
+          }
+          if (errors.HVAC_Avg_Power?.hasError) {
+            runValidationTasks("HVAC_Avg_Power", value);
+          }
+          setHVAC_Avg_Power(value);
+        }}
+        onBlur={() => runValidationTasks("HVAC_Avg_Power", HVAC_Avg_Power)}
+        errorMessage={errors.HVAC_Avg_Power?.errorMessage}
+        hasError={errors.HVAC_Avg_Power?.hasError}
+        {...getOverrideProps(overrides, "HVAC_Avg_Power")}
+      ></TextField>
+      <TextField
+        label="Energy last day"
+        isRequired={false}
+        isReadOnly={false}
+        value={Energy_Last_Day}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              clientID,
+              fleet,
+              ip,
+              outsideTemp,
+              Outside_Temp_LastDay,
+              HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
+              IMO,
+              MMSI,
+              SHIPNAME,
+              FLAG,
+              MARKET,
+              TYPE_NAME,
+              LAT,
+              LON,
+              LAST_PORT,
+              CURRENT_PORT,
+              NEXT_PORT,
+              NEXT_PORT_NAME,
+              DISTANCE_TO_GO,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
+              SPEED,
+              AVG_SPEED,
+              MAX_SPEED,
+              updatedAt,
+              En_Vent_Power,
+              En_Vent_Power_Percent,
+              HVAC_Power,
+              HVAC_Power_Percent,
+              Total_Power,
+              Saved_CO2_LastDay,
+              Saved_Fuel_LastDay,
+              Saved_Energy_LastDay,
+              Pumps_Power,
+              Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.Energy_Last_Day ?? value;
+          }
+          if (errors.Energy_Last_Day?.hasError) {
+            runValidationTasks("Energy_Last_Day", value);
+          }
+          setEnergy_Last_Day(value);
+        }}
+        onBlur={() => runValidationTasks("Energy_Last_Day", Energy_Last_Day)}
+        errorMessage={errors.Energy_Last_Day?.errorMessage}
+        hasError={errors.Energy_Last_Day?.hasError}
+        {...getOverrideProps(overrides, "Energy_Last_Day")}
       ></TextField>
       <Flex
         justifyContent="space-between"

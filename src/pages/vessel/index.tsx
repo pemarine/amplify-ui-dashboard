@@ -1,6 +1,6 @@
 import { VesselsProvider } from "../../utils/VesselsContext";
 
-import VesselPage from "./VesselPage";
+import VesselPage from "./[vessel]";
 
 //export default Fleet;
 

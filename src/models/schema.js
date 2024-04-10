@@ -17,6 +17,20 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "fleet": {
+                    "name": "fleet",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ip": {
+                    "name": "ip",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "outsideTemp": {
                     "name": "outsideTemp",
                     "isArray": false,
@@ -255,6 +269,20 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "HVAC_Avg_Power": {
+                    "name": "HVAC_Avg_Power",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Energy_Last_Day": {
+                    "name": "Energy_Last_Day",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -412,5 +440,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "1017fd7c5f79b44c2c3c0c7258482a74"
+    "version": "c1b0929e227b729b80f43fac76bba5c2"
 };

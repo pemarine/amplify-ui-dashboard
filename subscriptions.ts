@@ -12,6 +12,8 @@ export const onCreateVessel = /* GraphQL */ `subscription OnCreateVessel($filter
   onCreateVessel(filter: $filter) {
     id
     clientID
+    fleet
+    ip
     outsideTemp
     Outside_Temp_LastDay
     HVAC_P_status
@@ -46,6 +48,8 @@ export const onCreateVessel = /* GraphQL */ `subscription OnCreateVessel($filter
     Saved_Energy_LastDay
     Pumps_Power
     Pumps_Power_Percent
+    HVAC_Avg_Power
+    Energy_Last_Day
     createdAt
     _version
     _deleted
@@ -61,6 +65,8 @@ export const onUpdateVessel = /* GraphQL */ `subscription OnUpdateVessel($filter
   onUpdateVessel(filter: $filter) {
     id
     clientID
+    fleet
+    ip
     outsideTemp
     Outside_Temp_LastDay
     HVAC_P_status
@@ -95,6 +101,8 @@ export const onUpdateVessel = /* GraphQL */ `subscription OnUpdateVessel($filter
     Saved_Energy_LastDay
     Pumps_Power
     Pumps_Power_Percent
+    HVAC_Avg_Power
+    Energy_Last_Day
     createdAt
     _version
     _deleted
@@ -110,6 +118,8 @@ export const onDeleteVessel = /* GraphQL */ `subscription OnDeleteVessel($filter
   onDeleteVessel(filter: $filter) {
     id
     clientID
+    fleet
+    ip
     outsideTemp
     Outside_Temp_LastDay
     HVAC_P_status
@@ -144,6 +154,8 @@ export const onDeleteVessel = /* GraphQL */ `subscription OnDeleteVessel($filter
     Saved_Energy_LastDay
     Pumps_Power
     Pumps_Power_Percent
+    HVAC_Avg_Power
+    Energy_Last_Day
     createdAt
     _version
     _deleted

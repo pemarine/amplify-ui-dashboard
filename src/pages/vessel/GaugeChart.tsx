@@ -1,8 +1,9 @@
-import React, { useContext, } from 'react';
-import Gauge from 'react-gauge-chart';
+import React, { useContext } from 'react';
+//import Gauge from 'react-gauge-chart';
 import { ThemeContext } from "../../themes/ThemeContext";
 import { Card } from "@aws-amplify/ui-react";
 import { styled } from '@mui/system';
+import GaugePointer from './GaugePointer';
 
 import './GaugeChart.css';
 
@@ -22,10 +23,12 @@ interface GaugeChartProps {
     value?: string;
     statusElement?: any;
 
+
 }
 interface FooterProps {
     statusElement?: any;
 }
+
 
 const styles = {
     content: {
@@ -51,7 +54,7 @@ const styles = {
         width: '100%',
     },
     percentage: {
-        paddingTop: '14px',
+        paddingTop: '9px',
         color: '#d9d9d6',
         margin: '0px',
         padding: '0px',
@@ -62,7 +65,7 @@ const styles = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        
+        height: '120px',
         padding: '0px',
         //paddingTop: '0px',
         //paddingBottom: '0px',
@@ -109,10 +112,12 @@ const Header = styled('div')(styles.header);
 const Title = styled('div')(styles.title);
 const Percentage = styled('div')(styles.percentage);
 const GaugeContainer = styled('div')(styles.gaugeContainer);
-const GaugeWrapper = styled('div')(styles.gauge);
+//const GaugeWrapper = styled('div')(styles.gauge);
 const Value = styled('div')(styles.value);
 const Footer = styled('div')(({ statusElement }: FooterProps) => styles.footer(statusElement || ''));
-const GaugeChart: React.FC<GaugeChartProps> = ({ title, id, nrOfLevels, percent, arcWidth, marginInPercent, colors, needleColor, textColor, hideText, width, value, statusElement }) => {
+//const GaugeChart: React.FC<GaugeChartProps> = ({ title, id, nrOfLevels, percent, arcWidth, marginInPercent, colors, needleColor, textColor, hideText, width, value, statusElement }) => {
+const GaugeChart: React.FC<GaugeChartProps> = ({ title, percent, statusElement, value, needleColor }) => {
+
     const { theme } = useContext(ThemeContext);
     //const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -141,13 +146,9 @@ const GaugeChart: React.FC<GaugeChartProps> = ({ title, id, nrOfLevels, percent,
                             <Percentage>{(percent * 100).toFixed(0)}%</Percentage>
                         </Header>
                         <GaugeContainer>
-                            <GaugeWrapper style={{
-                                width: (((width - 700)) * 0.5) / 3,
-                                alignContent: 'center',
-                                height: '120px',
-                            }}>
-                                <Gauge className="percentNumber" id={id} nrOfLevels={nrOfLevels} percent={percent} arcWidth={arcWidth} marginInPercent={marginInPercent} colors={colors} needleColor={needleColor} textColor={textColor} hideText={hideText} />
-                            </GaugeWrapper>
+                          
+                                {/* <Gauge className="percentNumber" id={id} nrOfLevels={nrOfLevels} percent={percent} arcWidth={arcWidth} marginInPercent={marginInPercent} colors={colors} needleColor={needleColor} textColor={textColor} hideText={hideText} />  */}
+                                <GaugePointer width={150} height={100} percent={Number(percent)} statusColor={statusElement.color} needleColor={needleColor}   />
                         </GaugeContainer>
                         <Value>
                             {value} MWh
