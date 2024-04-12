@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/vessels/{id}": {
+      "name": "/vessels/{id}",
+      "lambdaFunction": "getVesselsFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

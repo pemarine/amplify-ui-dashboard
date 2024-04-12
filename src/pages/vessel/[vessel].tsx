@@ -17,7 +17,15 @@ export default function VesselPage() {
 
     useEffect(() => {
         let selectedVessel: Vessel | null = null;
-        for (let vessel of vessels) {
+        let vesselsData = vessels;
+    
+        // Check if vessels data is in local storage
+        const savedVessels = localStorage.getItem('vessels');
+        if (!vesselsData && savedVessels) {
+            vesselsData = JSON.parse(savedVessels);
+        }
+    
+        for (let vessel of vesselsData) {
             if (vessel.id === id) {
                 selectedVessel = vessel;
                 break;
@@ -29,9 +37,12 @@ export default function VesselPage() {
             const layoutName = selectedVessel.SHIPNAME === 'DROTTEN' ? 'Drotten' : 'VesselPage1';
             setVesselLayoutName(layoutName);
         }
-    }, [id, vessels]);
-    //console.log('vessel', vessel)
-
+    
+        // Save vessels data to local storage
+        if (vesselsData) {
+            localStorage.setItem('vessels', JSON.stringify(vesselsData));
+        }
+    }, [id, vessels]); // Added vessels as a dependency
 
     if (!vesselLayoutName) {
         return <div>Loading...</div>;

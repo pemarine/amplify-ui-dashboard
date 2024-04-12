@@ -81,13 +81,13 @@ const styles = {
     alignSelf: 'start',
     fontSize: '15px',
     paddingTop: '16px',
-    paddingLeft: '18px',
+    paddingLeft: '20px',
     marginDown: '10px',
     margin: '0',
   },
   subtitle: {
     fontSize: '10px',
-    paddingLeft: '18px',
+    paddingLeft: '20px',
     paddingBottom: '15px',
     color: '#d9d9d6',
 
@@ -212,7 +212,7 @@ const MiniStatistics = (props: MiniStatisticProps) => {
         <Content>
           <Header>
             <HeaderLeft>
-              <IconWrapper color="#40d6ff">
+              <IconWrapper color="#065273">
                 {Icon}
               </IconWrapper>
 
@@ -220,7 +220,7 @@ const MiniStatistics = (props: MiniStatisticProps) => {
             </HeaderLeft>
             <HeaderRight>
               <Title>{props.title}</Title>
-              <Subtitle>total for time period (default last day)</Subtitle>
+              <Subtitle>Total for time period (default last day)</Subtitle>
             </HeaderRight>
           </Header>
           <Wrapper>

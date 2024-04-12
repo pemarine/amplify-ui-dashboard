@@ -16,7 +16,7 @@ const FleetGrid = () => {
     const { tokens } = useTheme();
 
     useEffect(() => {
-        const newSortedVessels = sortVessels(vessels, sortOption);
+        const newSortedVessels = sortVessels(vessels, sortOption, 'asc');
         setSortedVessels(newSortedVessels);
       }, [vessels, sortOption]);
     

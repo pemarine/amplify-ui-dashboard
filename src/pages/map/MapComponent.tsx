@@ -152,8 +152,12 @@ const Map: React.FC<MapProps> = ({ setSelectedVesselId, selectedVesselId, setSel
                 onMouseEnter={() => setHoveredVessel(vessel.SHIPNAME || null)}
                 onMouseLeave={() => setHoveredVessel(null)}
               >
-                <Lottie animationData={getStatusMarker(vessel, selectedVesselId || '')} style={{ width: 23, height: 23 }} />
-                {hoveredVessel === vessel.SHIPNAME && (
+                <Lottie
+                  animationData={getStatusMarker(vessel, selectedVesselId || '')}
+                  style={{ width: 23, height: 23 }}
+                  rendererSettings={{ preserveAspectRatio: 'xMidYMid slice' }}
+                />
+                  {hoveredVessel === vessel.SHIPNAME && (
                   <div style={{
                     position: 'absolute',
                     fontSize: '10px',
@@ -161,13 +165,13 @@ const Map: React.FC<MapProps> = ({ setSelectedVesselId, selectedVesselId, setSel
                     right: '100%', // Modify this line
                     transform: 'translate(0, -50%)', // Modify this line
                     zIndex: '1000',
-                  
+
 
                     backgroundColor: 'rgba(16, 24, 32, 0.85)',
                     color: 'white',
                     padding: '5px',
                     borderRadius: '5px',
-                  //  margin: '6px',
+                    //  margin: '6px',
                     whiteSpace: 'nowrap',
                     boxShadow: '0px 0px 10px 2px rgba(0, 0, 0, 0.2)', // Add this line
 

@@ -22,8 +22,8 @@ import { Meter } from '../Meter';
 import GaugeChart from '../GaugeChart';
 //import Ping from './Ping';
 import Weather from '../Weather';
-import _BarStack from '../BarStack';
-import Threshold from '../Threshold';
+//import _BarStack from '../BarStack';
+//import Threshold from '../Threshold';
 import { getStatusElement } from '../../../utils/VesselStatus';
 import Information from '../Information';
 //<Customers />
@@ -309,10 +309,8 @@ const VesselPage1 = ({ vessel }) => {
 
                     </View>
                     <View>
-                        <_BarStack width={600} height={300} />
                     </View>
                     <View>
-                        <Threshold width={600} height={300} />
 
                     </View>
                 </Grid>

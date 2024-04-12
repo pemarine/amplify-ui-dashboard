@@ -1,5 +1,7 @@
 // utils/vesselUtils.ts
 import { Vessel } from '../models';
+import Lottie from 'lottie-react';
+
 
 import BlueAnimatedMarker from '../assets/lottie/BlueAnimatedMarker.json';
 import GreenAnimatedMarker from '../assets/lottie/GreenAnimatedMarkerNEW.json';
@@ -34,6 +36,28 @@ export const getStatusMarker = (vessel: Vessel, selectedVesselId: string) => {
                 return GreenAnimatedMarker;
         }
     }
+};
+export const getStatusIconAnimation = (vessel: Vessel) => {
+    const highestValue = Math.max(
+        parseFloat(vessel.HVAC_P_status || "1"),
+        parseFloat(vessel.En_Vent_P_status || "1"),
+        parseFloat(vessel.Pumps_P_status || "1")
+    );
+    let animationData;
+    switch (highestValue) {
+        case 1:
+            animationData = GreenAnimatedMarker;
+            break;
+        case 2:
+            animationData = YellowAnimatedMarker;
+            break;
+        case 3:
+            animationData = RedAnimatedMarker;
+            break;
+        default:
+            animationData = GreenAnimatedMarker;
+    }
+    return <Lottie loop={true} autoplay={true} animationData={animationData} />;
 };
 
 export const getStatusIcon = (vessel: Vessel) => {
@@ -94,3 +118,7 @@ export const getStatusColorSingle = (status: string) => {
             return '#00a339';
     }
 };
+export const getHighestStatusValue = (...statuses) => {
+    return Math.max(...statuses.map(Number));
+  };
+

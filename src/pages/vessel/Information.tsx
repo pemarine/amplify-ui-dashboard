@@ -10,13 +10,13 @@ const styles = {
     },
     informationCard: {
         border: '2px solid rgba(7, 47, 71, 0.9)',
-
+        height: '120px',
         backgroundColor: '#123550',
         borderRadius: '10px',
     },
     header: {
         display: 'flex',
-        backgroundColor: 'rgba(7, 47, 71, 0.8)',
+        backgroundColor: 'rgba(10, 49, 73, 0.6)',
         padding: '0px',
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
@@ -31,8 +31,7 @@ const styles = {
         backgroundColor: '#083450',
         justifyContent: 'center',
         alignItems: 'center',
-        paddingTop: '20px',
-        paddingBottom: '22px',
+        height: '60%',
         borderRadius: '10px',
 
     },
@@ -80,7 +79,9 @@ const Information = ({ vessel }) => {
                         <InformationKey>{key}</InformationKey>
                     </Header>
                     <Content>
-                        {key === 'Shipowner' && vessel.fleet ? <img src={value} alt="Logo" width="130px" /> : <InformationValue>{value}</InformationValue>}
+                        {key === 'Shipowner' && vessel.fleet ?
+                            <img src={value} alt="Logo" width={vessel.fleet === "VOC" ? "70px" : "110px"}/>
+                            : <InformationValue>{value}</InformationValue>}
                     </Content>
                 </InformationCard>
             ))}

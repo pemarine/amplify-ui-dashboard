@@ -67,6 +67,7 @@ const styles = {
         alignItems: 'center',
         height: '120px',
         padding: '0px',
+        paddingBottom: '10px'
         //paddingTop: '0px',
         //paddingBottom: '0px',
         //borderBottom: '4px solid #072f47',
@@ -148,7 +149,7 @@ const GaugeChart: React.FC<GaugeChartProps> = ({ title, percent, statusElement, 
                         <GaugeContainer>
                           
                                 {/* <Gauge className="percentNumber" id={id} nrOfLevels={nrOfLevels} percent={percent} arcWidth={arcWidth} marginInPercent={marginInPercent} colors={colors} needleColor={needleColor} textColor={textColor} hideText={hideText} />  */}
-                                <GaugePointer width={150} height={100} percent={Number(percent)} statusColor={statusElement.color} needleColor={needleColor}   />
+                                <GaugePointer width={140} height={90} percent={Number(percent)} statusColor={statusElement.color} needleColor={needleColor}   />
                         </GaugeContainer>
                         <Value>
                             {value} MWh

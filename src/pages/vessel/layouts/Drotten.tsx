@@ -22,10 +22,11 @@ import { Meter } from '../Meter';
 import GaugeChart from '../GaugeChart';
 //import Ping from './Ping';
 import Weather from '../Weather';
-import _BarStack from '../BarStack';
-import Threshold from '../Threshold';
+//import _BarStack from '../BarStack';
+//import Threshold from '../Threshold';
 import Information from '../Information';
 import { getStatusElement } from '../../../utils/VesselStatus';
+import EnergyBarChart from '../EnergyBarChart';
 //mport { getStatusColorSingle } from '../../../utils/VesselStatus';
 //<Customers />
 
@@ -289,7 +290,7 @@ const VesselPage1 = ({ vessel }) => {
 
                 </Grid>
                 <Grid
-                    templateColumns="1fr 1fr 1fr"
+                    templateColumns="2fr 3fr 2fr"
                     gap="9px"
                     padding="0"
                     marginTop="6px"
@@ -300,10 +301,11 @@ const VesselPage1 = ({ vessel }) => {
 
                     </View>
                     <View>
-                        <_BarStack width={600} height={300} />
+                        <EnergyBarChart vessel={vessel} />
+                      
                     </View>
                     <View>
-                        <Threshold width={600} height={300} />
+                        
 
                     </View>
                 </Grid>

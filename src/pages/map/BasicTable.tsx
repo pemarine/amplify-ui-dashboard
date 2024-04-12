@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   Table,
   TableCell,
@@ -15,6 +15,7 @@ import { ThemeContext } from "../../themes/ThemeContext";
 import { VesselsContext } from '../../utils/VesselsContext'; // Import the VesselsContext
 //import GreenLight from "../../assets/icons/GreenLight.gif";
 import Lottie from 'lottie-react';
+import { sortVessels } from '../../utils/VesselSort';
 
 //import { fetchVessels } from "./api";
 //import { Vessel } from "./types";
@@ -29,6 +30,7 @@ import Lottie from 'lottie-react';
 import IconButton from '@mui/material/IconButton';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';*/
 import { getStatusIcon } from '../../utils/VesselStatus';
+//import { getHighestStatusValue } from "../../utils/VesselStatus";
 
 import './Animation.css';
 import BlueAnimatedMarker from '../../assets/lottie/BlueAnimatedMarker.json';
@@ -53,36 +55,29 @@ const BasicTable = ({ onRowClick }) => {
   const { theme } = useContext(ThemeContext);
 
   const vessels = useContext(VesselsContext);
-  console.log('Vessels in BasicTable:', vessels); // Add this
-  // console.log(vessels); // Check the structure of the vessels data
 
-  /* React.useEffect(() => {
-     const fetchData = async () => {
-       const data = await fetchVessels();
-       setVessels(data);
-     };
- 
-     fetchData();
-   }, []);
-   */
+  const [sortOption, setSortOption] = useState('Status'); // Add this state variable
+  const [sortDirection, setSortDirection] = useState('asc'); // Add this state variable
 
 
-  /* const [vessels, setVessels] = React.useState<Vessel[]>([]);
-   React.useEffect(() => {
-     axios.get('https://services.marinetraffic.com/api/exportvessels/2892a496929507874e0820afc4eaaa5fc31f9f23?v=9&timespan=5&limit=2000&protocol=jsono')
-       .then(response => {
-         if (response.data && Array.isArray(response.data.DATA)) {
-           setVessels(response.data.DATA);
-         } else {
-           console.error('Unexpected response data structure:', response.data);
-         }
-       })
-       .catch(error => {
-         console.error('Error fetching data: ', error);
-       });
-   }, []); */
-   const speeds = [1, 1.2, 1.35, 0.7, 0.9];
-const speedList = vessels.map(() => speeds[Math.floor(Math.random() * speeds.length)]);
+  // Modify this function to use the sortVessels function
+  const sortedVessels = sortVessels(vessels, sortOption, sortDirection); // Modify this function to accept sort direction
+
+  // Add this function to handle clicks on the table headers
+  const handleHeaderClick = (newSortOption) => {
+    if (newSortOption === sortOption) {
+      // If the header is clicked again, toggle the sort direction
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+    } else {
+      // If a different header is clicked, set the sort direction to the default
+      setSortOption(newSortOption);
+      setSortDirection('asc');
+    }
+  };
+
+
+  const speeds = [1, 1.2, 1.35, 0.7, 0.9];
+  const speedList = vessels.map(() => speeds[Math.floor(Math.random() * speeds.length)]);
 
   return (
     <>
@@ -94,18 +89,16 @@ const speedList = vessels.map(() => speeds[Math.floor(Math.random() * speeds.len
         // className="amplify-table"
         style={{ width: 'auto' }}
       >
-        <TableHead>
-          <TableRow>
-            <TableCell as="th" style={{ width: '10%' }}>FLAG</TableCell>
-            <TableCell as="th" style={{ width: '80%', paddingLeft: '20px' }}>VESSEL</TableCell>
-            <TableCell as="th" style={{ width: '10%', transform: 'translate(-19px, 0px)' }}>STATUS</TableCell>
-          {/*}  <TableCell as="th" style={{ width: '80px' }}>GO TO</TableCell> {*/ }
-
-          </TableRow>
-        </TableHead>
+         <TableHead>
+        <TableRow>
+          <TableCell as="th" style={{ width: '10%' }} onClick={() => handleHeaderClick('Flag')}>FLAG</TableCell>
+          <TableCell as="th" style={{ width: '80%', paddingLeft: '20px' }} onClick={() => handleHeaderClick('Name')}>VESSEL</TableCell>
+          <TableCell as="th" style={{ width: '10%', transform: 'translate(-19px, 0px)' }} onClick={() => handleHeaderClick('Status')}>STATUS</TableCell>
+        </TableRow>
+      </TableHead>
 
         <TableBody>
-          {vessels.map((vessel, index) => (
+          {sortedVessels.map((vessel, index) => (
 
             <TableRow key={index} onClick={() => onRowClick(vessel)}>
               <TableCell className='flag' style={{ width: '10%' }}>
@@ -115,10 +108,10 @@ const speedList = vessels.map(() => speeds[Math.floor(Math.random() * speeds.len
               <TableCell style={{ width: '10%', padding: '0px', margin: '0px' }}>
                 <Lottie
                   animationData={{ ...lottieFiles[getStatusIcon(vessel)], speed: speedList[index] }}
-                  style={{ width: 14, height: 14, padding: 0, margin: 0, filter: 'brightness(110%)', alignContent: 'center'}}
+                  style={{ width: 14, height: 14, padding: 0, margin: 0, filter: 'brightness(110%)', alignContent: 'center' }}
                 />
               </TableCell>
-             {/*} <TableCell style={{ width: '80px' }}>
+              {/*} <TableCell style={{ width: '80px' }}>
                 <Link to={`/vessel/${vessel.id}`} style={{ margin: 0, padding: 0 }}>
                   <IconButton aria-label="" style={{color: 'white', margin: 0, padding: 0, fontSize: '30px' }}>
                     <ArrowForwardIcon />
