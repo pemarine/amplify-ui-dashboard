@@ -54,7 +54,7 @@ const styles = {
         width: '100%',
     },
     percentage: {
-        paddingTop: '9px',
+        paddingTop: '6px',
         color: '#d9d9d6',
         margin: '0px',
         padding: '0px',

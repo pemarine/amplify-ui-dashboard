@@ -21,6 +21,7 @@ import { styled } from '@mui/styles';
 interface WeatherProps {
     lat: number;
     lon: number;
+    temp: number;
 }
 interface WeatherData {
     temp_c: number;
@@ -201,7 +202,7 @@ const weatherIcons = {
 }; */
 
 
-const Weather: React.FC<WeatherProps> = ({ lat, lon }) => {
+const Weather: React.FC<WeatherProps> = ({ lat, lon, temp }) => {
     const { theme } = useContext(ThemeContext);
 
 
@@ -213,6 +214,8 @@ const Weather: React.FC<WeatherProps> = ({ lat, lon }) => {
 
     const [location, setLocation] = useState<LocationData | null>(null);
     const [title, setTitle] = useState<string>("Weather");
+
+    const _temp = temp / 10;
 
 
     useEffect(() => {
@@ -273,7 +276,7 @@ const Weather: React.FC<WeatherProps> = ({ lat, lon }) => {
                 </div>
 
                 <Temp>
-                    <TempValue>{weather?.temp_c} °C</TempValue>
+                    <TempValue>{_temp} °C</TempValue>
 
 
                 </Temp>

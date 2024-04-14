@@ -15,7 +15,7 @@ const styles = {
         paddingTop: "0px",
         margin: "0",
         padding:"0px",
-        paddingBottom:"4px",
+        paddingBottom:"6px",
     },
     contentLeft: {
         width: '90%',

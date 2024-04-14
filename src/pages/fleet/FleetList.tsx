@@ -85,9 +85,9 @@ const FleetList = () => {
                 <List className={`fleet-list ${theme}`} style={{ padding: '0px' }} disablePadding>
                     <ListItem>
                         <Grid container>
-                            <Grid item xs={2}><ListItemText primary="#" className="fleet-list-text" onClick={() => requestSort('id')} /></Grid>
+                            <Grid item xs={2}><ListItemText primary="Status" className="fleet-list-text" onClick={() => requestSort('id')} /></Grid>
                             <Grid item xs={2}><ListItemText primary="Flag" className="fleet-list-text" onClick={() => requestSort('FLAG')} /></Grid>
-                            <Grid item xs={2}><ListItemText primary="Vessel Name" className="fleet-list-text" onClick={() => requestSort('SHIPNAME')} /></Grid>
+                            <Grid item xs={2}><ListItemText primary="Name" className="fleet-list-text" onClick={() => requestSort('SHIPNAME')} /></Grid>
                             <Grid item xs={2}><ListItemText primary="IMO" className="fleet-list-text" onClick={() => requestSort('IMO')} /></Grid>
                             <Grid item xs={2}><ListItemText primary="Status Icon" className="fleet-list-text" /></Grid>
                             <Grid item xs={2}><ListItemText primary="Vessel Page" className="fleet-list-text" /></Grid>

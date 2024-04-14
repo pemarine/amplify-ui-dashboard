@@ -274,7 +274,7 @@ const VesselPage1 = ({ vessel }) => {
 
                             </View>
                             <View>
-                                <Weather lat={Number(vessel.LAT)} lon={Number(vessel.LON)} />
+                                <Weather lat={Number(vessel.LAT)} lon={Number(vessel.LON)} temp ={Number(vessel.outsideTemp)} />
 
                             </View>
 
