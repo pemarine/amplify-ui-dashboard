@@ -34,20 +34,6 @@
       ],
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
-    },
-    "vesselsAPI": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "getVesselsFunction"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "API Gateway"
     }
   },
   "auth": {
@@ -84,11 +70,6 @@
     }
   },
   "function": {
-    "getVesselsFunction": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
     "pingServerFunction": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -115,22 +96,6 @@
     }
   },
   "parameters": {
-    "AMPLIFY_function_getVesselsFunction_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "getVesselsFunction"
-        }
-      ]
-    },
-    "AMPLIFY_function_getVesselsFunction_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "getVesselsFunction"
-        }
-      ]
-    },
     "AMPLIFY_function_pingServerFunction_deploymentBucketName": {
       "usedBy": [
         {

@@ -12,11 +12,6 @@ const awsmobile = {
             "name": "pingServerAPI",
             "endpoint": "https://5dy0mw2uoe.execute-api.eu-north-1.amazonaws.com/dev",
             "region": "eu-north-1"
-        },
-        {
-            "name": "vesselsAPI",
-            "endpoint": "https://4mmk9vtas1.execute-api.eu-north-1.amazonaws.com/dev",
-            "region": "eu-north-1"
         }
     ],
     "aws_cognito_identity_pool_id": "eu-north-1:5770bedd-ec49-41c1-90dc-9300fa0d9729",

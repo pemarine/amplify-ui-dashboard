@@ -9,11 +9,6 @@ export type AmplifyDependentResourcesAttributes = {
       "ApiId": "string",
       "ApiName": "string",
       "RootUrl": "string"
-    },
-    "vesselsAPI": {
-      "ApiId": "string",
-      "ApiName": "string",
-      "RootUrl": "string"
     }
   },
   "auth": {
@@ -28,13 +23,6 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
-    "getVesselsFunction": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    },
     "pingServerFunction": {
       "Arn": "string",
       "LambdaExecutionRole": "string",

@@ -14,8 +14,7 @@
     "categories": {
       "api": {
         "emarinecloud": {},
-        "pingServerAPI": {},
-        "vesselsAPI": {}
+        "pingServerAPI": {}
       },
       "auth": {
         "eMarineCloud": {}
@@ -32,10 +31,6 @@
         "pingServerFunction": {
           "deploymentBucketName": "amplify-emarinecloud-dev-170110-deployment",
           "s3Key": "amplify-builds/pingServerFunction-536661347475574d786c-build.zip"
-        },
-        "getVesselsFunction": {
-          "deploymentBucketName": "amplify-emarinecloud-dev-170110-deployment",
-          "s3Key": "amplify-builds/getVesselsFunction-474b327a5a43794a4165-build.zip"
         }
       }
     }
