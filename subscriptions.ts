@@ -16,6 +16,7 @@ export const onCreateVessel = /* GraphQL */ `subscription OnCreateVessel($filter
     ip
     outsideTemp
     Outside_Temp_LastDay
+    Outside_Hum
     HVAC_P_status
     En_Vent_P_status
     Pumps_P_status
@@ -69,6 +70,7 @@ export const onUpdateVessel = /* GraphQL */ `subscription OnUpdateVessel($filter
     ip
     outsideTemp
     Outside_Temp_LastDay
+    Outside_Hum
     HVAC_P_status
     En_Vent_P_status
     Pumps_P_status
@@ -122,6 +124,7 @@ export const onDeleteVessel = /* GraphQL */ `subscription OnDeleteVessel($filter
     ip
     outsideTemp
     Outside_Temp_LastDay
+    Outside_Hum
     HVAC_P_status
     En_Vent_P_status
     Pumps_P_status

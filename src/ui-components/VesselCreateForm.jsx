@@ -27,6 +27,7 @@ export default function VesselCreateForm(props) {
     ip: "",
     outsideTemp: "",
     Outside_Temp_LastDay: "",
+    Outside_Hum: "",
     HVAC_P_status: "",
     En_Vent_P_status: "",
     Pumps_P_status: "",
@@ -70,6 +71,9 @@ export default function VesselCreateForm(props) {
   );
   const [Outside_Temp_LastDay, setOutside_Temp_LastDay] = React.useState(
     initialValues.Outside_Temp_LastDay
+  );
+  const [Outside_Hum, setOutside_Hum] = React.useState(
+    initialValues.Outside_Hum
   );
   const [HVAC_P_status, setHVAC_P_status] = React.useState(
     initialValues.HVAC_P_status
@@ -150,6 +154,7 @@ export default function VesselCreateForm(props) {
     setIp(initialValues.ip);
     setOutsideTemp(initialValues.outsideTemp);
     setOutside_Temp_LastDay(initialValues.Outside_Temp_LastDay);
+    setOutside_Hum(initialValues.Outside_Hum);
     setHVAC_P_status(initialValues.HVAC_P_status);
     setEn_Vent_P_status(initialValues.En_Vent_P_status);
     setPumps_P_status(initialValues.Pumps_P_status);
@@ -192,6 +197,7 @@ export default function VesselCreateForm(props) {
     ip: [],
     outsideTemp: [],
     Outside_Temp_LastDay: [],
+    Outside_Hum: [],
     HVAC_P_status: [],
     En_Vent_P_status: [],
     Pumps_P_status: [],
@@ -258,6 +264,7 @@ export default function VesselCreateForm(props) {
           ip,
           outsideTemp,
           Outside_Temp_LastDay,
+          Outside_Hum,
           HVAC_P_status,
           En_Vent_P_status,
           Pumps_P_status,
@@ -351,6 +358,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -413,6 +421,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -475,6 +484,7 @@ export default function VesselCreateForm(props) {
               ip: value,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -537,6 +547,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp: value,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -599,6 +610,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay: value,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -650,6 +662,69 @@ export default function VesselCreateForm(props) {
         {...getOverrideProps(overrides, "Outside_Temp_LastDay")}
       ></TextField>
       <TextField
+        label="Outside hum"
+        isRequired={false}
+        isReadOnly={false}
+        value={Outside_Hum}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              clientID,
+              fleet,
+              ip,
+              outsideTemp,
+              Outside_Temp_LastDay,
+              Outside_Hum: value,
+              HVAC_P_status,
+              En_Vent_P_status,
+              Pumps_P_status,
+              IMO,
+              MMSI,
+              SHIPNAME,
+              FLAG,
+              MARKET,
+              TYPE_NAME,
+              LAT,
+              LON,
+              LAST_PORT,
+              CURRENT_PORT,
+              NEXT_PORT,
+              NEXT_PORT_NAME,
+              DISTANCE_TO_GO,
+              DISTANCE_TRAVELLED,
+              DESTINATION,
+              SPEED,
+              AVG_SPEED,
+              MAX_SPEED,
+              updatedAt,
+              En_Vent_Power,
+              En_Vent_Power_Percent,
+              HVAC_Power,
+              HVAC_Power_Percent,
+              Total_Power,
+              Saved_CO2_LastDay,
+              Saved_Fuel_LastDay,
+              Saved_Energy_LastDay,
+              Pumps_Power,
+              Pumps_Power_Percent,
+              HVAC_Avg_Power,
+              Energy_Last_Day,
+            };
+            const result = onChange(modelFields);
+            value = result?.Outside_Hum ?? value;
+          }
+          if (errors.Outside_Hum?.hasError) {
+            runValidationTasks("Outside_Hum", value);
+          }
+          setOutside_Hum(value);
+        }}
+        onBlur={() => runValidationTasks("Outside_Hum", Outside_Hum)}
+        errorMessage={errors.Outside_Hum?.errorMessage}
+        hasError={errors.Outside_Hum?.hasError}
+        {...getOverrideProps(overrides, "Outside_Hum")}
+      ></TextField>
+      <TextField
         label="Hvac p status"
         isRequired={false}
         isReadOnly={false}
@@ -663,6 +738,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status: value,
               En_Vent_P_status,
               Pumps_P_status,
@@ -725,6 +801,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status: value,
               Pumps_P_status,
@@ -787,6 +864,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status: value,
@@ -849,6 +927,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -911,6 +990,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -973,6 +1053,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -1035,6 +1116,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -1097,6 +1179,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -1159,6 +1242,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -1221,6 +1305,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -1283,6 +1368,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -1345,6 +1431,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -1407,6 +1494,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -1469,6 +1557,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -1531,6 +1620,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -1593,6 +1683,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -1655,6 +1746,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -1719,6 +1811,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -1781,6 +1874,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -1843,6 +1937,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -1905,6 +2000,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -1967,6 +2063,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -2029,6 +2126,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -2091,6 +2189,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -2155,6 +2254,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -2217,6 +2317,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -2281,6 +2382,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -2343,6 +2445,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -2407,6 +2510,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -2471,6 +2575,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -2535,6 +2640,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -2597,6 +2703,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -2661,6 +2768,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,
@@ -2723,6 +2831,7 @@ export default function VesselCreateForm(props) {
               ip,
               outsideTemp,
               Outside_Temp_LastDay,
+              Outside_Hum,
               HVAC_P_status,
               En_Vent_P_status,
               Pumps_P_status,

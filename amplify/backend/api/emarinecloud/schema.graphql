@@ -5,6 +5,7 @@ type Vessel @model @auth(rules: [{allow: public}]) @aws_api_key @aws_cognito_use
   ip: String
   outsideTemp: String
   Outside_Temp_LastDay: String
+  Outside_Hum: String
   HVAC_P_status: String
   En_Vent_P_status: String
   Pumps_P_status: String

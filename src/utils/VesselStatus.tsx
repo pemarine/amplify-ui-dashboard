@@ -82,6 +82,8 @@ export const getStatusIcon = (vessel: Vessel) => {
 };
 export const getStatusElement = (status: string) => {
     switch (status) {
+        case "0":
+            return { color: '#00a339', statusText: '' };
         case "1":
             return { color: '#00a339', statusText: 'Power Good' };
         case "2":

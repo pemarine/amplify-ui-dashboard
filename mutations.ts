@@ -19,6 +19,7 @@ export const createVessel = /* GraphQL */ `mutation CreateVessel(
     ip
     outsideTemp
     Outside_Temp_LastDay
+    Outside_Hum
     HVAC_P_status
     En_Vent_P_status
     Pumps_P_status
@@ -75,6 +76,7 @@ export const updateVessel = /* GraphQL */ `mutation UpdateVessel(
     ip
     outsideTemp
     Outside_Temp_LastDay
+    Outside_Hum
     HVAC_P_status
     En_Vent_P_status
     Pumps_P_status
@@ -131,6 +133,7 @@ export const deleteVessel = /* GraphQL */ `mutation DeleteVessel(
     ip
     outsideTemp
     Outside_Temp_LastDay
+    Outside_Hum
     HVAC_P_status
     En_Vent_P_status
     Pumps_P_status

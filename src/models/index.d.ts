@@ -17,6 +17,7 @@ type EagerVessel = {
   readonly ip?: string | null;
   readonly outsideTemp?: string | null;
   readonly Outside_Temp_LastDay?: string | null;
+  readonly Outside_Hum?: string | null;
   readonly HVAC_P_status?: string | null;
   readonly En_Vent_P_status?: string | null;
   readonly Pumps_P_status?: string | null;
@@ -65,6 +66,7 @@ type LazyVessel = {
   readonly ip?: string | null;
   readonly outsideTemp?: string | null;
   readonly Outside_Temp_LastDay?: string | null;
+  readonly Outside_Hum?: string | null;
   readonly HVAC_P_status?: string | null;
   readonly En_Vent_P_status?: string | null;
   readonly Pumps_P_status?: string | null;

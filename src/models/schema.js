@@ -45,6 +45,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "Outside_Hum": {
+                    "name": "Outside_Hum",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "HVAC_P_status": {
                     "name": "HVAC_P_status",
                     "isArray": false,
@@ -440,5 +447,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "c1b0929e227b729b80f43fac76bba5c2"
+    "version": "79c6fe8a6b5e15041ce0429aa603fdc1"
 };

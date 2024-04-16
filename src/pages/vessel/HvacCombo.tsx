@@ -4,24 +4,26 @@ import { ThemeContext } from "../../themes/ThemeContext";
 import { Card } from "@aws-amplify/ui-react";
 import { styled } from '@mui/system';
 import GaugePointer from './GaugePointer';
+//import HvacFz from './HvacFz';
 
 import './GaugeChart.css';
 
-interface GaugeChartProps {
-    title: string;
-    width: number;
-    id: string;
-    nrOfLevels: number;
-    percent: number;
-    arcWidth: number;
-    marginInPercent: number;
-    colors?: string[];
+interface HvacComboProps {
+    titleTotal: string;
+    titlePercent: string;
+    subtitleTotal: string;
+    subtitlePercent: string;
+    valueTotal: string;
+    valuePercent: string;
     needleColor?: string;
     textColor?: string;
     hideText?: boolean;
     status?: number;
     value?: string;
     statusElement?: any;
+    children?: React.ReactNode;
+
+
 
 
 }
@@ -53,12 +55,13 @@ const styles = {
         //paddingBottom: '3px',
         width: '100%',
     },
-    percentage: {
+    
+    subTitle: {
         paddingTop: '6px',
         color: '#d9d9d6',
         margin: '0px',
         padding: '0px',
-        fontSize: '14px', // Adjust as needed
+        fontSize: '12px', // Adjust as needed
 
     },
     gaugeContainer: {
@@ -112,13 +115,13 @@ const styles = {
 const Content = styled('div')(styles.content);
 const Header = styled('div')(styles.header);
 const Title = styled('div')(styles.title);
-const Percentage = styled('div')(styles.percentage);
+const SubTitle = styled('div')(styles.subTitle);
 const GaugeContainer = styled('div')(styles.gaugeContainer);
 //const GaugeWrapper = styled('div')(styles.gauge);
 const Value = styled('div')(styles.value);
 const Footer = styled('div')(({ statusElement }: FooterProps) => styles.footer(statusElement || ''));
 //const GaugeChart: React.FC<GaugeChartProps> = ({ title, id, nrOfLevels, percent, arcWidth, marginInPercent, colors, needleColor, textColor, hideText, width, value, statusElement }) => {
-const GaugeChart: React.FC<GaugeChartProps> = ({ title, percent, statusElement, value, needleColor }) => {
+const HvacCombo: React.FC<HvacComboProps> = ({ titleTotal, titlePercent, subtitleTotal, subtitlePercent, valueTotal, valuePercent, statusElement, needleColor }) => {
 
     const { theme } = useContext(ThemeContext);
     //const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -126,43 +129,59 @@ const GaugeChart: React.FC<GaugeChartProps> = ({ title, percent, statusElement, 
 
     return (
         <>
-            <div
-
-            >
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Card
                     className={`amplify-card ${theme}`}
                     style={{
-                        //  display: 'flex',
-                        // justifyContent: 'flex-start',
-                        //   alignItems: 'center',
-                        borderRadius: '15px',
+                        borderTopLeftRadius: '15px',
+                        borderTopRightRadius: '15px',
                         margin: '0',
                         padding: '0',
-
-                        // position: 'relative',
+                        flex: '1', // Add this
+                        marginRight: '10px', // Add this
                     }}
                 >
                     <Content>
                         <Header>
-                            <Title>{title}</Title>
-                            <Percentage>{(percent * 100).toFixed(0)}%</Percentage>
+                            <Title>{titleTotal}</Title>
+                            <SubTitle>{subtitleTotal}</SubTitle>
                         </Header>
                         <GaugeContainer>
-                          
-                                {/* <Gauge className="percentNumber" id={id} nrOfLevels={nrOfLevels} percent={percent} arcWidth={arcWidth} marginInPercent={marginInPercent} colors={colors} needleColor={needleColor} textColor={textColor} hideText={hideText} />  */}
-                                <GaugePointer width={140} height={90} percent={Number(percent)} statusColor={statusElement.color} needleColor={needleColor}   />
+                            <GaugePointer width={140} height={90} percent={Number(valueTotal) / 1000} statusColor={statusElement.color} needleColor={needleColor} />
                         </GaugeContainer>
                         <Value>
-                            {value} MWh
+                            {valueTotal} MWh
                         </Value>
-                        <Footer statusElement={statusElement}>
-                            {statusElement.statusText}
-                        </Footer>
+                    </Content>
+                </Card>
+                <Card
+                    className={`amplify-card ${theme}`}
+                    style={{
+                        borderRadius: '15px',
+                        margin: '0',
+                        padding: '0',
+                        flex: '1', // Add this
+                    }}
+                >
+                    <Content>
+                        <Header>
+                            <Title>{titlePercent}</Title>
+                            <SubTitle>{subtitlePercent}</SubTitle>
+                        </Header>
+                        <GaugeContainer>
+                            <GaugePointer width={140} height={90} percent={Number(valuePercent)} statusColor={statusElement.color} needleColor={needleColor} />
+                        </GaugeContainer>
+                        <Value>
+                            {valuePercent} %
+                        </Value>
                     </Content>
                 </Card>
             </div>
+            <Footer statusElement={statusElement}>
+                {statusElement.statusText}
+            </Footer>
         </>
     );
 };
 
-export default GaugeChart;
+export default HvacCombo;

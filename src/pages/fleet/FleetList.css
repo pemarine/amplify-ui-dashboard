@@ -1,11 +1,13 @@
 .fleet-list-container{
-    max-width: 1500px;
+    max-width: 1400px;
     margin: auto;
     margin-top: 15px;
+
 }
 .fleet-list {
     border-radius: 15px;
     text-align: left;
+    
 }
 /*.fleet-list > li > div > span{
     text-align: left;
@@ -14,6 +16,8 @@
     text-align: left;
 }
 .fleet-list.dark {
-    background-color: #082b40;
+    background-color: #083450;
     color: #ffffff;
+    padding: 15px;
 }
+

@@ -27,6 +27,7 @@ export declare type VesselCreateFormInputValues = {
     ip?: string;
     outsideTemp?: string;
     Outside_Temp_LastDay?: string;
+    Outside_Hum?: string;
     HVAC_P_status?: string;
     En_Vent_P_status?: string;
     Pumps_P_status?: string;
@@ -68,6 +69,7 @@ export declare type VesselCreateFormValidationValues = {
     ip?: ValidationFunction<string>;
     outsideTemp?: ValidationFunction<string>;
     Outside_Temp_LastDay?: ValidationFunction<string>;
+    Outside_Hum?: ValidationFunction<string>;
     HVAC_P_status?: ValidationFunction<string>;
     En_Vent_P_status?: ValidationFunction<string>;
     Pumps_P_status?: ValidationFunction<string>;
@@ -111,6 +113,7 @@ export declare type VesselCreateFormOverridesProps = {
     ip?: PrimitiveOverrideProps<TextFieldProps>;
     outsideTemp?: PrimitiveOverrideProps<TextFieldProps>;
     Outside_Temp_LastDay?: PrimitiveOverrideProps<TextFieldProps>;
+    Outside_Hum?: PrimitiveOverrideProps<TextFieldProps>;
     HVAC_P_status?: PrimitiveOverrideProps<TextFieldProps>;
     En_Vent_P_status?: PrimitiveOverrideProps<TextFieldProps>;
     Pumps_P_status?: PrimitiveOverrideProps<TextFieldProps>;

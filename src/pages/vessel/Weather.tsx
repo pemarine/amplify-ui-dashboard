@@ -261,7 +261,7 @@ const Weather: React.FC<WeatherProps> = ({ lat, lon, temp }) => {
 
                         <h2 style={styles.headerTitle}>{title}</h2>
                     </Box>
-                    <p style={styles.headerSub}>{weather?.condition.text}</p>
+                    <p style={styles.headerSub}>{weather?.condition?.text}</p>
 
                 </Header>
                 <div style={{
@@ -271,7 +271,7 @@ const Weather: React.FC<WeatherProps> = ({ lat, lon, temp }) => {
                     alignContent: 'center',
                 }}>
                     <WeatherIcon>
-                        {weather ? weatherIcons[weather.condition.text.toLowerCase()] : null}
+                        {weather ? weatherIcons[weather.condition?.text?.toLowerCase()] : null}
                     </WeatherIcon>
                 </div>
 

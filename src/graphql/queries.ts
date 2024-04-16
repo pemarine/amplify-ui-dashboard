@@ -16,6 +16,7 @@ export const getVessel = /* GraphQL */ `query GetVessel($id: ID!) {
     ip
     outsideTemp
     Outside_Temp_LastDay
+    Outside_Hum
     HVAC_P_status
     En_Vent_P_status
     Pumps_P_status
@@ -71,6 +72,7 @@ export const listVessels = /* GraphQL */ `query ListVessels(
       ip
       outsideTemp
       Outside_Temp_LastDay
+      Outside_Hum
       HVAC_P_status
       En_Vent_P_status
       Pumps_P_status
@@ -139,6 +141,7 @@ export const syncVessels = /* GraphQL */ `query SyncVessels(
       ip
       outsideTemp
       Outside_Temp_LastDay
+      Outside_Hum
       HVAC_P_status
       En_Vent_P_status
       Pumps_P_status
